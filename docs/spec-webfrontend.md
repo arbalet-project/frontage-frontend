@@ -27,3 +27,8 @@
 * shows the currently running app (if any), since when it's running and who started it
 * allows to start an app
 * allows to stop the running app
+
+`/admin/queue`
+* shows the list of users currently connected via app
+* for each user it shows how long they are waiting, when their turn will come, and what they are currently running on the frontage or what they want to run (f-app name and parameters)
+* can click on users to kick them
