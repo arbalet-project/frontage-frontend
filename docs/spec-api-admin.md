@@ -83,11 +83,15 @@ For any given API call the client checks for this error. If the client should re
 
 `GET /b/admin/is_on` - returns `{"on":True}` if the facade is currently on, otherwise `{"on":False}`
 
+//TODO: add POST /b/admin/is_on
+
 ---
+//TODO add POST for this too
 
 `GET /b/admin/cal/20170821` - returns
 
     {
+      "error": ERRORCODE,
       "on": "YY:MM",
       "off": "DD:HH",
       "default": "APPNAME",
@@ -109,6 +113,7 @@ with
 example:
 
     {
+      "error": 0,
       "on": "20:00",
       "off": "23:30",
       "default": "flag",
@@ -120,14 +125,28 @@ example:
 `GET /b/admin/apps` - returns list of available apps:
 
     {
+      "error": ERRORCODE,
       "apps": [
         {
           "name": "APPNAME1",
-          "params": {"PARAM1a":"DESCR1a", "PARAM1b", DESCR1b"}
+          "params": [
+            {
+              "name": "PARAM1a",
+              "desc": "DESCR1a"
+            },{
+              "name": "PARAM1b",
+              "desc": "DESCR1b"
+            }
+          ]
         },
         {
           "name": "APPNAME2",
-          "params": {"PARAM2a":"DESCR2a"}
+          "params": [
+            {
+              "name": "PARAM2a",
+              "desc": "DESCR2a"
+            }
+          ]
         }
       ]
     }
@@ -143,29 +162,39 @@ with
 
 example:
 
-    {
-      "apps": [
+{
+    "error": 0,
+    "data": [
         {
-          "name":"flag",
-          "params":{
-            "country": "ISO 3166-1 country code, 2 letters",
-            "brightness": "Brightness level of the flag, range 0-100"
-          }
+            "name": "flag",
+            "params": [
+                {
+                  "name": "country",
+                  "desc":"ISO 3166-1 country code, 2 letters"
+                },{
+                  "name": "brightness",
+                  "desc": "Brightness level of the flag, range 0-100"
+                }
+            ]
         },
         {
-          "name":"emoji",
-          "params": {
-            "emoji": "Typed emoji, like :) or :'("
-          }
+            "name": "emoji",
+            "params": [
+                {
+                  "name": "emoji",
+                  "desc": "Typed emoji, like :) or :'("
+                }
+            ]
         }
-      ]
-    }
+    ]
+}
 
 ---
 
 `GET /b/admin/apps/running` - returns the currently running app like this
 
     {
+      "error": ERRORCODE,
       "name": APPNAME,
       "params": {PARAMS},
       "start": "START",
@@ -183,6 +212,7 @@ example 1 (flag app is running, started manually by an admin):
 
 
     {
+      "error": ERRORCODE,
       "name": "flag",
       "params": {"country": "FR", "brightness": 50},
       "start": "2017-08-22T22:32:20+01:00",
@@ -192,6 +222,7 @@ example 1 (flag app is running, started manually by an admin):
 example 2 (flag app was started automatically by calendar at 20:00):
 
     {
+      "error": ERRORCODE,
       "name": "flag",
       "params": {"country": "FR", "brightness": 50},
       "start": "2017-08-22T20:00:00+01:00",
@@ -201,6 +232,7 @@ example 2 (flag app was started automatically by calendar at 20:00):
 example 3 (no app running):
 
     {
+      "error": ERRORCODE,
       "name": "",
       "params": {},
       "start": "",
