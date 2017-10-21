@@ -1,0 +1,14 @@
+{
+  "name": "frontage-frontend",
+  "app_id": "",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  },
+  "proxies":[
+    {
+      "path": "/base",
+      "proxyUrl": "http://localhost:8080"
+    }
+  ]
+}
