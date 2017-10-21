@@ -11,6 +11,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { DataFAppsProvider } from '../providers/data-f-apps/data-f-apps';
 import { HttpModule } from '@angular/http';
+import { AuthenticationProvider } from '../providers/authentication/authentication';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { HttpModule } from '@angular/http';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    DataFAppsProvider
+    DataFAppsProvider,
+    AuthenticationProvider
   ]
 })
 export class AppModule {}

@@ -9,6 +9,10 @@
     {
       "path": "/base",
       "proxyUrl": "http://localhost:8080"
+    },
+    {
+      "path": "/server",
+      "proxyUrl": "http://62.210.141.185:8123"
     }
   ]
 }
