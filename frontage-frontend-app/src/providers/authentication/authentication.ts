@@ -17,7 +17,7 @@ export class AuthenticationProvider {
   constructor(public http: Http) {
     console.log('Hello AuthenticationProvider Provider');
 
-    this.baseUrl = "/server"
+    this.baseUrl = "/yo"
   }
 
   public isUp(): Observable<boolean> {

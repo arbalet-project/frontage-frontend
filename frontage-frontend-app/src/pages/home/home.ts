@@ -8,12 +8,14 @@ import { AuthenticationProvider } from '../../providers/authentication/authentic
   templateUrl: 'home.html'
 })
 export class HomePage {
+  
 
   isUp: boolean;
+  exception: any;
 
   constructor(public navCtrl: NavController, public authentication: AuthenticationProvider) {
 
-    authentication.isUp().subscribe(response => this.isUp=response, response => false);
+    authentication.isUp().subscribe(response => this.isUp=response, e => this.handleError(e));
 
   }
 
@@ -25,6 +27,10 @@ export class HomePage {
     this.navCtrl.push(FAppListPage);
   }
 
-
+  handleError(e: any): any {
+    this.isUp = false;
+    this.exception = e;
+    console.log("Error status : " + e.status);
+  }
 }
 
