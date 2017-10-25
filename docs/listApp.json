@@ -1,0 +1,17 @@
+{
+    "Flags": {
+        "max_time": null,
+        "name": "Flags",
+        "params": null,
+        "params_list": {
+            "uapp": [
+                "french",
+                "germany",
+                "spain",
+                "italy"
+            ]
+        },
+        "playable": false,
+        "user": null
+    }
+}

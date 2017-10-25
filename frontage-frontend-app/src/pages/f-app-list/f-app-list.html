@@ -15,4 +15,17 @@
       <button ion-button primary (click)="sendRequest()">Send request</button>
     </ion-card-content>
   </ion-card>
+
+  <div *ngIf="fAppList; else elseBlock;">
+
+    <div *ngFor="let app of FAppList;">
+      <ion-card>
+        <ion-card-header>{{app.name}}</ion-card-header>
+      </ion-card>
+    </div>
+  </div>
+
+  <ng-template #elseBlock>
+    <h2>Pas d'application</h2>
+  </ng-template>
 </ion-content>

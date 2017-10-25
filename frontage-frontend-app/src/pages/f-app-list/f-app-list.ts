@@ -1,3 +1,4 @@
+import { FApp } from './../../models/fapp';
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { DataFAppsProvider } from '../../providers/data-f-apps/data-f-apps';
@@ -15,10 +16,14 @@ import { DataFAppsProvider } from '../../providers/data-f-apps/data-f-apps';
 })
 export class FAppListPage {
 
+  fAppList:FApp[];
+
   constructor(public navCtrl: NavController, public navParams: NavParams
     , public fAppsData: DataFAppsProvider) 
   {
 
+    fAppsData.getList()
+    .subscribe(response => this.fAppList = response);
   }
 
   ionViewDidLoad() {
@@ -27,7 +32,7 @@ export class FAppListPage {
 
   sendRequest() {
     console.log('send request');
-    this.fAppsData.getList().subscribe(result => console.log(result)); 
+    // this.fAppsData.getList().subscribe(result => console.log(result)); 
   }
 
   printList(list: string) {

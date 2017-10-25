@@ -1,5 +1,7 @@
+import { FApp } from './../../models/fapp';
+import { AuthenticationProvider } from './../authentication/authentication';
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { Http, RequestOptions, Headers } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { Observable } from 'rxjs/Rx';
 
@@ -14,15 +16,19 @@ export class DataFAppsProvider {
 
   baseUrl:string;
 
-  constructor(public http: Http) {
-    this.baseUrl = "/base";
+  constructor(public http: Http, public authentication: AuthenticationProvider) {
+    this.baseUrl = "/server";
 
     console.log('Base URL : ' + this.baseUrl);
   }
 
-  public getList() : Observable<string>{
-    return this.http.get(this.baseUrl)
-      .map((resource:any) => resource.json());
+  public getList() : Observable<FApp[]>{
+    let token: string = 'Bearer ' + this.authentication.getToken();
+    let headers= new Headers({'Content-Type':'application/json', 'Authorization': token});
+    let options = new RequestOptions({ headers: headers });
+    
+    return this.http.get(this.baseUrl + "/b/admin/apps", options)
+      .map((resource:any) => resource as FApp[]);
   }
 
 }

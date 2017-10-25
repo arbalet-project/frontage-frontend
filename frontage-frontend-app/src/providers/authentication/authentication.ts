@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { Http, RequestOptions, Headers } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { Observable } from 'rxjs/Rx';
+import 'rxjs/add/operator/first';
+import 'rxjs/add/operator/toPromise';
 
 /*
   Generated class for the AuthenticationProvider provider.
@@ -29,15 +31,20 @@ export class AuthenticationProvider {
       .map(response => response.json().is_up);
   }
 
-  public getToken() : any {
+  public getToken() {
+
     return this.token;
   }
 
   public refreshToken() {
     let headers= new Headers({'Content-Type':'application/json'});
     let options = new RequestOptions({ headers: headers });
-    this.http.post(this.baseUrl+this.authEndpoint, '{"username": "frontageadmin", "password": "frontagepassword"}', options)
+
+    console.log("send request")
+    return this.http.post(this.baseUrl+this.authEndpoint, '{"username": "frontageadmin", "password": "frontagepassword"}', options)
                     .map(response => response.json())
-                    .subscribe(response => this.token = response.token);
+                    .first()
+                    .toPromise()
+                    .then(response => this.token = response.token);
   }
 }

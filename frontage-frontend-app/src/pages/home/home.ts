@@ -1,6 +1,6 @@
+import { FAppListPage } from './../f-app-list/f-app-list';
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { FAppListPage } from '../f-app-list/f-app-list';
 import { AuthenticationProvider } from '../../providers/authentication/authentication';
 
 @Component({
@@ -20,24 +20,18 @@ export class HomePage {
 
   }
 
-  toList() {
-    console.log("isUp : " + this.isUp);
+  start() {
+    this.authentication.refreshToken().then(response => this.toAppList());
+  }
 
-    console.log(JSON.stringify(this.isUp));
+  toAppList() {
+    console.log('Token : ' + JSON.stringify(this.authentication.getToken()));
 
     this.navCtrl.push(FAppListPage);
   }
 
-  testGetToken() {
-    console.log("testGetToken");
-    this.authentication.refreshToken();
-    
-    this.token=this.authentication.getToken();
-    console.log('Token : ' + this.authentication.getToken());
-  }
-
   refreshTokenValue() {
-    this.token=this.authentication.getToken();
+    this.authentication.getToken();
   }
 
   handleError(e: any): any {
@@ -46,4 +40,3 @@ export class HomePage {
     console.log("Error status : " + e.status);
   }
 }
-
