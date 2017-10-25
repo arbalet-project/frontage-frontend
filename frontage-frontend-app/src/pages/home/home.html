@@ -20,9 +20,15 @@
 
   <div *ngIf="isUp; else elseBlock;" >
     <button  ion-button full (click)="toList()">Start</button>
+    <button  ion-button full (click)="testGetToken()">testGetToken</button>
+    <button  ion-button full (click)="refreshTokenValue()">refreshTokenValue</button>
+    
   </div>
+
+  <div>{{token}}</div>
 
 
   <ng-template #elseBlock><h2>Le serveur est indisponible</h2></ng-template>
   
 </ion-content>
+ 

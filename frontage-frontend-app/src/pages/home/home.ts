@@ -12,6 +12,7 @@ export class HomePage {
 
   isUp: boolean;
   exception: any;
+  token: string = "vide";
 
   constructor(public navCtrl: NavController, public authentication: AuthenticationProvider) {
 
@@ -25,6 +26,18 @@ export class HomePage {
     console.log(JSON.stringify(this.isUp));
 
     this.navCtrl.push(FAppListPage);
+  }
+
+  testGetToken() {
+    console.log("testGetToken");
+    this.authentication.refreshToken();
+    
+    this.token=this.authentication.getToken();
+    console.log('Token : ' + this.authentication.getToken());
+  }
+
+  refreshTokenValue() {
+    this.token=this.authentication.getToken();
   }
 
   handleError(e: any): any {
