@@ -18,17 +18,27 @@ export class DataFAppsProvider {
 
   constructor(public http: Http, public authentication: AuthenticationProvider) {
     this.baseUrl = "/server";
-
-    console.log('Base URL : ' + this.baseUrl);
   }
 
-  public getList() : Observable<FApp>{
+  public getList() : Observable<FApp[]>{
     let token: string = 'Bearer ' + this.authentication.token;
     let headers= new Headers({'Content-Type':'application/json', 'Authorization': token});
     let options = new RequestOptions({ headers: headers });
 
-    return this.http.get(this.baseUrl + "/b/admin/apps", options)
+    return this.http.get(this.baseUrl + "/b/apps", options)
       .map((data:any) => JSON.parse(data._body))
-      .map((data:any) => data as FApp);
+      .map((data:any) => data as FApp[]);
+  }
+
+  public launchFApp (fappName: string) {
+    let token: string = 'Bearer ' + this.authentication.token;
+    let headers= new Headers({'Content-Type':'application/json', 'Authorization': token});
+    let options = new RequestOptions({ headers: headers });
+
+    let body = {
+      name: fappName
+    };
+
+    return this.http.post(this.baseUrl + "/b/apps/running", body, options);
   }
 }

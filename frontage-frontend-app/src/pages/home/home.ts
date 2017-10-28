@@ -22,7 +22,6 @@ export class HomePage {
   start() {
     this.authentication.refreshToken().subscribe(result => {
       if (result === true) {
-        console.log("Next page !")
         this.toAppList();
       } else {
         console.log("stay here !");
@@ -31,7 +30,6 @@ export class HomePage {
   }
 
   toAppList() {
-    console.log('Token : ' + JSON.stringify(this.authentication.token));
     this.navCtrl.push(FAppListPage);
   }
 

@@ -23,7 +23,6 @@ export class AuthenticationProvider {
 
     this.baseUrl = "/server";
     this.authEndpoint = "/b/login";
-
   }
 
   public isUp(): Observable<boolean> {
@@ -43,7 +42,6 @@ export class AuthenticationProvider {
   public extractToken(response): boolean {
     let token = response.json().token;
     if(token){
-      console.log("auth token "+ token);
       this.token = token;
       return true;
     }else {

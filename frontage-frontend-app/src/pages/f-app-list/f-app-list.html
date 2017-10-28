@@ -5,18 +5,19 @@
 </ion-header>
 
 <ion-content padding>
-    <div *ngIf="fAppList; else elseBlock;">
-      <!-- <div *ngFor="let app of fAppList;"> -->
-      <div *ngIf="fAppList.Flags">
-        <ion-card>
-          <ion-card-header>{{fAppList.Flags.name}}</ion-card-header>
-          <ion-card-content>
-            <button ion-button primary>Launch app</button>
-          </ion-card-content>
-        </ion-card>
-      </div>
-      <!-- </div> -->
-    </div>
+  <div *ngIf="fAppList; else elseBlock;">
+    <!-- <div *ngFor="let app of fAppList;"> -->
+    <ion-list *ngFor="let fApp of fAppList">
+      <ion-card>
+        <ion-card-header>{{fApp.name}}</ion-card-header>
+        <ion-card-content>
+          <button ion-button primary (click)="launchApp(fApp.name)">Launch app</button>
+        </ion-card-content>
+      </ion-card>
+    </ion-list>
+    <!-- </div> -->
+  </div>
+
   <ng-template #elseBlock>
     <h2>Pas d'application</h2>
   </ng-template>

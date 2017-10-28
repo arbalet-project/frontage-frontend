@@ -16,15 +16,13 @@ import { DataFAppsProvider } from '../../providers/data-f-apps/data-f-apps';
 })
 export class FAppListPage {
 
-  fAppList:FApp;
+  fAppList:FApp[];
 
   constructor(public navCtrl: NavController, public navParams: NavParams
     , public fAppsData: DataFAppsProvider) 
   {
-
     fAppsData.getList().subscribe(fAppList => {
       this.fAppList = fAppList;
-      console.log("fApp value : " + this.fAppList.Flags.name);
     });
   }
 
@@ -32,9 +30,8 @@ export class FAppListPage {
     console.log('ionViewDidLoad FAppListPage');
   }
 
-  sendRequest() {
-    console.log('send request');
-    // this.fAppsData.getList().subscribe(result => console.log(result)); 
+  launchApp(fappName: string) {
+    this.fAppsData.launchFApp(fappName);
   }
 
   printList(list: string) {
