@@ -34,7 +34,6 @@ export class AuthenticationProvider {
     let headers= new Headers({'Content-Type':'application/json'});
     let options = new RequestOptions({ headers: headers });
 
-    console.log("send request")
     return this.http.post(this.baseUrl+this.authEndpoint, '{"username": "frontageadmin", "password": "frontagepassword"}', options)
                     .map(response => this.extractToken(response));
   }

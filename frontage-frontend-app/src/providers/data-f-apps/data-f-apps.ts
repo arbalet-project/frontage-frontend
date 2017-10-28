@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
 import { Http, RequestOptions, Headers } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { Observable } from 'rxjs/Rx';
+import * as _ from "lodash";
 
 /*
   Generated class for the DataFAppsProvider provider.
@@ -27,7 +28,10 @@ export class DataFAppsProvider {
 
     return this.http.get(this.baseUrl + "/b/apps", options)
       .map((data:any) => JSON.parse(data._body))
-      .map((data:any) => data as FApp[]);
+      .map((data:any) => data as FApp[])
+      .map((fAppList: FApp[]) =>_.chain(fAppList)
+      .orderBy("name", "asc")
+      .value());
   }
 
   public launchFApp (fappName: string) {
