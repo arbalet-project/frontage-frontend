@@ -34,15 +34,29 @@ export class DataFAppsProvider {
       .value());
   }
 
-  public launchFApp (fappName: string) {
+  public launchFApp (fappName: string) : Observable<any>{
     let token: string = 'Bearer ' + this.authentication.token;
     let headers= new Headers({'Content-Type':'application/json', 'Authorization': token});
     let options = new RequestOptions({ headers: headers });
 
     let body = {
-      name: fappName
+      "name": fappName,
+      "params": {
+        "uapp" : "french"
+      }
     };
 
-    return this.http.post(this.baseUrl + "/b/apps/running", body, options);
+    return this.http.post(this.baseUrl + "/b/apps/running", body, options)
+      .map(response => response.json());
+  }
+
+  public checkPosition () : Observable<any> {
+    
+    let token: string = 'Bearer ' + this.authentication.token;
+    let headers= new Headers({'Content-Type':'application/json', 'Authorization': token});
+    let options = new RequestOptions({ headers: headers });
+
+    return this.http.get(this.baseUrl + "/b/apps/position", options)
+      .map(response => response.json());
   }
 }

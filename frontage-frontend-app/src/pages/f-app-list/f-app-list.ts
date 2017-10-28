@@ -1,3 +1,4 @@
+import { Observable } from 'rxjs/Rx';
 import { FApp } from './../../models/fapp';
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
@@ -16,11 +17,11 @@ import { DataFAppsProvider } from '../../providers/data-f-apps/data-f-apps';
 })
 export class FAppListPage {
 
-  fAppList:FApp[];
+  fAppList: FApp[];
+  fAppPosition : number;
 
   constructor(public navCtrl: NavController, public navParams: NavParams
-    , public fAppsData: DataFAppsProvider) 
-  {
+    , public fAppsData: DataFAppsProvider) {
     fAppsData.getList().subscribe(fAppList => {
       this.fAppList = fAppList;
     });
@@ -31,7 +32,16 @@ export class FAppListPage {
   }
 
   launchApp(fappName: string) {
-    this.fAppsData.launchFApp(fappName);
+    this.fAppsData.launchFApp(fappName).subscribe(response => {
+      //If queued then periodically check the position in the queue
+      if (response.queued) {
+        console.log("In queue" + response);
+        Observable.interval(response.keep_alive_delay * 250).subscribe(x => {
+          this.fAppsData.checkPosition().subscribe(response => this.fAppPosition = response.position);
+        });
+      }
+      //TODO : Launch the joystick to start playing
+    });
   }
 
   printList(list: string) {
