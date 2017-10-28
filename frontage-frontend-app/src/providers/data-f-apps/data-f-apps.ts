@@ -22,13 +22,13 @@ export class DataFAppsProvider {
     console.log('Base URL : ' + this.baseUrl);
   }
 
-  public getList() : Observable<FApp[]>{
-    let token: string = 'Bearer ' + this.authentication.getToken();
+  public getList() : Observable<FApp>{
+    let token: string = 'Bearer ' + this.authentication.token;
     let headers= new Headers({'Content-Type':'application/json', 'Authorization': token});
     let options = new RequestOptions({ headers: headers });
-    
-    return this.http.get(this.baseUrl + "/b/admin/apps", options)
-      .map((resource:any) => resource as FApp[]);
-  }
 
+    return this.http.get(this.baseUrl + "/b/admin/apps", options)
+      .map((data:any) => JSON.parse(data._body))
+      .map((data:any) => data as FApp);
+  }
 }

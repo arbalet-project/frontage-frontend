@@ -16,14 +16,16 @@ import { DataFAppsProvider } from '../../providers/data-f-apps/data-f-apps';
 })
 export class FAppListPage {
 
-  fAppList:FApp[];
+  fAppList:FApp;
 
   constructor(public navCtrl: NavController, public navParams: NavParams
     , public fAppsData: DataFAppsProvider) 
   {
 
-    fAppsData.getList()
-    .subscribe(response => this.fAppList = response);
+    fAppsData.getList().subscribe(fAppList => {
+      this.fAppList = fAppList;
+      console.log("fApp value : " + this.fAppList.Flags.name);
+    });
   }
 
   ionViewDidLoad() {

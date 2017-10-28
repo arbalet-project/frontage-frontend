@@ -1,6 +1,6 @@
 export interface FApp {
-    Flags: {
-        name:string;
-        playable:string;
+        Flags: {
+            name: string;
+            playable: string;
     }
 }

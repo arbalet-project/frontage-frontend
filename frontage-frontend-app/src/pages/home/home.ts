@@ -8,7 +8,6 @@ import { AuthenticationProvider } from '../../providers/authentication/authentic
   templateUrl: 'home.html'
 })
 export class HomePage {
-  
 
   isUp: boolean;
   exception: any;
@@ -21,17 +20,23 @@ export class HomePage {
   }
 
   start() {
-    this.authentication.refreshToken().then(response => this.toAppList());
+    this.authentication.refreshToken().subscribe(result => {
+      if (result === true) {
+        console.log("Next page !")
+        this.toAppList();
+      } else {
+        console.log("stay here !");
+      }
+    });
   }
 
   toAppList() {
-    console.log('Token : ' + JSON.stringify(this.authentication.getToken()));
-
+    console.log('Token : ' + JSON.stringify(this.authentication.token));
     this.navCtrl.push(FAppListPage);
   }
 
   refreshTokenValue() {
-    this.authentication.getToken();
+    this.authentication.token;
   }
 
   handleError(e: any): any {

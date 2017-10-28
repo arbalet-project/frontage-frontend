@@ -31,20 +31,21 @@ export class AuthenticationProvider {
       .map(response => response.json().is_up);
   }
 
-  public getToken() {
-
-    return this.token;
-  }
-
-  public refreshToken() {
+  public refreshToken() : Observable<boolean> {
     let headers= new Headers({'Content-Type':'application/json'});
     let options = new RequestOptions({ headers: headers });
 
     console.log("send request")
     return this.http.post(this.baseUrl+this.authEndpoint, '{"username": "frontageadmin", "password": "frontagepassword"}', options)
-                    .map(response => response.json())
-                    .first()
-                    .toPromise()
-                    .then(response => this.token = response.token);
+                    .map(response => {
+                      let token = response.json().token;
+                      if(token){
+                        console.log("auth token "+ token);
+                        this.token = token;
+                        return true;
+                      }else {
+                        return false;
+                      }
+                    });
   }
 }
