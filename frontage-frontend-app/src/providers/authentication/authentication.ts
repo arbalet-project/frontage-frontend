@@ -37,15 +37,17 @@ export class AuthenticationProvider {
 
     console.log("send request")
     return this.http.post(this.baseUrl+this.authEndpoint, '{"username": "frontageadmin", "password": "frontagepassword"}', options)
-                    .map(response => {
-                      let token = response.json().token;
-                      if(token){
-                        console.log("auth token "+ token);
-                        this.token = token;
-                        return true;
-                      }else {
-                        return false;
-                      }
-                    });
+                    .map(response => this.extractToken(response));
+  }
+
+  public extractToken(response): boolean {
+    let token = response.json().token;
+    if(token){
+      console.log("auth token "+ token);
+      this.token = token;
+      return true;
+    }else {
+      return false;
+    }
   }
 }
