@@ -1,5 +1,6 @@
-import { TimeProvider } from './../../providers/time/time';
 import { FAppListPage } from './../f-app-list/f-app-list';
+import { TimeProvider } from './../../providers/time/time';
+import { Observable } from 'rxjs/Rx';
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { AuthenticationProvider } from '../../providers/authentication/authentication';
@@ -14,18 +15,22 @@ export class HomePage {
   isFacadeUp:boolean=false;
   exception: any;
   nextTime: Date;
-
+  public userName: string = "PainAuChocolat";
 
   constructor(public navCtrl: NavController, public authentication: AuthenticationProvider, public time:TimeProvider) {
 
     authentication.isServerUp()
-                  .subscribe(isServerUp => this.checkFacade(isServerUp), e => this.handleError(e));
+    .subscribe(isServerUp => this.checkFacade(isServerUp), e => this.handleError(e));
 
+    Observable.interval(500 * 60).subscribe(x => {
+      authentication.isServerUp()
+                    .subscribe(isServerUp => this.checkFacade(isServerUp), e => this.handleError(e));
+     });
   }
 
   checkFacade(isServerUp:boolean) {
+    console.log("server up ? " + isServerUp);
     if (isServerUp) {
-      console.log("server up ? " + isServerUp);
       this.isServerUp = isServerUp;
       this.authentication.isFacadeUp()
                          .subscribe(isFacadeUp => this.handleFacadeStatus(isFacadeUp));
@@ -35,18 +40,15 @@ export class HomePage {
   
 
   handleFacadeStatus(isFacadeUp:boolean) {
-
-    let tagada:number = 5;
+    console.log("isFacadeUp ? " + isFacadeUp);
 
     if (isFacadeUp) {
-      console.log("isFacadeUp " + isFacadeUp);
       this.isFacadeUp = true;
     } else {
       this.time.getNextTimeUp().subscribe(response => console.log("Heure : " + JSON.stringify(response)));
       this.time.getNextTimeUp().subscribe(response => this.handleHour(response));
-
-
       
+      this.isFacadeUp = true;
     }
   }
 
@@ -64,15 +66,15 @@ export class HomePage {
   }
 
   start() {
-    
-    this.authentication.refreshToken()
+    this.authentication.refreshToken(this.userName)
                        .subscribe(isAuthenticated => this.pushPage(isAuthenticated));
-    console.log('Token : ' + JSON.stringify(this.authentication.token));
   }
 
   pushPage(isAuthenticated:boolean) {
     if(isAuthenticated) {
       this.navCtrl.push(FAppListPage)
+    } else {
+      console.log("Stay here ! ")
     }
   }
 

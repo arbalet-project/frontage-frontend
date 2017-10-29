@@ -14,15 +14,14 @@ import 'rxjs/add/operator/toPromise';
 @Injectable()
 export class AuthenticationProvider {
 
-  baseUrl:string;
-  authEndpoint:string;
-  token:string;
+  baseUrl: string;
+  authEndpoint: string;
+  token: string;
 
   constructor(public http: Http) {
 
     this.baseUrl = "/server";
     this.authEndpoint = "/b/login";
-
   }
 
   public isServerUp(): Observable<boolean> {
@@ -35,22 +34,28 @@ export class AuthenticationProvider {
                     .map(response => response.json().is_usable);
   }
 
-  public refreshToken() : Observable<boolean> {
-    let headers= new Headers({'Content-Type':'application/json'});
+  public refreshToken(userName: string): Observable<boolean> {
+    let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
 
-    console.log("send request")
-    return this.http.post(this.baseUrl+this.authEndpoint, '{"username": "frontageadmin", "password": "frontagepassword"}', options)
-                    .map(response => this.extractToken(response));
+    let body = {
+      "username" : userName
+    };
+
+    return this.http.post(this.baseUrl + this.authEndpoint, body, options)
+      .map(response => this.extractToken(response));
+
+      // Call as an admin
+    // return this.http.post(this.baseUrl + this.authEndpoint, '{"username": "frontageadmin", "password": "frontagepassword"}', options)
+    //   .map(response => this.extractToken(response));
   }
 
   private extractToken(response): boolean {
     let token = response.json().token;
-    if(token){
-      console.log("auth token "+ token);
+    if (token) {
       this.token = token;
       return true;
-    }else {
+    } else {
       return false;
     }
   }
