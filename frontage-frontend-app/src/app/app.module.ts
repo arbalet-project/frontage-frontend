@@ -4,7 +4,6 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
 import { FAppListPage } from '../pages/f-app-list/f-app-list';
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -12,12 +11,12 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { DataFAppsProvider } from '../providers/data-f-apps/data-f-apps';
 import { HttpModule } from '@angular/http';
 import { AuthenticationProvider } from '../providers/authentication/authentication';
+import { TimeProvider } from '../providers/time/time';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    ListPage,
     FAppListPage
   ],
   imports: [
@@ -29,7 +28,6 @@ import { AuthenticationProvider } from '../providers/authentication/authenticati
   entryComponents: [
     MyApp,
     HomePage,
-    ListPage,
     FAppListPage
   ],
   providers: [
@@ -37,7 +35,8 @@ import { AuthenticationProvider } from '../providers/authentication/authenticati
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     DataFAppsProvider,
-    AuthenticationProvider
+    AuthenticationProvider,
+    TimeProvider
   ]
 })
 export class AppModule {}

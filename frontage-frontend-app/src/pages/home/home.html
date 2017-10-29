@@ -1,12 +1,3 @@
-<!--<ion-header>
-  <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title>Home</ion-title>
-  </ion-navbar>
-</ion-header>-->
-
 <ion-content padding>
   <h3>Arbalet - Frontage</h3>
 
@@ -18,15 +9,20 @@
     <p>Restabat ut Caesar post haec properaret accitus et abstergendae causa suspicionis sororem suam, eius uxorem, Constantius ad se tandem desideratam venire multis fictisque blanditiis hortabatur. quae licet ambigeret metuens saepe cruentum, spe tamen quod eum lenire poterit ut germanum profecta, cum Bithyniam introisset, in statione quae Caenos Gallicanos appellatur, absumpta est vi febrium repentina. cuius post obitum maritus contemplans cecidisse fiduciam qua se fultum existimabat, anxia cogitatione, quid moliretur haerebat.</p>
   </div>
 
-  <div *ngIf="isUp; else elseBlock;" >
+  <div *ngIf="isFacadeUp; else elseBlock;" >
     <button  ion-button full (click)="start()">Start</button>  
   </div>
-  <ng-template #elseBlock><h2>Le serveur est indisponible</h2></ng-template>
-
-  <div>{{token}}</div>
-
-
   
+  <ng-template #elseBlock>
+      <div *ngIf="isServerUp; else else2Block;" >
+        <h2>La façade n'est pas active. Elle sera allumée à {{nextTime | date:"HH'h'mm"}}</h2>
+      </div>
+
+      <ng-template #else2Block>
+          <h2>Le serveur est indisponible</h2>
+      </ng-template>
+  
+  </ng-template>
   
 </ion-content>
  

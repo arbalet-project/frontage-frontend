@@ -19,16 +19,20 @@ export class AuthenticationProvider {
   token:string;
 
   constructor(public http: Http) {
-    console.log('Hello AuthenticationProvider Provider');
 
     this.baseUrl = "/server";
     this.authEndpoint = "/b/login";
 
   }
 
-  public isUp(): Observable<boolean> {
+  public isServerUp(): Observable<boolean> {
     return this.http.get(this.baseUrl + "/status/is_up")
-      .map(response => response.json().is_up);
+                    .map(response => response.json().is_up);
+  }
+
+  public isFacadeUp() : Observable<boolean> {
+    return this.http.get(this.baseUrl + "/frontage/status")
+                    .map(response => response.json().is_usable);
   }
 
   public refreshToken() : Observable<boolean> {
@@ -40,7 +44,7 @@ export class AuthenticationProvider {
                     .map(response => this.extractToken(response));
   }
 
-  public extractToken(response): boolean {
+  private extractToken(response): boolean {
     let token = response.json().token;
     if(token){
       console.log("auth token "+ token);
