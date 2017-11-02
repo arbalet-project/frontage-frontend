@@ -1,3 +1,4 @@
+import { FappStartButtonComponent } from './../components/fapp-start-button/fapp-start-button';
 import { RandomFlashingOptionsPage } from './../pages/random-flashing-options/random-flashing-options';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
@@ -18,7 +19,8 @@ let components:any[] = [
     MyApp,
     HomePage,
     FAppListPage,
-    RandomFlashingOptionsPage
+    RandomFlashingOptionsPage,
+    FappStartButtonComponent
 ];
 
 @NgModule({

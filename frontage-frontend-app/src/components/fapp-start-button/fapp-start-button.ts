@@ -31,7 +31,6 @@ export class FappStartButtonComponent {
           this.fAppsData.checkPosition().subscribe(response => this.fAppPosition = response.position);
         });
       }
-      //TODO : Launch the joystick to start playing
     });
     this.navCtrl.push("FlagsOptionsPage");
   }
