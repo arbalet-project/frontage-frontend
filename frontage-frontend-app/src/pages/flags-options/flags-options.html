@@ -1,0 +1,26 @@
+<!--
+  Generated template for the FlagsOptionsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>flagsOptions</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list radio-group>
+    <ion-list-header>
+      Flags list
+    </ion-list-header>
+    <div *ngIf="parametersList">
+      <ion-item *ngFor="let flag of parametersList">
+        <ion-label>{{ flag.name }}</ion-label>
+        <ion-radio value="flag.name"></ion-radio>
+      </ion-item>
+    </div>
+
+  </ion-list>
+</ion-content>
