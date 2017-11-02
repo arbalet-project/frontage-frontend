@@ -17,6 +17,7 @@ import { DataFAppsProvider } from '../../providers/data-f-apps/data-f-apps';
 export class FAppListPage {
 
   fAppList: FApp[];
+  fAppPosition: number;
   
   constructor(public navCtrl: NavController, public fAppsData: DataFAppsProvider) {
 
