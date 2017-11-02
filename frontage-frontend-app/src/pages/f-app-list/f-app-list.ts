@@ -1,3 +1,4 @@
+import { FlagFAppPage } from './../flag-f-app/flag-f-app';
 import { Observable, Subscription } from 'rxjs/Rx';
 import { FApp } from './../../models/fapp';
 import { Component } from '@angular/core';
@@ -35,7 +36,7 @@ export class FAppListPage {
     this.fAppsData.launchFApp(fappName).subscribe(response => {
       //If queued then periodicly check the position in the queue
       if (response.queued) {
-        console.log()
+        console.log();
         this.inQueueSubscription = Observable.interval(response.keep_alive_delay * 500).subscribe(x => {
           this.fAppsData.checkPosition().subscribe(response => this.fAppPosition = response.position);
         });

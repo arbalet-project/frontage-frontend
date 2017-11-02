@@ -13,23 +13,21 @@ import { HttpModule } from '@angular/http';
 import { AuthenticationProvider } from '../providers/authentication/authentication';
 import { TimeProvider } from '../providers/time/time';
 
-@NgModule({
-  declarations: [
+let components:any[] = [
     MyApp,
     HomePage,
     FAppListPage
-  ],
+];
+
+@NgModule({
+  declarations: components,
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
     HttpModule
   ],
   bootstrap: [IonicApp],
-  entryComponents: [
-    MyApp,
-    HomePage,
-    FAppListPage
-  ],
+  entryComponents: components,
   providers: [
     StatusBar,
     SplashScreen,
