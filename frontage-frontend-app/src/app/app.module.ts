@@ -1,3 +1,4 @@
+import { RandomFlashingOptionsPage } from './../pages/random-flashing-options/random-flashing-options';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
@@ -16,7 +17,8 @@ import { TimeProvider } from '../providers/time/time';
 let components:any[] = [
     MyApp,
     HomePage,
-    FAppListPage
+    FAppListPage,
+    RandomFlashingOptionsPage
 ];
 
 @NgModule({

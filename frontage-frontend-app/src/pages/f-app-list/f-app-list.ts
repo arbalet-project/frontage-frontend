@@ -1,4 +1,5 @@
-import { Observable, Subscription } from 'rxjs/Rx';
+
+import { RandomFlashingOptionsPage } from './../random-flashing-options/random-flashing-options';
 import { FApp } from './../../models/fapp';
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
@@ -17,32 +18,19 @@ import { DataFAppsProvider } from '../../providers/data-f-apps/data-f-apps';
 export class FAppListPage {
 
   fAppList: FApp[];
-  fAppPosition : number;
-  private inQueueSubscription: Subscription;
-
+  
   constructor(private navCtrl: NavController, private navParams: NavParams
     , private fAppsData: DataFAppsProvider) {
+
     fAppsData.getList().subscribe(fAppList => {
       this.fAppList = fAppList;
     });
+    
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad FAppListPage');
-  }
+  showOptions() {
+    this.navCtrl.push(RandomFlashingOptionsPage);
 
-  launchApp(fappName: string) {
-    this.fAppsData.launchFApp(fappName).subscribe(response => {
-      //If queued then periodicly check the position in the queue
-      if (response.queued) {
-        console.log();
-        this.inQueueSubscription = Observable.interval(response.keep_alive_delay * 500).subscribe(x => {
-          this.fAppsData.checkPosition().subscribe(response => this.fAppPosition = response.position);
-        });
-      }
-      //TODO : Launch the joystick to start playing
-    });
-    this.navCtrl.push("FlagsOptionsPage");
   }
 
   printList(list: string) {
