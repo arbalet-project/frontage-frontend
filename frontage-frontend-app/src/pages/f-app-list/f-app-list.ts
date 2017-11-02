@@ -28,7 +28,7 @@ export class FAppListPage {
 
   showOptions() {
     this.navCtrl.push(RandomFlashingOptionsPage);
-
+   // this.navCtrl.push("FlagsOptionsPage");
   }
 
   printList(list: string) {

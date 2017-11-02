@@ -32,6 +32,5 @@ export class FappStartButtonComponent {
         });
       }
     });
-    this.navCtrl.push("FlagsOptionsPage");
   }
 }

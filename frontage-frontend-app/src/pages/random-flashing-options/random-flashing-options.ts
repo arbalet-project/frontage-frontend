@@ -18,5 +18,4 @@ export class RandomFlashingOptionsPage {
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
-
 }
