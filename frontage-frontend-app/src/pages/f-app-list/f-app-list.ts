@@ -1,4 +1,3 @@
-import { FlagFAppPage } from './../flag-f-app/flag-f-app';
 import { Observable, Subscription } from 'rxjs/Rx';
 import { FApp } from './../../models/fapp';
 import { Component } from '@angular/core';
@@ -43,6 +42,7 @@ export class FAppListPage {
       }
       //TODO : Launch the joystick to start playing
     });
+    this.navCtrl.push("FlagsOptionsPage");
   }
 
   printList(list: string) {
