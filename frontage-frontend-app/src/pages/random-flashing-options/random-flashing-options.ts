@@ -14,8 +14,13 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'random-flashing-options.html',
 })
 export class RandomFlashingOptionsPage {
+  options: string[];
+
+  maxTime:number=20;
+  minTime:number=5;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
+  
 }

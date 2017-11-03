@@ -14,5 +14,10 @@
 
 
 <ion-content padding>
-  <fapp-start-button></fapp-start-button>
+    <form (ngSubmit)="logForm()">
+        <ion-item>
+            <ion-label>Durée(sec) Max:{{maxTime}} Min:{{minTime}}</ion-label>
+            <ion-input type="number" placeholder></ion-input>
+        </ion-item>
+    </form>
 </ion-content>
