@@ -4,7 +4,7 @@ import { IonicPageModule } from 'ionic-angular';
 
 @NgModule({
   declarations: [
-    RandomFlashingOptionsPage,
+    RandomFlashingOptionsPage
   ],
   imports: [
     IonicPageModule.forChild(RandomFlashingOptionsPage),

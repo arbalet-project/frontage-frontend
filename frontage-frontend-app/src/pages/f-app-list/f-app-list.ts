@@ -18,21 +18,25 @@ export class FAppListPage {
 
   fAppList: FApp[];
   fAppPosition: number;
-  
+
   constructor(public navCtrl: NavController, public fAppsData: DataFAppsProvider) {
 
     fAppsData.getList().subscribe(fAppList => {
       this.fAppList = fAppList;
     });
-    
+
   }
 
-  showOptions() {
-    this.navCtrl.push(RandomFlashingOptionsPage);
-   // this.navCtrl.push("FlagsOptionsPage");
+  showOptions(fApp: FApp) {
+    console.log(fApp.name);
+    this.navCtrl.push(this.computePageName(fApp));
   }
 
   printList(list: string) {
     console.log("list : " + list);
+  }
+
+  private computePageName(fApp: FApp): string {
+    return fApp.name + "OptionsPage";
   }
 }
