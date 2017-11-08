@@ -35,8 +35,12 @@ export class RandomFlashingOptionsPage {
     let options: FAppOptions = {
       name: "RandomFlashing",
       playable: "true",
-      params_list: {
-        duration: this.duration
+      params: {
+        dur_max:'25',
+        dur_min:'6',
+        uapp: [
+          "flashes"
+        ]
       }
     }
 
