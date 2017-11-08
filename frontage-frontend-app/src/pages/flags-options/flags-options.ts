@@ -18,11 +18,16 @@ export class FlagsOptionsPage {
 
   flag: FApp;
   parametersList: string[];
+  selectedParameter: string;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-    console.log("in the app" + navParams.get('selectedFapp'));
-    let test : FApp = navParams.get('selectedFapp');
-    console.log(JSON.stringify(test));
+    console.log("in the app : " + navParams.get('test'));
+    console.log("in the app : " + navParams.get('selectedFapp'));
+    let test: FApp = navParams.get('selectedFapp');
+    console.log("test : " + JSON.stringify(test));
+    if (test) {
+      this.parametersList = test.params_list.uapp;
+    }
     // this.flag = navParams.get('selectedFapp');
     // this.parametersList = this.flag.params_list.uapp;
   }

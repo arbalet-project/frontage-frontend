@@ -6,7 +6,6 @@
 
 <ion-content padding>
   <div *ngIf="fAppList; else elseBlock;">
-    <!-- <div *ngFor="let app of fAppList;"> -->
     <ion-list *ngFor="let fApp of fAppList">
       <ion-card>
         <ion-card-header>{{fApp.name}}</ion-card-header>
@@ -15,7 +14,6 @@
         </ion-card-content>
       </ion-card>
     </ion-list>
-    <!-- </div> -->
   </div>
 
   <ng-template #elseBlock>
