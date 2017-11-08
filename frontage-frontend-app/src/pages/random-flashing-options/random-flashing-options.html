@@ -14,10 +14,10 @@
 
 
 <ion-content padding>
-    <form (ngSubmit)="logForm()">
+    <form (ngSubmit)="lauchApp()">
         <ion-item>
-            <ion-label>Durée(sec) Max:{{maxTime}} Min:{{minTime}}</ion-label>
-            <ion-input type="number" placeholder></ion-input>
+            <ion-label>Durée(sec) : </ion-label>
+            <ion-input type="number" [(ngModel)]="duration" name="duration" placeholder="10"></ion-input>
         </ion-item>
     </form>
 </ion-content>

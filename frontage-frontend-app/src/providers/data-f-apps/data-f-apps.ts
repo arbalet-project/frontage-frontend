@@ -1,3 +1,4 @@
+import { FAppOptions } from './../../models/f-app-options';
 import { FApp } from './../../models/fapp';
 import { AuthenticationProvider } from './../authentication/authentication';
 import { Injectable } from '@angular/core';
@@ -34,17 +35,12 @@ export class DataFAppsProvider {
       .value());
   }
 
-  public launchFApp (fappName: string) : Observable<any>{
+  public launchFApp (fAppOptions:FAppOptions) : Observable<any>{
     let token: string = 'Bearer ' + this.authentication.token;
     let headers= new Headers({'Content-Type':'application/json', 'Authorization': token});
     let options = new RequestOptions({ headers: headers });
 
-    let body = {
-      "name": fappName,
-      "params": {
-        "uapp" : "french"
-      }
-    };
+    let body = fAppOptions;
 
     return this.http.post(this.baseUrl + "/b/apps/running", body, options)
       .map(response => response.json());
