@@ -36,11 +36,7 @@ export class RandomFlashingOptionsPage {
       name: "RandomFlashing",
       playable: "true",
       params: {
-        dur_max:'25',
-        dur_min:'6',
-        uapp: [
-          "flashes"
-        ]
+        duration: this.duration
       }
     }
 
