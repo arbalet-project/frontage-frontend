@@ -18,7 +18,6 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class FlagsOptionsPage {
 
-  fAppName: string = "Flags";
   flag: FApp;
   parametersList: string[];
   selectedParameter: string;

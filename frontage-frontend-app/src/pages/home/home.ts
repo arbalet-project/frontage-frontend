@@ -16,7 +16,8 @@ export class HomePage {
   exception: any;
   nextTime: Date;
   userName: string = "PainAuChocolat";
-  private serverUpSubscription: Subscription;
+  password: string;
+  serverUpSubscription: Subscription;
 
   constructor(private navCtrl: NavController, private authentication: AuthenticationProvider, private time: TimeProvider) {
 
@@ -72,7 +73,7 @@ export class HomePage {
     this.serverUpSubscription.unsubscribe();
 
     //Ask for an authentication token
-    this.authentication.refreshToken(this.userName)
+    this.authentication.auth(this.userName, this.password)
       .subscribe(isAuthenticated => this.pushPage(isAuthenticated));
   }
 
