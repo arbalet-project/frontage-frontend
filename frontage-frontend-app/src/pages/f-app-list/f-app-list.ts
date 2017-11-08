@@ -28,8 +28,10 @@ export class FAppListPage {
   }
 
   showOptions(fApp: FApp) {
-    console.log(fApp.name);
-    this.navCtrl.push(this.computePageName(fApp));
+    this.navCtrl.push(this.computePageName(fApp), { 
+        selectedFapp : fApp,
+        test : "test"
+      });
   }
 
   printList(list: string) {

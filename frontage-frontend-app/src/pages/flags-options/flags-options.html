@@ -11,16 +11,15 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-list radio-group>
-    <ion-list-header>
-      Flags list
-    </ion-list-header>
-    <div *ngIf="parametersList">
+  <div *ngIf="parametersList">
+    <ion-list radio-group [(ngModel)]="selectedParameter">
+      <ion-list-header>
+        Flags list
+      </ion-list-header>
       <ion-item *ngFor="let flag of parametersList">
-        <ion-label>{{ flag.name }}</ion-label>
-        <ion-radio value="flag.name"></ion-radio>
+        <ion-label>{{ flag }}</ion-label>
+        <ion-radio value="{{ flag }}"></ion-radio>
       </ion-item>
-    </div>
-
-  </ion-list>
+    </ion-list>
+  </div>
 </ion-content>
