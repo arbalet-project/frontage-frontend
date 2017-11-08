@@ -22,4 +22,15 @@
       </ion-item>
     </ion-list>
   </div>
+
+  <div *ngIf="fAppPosition === -1; else elseBlock;">
+    <button ion-button primary (click)="startFapp()">START FApp</button>
+  </div>
+
+  <ng-template #elseBlock>
+    <ion-item>
+      <ion-label>Well done ! You are currently in the queue at the position : {{fAppPosition}}</ion-label>
+    </ion-item>
+  </ng-template>
+
 </ion-content>
