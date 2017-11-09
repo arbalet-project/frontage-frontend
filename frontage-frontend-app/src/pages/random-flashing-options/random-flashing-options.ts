@@ -1,8 +1,11 @@
+import { Subscription, Observable } from 'rxjs/Rx';
 import { DataFAppsProvider } from './../../providers/data-f-apps/data-f-apps';
 import { FAppOptions } from './../../models/f-app-options';
+import { WaitingComponent } from './../../components/waiting-component';
 
 import { Component } from '@angular/core';
-import { IonicPage, } from 'ionic-angular';
+import { IonicPage, ModalController } from 'ionic-angular';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 /**
  * Generated class for the RandomFlashingOptionsPage page.
@@ -18,29 +21,40 @@ import { IonicPage, } from 'ionic-angular';
 })
 export class RandomFlashingOptionsPage {
 
-  duration:number;
-  maxTime:number=20;
-  minTime:number=5;
+  fAppOptions: FormGroup;
+  fAppPosition: number;
 
-  constructor(public dataFAppsProvider: DataFAppsProvider) {
+  constructor(public dataFAppsProvider: DataFAppsProvider, public formBuilder: FormBuilder, public modalCtrl: ModalController) {
+    this.fAppOptions = formBuilder.group({
+      fAppColor: ""
+    });
   }
 
   lauchApp() {
-    
-
-    if(this.duration < this.minTime && this.duration > this.maxTime) {
-      return;
-    } 
 
     let options: FAppOptions = {
       name: "RandomFlashing",
       playable: "true",
       params: {
-        duration: this.duration
+        dur_min: 1,
+        dur_max: 15,
+        refresh_rate: 80,
+        colors: this.fAppOptions.value.fAppColor,
+        uapp: "flashes"
       }
     }
 
-    this.dataFAppsProvider.launchFApp(options);
+    
+    this.dataFAppsProvider.launchFApp(options).subscribe(response => this.showModal(response));
+
+    //  subscribe(response => {
+    //     
+    // };
   }
-  
+
+  showModal(response) {
+    let profileModal = this.modalCtrl.create(WaitingComponent, {serverInfo: response});
+    profileModal.present();
+  }
 }
+

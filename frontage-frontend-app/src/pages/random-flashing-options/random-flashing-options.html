@@ -14,10 +14,16 @@
 
 
 <ion-content padding>
-    <form (ngSubmit)="lauchApp()">
+    <form [formGroup]="fAppOptions" (ngSubmit)="lauchApp()">
+
         <ion-item>
-            <ion-label>Durée(sec) : </ion-label>
-            <ion-input type="number" [(ngModel)]="duration" name="duration" placeholder="10"></ion-input>
+            <ion-label>Couleur : </ion-label>
+              <ion-select formControlName="fAppColor">
+              <ion-option value="darkblue">Bleu foncé</ion-option>
+              <ion-option value="pink">rose</ion-option>
+            </ion-select>
         </ion-item>
     </form>
+
+    <button ion-button full (click)="lauchApp()">Start</button>
 </ion-content>

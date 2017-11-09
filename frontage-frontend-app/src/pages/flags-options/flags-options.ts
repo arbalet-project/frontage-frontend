@@ -1,7 +1,7 @@
+import { FApp } from './../../models/fapp';
 import { Observable, Subscription } from 'rxjs/Rx';
 import { FAppOptions } from './../../models/f-app-options';
 import { DataFAppsProvider } from './../../providers/data-f-apps/data-f-apps';
-import { FApp, FAppOptions } from './../../models/fapp';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
@@ -44,8 +44,8 @@ export class FlagsOptionsPage {
     this.dataFAppsProvider.launchFApp(options).subscribe(response => {
       //If queued then periodically check the position in the queue 
       if (response.queued) {
-        console.log("In queue" + response);
-        let positionSubscription: Subscription = Observable.interval(response.keep_alive_delay * 250).subscribe(x => {
+        console.log("In queue" + JSON.stringify(response));
+        let positionSubscription: Subscription = Observable.interval(response.keep_alive_delay * 50).subscribe(x => {
           this.dataFAppsProvider.checkPosition().subscribe(response => this.fAppPosition = response.position);
 
           if(this.fAppPosition === -1) {
