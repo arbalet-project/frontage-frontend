@@ -1,18 +1,10 @@
 <ion-content padding>
-  <h3>Arbalet - Frontage</h3>
+  <h3>Façade interactive Arbalet Frontage</h3>
 
   <div>
-    <p>Batnae municipium in Anthemusia conditum Macedonum manu priscorum ab Euphrate flumine brevi spatio disparatur, refertum
-      mercatoribus opulentis, ubi annua sollemnitate prope Septembris initium mensis ad nundinas magna promiscuae fortunae
-      convenit multitudo ad commercanda quae Indi mittunt et Seres aliaque plurima vehi terra marique consueta.</p>
-    <p>Sed quid est quod in hac causa maxime homines admirentur et reprehendant meum consilium, cum ego idem antea multa decreverim,
-      que magis ad hominis dignitatem quam ad rei publicae necessitatem pertinerent? Supplicationem quindecim dierum decrevi
-      sententia mea. Rei publicae satis erat tot dierum quot C. Mario ; dis immortalibus non erat exigua eadem gratulatio
-      quae ex maximis bellis. Ergo ille cumulus dierum hominis est dignitati tributus.</p>
-    <p>Cum autem commodis intervallata temporibus convivia longa et noxia coeperint apparari vel distributio sollemnium sportularum,
-      anxia deliberatione tractatur an exceptis his quibus vicissitudo debetur, peregrinum invitari conveniet, et si digesto
-      plene consilio id placuerit fieri, is adhibetur qui pro domibus excubat aurigarum aut artem tesserariam profitetur
-      aut secretiora quaedam se nosse confingit.</p>
+    <p>Bienvenue ! Vous êtes connecté à la façade pixelisée interactive du bâtiment A1 de l'Université de Bordeaux : <b>Arbalet Frontage</b>.</p>
+    <p>Arbalet Frontage vous permet de jouer à Tetris ou Snake en utilisant votre smartphone comme manette et la façade extérieure de 300m<sup>2</sup> comme écran : elle dispose de 71 pixels lumineux colorés disposés au niveau de chacune de ses fenêtres.</p>
+    <p>En plus d'être jouable, Arbalet Frontage est programmable : nous organisons des ateliers nocturnes en extérieur pour apprendre la programmation et la logique informatique de façon ludique et créative grâce au Pixel Art. Pour connaître la date du prochain atelier, <a href="http://arbalet-project.org/frontage">rdv en ligne</a>.</p>
   </div>
 
   <div *ngIf="isFacadeUp; else elseBlock;">
@@ -41,7 +33,7 @@
     </div>
 
     <ng-template #else2Block>
-      <h2>Le serveur est indisponible</h2>
+      <h2>Le serveur est indisponible : êtes-vous à proximité de la façade Arbalet Frontage ?</h2>
     </ng-template>
 
   </ng-template>
