@@ -1,4 +1,3 @@
-import { RandomFlashingOptionsPage } from './../random-flashing-options/random-flashing-options';
 import { FApp } from './../../models/fapp';
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
@@ -21,21 +20,17 @@ export class FAppListPage {
 
   constructor(public navCtrl: NavController, public fAppsData: DataFAppsProvider) {
 
-    fAppsData.getList().subscribe(fAppList => {
-      this.fAppList = fAppList;
-    });
+    fAppsData.getList()
+      .subscribe(fAppList => this.fAppList = fAppList);
 
   }
 
   showOptions(fApp: FApp) {
-    this.navCtrl.push(this.computePageName(fApp), { 
-        selectedFapp : fApp,
-        test : "test"
-      });
+    this.navCtrl.push(this.computePageName(fApp), { selectedFapp: fApp, test: "test" });
   }
 
-  printList(list: string) {
-    console.log("list : " + list);
+  printList() {
+    console.log("list : " + JSON.stringify(this.fAppList));
   }
 
   private computePageName(fApp: FApp): string {

@@ -1,13 +1,12 @@
 import { WaitingPage } from './../waiting/waiting';
 import { DataFAppsProvider } from './../../providers/data-f-apps/data-f-apps';
+import { FormGroup, FormBuilder } from '@angular/forms';
 import { FAppOptions } from './../../models/f-app-options';
-
 import { Component } from '@angular/core';
 import { IonicPage, NavController } from 'ionic-angular';
-import { FormBuilder, FormGroup } from '@angular/forms';
 
 /**
- * Generated class for the RandomFlashingOptionsPage page.
+ * Generated class for the SweepRandOptionsPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -15,11 +14,10 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 
 @IonicPage()
 @Component({
-  selector: 'page-random-flashing-options',
-  templateUrl: 'random-flashing-options.html',
+  selector: 'page-sweep-rand-options',
+  templateUrl: 'sweep-rand-options.html',
 })
-export class RandomFlashingOptionsPage {
-
+export class SweepRandOptionsPage {
   fAppOptions: FormGroup;
   fAppPosition: number;
 
@@ -32,7 +30,7 @@ export class RandomFlashingOptionsPage {
   lauchApp() {
 
     let options: FAppOptions = {
-      name: "RandomFlashing",
+      name: "SweepRand",
       playable: "true",
       params: {
         dur_min: 1,
@@ -48,4 +46,3 @@ export class RandomFlashingOptionsPage {
       .subscribe(response => this.navCtrl.push(WaitingPage, {info:response}));
   }
 }
-

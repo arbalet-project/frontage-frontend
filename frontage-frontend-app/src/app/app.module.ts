@@ -1,4 +1,4 @@
-import { WaitingComponent } from './../components/waiting-component';
+import { WaitingPage } from './../pages/waiting/waiting';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
@@ -18,7 +18,7 @@ let components:any[] = [
     MyApp,
     HomePage,
     FAppListPage,
-    WaitingComponent
+    WaitingPage,
 ];
 
 @NgModule({

@@ -1,66 +1,66 @@
 [
     {
-        "activated": true, 
-        "max_time": null, 
-        "name": "Flags", 
-        "params": null, 
+        "activated": true,
+        "max_time": null,
+        "name": "Flags",
+        "params": null,
         "params_list": {
             "uapp": [
-                "french", 
-                "germany", 
-                "spain", 
+                "french",
+                "germany",
+                "spain",
                 "italy"
             ]
-        }, 
-        "playable": false, 
+        },
+        "playable": false,
         "user": null
-    }, 
+    },
     {
-        "activated": true, 
-        "max_time": null, 
-        "name": "SweepRand", 
-        "params": null, 
+        "activated": true,
+        "max_time": null,
+        "name": "RandomFlashing",
+        "params": null,
         "params_list": {
-            "dur_max": 20, 
-            "dur_min": 5, 
-            "refresh_rate": 50, 
+            "dur_max": 20,
+            "dur_min": 5,
+            "refresh_rate": 50,
             "uapp": [
                 "flashes"
             ]
-        }, 
-        "playable": false, 
+        },
+        "playable": false,
         "user": null
-    }, 
+    },
     {
-        "activated": true, 
-        "max_time": null, 
-        "name": "RandomFlashing", 
-        "params": null, 
+        "activated": true,
+        "max_time": null,
+        "name": "SweepAsync",
+        "params": null,
         "params_list": {
-            "dur_max": 20, 
-            "dur_min": 5, 
-            "refresh_rate": 50, 
+            "dur_max": 20,
+            "dur_min": 5,
+            "refresh_rate": 50,
             "uapp": [
                 "flashes"
             ]
-        }, 
-        "playable": false, 
+        },
+        "playable": false,
         "user": null
-    }, 
+    },
     {
-        "activated": true, 
-        "max_time": null, 
-        "name": "SweepAsync", 
-        "params": null, 
+        "activated": true,
+        "max_time": null,
+        "name": "SweepRand",
+        "params": null,
         "params_list": {
-            "dur_max": 20, 
-            "dur_min": 5, 
-            "refresh_rate": 50, 
+            "dur_max": 20,
+            "dur_min": 5,
+            "refresh_rate": 50,
             "uapp": [
                 "flashes"
             ]
-        }, 
-        "playable": false, 
+        },
+        "playable": false,
         "user": null
     }
 ]
