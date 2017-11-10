@@ -1,11 +1,7 @@
-import { FApp } from './../../models/fapp';
 import { Observable, Subscription } from 'rxjs/Rx';
 import { FAppOptions } from './../../models/f-app-options';
 import { DataFAppsProvider } from './../../providers/data-f-apps/data-f-apps';
-<<<<<<< HEAD
-=======
 import { FApp } from './../../models/fapp';
->>>>>>> 6df758eaf46eff89183ef051685125b1060e7af1
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 

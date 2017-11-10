@@ -1,10 +1,11 @@
+import { WaitingPage } from './../waiting/waiting';
 import { Subscription, Observable } from 'rxjs/Rx';
 import { DataFAppsProvider } from './../../providers/data-f-apps/data-f-apps';
 import { FAppOptions } from './../../models/f-app-options';
 import { WaitingComponent } from './../../components/waiting-component';
 
 import { Component } from '@angular/core';
-import { IonicPage, ModalController } from 'ionic-angular';
+import { IonicPage, ModalController, NavController } from 'ionic-angular';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
 /**
@@ -24,7 +25,7 @@ export class RandomFlashingOptionsPage {
   fAppOptions: FormGroup;
   fAppPosition: number;
 
-  constructor(public dataFAppsProvider: DataFAppsProvider, public formBuilder: FormBuilder, public modalCtrl: ModalController) {
+  constructor(public navCtrl: NavController, public dataFAppsProvider: DataFAppsProvider, public formBuilder: FormBuilder) {
     this.fAppOptions = formBuilder.group({
       fAppColor: ""
     });
@@ -45,16 +46,13 @@ export class RandomFlashingOptionsPage {
     }
 
     
-    this.dataFAppsProvider.launchFApp(options).subscribe(response => this.showModal(response));
-
-    //  subscribe(response => {
-    //     
-    // };
+    this.dataFAppsProvider.launchFApp(options).subscribe(response => this.showWaitingPage(response));
   }
 
-  showModal(response) {
-    let profileModal = this.modalCtrl.create(WaitingComponent, {serverInfo: response});
-    profileModal.present();
+  showWaitingPage(response) {
+    this.navCtrl.push(WaitingPage, response);
+    // let profileModal = this.modalCtrl.create(WaitingComponent, {serverInfo: response});
+    // profileModal.present();
   }
 }
 
