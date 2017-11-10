@@ -34,14 +34,17 @@ export class AuthenticationProvider {
                     .map(response => response.json().is_usable);
   }
 
-  public refreshToken(userName: string): Observable<boolean> {
+  public auth(userName: string, password: string): Observable<boolean> {
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
 
-    console.log("username : " + userName);
-    let body = {
-      "username" : userName
-    };
+    let body;
+    //If the user is admin send the password
+    if(password) {
+      body = {"username" : userName, "password": password};
+    }else {
+      body = {"username" : userName};
+    }
 
     return this.http.post(this.baseUrl + this.authEndpoint, body, options)
       .map(response => this.extractToken(response));

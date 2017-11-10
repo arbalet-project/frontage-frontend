@@ -18,14 +18,23 @@
   <div *ngIf="isFacadeUp; else elseBlock;">
     <ion-list>
       <ion-item>
+        <ion-label>I'm Admin</ion-label>
+        <ion-checkbox [(ngModel)]="isAdmin"></ion-checkbox>
+      </ion-item>
+      <ion-item>
         <ion-label>Username</ion-label>
-        <ion-input [(ngModel)]="userName " type="text"></ion-input>
+        <ion-input [(ngModel)]="userName" type="text"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="isAdmin">
+        <ion-label>Password</ion-label>
+        <ion-input [(ngModel)]="password" type="text"></ion-input>
+      </ion-item>
+      <ion-item>
+        <button ion-button full (click)="start()">Start</button>
       </ion-item>
     </ion-list>
-
-    <button ion-button full (click)="start()">Start</button>
   </div>
-
+  
   <ng-template #elseBlock>
     <div *ngIf="isServerUp; else else2Block;">
       <h2>La façade n'est pas active. Elle sera allumée à {{nextTime | date:"HH'h'mm"}}</h2>

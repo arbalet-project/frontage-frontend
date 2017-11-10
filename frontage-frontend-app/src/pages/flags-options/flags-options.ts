@@ -2,6 +2,10 @@ import { FApp } from './../../models/fapp';
 import { Observable, Subscription } from 'rxjs/Rx';
 import { FAppOptions } from './../../models/f-app-options';
 import { DataFAppsProvider } from './../../providers/data-f-apps/data-f-apps';
+<<<<<<< HEAD
+=======
+import { FApp } from './../../models/fapp';
+>>>>>>> 6df758eaf46eff89183ef051685125b1060e7af1
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
@@ -18,7 +22,6 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class FlagsOptionsPage {
 
-  fAppName: string = "Flags";
   flag: FApp;
   parametersList: string[];
   selectedParameter: string;
@@ -48,6 +51,7 @@ export class FlagsOptionsPage {
         let positionSubscription: Subscription = Observable.interval(response.keep_alive_delay * 50).subscribe(x => {
           this.dataFAppsProvider.checkPosition().subscribe(response => this.fAppPosition = response.position);
 
+          //Stop when the user is no more in the queue
           if(this.fAppPosition === -1) {
             positionSubscription.unsubscribe();
           }
