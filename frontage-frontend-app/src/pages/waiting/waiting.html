@@ -6,9 +6,19 @@
 
 <ion-content padding>
 
-  <ion-card>
-    <ion-header>Votre position dans la queue : {{position}}</ion-header>
-  </ion-card>
- 
- <button ion-button click="cancel()">Annuler</button>
+  <ion-item *ngIf="message != ''">
+    <ion-card>
+      <ion-header>{{message}}</ion-header>
+    </ion-card>
+  </ion-item>
+
+  <ion-item *ngIf="errorMessage != ''">
+    <ion-card>
+      <ion-header>{{errorMessage}}</ion-header>
+    </ion-card>
+  </ion-item>
+
+  <button ion-button (click)="cancel()">Annuler</button>
+
+  <button ion-button (click)="test()">test</button>
 </ion-content>

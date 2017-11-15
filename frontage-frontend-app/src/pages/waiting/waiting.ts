@@ -18,6 +18,9 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 export class WaitingPage {
 
   position: number;
+  message: string = 'En attente du serveur';
+  errorMessage:string = '';
+
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public dataFAppsProvider: DataFAppsProvider) {
     console.log('parameters : ' + JSON.stringify(navParams));
@@ -30,24 +33,38 @@ export class WaitingPage {
           this.dataFAppsProvider.checkPosition()
             .subscribe(response => this.checkPosition(response, positionSubscription))
         });
+    } else if (serverResponse.status === 403) {
+      this.errorMessage = "Erreur : Vous ne pouvez lancer qu'une seule applicaiotn à la fois. Vois êtes déjà dans la queue.";
+    } else {
+      this.errorMessage = "Une erreur inconnue s'est produite. Tenter de redémarrer l'application."
+      console.log(JSON.stringify(serverResponse));
     }
+
   }
 
-  checkPosition(response: any, positionSubscription:Subscription) {
+  checkPosition(response: any, positionSubscription: Subscription) {
 
-    console.log("response checkPsition : " + JSON.stringify(response));
-    let position:number = response.position;
-    console.log("Position dans la queue : " + position);
+    let position: number = response.position;
+    this.position = position + 1;
+
+    this.message = "Vous êtes dans la queue à la position : " + this.position;
+
     if (position === -1) {
+      this.message = "L'application est en train de se lancer !"
       positionSubscription.unsubscribe();
       console.log("Lance l'appli ! ");
-    } else {
-      this.position = position+1;
     }
+
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad WaitingPage');
+  test() {
+    console.log("test");
+    console.log(this.message);
+    console.log(this.errorMessage);
+  }
+
+  cancel() {
+
   }
 
 }

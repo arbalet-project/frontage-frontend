@@ -4,6 +4,7 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 import { FAppOptions } from './../../models/f-app-options';
 import { Component } from '@angular/core';
 import { IonicPage, NavController } from 'ionic-angular';
+import 'rxjs/add/operator/catch';
 
 /**
  * Generated class for the SweepRandOptionsPage page.
@@ -42,7 +43,8 @@ export class SweepRandOptionsPage {
     }
 
     
-    this.dataFAppsProvider.launchFApp(options)
+    this.dataFAppsProvider
+      .launchFApp(options)
       .subscribe(response => this.navCtrl.push(WaitingPage, {info:response}));
   }
 }

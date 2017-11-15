@@ -27,7 +27,8 @@ export class DataFAppsProvider {
     let headers= new Headers({'Content-Type':'application/json', 'Authorization': token});
     let options = new RequestOptions({ headers: headers });
 
-    return this.http.get(this.baseUrl + "/b/apps", options)
+    return this.http
+      .get(this.baseUrl + "/b/apps", options)
       .map((data:any) => JSON.parse(data._body))
       .map((data:any) => data as FApp[])
       .map((fAppList: FApp[]) =>_.chain(fAppList)
@@ -42,8 +43,10 @@ export class DataFAppsProvider {
 
     let body = fAppOptions;
 
-    return this.http.post(this.baseUrl + "/b/apps/running", body, options)
-      .map(response => response.json());
+    return this.http
+      .post(this.baseUrl + "/b/apps/running", body, options)
+      .map(response => response.json())
+      .catch(error => Observable.of(error));
   }
 
   public checkPosition () : Observable<any> {
@@ -52,7 +55,8 @@ export class DataFAppsProvider {
     let headers= new Headers({'Content-Type':'application/json', 'Authorization': token});
     let options = new RequestOptions({ headers: headers });
 
-    return this.http.get(this.baseUrl + "/b/apps/position", options)
+    return this.http
+      .get(this.baseUrl + "/b/apps/position", options)
       .map(response => response.json());
   }
 }
