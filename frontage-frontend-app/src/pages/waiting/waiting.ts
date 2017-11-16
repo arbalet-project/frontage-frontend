@@ -19,11 +19,9 @@ export class WaitingPage {
 
   position: number;
   message: string = 'En attente du serveur';
-  errorMessage:string = '';
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public dataFAppsProvider: DataFAppsProvider) {
-    console.log('parameters : ' + JSON.stringify(navParams));
 
     let serverResponse: any = navParams.get('info');
     //If queued then periodically check the position in the queue 
@@ -34,10 +32,10 @@ export class WaitingPage {
             .subscribe(response => this.checkPosition(response, positionSubscription))
         });
     } else if (serverResponse.status === 403) {
-      this.errorMessage = "Erreur : Vous ne pouvez lancer qu'une seule applicaiotn à la fois. Vois êtes déjà dans la queue.";
+
+      this.message = "Erreur : Vous ne pouvez lancer qu'une seule application à la fois. Vois êtes déjà dans la queue.";
     } else {
-      this.errorMessage = "Une erreur inconnue s'est produite. Tenter de redémarrer l'application."
-      console.log(JSON.stringify(serverResponse));
+      this.message = "Une erreur inconnue s'est produite. Tenter de redémarrer l'application."
     }
 
   }
@@ -52,15 +50,8 @@ export class WaitingPage {
     if (position === -1) {
       this.message = "L'application est en train de se lancer !"
       positionSubscription.unsubscribe();
-      console.log("Lance l'appli ! ");
     }
 
-  }
-
-  test() {
-    console.log("test");
-    console.log(this.message);
-    console.log(this.errorMessage);
   }
 
   cancel() {
