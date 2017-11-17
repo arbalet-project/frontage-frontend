@@ -1,3 +1,4 @@
+import { HttpInterceptorProvider } from './../providers/http-interceptor/http-interceptor';
 import { WaitingPage } from './../pages/waiting/waiting';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
@@ -14,12 +15,14 @@ import { HttpModule } from '@angular/http';
 import { AuthenticationProvider } from '../providers/authentication/authentication';
 import { TimeProvider } from '../providers/time/time';
 import { WebSocketProvider } from '../providers/web-socket/web-socket';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { LocalStorageProvider } from '../providers/local-storage/local-storage';
 
 let components:any[] = [
     MyApp,
     HomePage,
     FAppListPage,
-    WaitingPage,
+    WaitingPage
 ];
 
 @NgModule({
@@ -27,7 +30,8 @@ let components:any[] = [
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    HttpModule
+    HttpModule,
+    HttpClientModule
   ],
   bootstrap: [IonicApp],
   entryComponents: components,
@@ -35,10 +39,13 @@ let components:any[] = [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
+    {provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorProvider, multi: true},
     DataFAppsProvider,
     AuthenticationProvider,
     TimeProvider,
-    WebSocketProvider
+    WebSocketProvider,
+    HttpInterceptorProvider,
+    LocalStorageProvider
   ]
 })
 export class AppModule {}
