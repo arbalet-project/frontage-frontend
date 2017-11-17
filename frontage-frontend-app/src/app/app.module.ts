@@ -13,6 +13,7 @@ import { DataFAppsProvider } from '../providers/data-f-apps/data-f-apps';
 import { HttpModule } from '@angular/http';
 import { AuthenticationProvider } from '../providers/authentication/authentication';
 import { TimeProvider } from '../providers/time/time';
+import { WebSocketProvider } from '../providers/web-socket/web-socket';
 
 let components:any[] = [
     MyApp,
@@ -36,7 +37,8 @@ let components:any[] = [
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     DataFAppsProvider,
     AuthenticationProvider,
-    TimeProvider
+    TimeProvider,
+    WebSocketProvider
   ]
 })
 export class AppModule {}

@@ -37,7 +37,7 @@ export class SweepRandOptionsPage {
         dur_min: 1,
         dur_max: 15,
         refresh_rate: 80,
-        colors: this.fAppOptions.value.fAppColor,
+        colors: [ this.fAppOptions.value.fAppColor ],
         uapp: "flashes"
       }
     }

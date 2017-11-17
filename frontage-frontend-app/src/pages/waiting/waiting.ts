@@ -1,3 +1,4 @@
+import { FAppListPage } from './../f-app-list/f-app-list';
 import { DataFAppsProvider } from './../../providers/data-f-apps/data-f-apps';
 import { Subscription, Observable } from 'rxjs/Rx';
 import { Component } from '@angular/core';
@@ -33,7 +34,7 @@ export class WaitingPage {
         });
     } else if (serverResponse.status === 403) {
 
-      this.message = "Erreur : Vous ne pouvez lancer qu'une seule application à la fois. Vois êtes déjà dans la queue.";
+      this.message = "Erreur : Vous ne pouvez lancer qu'une seule application à la fois. Vous êtes déjà dans la queue.";
     } else {
       this.message = "Une erreur inconnue s'est produite. Tenter de redémarrer l'application."
     }
@@ -55,7 +56,7 @@ export class WaitingPage {
   }
 
   cancel() {
-
+    this.dataFAppsProvider.stopApp().subscribe(response => this.navCtrl.push(FAppListPage));
   }
 
 }
