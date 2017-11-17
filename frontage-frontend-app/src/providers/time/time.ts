@@ -18,11 +18,7 @@ export class TimeProvider {
   constructor(public http: Http, public authentication: AuthenticationProvider) {}
 
   getNextTimeUp() :Observable<string>{
-    let token: string = 'Bearer ' + this.authentication.token;
-    let headers= new Headers({'Content-Type':'application/json', 'Authorization': token});
-    let options = new RequestOptions({ headers: headers });
-
-    return this.http.get(this.baseUrl+"/b/admin/cal", options)
+    return this.http.get(this.baseUrl+"/b/admin/cal")
                     .map(response => response.json().on);
   }
 
