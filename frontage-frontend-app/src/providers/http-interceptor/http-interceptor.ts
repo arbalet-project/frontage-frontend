@@ -6,7 +6,6 @@ import { HttpHandler } from '@angular/common/http/src/backend';
 import { HttpRequest } from '@angular/common/http/src/request';
 import { Observable } from 'rxjs/Observable';
 import { HttpEvent } from '@angular/common/http/src/response';
-import { AuthenticationProvider } from '../authentication/authentication';
 
 /*
   Generated class for the HttpInterceptorProvider provider.

@@ -2,7 +2,6 @@ import { FAppOptions } from './../../models/f-app-options';
 import { FApp } from './../../models/fapp';
 import { AuthenticationProvider } from './../authentication/authentication';
 import { Injectable } from '@angular/core';
-import { RequestOptions, Headers } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { Observable } from 'rxjs/Rx';
 import * as _ from "lodash";
