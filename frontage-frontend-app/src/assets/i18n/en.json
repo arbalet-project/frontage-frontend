@@ -38,5 +38,8 @@
     "SETTINGS_PAGE_FR":"French",
     "SETTINGS_PAGE_EN":"English",
 
-    "STOP_APP":"Leave queue"
+    "STOP_APP":"Leave queue",
+
+    "LANGUAGE_COMPONENT_FR":"FR",
+    "LANGUAGE_COMPONENT_EN":"EN"
 }

@@ -1,3 +1,4 @@
+import { SweepRandOptionsPage } from './../pages/sweep-rand-options/sweep-rand-options';
 import { FlagsJoytickPage } from './../pages/flags-joytick/flags-joytick';
 import { HttpInterceptorProvider } from './../providers/http-interceptor/http-interceptor';
 import { WaitingPage } from './../pages/waiting/waiting';
@@ -23,6 +24,9 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { Http, HttpModule } from '@angular/http';
 import { TranslateLanguageProvider } from '../providers/translate-language/translate-language';
 import { LanguageComponent } from '../components/language/language';
+import { FlagsOptionsPage } from '../pages/flags-options/flags-options';
+import { SweepAsyncOptionsPage } from '../pages/sweep-async-options/sweep-async-options';
+import { RandomFlashingOptionsPage } from '../pages/random-flashing-options/random-flashing-options';
 
 export function createTranslateLoader(http: Http) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -34,7 +38,11 @@ let components:any[] = [
     FAppListPage,
     WaitingPage,
     FlagsJoytickPage,
-    LanguageComponent
+    LanguageComponent,
+    FlagsOptionsPage,
+    SweepAsyncOptionsPage,
+    SweepRandOptionsPage,
+    RandomFlashingOptionsPage
 ];
 
 @NgModule({

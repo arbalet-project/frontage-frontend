@@ -1,10 +1,9 @@
-import { TranslateService } from '@ngx-translate/core';
 import { WaitingPage } from './../waiting/waiting';
 import { DataFAppsProvider } from './../../providers/data-f-apps/data-f-apps';
 import { FAppOptions } from './../../models/f-app-options';
 
 import { Component } from '@angular/core';
-import { IonicPage, NavController } from 'ionic-angular';
+import { NavController } from 'ionic-angular';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
 /**
@@ -14,7 +13,6 @@ import { FormBuilder, FormGroup } from '@angular/forms';
  * Ionic pages and navigation.
  */
 
-@IonicPage()
 @Component({
   selector: 'page-random-flashing-options',
   templateUrl: 'random-flashing-options.html',
@@ -24,9 +22,7 @@ export class RandomFlashingOptionsPage {
   fAppOptions: FormGroup;
   fAppPosition: number;
 
-  constructor(public navCtrl: NavController, public dataFAppsProvider: DataFAppsProvider, public formBuilder: FormBuilder, public translateProvider: TranslateService) {
-    this.translateProvider.setDefaultLang('fr');
-    this.translateProvider.use('fr')
+  constructor(public navCtrl: NavController, public dataFAppsProvider: DataFAppsProvider, public formBuilder: FormBuilder) {
     this.fAppOptions = formBuilder.group({
       fAppColor: ""
     });
