@@ -1,4 +1,3 @@
-import { SettingsPage } from './../pages/settings/settings';
 import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
@@ -17,16 +16,12 @@ export class MyApp {
 
   pages: Array<{title: string, component: any}>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, translateProvider: TranslateService) {
+  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
     this.initializeApp();
-
-    translateProvider.setDefaultLang('fr');
-    translateProvider.use('fr');
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Home', component: HomePage },
-      { title: 'Settings', component: SettingsPage }
+      { title: 'Home', component: HomePage }
     ];
 
   }

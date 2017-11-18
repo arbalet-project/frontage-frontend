@@ -1,5 +1,4 @@
 import { FlagsJoytickPage } from './../pages/flags-joytick/flags-joytick';
-import { SettingsPage } from './../pages/settings/settings';
 import { HttpInterceptorProvider } from './../providers/http-interceptor/http-interceptor';
 import { WaitingPage } from './../pages/waiting/waiting';
 import { BrowserModule } from '@angular/platform-browser';
@@ -34,7 +33,6 @@ let components:any[] = [
     HomePage,
     FAppListPage,
     WaitingPage,
-    SettingsPage,
     FlagsJoytickPage,
     LanguageComponent
 ];

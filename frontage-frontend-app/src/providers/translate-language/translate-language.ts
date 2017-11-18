@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { TranslateService } from '@ngx-translate/core';
 
@@ -13,6 +12,11 @@ import { TranslateService } from '@ngx-translate/core';
 export class TranslateLanguageProvider {
 
   constructor(public translateProvider:TranslateService) {
+  }
+
+  setDefaultLanguage(language: string){
+    this.translateProvider.setDefaultLang(language);
+    this.translateProvider.use(language);
   }
 
   setLanguage(language: string) {

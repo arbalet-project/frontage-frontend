@@ -18,6 +18,7 @@ export class LanguageComponent {
 
   constructor(public translateLanguageProvider: TranslateLanguageProvider, public translateProvider: TranslateService) {
     this.selectedLanguage = "fr";
+    this.translateLanguageProvider.setDefaultLanguage(this.selectedLanguage);
   }
 
   changeLanguage() {
