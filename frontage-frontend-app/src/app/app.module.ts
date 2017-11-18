@@ -22,6 +22,8 @@ import { NicknameGeneratorProvider } from '../providers/nickname-generator/nickn
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { Http, HttpModule } from '@angular/http';
+import { TranslateLanguageProvider } from '../providers/translate-language/translate-language';
+import { LanguageComponent } from '../components/language/language';
 
 export function createTranslateLoader(http: Http) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -32,8 +34,9 @@ let components:any[] = [
     HomePage,
     FAppListPage,
     WaitingPage,
+    SettingsPage,
     FlagsJoytickPage,
-    SettingsPage
+    LanguageComponent
 ];
 
 @NgModule({
@@ -64,7 +67,8 @@ let components:any[] = [
     WebSocketProvider,
     HttpInterceptorProvider,
     LocalStorageProvider,
-    NicknameGeneratorProvider
+    NicknameGeneratorProvider,
+    TranslateLanguageProvider
   ]
 })
 export class AppModule {}

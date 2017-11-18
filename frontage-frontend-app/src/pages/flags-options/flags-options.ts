@@ -22,12 +22,13 @@ export class FlagsOptionsPage {
 
   flag: FApp;
   parametersList: string[];
-  selectedParameter: string;
+  selectedParameter: string = "french";
   fAppPosition: number;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public dataFAppsProvider: DataFAppsProvider, public translateProvider: TranslateService) {
     this.translateProvider.setDefaultLang('fr');
     this.translateProvider.use('fr');
+
     let fAppParams: FApp = navParams.get('selectedFapp');
     if (fAppParams) {
       this.parametersList = fAppParams.params_list.uapp;

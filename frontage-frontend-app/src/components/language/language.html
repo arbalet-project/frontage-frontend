@@ -1,0 +1,13 @@
+<ion-item color="light" style="width:160px">
+  <ion-label>
+    <img width="90" height="35" src="assets/img/{{selectedLanguage}}.svg">
+  </ion-label>
+  <ion-select [(ngModel)]="selectedLanguage" (ionChange)="changeLanguage()">
+    <ion-option value="fr">
+      {{"LANGUAGE_COMPONENT_FR" | translate}}
+    </ion-option>
+    <ion-option value="en">
+      {{"LANGUAGE_COMPONENT_EN" | translate}}
+    </ion-option>
+  </ion-select>
+</ion-item>
