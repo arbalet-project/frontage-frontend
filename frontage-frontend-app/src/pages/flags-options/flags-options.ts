@@ -1,3 +1,4 @@
+import { FlagsJoytickPage } from './../flags-joytick/flags-joytick';
 import { WaitingPage } from './../waiting/waiting';
 import { FAppOptions } from './../../models/f-app-options';
 import { DataFAppsProvider } from './../../providers/data-f-apps/data-f-apps';
@@ -41,7 +42,7 @@ export class FlagsOptionsPage {
     };
 
     this.dataFAppsProvider.launchFApp(options)
-      .subscribe(response => this.navCtrl.push(WaitingPage, {info:response}));
+      .subscribe(response => this.navCtrl.push(WaitingPage, {info:response, joystick:FlagsJoytickPage}));
   }
 
 }

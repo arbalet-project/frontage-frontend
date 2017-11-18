@@ -20,10 +20,12 @@ export class WaitingPage {
 
   position: number;
   message: string = 'En attente du serveur';
-
+  
+  joystickPage:any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public dataFAppsProvider: DataFAppsProvider) {
 
+    this.joystickPage = navParams.get('joystick');
     let serverResponse: any = navParams.get('info');
     //If queued then periodically check the position in the queue 
     if (serverResponse.queued) {
@@ -51,6 +53,8 @@ export class WaitingPage {
     if (position === -1) {
       this.message = "L'application est en train de se lancer !"
       positionSubscription.unsubscribe();
+
+      this.navCtrl.push(this.joystickPage);
     }
 
   }

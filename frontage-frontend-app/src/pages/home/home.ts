@@ -4,7 +4,7 @@ import { Observable, Subscription } from 'rxjs/Rx';
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { AuthenticationProvider } from '../../providers/authentication/authentication';
-import { WebSocketProvider } from '../../providers/web-socket/web-socket';
+import { NicknameGeneratorProvider } from '../../providers/nickname-generator/nickname-generator';
 
 @Component({
   selector: 'page-home',
@@ -16,12 +16,14 @@ export class HomePage {
   isFacadeUp: boolean = false;
   exception: any;
   nextTime: Date;
-  userName: string = "PainAuChocolat";
+  userName: string ;
   password: string;
   serverUpSubscription: Subscription;
 
-  constructor(private navCtrl: NavController, private authentication: AuthenticationProvider, private time: TimeProvider, private webSocketProvider:WebSocketProvider) {
+  constructor(private navCtrl: NavController, private authentication: AuthenticationProvider, private time: TimeProvider, 
+    nicknameGeneratorProvider: NicknameGeneratorProvider) {
 
+    this.userName = nicknameGeneratorProvider.generateNicknameFr();
     authentication.isServerUp()
       .subscribe(isServerUp => this.checkFacade(isServerUp), e => this.handleError(e));
 
@@ -32,14 +34,6 @@ export class HomePage {
           .subscribe(isServerUp => this.checkFacade(isServerUp), e => this.handleError(e));
       });
     }
-  }
-
-  testSocket() {
-    console.log(JSON.stringify("Start"));
-    let socket = this.webSocketProvider.connect("ws://192.168.1.23:8123");
-
-    console.log(JSON.stringify("socker : " + socket));
-
   }
 
   checkFacade(isServerUp: boolean) {

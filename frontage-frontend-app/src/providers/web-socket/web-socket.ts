@@ -20,31 +20,43 @@ export class WebSocketProvider {
 
   public connect(url): Rx.Subject<MessageEvent> {
     if(!this.socket) {
-      this.socket = this.create(url);
+      // this.socket = this.create(url);
     }
     return this.socket;
   }
 
-  private create(url: string): Rx.Subject<MessageEvent> {
+  private create(url: string) {
     let ws = new WebSocket(url);
 
-    let observable = Rx.Observable.create(
-      (obs: Rx.Observer<MessageEvent>) => {
-        ws.onmessage = obs.next.bind(obs);
-        ws.onerror = obs.error.bind(obs);
-        ws.onclose = obs.complete.bind(obs);
-        return ws.close.bind(ws);
-      }
-    );
-
-    let observer = {
-      next: (data: Object) => {
-        if (ws.readyState === WebSocket.OPEN) {
-          ws.send(JSON.stringify(data));
-        }
-      },
+    ws.onerror = function (error) {
+      console.log(JSON.stringify(error));
     };
+
+    ws.onmessage = function (message) {
+      console.log(JSON.stringify(message));
+    };
+
+    ws.onclose = function () {
+      console.log("Close");
+    };
+
+    // let observable = Rx.Observable.create(
+    //   (obs: Rx.Observer<MessageEvent>) => {
+    //     ws.onmessage = obs.next.bind(obs);
+    //     ws.onerror = obs.error.bind(obs);
+    //     ws.onclose = obs.complete.bind(obs);
+    //     return ws.close.bind(ws);
+    //   }
+    // );
+
+    // let observer = {
+    //   next: (data: Object) => {
+    //     if (ws.readyState === WebSocket.OPEN) {
+    //       ws.send(JSON.stringify(data));
+    //     }
+    //   },
+    // };
     
-    return Rx.Subject.create(observer, observable);
+    // return Rx.Subject.create(observer, observable);
   }
 }

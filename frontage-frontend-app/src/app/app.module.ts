@@ -1,3 +1,4 @@
+import { FlagsJoytickPage } from './../pages/flags-joytick/flags-joytick';
 import { HttpInterceptorProvider } from './../providers/http-interceptor/http-interceptor';
 import { WaitingPage } from './../pages/waiting/waiting';
 import { BrowserModule } from '@angular/platform-browser';
@@ -17,12 +18,14 @@ import { TimeProvider } from '../providers/time/time';
 import { WebSocketProvider } from '../providers/web-socket/web-socket';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { LocalStorageProvider } from '../providers/local-storage/local-storage';
+import { NicknameGeneratorProvider } from '../providers/nickname-generator/nickname-generator';
 
 let components:any[] = [
     MyApp,
     HomePage,
     FAppListPage,
-    WaitingPage
+    WaitingPage,
+    FlagsJoytickPage
 ];
 
 @NgModule({
@@ -45,7 +48,8 @@ let components:any[] = [
     TimeProvider,
     WebSocketProvider,
     HttpInterceptorProvider,
-    LocalStorageProvider
+    LocalStorageProvider,
+    NicknameGeneratorProvider
   ]
 })
 export class AppModule {}
