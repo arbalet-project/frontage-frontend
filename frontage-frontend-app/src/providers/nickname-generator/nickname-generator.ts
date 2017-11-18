@@ -14,9 +14,9 @@ export class NicknameGeneratorProvider {
     "nutty", "lazy", "sagacious", "scatterbrain", "shaggy", "shining", "skilled",
     "sleepy", "sneezy", "stylish", "shy", "talktive", "timid", "tiny", "vengeful", "vivacious", "voracious", "wily", "wise"];
 
-  nouns: string[] = ["beaver", "bunny", "camel", "carrot", "cheeta", "chicken", "crab", "cub", "cupcake", "deer", "dormouse", "jackal", "horse", "hedgedog", 
+  nouns: string[] = ["beaver", "bunny", "camel", "carrot", "cheeta", "chicken", "crab", "cub", "cupcake", "deer", "dormouse", "duck", "jackal", "horse", "hedgedog", 
     "hippopotamus", "lama", "lemur", "leopard", "lynx", "kangaroo", "kitten", "kiwi", "koala", "monkey", "okapi", "otter", "owl", 
-    "panda", "pangolin", "parrot", "porcupine", "pony", "sloth", "tadpole", "tiger", "turkey", "sea horse", "seal", "squirrel", "unicorn", "whale"];
+    "panda", "pangolin", "parrot", "porcupine", "pony", "sloth", "tadpole", "tiger", "tortoise", "turkey", "sea horse", "seal", "squirrel", "unicorn", "whale", "worm"];
 
   adjectivesFrM: string[] = ["100% bio", "affamé", "agile", "alcoolique", "audacieux", "aventureux", "bavard", "bougon", "bruyant", "caracolant", "chantant",
     "charismatique", "charmant", "chaste", "chauve", "chinois", "cleptomane", "curieux", "déjanté", "dérangé", "désinvolte", "déterminé", "élégant", "enchanté", "endormi", 
@@ -33,11 +33,11 @@ export class NicknameGeneratorProvider {
   "séduisante", "sensible", "simplette", "somnolente", "sophistiquée", "tarée", "timide", "tonitruante", "toute douce", "vaillante", 
   "vengeuse", "vigoureuse", "vivace", "vigilante", "vorace"];
 
-  nounsFrM: string[] = ["blaireau", "bonobo", "biche", "cachalot", "castor", "chacal", "chameau", "chaton", "chimpanzé", "crabe", "chevreuil", "coyote", "dindon", 
+  nounsFrM: string[] = ["asticot", "blaireau", "bonobo", "biche", "cachalot", "canard", "castor", "chacal", "chameau", "chaton", "chimpanzé", "crabe", "chevreuil", "coyote", "dindon", 
     "drommadaire", "écureuil", "étalon", "guépard", "hippopotame", "hérisson", "hypocampe", "kangourou", "kiwi", "koala", "lama", "lapin", "lémurien", "léopard", "loir", 
     "lynx", "manchot", "matou", "morse", "okapi", "ornythorinque", "ouistiti", "panda", "paresseux", "perroquet", "poney", "porc-épic", "poussin", "phasme", "ragondin", "rhinocéros"
     , "souriceau", "taureau", "tétard", "tigre"];
-  nounsFrF: string[] = ["belette", "brebis", "chouette", "giraphe", "licorne", "loutre", "mangouste", "marmotte", "poule", "taupe"];
+  nounsFrF: string[] = ["belette", "brebis", "chouette", "giraphe", "licorne", "loutre", "mangouste", "marmotte", "poule", "taupe", "tortue"];
 
   constructor() {}
 

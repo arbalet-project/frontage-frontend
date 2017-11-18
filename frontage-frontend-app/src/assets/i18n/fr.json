@@ -36,5 +36,7 @@
     "SETTINGS_PAGE_TITLE":"Paramètres",
     "SETTINGS_PAGE_LABEL":"Quelle langue désirez-vous paramètrer ?",
     "SETTINGS_PAGE_FR":"Français",
-    "SETTINGS_PAGE_EN":"Anglais"
+    "SETTINGS_PAGE_EN":"Anglais",
+
+    "STOP_APP":"Quitter la queue"
 }
