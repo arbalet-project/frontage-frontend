@@ -5,6 +5,7 @@ import { FAppOptions } from './../../models/f-app-options';
 import { Component } from '@angular/core';
 import { IonicPage, NavController } from 'ionic-angular';
 import 'rxjs/add/operator/catch';
+import { TranslateService } from '@ngx-translate/core';
 
 /**
  * Generated class for the SweepRandOptionsPage page.
@@ -22,7 +23,10 @@ export class SweepRandOptionsPage {
   fAppOptions: FormGroup;
   fAppPosition: number;
 
-  constructor(public navCtrl: NavController, public dataFAppsProvider: DataFAppsProvider, public formBuilder: FormBuilder) {
+  constructor(public navCtrl: NavController, public dataFAppsProvider: DataFAppsProvider, public formBuilder: FormBuilder, public translateProvider: TranslateService) {
+    this.translateProvider.setDefaultLang('fr');
+    this.translateProvider.use('fr');
+
     this.fAppOptions = formBuilder.group({
       fAppColor: ""
     });

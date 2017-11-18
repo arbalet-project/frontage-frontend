@@ -25,6 +25,14 @@
     "FLAGS_OPTIONS_PAGE_START_BUTTON":"Lancer l'application avec les options sélectionnées",
     "FLAGS_OPTIONS_PAGE_QUEUE_ALERT":"Soyez patient ! Vous avez été placé en attente dans la queue à la position : ",
 
+    "RF_OPTIONS_PAGE_TITLE":"Options de l'application Random Flashing",
+    "SA_OPTIONS_PAGE_TITLE":"Options de l'application Sweep Async",
+    "SR_OPTIONS_PAGE_TITLE":"Options de l'application Sweep Random",
+    "COLOR_APP_OPTIONS_PAGE_COLOR_LABEL":"Couleur : ",
+    "COLOR_APP_OPTIONS_PAGE_DARK_BLUE_LABEL":"Bleu Foncé",
+    "COLOR_APP_OPTIONS_PAGE_PINK_LABEL":"Rose",
+    "COLOR_APP_OPTIONS_PAGE_START_BUTTON":"Lancer l'application",
+
     "SETTINGS_PAGE_TITLE":"Paramètres",
     "SETTINGS_PAGE_LABEL":"Quelle langue désirez-vous paramètrer ?",
     "SETTINGS_PAGE_FR":"Français",

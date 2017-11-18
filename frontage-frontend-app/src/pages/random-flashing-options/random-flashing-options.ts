@@ -1,3 +1,4 @@
+import { TranslateService } from '@ngx-translate/core';
 import { WaitingPage } from './../waiting/waiting';
 import { DataFAppsProvider } from './../../providers/data-f-apps/data-f-apps';
 import { FAppOptions } from './../../models/f-app-options';
@@ -23,7 +24,9 @@ export class RandomFlashingOptionsPage {
   fAppOptions: FormGroup;
   fAppPosition: number;
 
-  constructor(public navCtrl: NavController, public dataFAppsProvider: DataFAppsProvider, public formBuilder: FormBuilder) {
+  constructor(public navCtrl: NavController, public dataFAppsProvider: DataFAppsProvider, public formBuilder: FormBuilder, public translateProvider: TranslateService) {
+    this.translateProvider.setDefaultLang('fr');
+    this.translateProvider.use('fr')
     this.fAppOptions = formBuilder.group({
       fAppColor: ""
     });
