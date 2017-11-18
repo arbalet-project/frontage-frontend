@@ -1,0 +1,40 @@
+{
+    "FLAGS":"Flags",
+    "RANDOMFLASHING":"RandomFlashing",
+    "SWEEPASYNC":"SweepAsync",
+    "SWEEPRAND":"SweepRand",
+
+    "HOME_PAGE_TITLE":"Façade interactive Arbalet Frontage",
+    "HOME_PAGE_ADMIN_LABEL":"Je suis administrateur",
+    "HOME_PAGE_USER_LABEL":"Nom d'utilisateur",
+    "HOME_PAGE_PWD_LABEL":"Mot de passe",
+    "HOME_PAGE_START_BUTTON":"C'est parti !",
+    "HOME_PAGE_FRONTAGE_DOWN_ALERT": "La façade n'est pas active. Elle sera allumée à",
+    "HOME_PAGE_SERVER_DOWN_ALERT":"Le serveur est indisponible : êtes-vous à proximité de la façade Arbalet Frontage ?",
+
+    "FAPP_PAGE_TITLE":"Liste des applications de la façade",
+    "FAPP_PAGE_OPTIONS_BUTTON":"Afficher les options",
+    "FAPP_PAGE_NO_APP_ALERT":"Aucune applicationi disponible",
+
+    "FLAGS_OPTIONS_PAGE_TITLE":"Options de l'application Flags",
+    "FLAGS_OPTIONS_PAGE_LIST":"Liste des drapeaux disponibles",
+    "FRENCH":"Français",
+    "GERMANY":"Allemand",
+    "SPAIN":"Espagnol",
+    "ITALY":"Italien",
+    "FLAGS_OPTIONS_PAGE_START_BUTTON":"Lancer l'application avec les options sélectionnées",
+    "FLAGS_OPTIONS_PAGE_QUEUE_ALERT":"Soyez patient ! Vous avez été placé en attente dans la queue à la position : ",
+
+    "RF_OPTIONS_PAGE_TITLE":"Options de l'application Random Flashing",
+    "SA_OPTIONS_PAGE_TITLE":"Options de l'application Sweep Async",
+    "SR_OPTIONS_PAGE_TITLE":"Options de l'application Sweep Random",
+    "COLOR_APP_OPTIONS_PAGE_COLOR_LABEL":"Couleur : ",
+    "COLOR_APP_OPTIONS_PAGE_DARK_BLUE_LABEL":"Bleu Foncé",
+    "COLOR_APP_OPTIONS_PAGE_PINK_LABEL":"Rose",
+    "COLOR_APP_OPTIONS_PAGE_START_BUTTON":"Lancer l'application",
+
+    "SETTINGS_PAGE_TITLE":"Paramètres",
+    "SETTINGS_PAGE_LABEL":"Quelle langue désirez-vous paramètrer ?",
+    "SETTINGS_PAGE_FR":"Français",
+    "SETTINGS_PAGE_EN":"Anglais"
+}

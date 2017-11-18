@@ -1,3 +1,4 @@
+import { TranslateService } from '@ngx-translate/core';
 import { WaitingPage } from './../waiting/waiting';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { DataFAppsProvider } from './../../providers/data-f-apps/data-f-apps';
@@ -21,7 +22,10 @@ export class SweepAsyncOptionsPage {
   fAppOptions: FormGroup;
   fAppPosition: number;
 
-  constructor(public navCtrl: NavController, public dataFAppsProvider: DataFAppsProvider, public formBuilder: FormBuilder) {
+  constructor(public navCtrl: NavController, public dataFAppsProvider: DataFAppsProvider, public formBuilder: FormBuilder, public translateProvider: TranslateService) {
+    this.translateProvider.setDefaultLang('fr');
+    this.translateProvider.use('fr')
+    
     this.fAppOptions = formBuilder.group({
       fAppColor: ""
     });

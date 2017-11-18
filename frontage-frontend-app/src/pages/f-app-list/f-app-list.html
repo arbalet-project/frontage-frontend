@@ -1,6 +1,6 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>fAppList</ion-title>
+    <ion-title>{{"FAPP_PAGE_TITLE" | translate}}</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -8,16 +8,16 @@
   <div *ngIf="fAppList; else elseBlock;">
     <ion-list *ngFor="let fApp of fAppList">
       <ion-card>
-        <ion-card-header>{{fApp.name}}</ion-card-header>
+        <ion-card-header>{{fApp.name | uppercase | translate}}</ion-card-header>
         <ion-card-content>
-          <button ion-button primary (click)="showOptions(fApp)">Show options</button>
+          <button ion-button primary (click)="showOptions(fApp)">{{"FAPP_PAGE_OPTIONS_BUTTON" | translate}}</button>
         </ion-card-content>
       </ion-card>
     </ion-list>
   </div>
 
   <ng-template #elseBlock>
-    <h2>Pas d'application</h2>
+    <h2>{{"FAPP_PAGE_NO_APP_ALERT" | translate}} </h2>
   </ng-template>
 
   <button ion-button primary (click)="printList()">Print list</button>
