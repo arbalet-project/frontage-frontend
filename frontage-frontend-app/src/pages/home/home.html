@@ -1,5 +1,5 @@
 <ion-content padding>
-  <h3>Façade interactive Arbalet Frontage</h3>
+  <h3>{{"HOME_PAGE_TITLE" | translate}}</h3>
 
   <div>
     <p>Bienvenue ! Vous êtes connecté à la façade pixelisée interactive du bâtiment A1 de l'Université de Bordeaux : <b>Arbalet Frontage</b>.</p>
@@ -10,30 +10,30 @@
   <div *ngIf="isFacadeUp; else elseBlock;">
     <ion-list>
       <ion-item>
-        <ion-label>I'm Admin</ion-label>
+        <ion-label>{{"HOME_PAGE_ADMIN_LABEL" | translate}}</ion-label>
         <ion-checkbox [(ngModel)]="isAdmin"></ion-checkbox>
       </ion-item>
       <ion-item>
-        <ion-label>Username</ion-label>
+        <ion-label>{{"HOME_PAGE_USER_LABEL" | translate}}</ion-label>
         <ion-input [(ngModel)]="userName" type="text"></ion-input>
       </ion-item>
       <ion-item *ngIf="isAdmin">
-        <ion-label>Password</ion-label>
+        <ion-label>{{"HOME_PAGE_PWD_LABEL" | translate}}</ion-label>
         <ion-input [(ngModel)]="password" type="text"></ion-input>
       </ion-item>
       <ion-item>
-        <button ion-button full (click)="start()">Start</button>
+        <button ion-button full (click)="start()">{{"HOME_PAGE_START_BUTTON" | translate}}</button>
       </ion-item>
     </ion-list>
   </div>
   
   <ng-template #elseBlock>
     <div *ngIf="isServerUp; else else2Block;">
-      <h2>La façade n'est pas active. Elle sera allumée à {{nextTime | date:"HH'h'mm"}}</h2>
+      <h2>{{"HOME_PAGE_FRONTAGE_DOWN_ALERT" | translate}} {{nextTime | date:"HH'h'mm"}}</h2>
     </div>
 
     <ng-template #else2Block>
-      <h2>Le serveur est indisponible : êtes-vous à proximité de la façade Arbalet Frontage ?</h2>
+      <h2>{{"HOME_PAGE_SERVER_DOWN_ALERT" | translate}}</h2>
     </ng-template>
 
   </ng-template>

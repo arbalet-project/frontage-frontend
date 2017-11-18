@@ -6,7 +6,7 @@
 -->
 <ion-header>
   <ion-navbar>
-    <ion-title>flagsOptions</ion-title>
+    <ion-title>{{"FLAGS_OPTIONS_PAGE_TITLE" | translate}}</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -14,22 +14,22 @@
   <div *ngIf="parametersList">
     <ion-list radio-group [(ngModel)]="selectedParameter">
       <ion-list-header>
-        Flags list
+        {{"FLAGS_OPTIONS_PAGE_LIST" | translate}} 
       </ion-list-header>
       <ion-item *ngFor="let flag of parametersList">
-        <ion-label>{{ flag }}</ion-label>
+        <ion-label>{{ flag | uppercase | translate}}</ion-label>
         <ion-radio value="{{ flag }}"></ion-radio>
       </ion-item>
     </ion-list>
   </div>
 
   <div *ngIf="fAppPosition === -1; else elseBlock;">
-    <button ion-button primary (click)="startFapp()">START FApp</button>
+    <button ion-button primary (click)="startFapp()">{{"FLAGS_OPTIONS_PAGE_START_BUTTON" | translate}}</button>
   </div>
 
   <ng-template #elseBlock>
     <ion-item>
-      <ion-label>Well done ! You are currently in the queue at the position : {{fAppPosition}}</ion-label>
+      <ion-label>{{"FLAGS_OPTIONS_PAGE_QUEUE_ALERT" | translate}} {{fAppPosition}}</ion-label>
     </ion-item>
   </ng-template>
 

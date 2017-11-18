@@ -19,7 +19,6 @@ export class HttpInterceptorProvider implements HttpInterceptor {
   constructor(public localStorageProvider: LocalStorageProvider) { }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    console.log("begin interceptor"); 
     const currentToken = this.localStorageProvider.getAuthToken();
     if (currentToken) {
       let token: string = 'Bearer ' + currentToken;

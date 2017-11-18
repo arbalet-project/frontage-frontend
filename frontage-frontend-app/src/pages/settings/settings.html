@@ -1,0 +1,36 @@
+<!--
+  Generated template for the SettingsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{"SETTINGS_PAGE_TITLE" | translate}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+
+  <div id="translateBlocId">
+
+    <ion-item>
+      <p>
+        {{"SETTINGS_PAGE_LABEL" | translate}}
+      </p>
+      <p>
+        <button ion-button icon-start (click)="setTranslateLanguage('fr')">
+          <ion-icon name="star"></ion-icon>
+          {{"SETTINGS_PAGE_FR" | translate}}
+        </button>
+        <button ion-button icon-end (click)="setTranslateLanguage('en')">
+          {{"SETTINGS_PAGE_EN" | translate}}
+          <ion-icon name="star"></ion-icon>
+        </button>
+      </p>
+    </ion-item>
+  </div>
+
+</ion-content>
