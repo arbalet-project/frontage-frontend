@@ -21,7 +21,7 @@ export class NicknameGeneratorProvider {
   adjectivesFrM: string[] = ["100% bio", "affamé", "agile", "alcoolique", "audacieux", "aventureux", "bavard", "bougon", "bruyant", "caracolant", "chantant",
     "charismatique", "charmant", "chaste", "chauve", "chinois", "cleptomane", "curieux", "déjanté", "dérangé", "désinvolte", "déterminé", "élégant", "enchanté", "endormi", 
     "enjoué",  "étourdi", "farfelu", "funky", "gargantuesque", "gonflable", "gourmand", "grincheux", "hyperactif", "impétueux", "incrédule", "joyeux", "loufoque", "magique",
-    "maladroit", "malicieux", "malvoyant", "multicolore", "mystérieux", "paresseux", "pelucheux", "pénible", "perturbé", "poilu", "poilant", "prétentieux", "respectueux", "revêche",
+    "maladroit", "malicieux", "malvoyant", "moqueur", "multicolore", "mystérieux", "paresseux", "pelucheux", "pénible", "perturbé", "poilu", "poilant", "prétentieux", "respectueux", "revêche",
     "roublard", "sagace", "séduisant", "sensible", "simplet", "somnolent", "sophistiqué", "taré", "timide", "tonitruant", "tout doux", "vaillant", "vengeur", 
     "vigoureux", "vivace", "vigilant", "vorace"];
 
@@ -83,9 +83,4 @@ export class NicknameGeneratorProvider {
   createWord(name: string, gender: string) {
     return { name: name, gender: gender };
   }
-}
-
-interface word {
-  name: string,
-  gender: string
 }
