@@ -18,19 +18,20 @@ export class NicknameGeneratorProvider {
     "hippopotamus", "lama", "lemur", "leopard", "lynx", "kangaroo", "kitten", "kiwi", "koala", "monkey", "okapi", "otter", "owl", 
     "panda", "pangolin", "parrot", "porcupine", "pony", "sloth", "tadpole", "tiger", "turkey", "sea horse", "seal", "squirrel", "unicorn", "whale"];
 
-  adjectivesFrM: string[] = ["100% bio", "affamé", "agile", "alcoolique", "audacieux", "aventureux", "aveugle", "bavard", "bougon", "bruyant", "caracolant", "chantant",
+  adjectivesFrM: string[] = ["100% bio", "affamé", "agile", "alcoolique", "audacieux", "aventureux", "bavard", "bougon", "bruyant", "caracolant", "chantant",
     "charismatique", "charmant", "chaste", "chauve", "chinois", "cleptomane", "curieux", "déjanté", "dérangé", "désinvolte", "déterminé", "élégant", "enchanté", "endormi", 
     "enjoué",  "étourdi", "farfelu", "funky", "gargantuesque", "gonflable", "gourmand", "grincheux", "hyperactif", "impétueux", "incrédule", "joyeux", "loufoque", "magique",
-    "maladroit", "malicieux", "multicolore", "mystérieux", "paresseux", "pelucheux", "pénible", "perturbé", "poilu", "poilant", "prétentieux", "respectueux", "revêche",
+    "maladroit", "malicieux", "malvoyant", "multicolore", "mystérieux", "paresseux", "pelucheux", "pénible", "perturbé", "poilu", "poilant", "prétentieux", "respectueux", "revêche",
     "roublard", "sagace", "séduisant", "sensible", "simplet", "somnolent", "sophistiqué", "taré", "timide", "tonitruant", "tout doux", "vaillant", "vengeur", 
     "vigoureux", "vivace", "vigilant", "vorace"];
 
-  adjectivesFrF: string[] = ["100% bio", "affamée", "agile", "alcoolique", "audacieuse", "aventureuse", "aveugle", "bavarde", "bougonne", "bruyante", "caracolante", 
+  adjectivesFrF: string[] = ["100% bio", "affamée", "agile", "alcoolique", "audacieuse", "aventureuse", "bavarde", "bougonne", "bruyante", "caracolante", 
   "chantante", "charismatique", "charmante", "chaste", "chauve", "chinoise", "cleptomane", "curieuse", "déjantée", "dérangée", "désinvolte", "déterminée", "distrait", 
   "élégante","enchantée", "endormie", "enjouée", "étourdie", "farfelue", "funky", "gargantuesque", "gonflable", "gourmande", "grincheus", "hyperactive", 
-  "impétueuse", "incrédule", "joyeuse", "loufoque", "magique", "maladroite", "malicieuse", "multicolore", "mystérieuse", "mystique", "paresseuse", "pénible", "perturbée", 
-  "poilue", "poilante", "prétentieuse","respectueuse", "revêche", "roublarde", "sagace", "séduisante", "sensible", "simplette", "somnolente", "sophistiquée", 
-  "tarée", "timide", "tonitruante", "toute douce", "vaillante", "vengeuse", "vigoureuse", "vivace", "vigilante", "vorace"];
+  "impétueuse", "incrédule", "joyeuse", "loufoque", "magique", "maladroite", "malicieuse", "malvoyante", "multicolore", "mystérieuse", "mystique",
+  "paresseuse", "pénible", "perturbée", "poilue", "poilante", "prétentieuse","respectueuse", "revêche", "roublarde", "sagace", 
+  "séduisante", "sensible", "simplette", "somnolente", "sophistiquée", "tarée", "timide", "tonitruante", "toute douce", "vaillante", 
+  "vengeuse", "vigoureuse", "vivace", "vigilante", "vorace"];
 
   nounsFrM: string[] = ["blaireau", "bonobo", "biche", "cachalot", "castor", "chacal", "chameau", "chaton", "chimpanzé", "crabe", "chevreuil", "coyote", "dindon", 
     "drommadaire", "écureuil", "étalon", "guépard", "hippopotame", "hérisson", "hypocampe", "kangourou", "kiwi", "koala", "lama", "lapin", "lémurien", "léopard", "loir", 

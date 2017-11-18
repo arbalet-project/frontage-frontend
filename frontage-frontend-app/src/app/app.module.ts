@@ -1,8 +1,5 @@
-<<<<<<< HEAD
 import { FlagsJoytickPage } from './../pages/flags-joytick/flags-joytick';
-=======
 import { SettingsPage } from './../pages/settings/settings';
->>>>>>> da33babee9e7da81d28f5132a34b8bc14be06e3c
 import { HttpInterceptorProvider } from './../providers/http-interceptor/http-interceptor';
 import { WaitingPage } from './../pages/waiting/waiting';
 import { BrowserModule } from '@angular/platform-browser';
@@ -21,9 +18,7 @@ import { TimeProvider } from '../providers/time/time';
 import { WebSocketProvider } from '../providers/web-socket/web-socket';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { LocalStorageProvider } from '../providers/local-storage/local-storage';
-<<<<<<< HEAD
 import { NicknameGeneratorProvider } from '../providers/nickname-generator/nickname-generator';
-=======
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { Http, HttpModule } from '@angular/http';
@@ -31,18 +26,14 @@ import { Http, HttpModule } from '@angular/http';
 export function createTranslateLoader(http: Http) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
->>>>>>> da33babee9e7da81d28f5132a34b8bc14be06e3c
 
 let components:any[] = [
     MyApp,
     HomePage,
     FAppListPage,
     WaitingPage,
-<<<<<<< HEAD
-    FlagsJoytickPage
-=======
+    FlagsJoytickPage,
     SettingsPage
->>>>>>> da33babee9e7da81d28f5132a34b8bc14be06e3c
 ];
 
 @NgModule({
