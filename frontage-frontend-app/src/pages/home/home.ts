@@ -16,11 +16,11 @@ export class HomePage {
   isFacadeUp: boolean = false;
   exception: any;
   nextTime: Date;
-  userName: string ;
+  userName: string;
   password: string;
   serverUpSubscription: Subscription;
 
-  constructor(private navCtrl: NavController, private authentication: AuthenticationProvider, private time: TimeProvider, 
+  constructor(private navCtrl: NavController, private authentication: AuthenticationProvider, private time: TimeProvider,
     nicknameGeneratorProvider: NicknameGeneratorProvider) {
 
     this.userName = nicknameGeneratorProvider.generateNicknameFr();
@@ -37,7 +37,6 @@ export class HomePage {
   }
 
   checkFacade(isServerUp: boolean) {
-    console.log("server up ? " + isServerUp);
     if (isServerUp) {
       this.isServerUp = isServerUp;
       this.authentication.isFacadeUp()
@@ -46,7 +45,6 @@ export class HomePage {
   }
 
   handleFacadeStatus(isFacadeUp: boolean) {
-    console.log("isFacadeUp ? " + isFacadeUp);
 
     if (isFacadeUp) {
       this.isFacadeUp = true;
@@ -62,11 +60,9 @@ export class HomePage {
 
     let splitted: string[] = time.split(":");
     let date: Date = new Date();
-    console.log("Date 1: " + JSON.stringify(date));
 
     date.setUTCHours(parseInt(splitted[0]));
     date.setUTCMinutes(parseInt(splitted[1]));
-    console.log("Date 2: " + JSON.stringify(date));
 
     this.nextTime = date;
   }
@@ -84,8 +80,6 @@ export class HomePage {
   pushPage(isAuthenticated: boolean) {
     if (isAuthenticated) {
       this.navCtrl.push(FAppListPage)
-    } else {
-      console.log("Stay here ! ")
     }
   }
 
