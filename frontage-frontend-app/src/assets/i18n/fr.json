@@ -11,6 +11,7 @@
     "HOME_PAGE_START_BUTTON":"C'est parti !",
     "HOME_PAGE_FRONTAGE_DOWN_ALERT": "La façade n'est pas active. Elle sera allumée à",
     "HOME_PAGE_SERVER_DOWN_ALERT":"Le serveur est indisponible : êtes-vous à proximité de la façade Arbalet Frontage ?",
+    "HOME_PAGE_FOOTER_MESSAGE":"Tous droits réservés",
 
     "FAPP_PAGE_TITLE":"Liste des applications de la façade",
     "FAPP_PAGE_OPTIONS_BUTTON":"Afficher les options",

@@ -11,6 +11,7 @@
     "HOME_PAGE_START_BUTTON":"Let's go !",
     "HOME_PAGE_FRONTAGE_DOWN_ALERT": "Frontage is not active. It will be available at : ",
     "HOME_PAGE_SERVER_DOWN_ALERT":"Server is not reachable. Are you sure to be close to the frontage ?",
+    "HOME_PAGE_FOOTER_MESSAGE":"All rights reserved",
 
     "FAPP_PAGE_TITLE":"Frontage app list",
     "FAPP_PAGE_OPTIONS_BUTTON":"Show settings",

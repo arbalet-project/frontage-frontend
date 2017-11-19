@@ -10,10 +10,11 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class LocalStorageProvider {
 
-  localStorage: Storage;
+  private localStorage: Storage;
 
-  tokenStorageKey: string = 'authToken'
-  userStorageKey: string = 'userName';
+  private tokenStorageKey: string = 'vhJeNuUbbWEkTNsmv84uBEKb'
+  private userStorageKey: string = 'YyDarJEPEWtG3pe4UuVPQGf3';
+  private isAdminStorageKey: string = 'PSL8A53FHqfCcKEnMPYJRyAN';
 
   constructor() {
     this.localStorage = window.localStorage;
@@ -33,6 +34,14 @@ export class LocalStorageProvider {
 
   public setUserName(userName: string): void {
     return this.localStorage.setItem(this.userStorageKey, userName);
+  }
+
+  public setAdmin(isAdmin: string) {
+    this.localStorage.setItem(this.isAdminStorageKey, isAdmin);
+  }
+
+  public isAdmin(): string {
+    return this.localStorage.getItem(this.isAdminStorageKey);
   }
 
 }

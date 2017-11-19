@@ -24,14 +24,10 @@
   <div *ngIf="isFacadeUp; else elseBlock;">
     <ion-list>
       <ion-item>
-        <ion-label>{{"HOME_PAGE_ADMIN_LABEL" | translate}}</ion-label>
-        <ion-checkbox [(ngModel)]="isAdmin"></ion-checkbox>
-      </ion-item>
-      <ion-item>
         <ion-label>{{"HOME_PAGE_USER_LABEL" | translate}}</ion-label>
         <ion-input [(ngModel)]="userName" type="text"></ion-input>
       </ion-item>
-      <ion-item *ngIf="isAdmin">
+      <ion-item *ngIf="isPwdDisplayed">
         <ion-label>{{"HOME_PAGE_PWD_LABEL" | translate}}</ion-label>
         <ion-input [(ngModel)]="password" type="text"></ion-input>
       </ion-item>
@@ -53,3 +49,13 @@
   </ng-template>
 
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-item>
+      <button item-end (click)="displayPwd()">
+        {{"HOME_PAGE_FOOTER_MESSAGE" | translate}}
+      </button>
+    </ion-item>
+  </ion-toolbar>
+</ion-footer>

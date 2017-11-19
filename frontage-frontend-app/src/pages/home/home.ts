@@ -15,10 +15,13 @@ export class HomePage {
 
   isServerUp: boolean = false;
   isFacadeUp: boolean = false;
+  isPwdDisplayed: boolean = false;
+
   exception: any;
   nextTime: Date;
   userName: string;
   password: string;
+
   serverUpSubscription: Subscription;
 
   constructor(private navCtrl: NavController, private authentication: AuthenticationProvider, private time: TimeProvider,
@@ -75,16 +78,30 @@ export class HomePage {
     //Ask for an authentication token
     this.authentication
       .auth(this.userName, this.password)
-      .subscribe(isAuthenticated => this.pushPage(isAuthenticated));
-    
-    //Save the user name in the local storage
-    this.localStorageProvider.setUserName(this.userName);
+      .subscribe(isAuthenticated => {
+        this.pushPage(isAuthenticated);
+
+        //Save the user name in the local storage
+        this.localStorageProvider.setUserName(this.userName);
+
+        //Save the user information in the local storage
+        var isAdmin = "false";
+        if (this.isPwdDisplayed && this.password) {
+          isAdmin = "true";
+        }
+        this.localStorageProvider.setAdmin(isAdmin);
+      });
+
   }
 
   pushPage(isAuthenticated: boolean) {
     if (isAuthenticated) {
       this.navCtrl.push(FAppListPage)
     }
+  }
+
+  displayPwd() {
+    this.isPwdDisplayed = !this.isPwdDisplayed;
   }
 
   handleError(e: any): any {

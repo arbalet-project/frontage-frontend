@@ -36,8 +36,9 @@ export class AuthenticationProvider {
   public auth(userName: string, password: string): Observable<boolean> {
 
     let body;
+    let isAdmin = this.localStorageProvider.isAdmin();
     //If the user is admin send the password
-    if (password) {
+    if (isAdmin) {
       body = { "username": userName, "password": password };
     } else {
       body = { "username": userName };
@@ -53,7 +54,6 @@ export class AuthenticationProvider {
 
   private extractToken(response): boolean {
     let token = response.token;
-    console.log(token);
     if (token) {
       this.localStorageProvider.setAuthToken(token);
       return true;
