@@ -1,3 +1,4 @@
+import { LocalStorageProvider } from './../../providers/local-storage/local-storage';
 import { FAppListPage } from './../f-app-list/f-app-list';
 import { TimeProvider } from './../../providers/time/time';
 import { Observable, Subscription } from 'rxjs/Rx';
@@ -21,7 +22,7 @@ export class HomePage {
   serverUpSubscription: Subscription;
 
   constructor(private navCtrl: NavController, private authentication: AuthenticationProvider, private time: TimeProvider,
-    nicknameGeneratorProvider: NicknameGeneratorProvider) {
+    nicknameGeneratorProvider: NicknameGeneratorProvider, public localStorageProvider: LocalStorageProvider) {
 
     this.userName = nicknameGeneratorProvider.generateNicknameFr();
     authentication.isServerUp()
@@ -75,6 +76,9 @@ export class HomePage {
     this.authentication
       .auth(this.userName, this.password)
       .subscribe(isAuthenticated => this.pushPage(isAuthenticated));
+    
+    //Save the user name in the local storage
+    this.localStorageProvider.setUserName(this.userName);
   }
 
   pushPage(isAuthenticated: boolean) {

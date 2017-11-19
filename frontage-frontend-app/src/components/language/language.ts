@@ -16,9 +16,15 @@ export class LanguageComponent {
 
   selectedLanguage: string = "fr";
 
+  languageAlertOpts: { title: string };
+
   constructor(public translateLanguageProvider: TranslateLanguageProvider, public translateProvider: TranslateService) {
     this.selectedLanguage = "fr";
     this.translateLanguageProvider.setDefaultLanguage(this.selectedLanguage);
+
+    this.languageAlertOpts = {
+      title : 'Sélectionner votre langue'
+    };
   }
 
   changeLanguage() {

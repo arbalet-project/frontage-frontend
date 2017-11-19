@@ -1,29 +1,25 @@
-<!--
-  Generated template for the SweepAsyncOptionsPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
-
   <ion-navbar>
-    <ion-title>{{"SA_OPTIONS_PAGE_TITLE" | translate}}</ion-title>
+    <ion-item color="light">
+      <ion-title>{{"SA_OPTIONS_PAGE_TITLE" | translate}}</ion-title>
+      <div item-end>
+        <user-displayed></user-displayed>
+      </div>
+    </ion-item>
   </ion-navbar>
-
 </ion-header>
-
 
 <ion-content padding>
   <form [formGroup]="fAppOptions" (ngSubmit)="lauchApp()">
-    
-            <ion-item>
-                <ion-label>{{"COLOR_APP_OPTIONS_PAGE_COLOR_LABEL" | translate}}</ion-label>
-                  <ion-select formControlName="fAppColor">
-                  <ion-option value="darkblue">{{"COLOR_APP_OPTIONS_PAGE_DARK_BLUE_LABEL" | translate}}</ion-option>
-                  <ion-option value="pink">{{"COLOR_APP_OPTIONS_PAGE_PINK_LABEL" | translate}}</ion-option>
-                </ion-select>
-            </ion-item>
-        </form>
-    
-        <button ion-button full (click)="lauchApp()">{{"COLOR_APP_OPTIONS_PAGE_START_BUTTON" | translate}}</button>
+
+    <ion-item>
+      <ion-label>{{"COLOR_APP_OPTIONS_PAGE_COLOR_LABEL" | translate}}</ion-label>
+      <ion-select formControlName="fAppColor">
+        <ion-option value="darkblue">{{"COLOR_APP_OPTIONS_PAGE_DARK_BLUE_LABEL" | translate}}</ion-option>
+        <ion-option value="pink">{{"COLOR_APP_OPTIONS_PAGE_PINK_LABEL" | translate}}</ion-option>
+      </ion-select>
+    </ion-item>
+  </form>
+
+  <button ion-button full (click)="lauchApp()">{{"COLOR_APP_OPTIONS_PAGE_START_BUTTON" | translate}}</button>
 </ion-content>

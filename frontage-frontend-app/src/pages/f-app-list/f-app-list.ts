@@ -38,10 +38,6 @@ export class FAppListPage {
     console.log("list : " + JSON.stringify(this.fAppList));
   }
 
-  private computePageName(fApp: FApp): string {
-    return fApp.name + "OptionsPage";
-  }
-
   private establishNavigationPageName(fAppName: string): any {
     switch(fAppName) {
       case "Flags" : {
