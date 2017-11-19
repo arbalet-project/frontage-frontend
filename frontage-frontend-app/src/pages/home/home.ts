@@ -78,24 +78,23 @@ export class HomePage {
     //Ask for an authentication token
     this.authentication
       .auth(this.userName, this.password)
-      .subscribe(isAuthenticated => {
-        this.pushPage(isAuthenticated);
-
-        //Save the user name in the local storage
-        this.localStorageProvider.setUserName(this.userName);
-
-        //Save the user information in the local storage
-        var isAdmin = "false";
-        if (this.isPwdDisplayed && this.password) {
-          isAdmin = "true";
-        }
-        this.localStorageProvider.setAdmin(isAdmin);
-      });
-
+      .subscribe(isAuthenticated =>
+        this.pushPage(isAuthenticated));
   }
 
   pushPage(isAuthenticated: boolean) {
     if (isAuthenticated) {
+      //Save the user name in the local storage
+      this.localStorageProvider.setUserName(this.userName);
+
+      //Save the user information in the local storage
+      var isAdmin = "false";
+      if (this.isPwdDisplayed && this.password) {
+        isAdmin = "true";
+      }
+      this.localStorageProvider.setAdmin(isAdmin);
+
+      //Change page
       this.navCtrl.push(FAppListPage)
     }
   }
