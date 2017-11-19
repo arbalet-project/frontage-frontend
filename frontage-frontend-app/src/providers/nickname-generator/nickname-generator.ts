@@ -20,7 +20,7 @@ export class NicknameGeneratorProvider {
 
   adjectivesFrM: string[] = ["100% bio", "affamé", "agile", "alcoolique", "audacieux", "aventureux", "bavard", "bougon", "bruyant", "caracolant", "chantant",
     "charismatique", "charmant", "chaste", "chauve", "chinois", "cleptomane", "curieux", "déjanté", "dérangé", "désinvolte", "déterminé", "élégant", "enchanté", "endormi", 
-    "enjoué",  "étourdi", "farfelu", "funky", "gargantuesque", "gonflable", "gourmand", "grincheux", "hyperactif", "impétueux", "incrédule", "joyeux", "loufoque", "magique",
+    "enjoué",  "étourdi", "farfelu", "funky", "gargantuesque", "gonflable", "gourmand", "grincheux", "hyperactif", "impétueux", "incrédule", "intrépide", "joyeux", "loufoque", "magique",
     "maladroit", "malicieux", "malvoyant", "moqueur", "multicolore", "mystérieux", "paresseux", "pelucheux", "pénible", "perturbé", "poilu", "poilant", "prétentieux", "respectueux", "revêche",
     "roublard", "sagace", "séduisant", "sensible", "simplet", "somnolent", "sophistiqué", "taré", "timide", "tonitruant", "tout doux", "vaillant", "vengeur", 
     "vigoureux", "vivace", "vigilant", "vorace"];
@@ -28,16 +28,16 @@ export class NicknameGeneratorProvider {
   adjectivesFrF: string[] = ["100% bio", "affamée", "agile", "alcoolique", "audacieuse", "aventureuse", "bavarde", "bougonne", "bruyante", "caracolante", 
   "chantante", "charismatique", "charmante", "chaste", "chauve", "chinoise", "cleptomane", "curieuse", "déjantée", "dérangée", "désinvolte", "déterminée", "distrait", 
   "élégante","enchantée", "endormie", "enjouée", "étourdie", "farfelue", "funky", "gargantuesque", "gonflable", "gourmande", "grincheus", "hyperactive", 
-  "impétueuse", "incrédule", "joyeuse", "loufoque", "magique", "maladroite", "malicieuse", "malvoyante", "multicolore", "mystérieuse", "mystique",
+  "impétueuse", "incrédule", "intrépide", "joyeuse", "loufoque", "magique", "maladroite", "malicieuse", "malvoyante", "multicolore", "mystérieuse", "mystique",
   "paresseuse", "pénible", "perturbée", "poilue", "poilante", "prétentieuse","respectueuse", "revêche", "roublarde", "sagace", 
   "séduisante", "sensible", "simplette", "somnolente", "sophistiquée", "tarée", "timide", "tonitruante", "toute douce", "vaillante", 
   "vengeuse", "vigoureuse", "vivace", "vigilante", "vorace"];
 
   nounsFrM: string[] = ["asticot", "blaireau", "bonobo", "biche", "cachalot", "canard", "castor", "chacal", "chameau", "chaton", "chimpanzé", "crabe", "chevreuil", "coyote", "dindon", 
     "drommadaire", "écureuil", "étalon", "guépard", "hippopotame", "hérisson", "hypocampe", "kangourou", "kiwi", "koala", "lama", "lapin", "lémurien", "léopard", "loir", 
-    "lynx", "manchot", "matou", "morse", "okapi", "ornythorinque", "ouistiti", "panda", "paresseux", "perroquet", "poney", "porc-épic", "poussin", "phasme", "ragondin", "rhinocéros"
+    "lynx", "manchot", "matou", "morse", "okapi", "ornythorinque", "ouistiti", "panda", "paresseux", "perroquet", "poney", "porc-épic", "poulpe", "poussin", "phasme", "ragondin", "rhinocéros"
     , "souriceau", "taureau", "tétard", "tigre"];
-  nounsFrF: string[] = ["belette", "brebis", "chouette", "giraphe", "licorne", "loutre", "mangouste", "marmotte", "poule", "taupe", "tortue"];
+  nounsFrF: string[] = ["belette", "brebis", "chouette", "giraphe", "licorne", "loutre", "mangouste", "marmotte", "poule", "pieuvre", "taupe", "tortue"];
 
   constructor() {}
 
@@ -69,12 +69,7 @@ export class NicknameGeneratorProvider {
 
     return noun + " " + adj;
   }
-
-  isMale():boolean {
-    this.nounsFrM.length/this.nounsFrF.length;
-    return true;
-  }
-
+  
   getRandomNumberBetween(from: number, to: number): number {
 
     return Math.floor(Math.random() * to) + from;;
