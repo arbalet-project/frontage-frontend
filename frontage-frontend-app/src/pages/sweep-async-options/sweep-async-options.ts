@@ -4,6 +4,7 @@ import { DataFAppsProvider } from './../../providers/data-f-apps/data-f-apps';
 import { FAppOptions } from './../../models/f-app-options';
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { SweepAsyncJoystickPage } from '../sweep-async-joystick/sweep-async-joystick';
 
 /**
  * Generated class for the SweepAsyncOptionsPage page.
@@ -42,6 +43,6 @@ export class SweepAsyncOptionsPage {
 
     
     this.dataFAppsProvider.launchFApp(options)
-      .subscribe(response => this.navCtrl.push(WaitingPage, {info:response}));
+      .subscribe(response => this.navCtrl.push(WaitingPage, {info:response, joystick: SweepAsyncJoystickPage}));
   }
 }

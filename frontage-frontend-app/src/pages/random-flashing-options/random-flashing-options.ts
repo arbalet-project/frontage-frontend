@@ -5,6 +5,7 @@ import { FAppOptions } from './../../models/f-app-options';
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { RandomFlashingJoystickPage } from '../random-flashing-joystick/random-flashing-joystick';
 
 /**
  * Generated class for the RandomFlashingOptionsPage page.
@@ -44,7 +45,7 @@ export class RandomFlashingOptionsPage {
 
     
     this.dataFAppsProvider.launchFApp(options)
-      .subscribe(response => this.navCtrl.push(WaitingPage, {info:response}));
+      .subscribe(response => this.navCtrl.push(WaitingPage, {info:response, joystick:RandomFlashingJoystickPage}));
   }
 }
 

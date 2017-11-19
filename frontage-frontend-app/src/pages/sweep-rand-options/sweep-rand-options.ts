@@ -5,6 +5,7 @@ import { FAppOptions } from './../../models/f-app-options';
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import 'rxjs/add/operator/catch';
+import { SweepRandJoystickPage } from '../sweep-rand-joystick/sweep-rand-joystick';
 
 /**
  * Generated class for the SweepRandOptionsPage page.
@@ -44,6 +45,6 @@ export class SweepRandOptionsPage {
     
     this.dataFAppsProvider
       .launchFApp(options)
-      .subscribe(response => this.navCtrl.push(WaitingPage, {info:response}));
+      .subscribe(response => this.navCtrl.push(WaitingPage, {info:response, joystick:SweepRandJoystickPage}));
   }
 }
