@@ -1,23 +1,24 @@
+import { SnakeJoystickPage } from './../snake-joystick/snake-joystick';
 import { WaitingPage } from './../waiting/waiting';
-import { FormBuilder, FormGroup } from '@angular/forms';
 import { DataFAppsProvider } from './../../providers/data-f-apps/data-f-apps';
 import { FAppOptions } from './../../models/f-app-options';
+import { FormGroup, FormBuilder } from '@angular/forms';
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
-import { SweepAsyncJoystickPage } from '../sweep-async-joystick/sweep-async-joystick';
+import { NavController, NavParams } from 'ionic-angular';
 
 /**
- * Generated class for the SweepAsyncOptionsPage page.
+ * Generated class for the SnakeOptionsPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
 
 @Component({
-  selector: 'page-sweep-async-options',
-  templateUrl: 'sweep-async-options.html',
+  selector: 'page-snake-options',
+  templateUrl: 'snake-options.html',
 })
-export class SweepAsyncOptionsPage {
+export class SnakeOptionsPage {
+
   fAppOptions: FormGroup;
   fAppPosition: number;
 
@@ -30,18 +31,14 @@ export class SweepAsyncOptionsPage {
   lauchApp() {
 
     let options: FAppOptions = {
-      name: "SweepAsync",
+      name: "Snake",
       params: {
-        dur_min: 1,
-        dur_max: 15,
-        refresh_rate: 80,
-        colors: [ this.fAppOptions.value.fAppColor ],
-        uapp: "swipe"
       }
     }
 
     
     this.dataFAppsProvider.launchFApp(options)
-      .subscribe(response => this.navCtrl.push(WaitingPage, {info:response, joystick: SweepAsyncJoystickPage}));
+      .subscribe(response => this.navCtrl.push(WaitingPage, {info:response, joystick: SnakeJoystickPage}));
   }
+
 }

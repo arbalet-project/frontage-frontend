@@ -1,3 +1,4 @@
+import { SnakeJoystickPage } from './../pages/snake-joystick/snake-joystick';
 import { SweepRandOptionsPage } from './../pages/sweep-rand-options/sweep-rand-options';
 import { FlagsJoytickPage } from './../pages/flags-joytick/flags-joytick';
 import { HttpInterceptorProvider } from './../providers/http-interceptor/http-interceptor';
@@ -28,6 +29,7 @@ import { FlagsOptionsPage } from '../pages/flags-options/flags-options';
 import { SweepAsyncOptionsPage } from '../pages/sweep-async-options/sweep-async-options';
 import { RandomFlashingOptionsPage } from '../pages/random-flashing-options/random-flashing-options';
 import { UserDisplayedComponent } from '../components/user-diplayed/user-displayed';
+import { SnakeOptionsPage } from '../pages/snake-options/snake-options';
 
 export function createTranslateLoader(http: Http) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -44,7 +46,9 @@ let components:any[] = [
     SweepRandOptionsPage,
     RandomFlashingOptionsPage,
     LanguageComponent,
-    UserDisplayedComponent
+    UserDisplayedComponent,
+    SnakeJoystickPage,
+    SnakeOptionsPage
 ];
 
 @NgModule({

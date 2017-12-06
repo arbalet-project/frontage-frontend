@@ -32,7 +32,6 @@ export class SweepRandOptionsPage {
 
     let options: FAppOptions = {
       name: "SweepRand",
-      playable: "true",
       params: {
         dur_min: 1,
         dur_max: 15,

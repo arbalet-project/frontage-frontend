@@ -1,3 +1,4 @@
+import { SnakeOptionsPage } from './../snake-options/snake-options';
 import { SweepRandOptionsPage } from './../sweep-rand-options/sweep-rand-options';
 import { RandomFlashingOptionsPage } from './../random-flashing-options/random-flashing-options';
 import { FlagsOptionsPage } from './../flags-options/flags-options';
@@ -51,6 +52,9 @@ export class FAppListPage {
       }
       case "SweepRand" :{
         return SweepRandOptionsPage;
+      }
+      case "Snake" :{
+        return SnakeOptionsPage;
       }
       default: {
         return FlagsOptionsPage;

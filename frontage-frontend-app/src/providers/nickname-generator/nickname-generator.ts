@@ -30,7 +30,7 @@ export class NicknameGeneratorProvider {
   "élégante","enchantée", "endormie", "enjouée", "étourdie", "farfelue", "funky", "gargantuesque", "gonflable", "gourmande", "grincheus", "hyperactive", 
   "impétueuse", "incrédule", "intrépide", "joyeuse", "loufoque", "magique", "maladroite", "malicieuse", "malvoyante", "multicolore", "mystérieuse", "mystique",
   "paresseuse", "pénible", "perturbée", "poilue", "poilante", "prétentieuse","respectueuse", "revêche", "roublarde", "sagace", 
-  "séduisante", "sensible", "simplette", "somnolente", "sophistiquée", "tarée", "timide", "tonitruante", "toute douce", "vaillante", 
+  "séduisante", "sensible", "simplette", "somnolente", "sophistiquée", "tarée", "timide", "tonitruante", "toute douce", "vaillante", "veloce",
   "vengeuse", "vigoureuse", "vivace", "vigilante", "vorace"];
 
   nounsFrM: string[] = ["asticot", "blaireau", "bonobo", "biche", "cachalot", "canard", "castor", "chacal", "chameau", "chaton", "chimpanzé", "crabe", "chevreuil", "coyote", "dindon", 
@@ -50,7 +50,6 @@ export class NicknameGeneratorProvider {
   }
 
   generateNicknameFr(): string {
-    let isMale: boolean;
 
     let total = this.nounsFrM.length + this.nounsFrF.length;
 

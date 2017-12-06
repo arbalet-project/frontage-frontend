@@ -35,7 +35,6 @@ export class FlagsOptionsPage {
   startFapp() {
     let options: FAppOptions = {
       name: "Flags",
-      playable: "true",
       params: {
         uapp: this.selectedParameter
       }
