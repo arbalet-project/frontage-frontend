@@ -15,6 +15,18 @@
 
 <ion-content padding>
 
-  <button ion-button (click)="testSocket()">Web Socket</button>
+    <ion-list radio-group>
+      <ion-list-header>
+        Options :
+      </ion-list-header>
+
+      <ion-item *ngFor="let flag of paramsList" [(ngModel)]="selectedParameter">
+        <ion-label>{{flag | uppercase | translate}}</ion-label>
+        <ion-radio value="{{ flag }}"></ion-radio>
+      </ion-item>
+    </ion-list>
+
+
+  <button ion-button (click)="sendOption()">Web Socket</button>
 
 </ion-content>

@@ -2,7 +2,7 @@ import { FAppListPage } from './../f-app-list/f-app-list';
 import { DataFAppsProvider } from './../../providers/data-f-apps/data-f-apps';
 import { Subscription, Observable } from 'rxjs/Rx';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 
 /**
  * Generated class for the WaitingPage page.
@@ -11,7 +11,6 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
  * Ionic pages and navigation.
  */
 
-@IonicPage()
 @Component({
   selector: 'page-waiting',
   templateUrl: 'waiting.html',
@@ -22,10 +21,13 @@ export class WaitingPage {
   message: string = 'En attente du serveur';
   
   joystickPage:any;
+  joystickParams:any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public dataFAppsProvider: DataFAppsProvider) {
 
     this.joystickPage = navParams.get('joystick');
+    this.joystickParams = navParams.get('joystickParams');
+
     let serverResponse: any = navParams.get('info');
     //If queued then periodically check the position in the queue 
     if (serverResponse.queued) {
@@ -54,7 +56,7 @@ export class WaitingPage {
       this.message = "L'application est en train de se lancer !"
       positionSubscription.unsubscribe();
 
-      this.navCtrl.push(this.joystickPage);
+      this.navCtrl.push(this.joystickPage, {joystickParams:this.joystickParams});
     }
 
   }

@@ -40,25 +40,6 @@ export class HomePage {
     }
   }
 
-  websocketTest() {
-    
-    let socket = new WebSocket("ws://192.168.1.23:8124");
-    
-    socket.onmessage = function(message) {
-      console.log(message);
-      return message;
-    };
-
-    socket.onopen = function() {
-      console.log("connected !");
-      socket.send("helloooooooo ! ");
-    };
-    
-
-    
-    // (msg => console.log(msg));
-  }
-
   checkFacade(isServerUp: boolean) {
     if (isServerUp) {
       this.isServerUp = isServerUp;

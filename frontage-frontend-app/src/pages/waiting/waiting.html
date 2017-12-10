@@ -1,7 +1,7 @@
 <ion-header>
   <ion-navbar>
     <ion-item color="light">
-      <ion-title>En attente</ion-title>
+      <ion-title>{{ "WAITING" | translate}}</ion-title>
       <div item-end>
         <user-displayed></user-displayed>
       </div>
@@ -17,7 +17,6 @@
     </ion-card>
   </ion-item>
 
-  <button ion-button (click)="cancel()">{{STOP_APP | translate}}</button>
+  <button ion-button (click)="cancel()">{{"STOP_APP" | translate}}</button>
 
-  <button ion-button (click)="test()">test</button>
 </ion-content>

@@ -1,6 +1,6 @@
 import { NicknameGeneratorProvider } from './../../providers/nickname-generator/nickname-generator';
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavParams } from 'ionic-angular';
 
 /**
  * Generated class for the SnakesJoystickPage page.
@@ -17,7 +17,7 @@ export class SnakeJoystickPage {
 
   nom:string = "";
 
-  constructor(public navCtrl: NavController, public nicknameGeneratorProvider: NicknameGeneratorProvider, public navParams: NavParams) {
+  constructor(public nicknameGeneratorProvider: NicknameGeneratorProvider, public navParams: NavParams) {
     this.nom = nicknameGeneratorProvider.generateNicknameFr();
   }
 

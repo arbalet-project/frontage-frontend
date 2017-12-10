@@ -1,7 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
-import 'rxjs/add/operator/map';
-import Rx from 'rxjs/rx';
 
 /*
   Generated class for the WebSocketProvider provider.
@@ -12,51 +10,19 @@ import Rx from 'rxjs/rx';
 @Injectable()
 export class WebSocketProvider {
 
-  socket:Rx.Subject<MessageEvent>;
+  url: string = "ws://192.168.1.23:8124";
 
-  constructor(public http: Http) {
-    console.log('Hello WebSocketProvider Provider');
-  }
+  constructor(public http: Http) { }
 
-  public connect(url): Rx.Subject<MessageEvent> {
-    if(!this.socket) {
-      // this.socket = this.create(url);
-    }
-    return this.socket;
-  }
-
-  private create(url: string) {
-    let ws = new WebSocket(url);
-
-    ws.onerror = function (error) {
-      console.log(JSON.stringify(error));
-    };
-
-    ws.onmessage = function (message) {
-      console.log(JSON.stringify(message));
-    };
-
-    ws.onclose = function () {
-      console.log("Close");
-    };
-
-    // let observable = Rx.Observable.create(
-    //   (obs: Rx.Observer<MessageEvent>) => {
-    //     ws.onmessage = obs.next.bind(obs);
-    //     ws.onerror = obs.error.bind(obs);
-    //     ws.onclose = obs.complete.bind(obs);
-    //     return ws.close.bind(ws);
-    //   }
-    // );
-
-    // let observer = {
-    //   next: (data: Object) => {
-    //     if (ws.readyState === WebSocket.OPEN) {
-    //       ws.send(JSON.stringify(data));
-    //     }
-    //   },
-    // };
+  public getSocket(): WebSocket {
     
-    // return Rx.Subject.create(observer, observable);
+    let socket: WebSocket = new WebSocket(this.url);
+    
+    socket.onopen = function () {
+      console.log("connected !");
+      socket.send("{msg:Connection ok}");
+    };
+
+    return socket;
   }
 }
