@@ -32,6 +32,10 @@ export class WaitingPage {
 
     let serverResponse: any = navParams.get('info');
     //If queued then periodically check the position in the queue 
+    if (serverResponse.status === 400) {
+      this.startApp();
+    }
+
     if (serverResponse.queued) {
       this.positionSubscription = Observable.interval(serverResponse.keep_alive_delay * 50)
         .subscribe(x => {
@@ -41,15 +45,17 @@ export class WaitingPage {
     } else if (serverResponse.status === 403) {
 
       this.message = "Erreur : Vous ne pouvez lancer qu'une seule application à la fois. Vous êtes déjà dans la queue.";
+    } else if (serverResponse.status === 200) {
+      this.startApp();
     } else {
-      this.message = "Une erreur inconnue s'est produite. Tenter de redémarrer l'application."
+      this.message = "Une erreur inconnue s'est produite. Tentez de redémarrer l'application."
     }
 
   }
 
   checkPosition(response: any) {
 
-     this.position = response.position;
+    this.position = response.position;
 
     this.message = "Vous êtes dans la queue à la position : " + this.position;
 
@@ -57,7 +63,7 @@ export class WaitingPage {
       this.message = "L'application est en train de se lancer !";
       this.positionSubscription.unsubscribe();
 
-      this.navCtrl.push(this.joystickPage, {joystickParams:this.joystickParams});
+      this.startApp();
     }
   }
 
@@ -66,4 +72,7 @@ export class WaitingPage {
     this.positionSubscription.unsubscribe();
   }
 
+  startApp() {
+      this.navCtrl.push(this.joystickPage, {joystickParams:this.joystickParams});
+  }
 }
