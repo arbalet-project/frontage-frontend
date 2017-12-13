@@ -23,6 +23,8 @@ export class WaitingPage {
   joystickPage:any;
   joystickParams:any;
 
+  positionSubscription: Subscription;
+
   constructor(public navCtrl: NavController, public navParams: NavParams, public dataFAppsProvider: DataFAppsProvider) {
 
     this.joystickPage = navParams.get('joystick');
@@ -31,10 +33,10 @@ export class WaitingPage {
     let serverResponse: any = navParams.get('info');
     //If queued then periodically check the position in the queue 
     if (serverResponse.queued) {
-      let positionSubscription: Subscription = Observable.interval(serverResponse.keep_alive_delay * 50)
+      this.positionSubscription = Observable.interval(serverResponse.keep_alive_delay * 50)
         .subscribe(x => {
           this.dataFAppsProvider.checkPosition()
-            .subscribe(response => this.checkPosition(response, positionSubscription))
+            .subscribe(response => this.checkPosition(response))
         });
     } else if (serverResponse.status === 403) {
 
@@ -45,7 +47,7 @@ export class WaitingPage {
 
   }
 
-  checkPosition(response: any, positionSubscription: Subscription) {
+  checkPosition(response: any) {
 
     let position: number = response.position;
     this.position = position + 1;
@@ -54,7 +56,7 @@ export class WaitingPage {
 
     if (position === -1) {
       this.message = "L'application est en train de se lancer !"
-      positionSubscription.unsubscribe();
+      this.positionSubscription.unsubscribe();
 
       this.navCtrl.push(this.joystickPage, {joystickParams:this.joystickParams});
     }
@@ -63,6 +65,7 @@ export class WaitingPage {
 
   cancel() {
     this.dataFAppsProvider.stopApp().subscribe(response => this.navCtrl.push(FAppListPage));
+    this.positionSubscription.unsubscribe();
   }
 
 }
