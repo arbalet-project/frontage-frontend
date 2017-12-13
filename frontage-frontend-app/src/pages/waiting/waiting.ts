@@ -54,7 +54,7 @@ export class WaitingPage {
     this.message = "Vous êtes dans la queue à la position : " + this.position;
 
     if (this.position === -1) {
-      this.message = "L'application est en train de se lancer !"
+      this.message = "L'application est en train de se lancer !";
       this.positionSubscription.unsubscribe();
 
       this.navCtrl.push(this.joystickPage, {joystickParams:this.joystickParams});
