@@ -16,24 +16,30 @@ import { NavParams } from 'ionic-angular';
 export class SnakeJoystickPage {
 
   nom:string = "";
+  socket:WebSocket;
 
   constructor(public nicknameGeneratorProvider: NicknameGeneratorProvider, public navParams: NavParams) {
     this.nom = nicknameGeneratorProvider.generateNicknameFr();
+
+    this.initSocket();
   }
 
-  testSocket() {
+  initSocket() {
     
-    let socket:WebSocket = new WebSocket("ws://192.168.1.23:8124");
+    this.socket = new WebSocket("ws://192.168.1.23:8124");
 
-    socket.onmessage = function (message) {
+    this.socket.onmessage = function (message) {
       console.log(message);
       return message;
     };
 
     let self = this;
-    socket.onopen = function () {
+    this.socket.onopen = function () {
       console.log("connected !");
-      socket.send("helloooooooo ! Coucou, tu veux voir ma " + self.nom + " ?");
     };
+  }
+
+  onUp() {
+    this.socket.send("^");
   }
 }

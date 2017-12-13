@@ -49,18 +49,16 @@ export class WaitingPage {
 
   checkPosition(response: any) {
 
-    let position: number = response.position;
-    this.position = position + 1;
+     this.position = response.position;
 
     this.message = "Vous êtes dans la queue à la position : " + this.position;
 
-    if (position === -1) {
+    if (this.position === -1) {
       this.message = "L'application est en train de se lancer !"
       this.positionSubscription.unsubscribe();
 
       this.navCtrl.push(this.joystickPage, {joystickParams:this.joystickParams});
     }
-
   }
 
   cancel() {

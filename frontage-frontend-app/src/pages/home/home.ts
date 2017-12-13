@@ -44,19 +44,19 @@ export class HomePage {
     if (isServerUp) {
       this.isServerUp = isServerUp;
       this.authentication.isFacadeUp()
-        .subscribe(isFacadeUp => this.handleFacadeStatus(isFacadeUp));
+        .subscribe(response => this.handleFacadeStatus(response));
     }
   }
 
-  handleFacadeStatus(isFacadeUp: boolean) {
+  handleFacadeStatus(response: boolean) {
 
-    if (isFacadeUp) {
+    if (response) {
       this.isFacadeUp = true;
     } else {
       this.time.getNextTimeUp().subscribe(response => console.log("Heure : " + JSON.stringify(response)));
       this.time.getNextTimeUp().subscribe(response => this.handleHour(response));
 
-      this.isFacadeUp = true;
+      this.isFacadeUp = false;
     }
   }
 
