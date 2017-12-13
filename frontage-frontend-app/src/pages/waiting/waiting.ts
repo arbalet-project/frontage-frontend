@@ -17,6 +17,7 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class WaitingPage {
 
+  state:string = "waiting";
   position: number;
   message: string = 'En attente du serveur';
   
@@ -37,17 +38,19 @@ export class WaitingPage {
     }
 
     if (serverResponse.queued) {
+      this.state="queued";
       this.positionSubscription = Observable.interval(serverResponse.keep_alive_delay * 50)
         .subscribe(x => {
           this.dataFAppsProvider.checkPosition()
             .subscribe(response => this.checkPosition(response))
         });
     } else if (serverResponse.status === 403) {
-
+      this.state="error";
       this.message = "Erreur : Vous ne pouvez lancer qu'une seule application à la fois. Vous êtes déjà dans la queue.";
     } else if (serverResponse.status === 200) {
       this.startApp();
     } else {
+      this.state="error";
       this.message = "Une erreur inconnue s'est produite. Tentez de redémarrer l'application."
     }
 

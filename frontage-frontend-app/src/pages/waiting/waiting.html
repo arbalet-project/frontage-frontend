@@ -11,12 +11,13 @@
 
 <ion-content padding>
 
-  <ion-item *ngIf="message != ''">
-    <ion-card>
-      <ion-header>{{message}}</ion-header>
-    </ion-card>
-  </ion-item>
 
-  <button ion-button (click)="cancel()">{{"STOP_APP" | translate}}</button>
+  <ion-card>
+    <ion-header>{{message}}</ion-header>
+  </ion-card>
+
+  <ion-item *ngIf="state == 'queued'">
+    <button ion-button (click)="cancel()">{{"STOP_APP" | translate}}</button>
+  </ion-item>
 
 </ion-content>

@@ -36,7 +36,12 @@ export class SnakeJoystickPage {
     let self = this;
     this.socket.onopen = function () {
       console.log("connected !");
+      self.socket.send("coucou, c'est " + self.nom);
     };
+
+    this.socket.onerror = function () {
+      console.log("Erreur, la connection a échouée.");
+    }
   }
 
   onUp() {
@@ -44,12 +49,12 @@ export class SnakeJoystickPage {
   }
 
   onDown() {
-    this.socket.send("^");
+    this.socket.send("v");
   }
   onLeft() {
-    this.socket.send("^");
+    this.socket.send("<");
   }
   onRight() {
-    this.socket.send("^");
+    this.socket.send(">");
   }
 }
