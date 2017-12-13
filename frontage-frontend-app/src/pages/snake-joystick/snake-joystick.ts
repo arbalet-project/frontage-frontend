@@ -42,4 +42,14 @@ export class SnakeJoystickPage {
   onUp() {
     this.socket.send("^");
   }
+
+  onDown() {
+    this.socket.send("^");
+  }
+  onLeft() {
+    this.socket.send("^");
+  }
+  onRight() {
+    this.socket.send("^");
+  }
 }
