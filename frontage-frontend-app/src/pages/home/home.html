@@ -1,63 +1,43 @@
 <ion-header>
-  <ion-navbar>
-    <ion-item color="light">
-      <ion-title>{{"HOME_PAGE_TITLE" | translate}}</ion-title>
-      <language item-end></language>
-    </ion-item>
-  </ion-navbar>
+  <app-header displayLanguage="true"></app-header>
 </ion-header>
 
-<ion-content padding>
+<ion-content class="bg">
+  <ion-card>
+    <ion-card-content>
+      <div>
+        <p>Bienvenue ! Vous êtes connecté à la façade pixelisée interactive du bâtiment A1 de l'Université de Bordeaux :
+          <b>Arbalet Frontage</b>.</p>
+        <p>Arbalet Frontage vous permet de jouer à Tetris ou Snake en utilisant votre smartphone comme manette et la façade
+          extérieure de 300m
+          <sup>2</sup> comme écran : elle dispose de 71 pixels lumineux colorés disposés au niveau de chacune de ses fenêtres.</p>
+        <p>En plus d'être jouable, Arbalet Frontage est programmable : nous organisons des ateliers nocturnes en extérieur pour
+          apprendre la programmation et la logique informatique de façon ludique et créative grâce au Pixel Art. Pour connaître
+          la date du prochain atelier,
+          <a href="http://arbalet-project.org/frontage">rdv en ligne</a>.</p>
+      </div>
+    </ion-card-content>
+  </ion-card>
 
-  <div>
-    <p>Bienvenue ! Vous êtes connecté à la façade pixelisée interactive du bâtiment A1 de l'Université de Bordeaux :
-      <b>Arbalet Frontage</b>.</p>
-    <p>Arbalet Frontage vous permet de jouer à Tetris ou Snake en utilisant votre smartphone comme manette et la façade extérieure
-      de 300m
-      <sup>2</sup> comme écran : elle dispose de 71 pixels lumineux colorés disposés au niveau de chacune de ses fenêtres.</p>
-    <p>En plus d'être jouable, Arbalet Frontage est programmable : nous organisons des ateliers nocturnes en extérieur pour
-      apprendre la programmation et la logique informatique de façon ludique et créative grâce au Pixel Art. Pour connaître
-      la date du prochain atelier,
-      <a href="http://arbalet-project.org/frontage">rdv en ligne</a>.</p>
-  </div>
-
-  <div *ngIf="isFacadeUp; else elseBlock;">
-    <ion-list>
-      <ion-item>
-        <ion-label>{{"HOME_PAGE_USER_LABEL" | translate}}</ion-label>
-        <ion-input [(ngModel)]="userName" type="text"></ion-input>
-      </ion-item>
-      <ion-item *ngIf="isPwdDisplayed">
-        <ion-label>{{"HOME_PAGE_PWD_LABEL" | translate}}</ion-label>
-        <ion-input [(ngModel)]="password" type="text"></ion-input>
-      </ion-item>
-      <ion-item>
-        <button ion-button full (click)="start()">{{"HOME_PAGE_START_BUTTON" | translate}}</button>
-      </ion-item>
-    </ion-list>
-  </div>
-
-  <ng-template #elseBlock>
-    <div *ngIf="isServerUp; else else2Block;">
-      <h2>{{"HOME_PAGE_FRONTAGE_DOWN_ALERT" | translate}} {{nextTime | date:"HH'h'mm"}}</h2>
-    </div>
-
-    <ng-template #else2Block>
-      <h2>{{"HOME_PAGE_SERVER_DOWN_ALERT" | translate}}</h2>
-    </ng-template>
-  </ng-template>
+  <ion-card>
+    <ion-slides>
+      <ion-slide>
+        <img src="assets/img/SweepAsync.jpeg" />
+      </ion-slide>
+      <ion-slide>
+        <img src="assets/img/SweepRand.jpeg" />
+      </ion-slide>
+      <ion-slide>
+        <img src="assets/img/home_screen.jpg" />
+      </ion-slide>
+    </ion-slides>
+  </ion-card>
 
 </ion-content>
 
-
-
-
 <ion-footer>
-  <ion-toolbar>
-    <ion-item>
-      <button item-end (click)="displayPwd()">
-        {{"HOME_PAGE_FOOTER_MESSAGE" | translate}}
-      </button>
-    </ion-item>
-  </ion-toolbar>
+  <button ion-button icon-end full color="secondary" class="tr" (click)="goToLoginPage()">
+    {{"HOME_PAGE_START_BUTTON" | translate}}
+    <ion-icon color="secondary" ios="ios-log-in" md="md-log-in"></ion-icon>
+  </button>
 </ion-footer>

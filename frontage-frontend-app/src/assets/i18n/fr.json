@@ -4,14 +4,15 @@
     "SWEEPASYNC":"SweepAsync",
     "SWEEPRAND":"SweepRand",
 
-    "HOME_PAGE_TITLE":"Façade interactive Arbalet Frontage",
-    "HOME_PAGE_ADMIN_LABEL":"Je suis administrateur",
-    "HOME_PAGE_USER_LABEL":"Nom d'utilisateur",
-    "HOME_PAGE_PWD_LABEL":"Mot de passe",
     "HOME_PAGE_START_BUTTON":"C'est parti !",
-    "HOME_PAGE_FRONTAGE_DOWN_ALERT": "La façade n'est pas active. Elle sera allumée à",
-    "HOME_PAGE_SERVER_DOWN_ALERT":"Le serveur est indisponible : êtes-vous à proximité de la façade Arbalet Frontage ?",
-    "HOME_PAGE_FOOTER_MESSAGE":"Tous droits réservés",
+
+    "LOGIN_PAGE_USER_LABEL":"Nom d'utilisateur",
+    "LOGIN_PAGE_PWD_LABEL":"Mot de passe",
+    "LOGIN_PAGE_START_BUTTON":"Se connecter",
+    "LOGIN_PAGE_FRONTAGE_DOWN_ALERT": "La façade n'est pas active. Elle sera allumée à",
+    "LOGIN_PAGE_SERVER_DOWN_ALERT":"Le serveur est indisponible : êtes-vous à proximité de la façade Arbalet Frontage ?",
+    "LOGIN_PAGE_FOOTER_MESSAGE":"Tous droits réservés",
+    "LOGIN_PAGE_FORM_TITLE":"Formulaire de connexion",
 
     "FAPP_PAGE_TITLE":"Liste des applications de la façade",
     "FAPP_PAGE_OPTIONS_BUTTON":"Afficher les options",

@@ -1,0 +1,37 @@
+<ion-header>
+  <app-header (click)="displayPwd()"></app-header>
+</ion-header>
+
+<ion-content class="bg">
+  <ion-card>
+    <ion-card-header>
+      {{"LOGIN_PAGE_FORM_TITLE" | translate}}
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item>
+          <!-- <ion-label>{{"HOME_PAGE_USER_LABEL" | translate}}</ion-label> -->
+          <ion-input placeholder="Username" [(ngModel)]="userName" type="text"></ion-input>
+        </ion-item>
+        <ion-item *ngIf="isPwdDisplayed">
+          <!-- <ion-label>{{"HOME_PAGE_PWD_LABEL" | translate}}</ion-label> -->
+          <ion-input placeholder="Password" [(ngModel)]="password" type="text"></ion-input>
+        </ion-item>
+      </ion-list>
+      <div *ngIf="isFacadeUp; else elseBlock;">
+        <button ion-button block outline color="light" (click)="start()">{{"LOGIN_PAGE_START_BUTTON" | translate}}</button>
+      </div>
+      <ng-template #elseBlock>
+        <div *ngIf="isServerUp; else else2Block;">
+          <h2>{{"LOGIN_PAGE_FRONTAGE_DOWN_ALERT" | translate}} {{nextTime | date:"HH'h'mm"}}</h2>
+        </div>
+        <ng-template #else2Block>
+          <h2>{{"LOGIN_PAGE_SERVER_DOWN_ALERT" | translate}}</h2>
+        </ng-template>
+      </ng-template>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+
+<ion-footer>
+</ion-footer>
