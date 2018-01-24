@@ -4,14 +4,15 @@
     "SWEEPASYNC":"SweepAsync",
     "SWEEPRAND":"SweepRand",
 
-    "HOME_PAGE_TITLE":"Arbalet Frontage",
-    "HOME_PAGE_ADMIN_LABEL":"I am an administrator",
-    "HOME_PAGE_USER_LABEL":"Username",
-    "HOME_PAGE_PWD_LABEL":"Password",
     "HOME_PAGE_START_BUTTON":"Let's go !",
-    "HOME_PAGE_FRONTAGE_DOWN_ALERT": "Frontage is not active. It will be available at : ",
-    "HOME_PAGE_SERVER_DOWN_ALERT":"Server is not reachable. Are you sure to be close to the frontage ?",
-    "HOME_PAGE_FOOTER_MESSAGE":"All rights reserved",
+
+    "LOGIN_PAGE_USER_LABEL":"Username",
+    "LOGIN_PAGE_PWD_LABEL":"Password",
+    "LOGIN_PAGE_START_BUTTON":"Log in",
+    "LOGIN_PAGE_FRONTAGE_DOWN_ALERT": "Frontage is not active. It will be available at : ",
+    "LOGIN_PAGE_SERVER_DOWN_ALERT":"Server is not reachable. Are you sure to be close to the frontage ?",
+    "LOGIN_PAGE_FOOTER_MESSAGE":"All rights reserved",
+    "LOGIN_PAGE_FORM_TITLE":"Login Form",
 
     "FAPP_PAGE_TITLE":"Frontage app list",
     "FAPP_PAGE_OPTIONS_BUTTON":"Show settings",

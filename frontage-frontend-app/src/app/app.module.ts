@@ -1,4 +1,5 @@
 import { TestPage } from './../pages/test/test';
+import { LoginPage } from './../pages/login/login';
 import { SnakeJoystickPage } from './../pages/snake-joystick/snake-joystick';
 import { SweepRandOptionsPage } from './../pages/sweep-rand-options/sweep-rand-options';
 import { FlagsJoytickPage } from './../pages/flags-joytick/flags-joytick';
@@ -25,12 +26,12 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { Http, HttpModule } from '@angular/http';
 import { TranslateLanguageProvider } from '../providers/translate-language/translate-language';
-import { LanguageComponent } from '../components/language/language';
 import { FlagsOptionsPage } from '../pages/flags-options/flags-options';
 import { SweepAsyncOptionsPage } from '../pages/sweep-async-options/sweep-async-options';
 import { RandomFlashingOptionsPage } from '../pages/random-flashing-options/random-flashing-options';
 import { UserDisplayedComponent } from '../components/user-diplayed/user-displayed';
 import { SnakeOptionsPage } from '../pages/snake-options/snake-options';
+import { AppHeaderComponent } from '../components/app-header/app-header';
 
 export function createTranslateLoader(http: Http) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -46,11 +47,12 @@ let components:any[] = [
     SweepAsyncOptionsPage,
     SweepRandOptionsPage,
     RandomFlashingOptionsPage,
-    LanguageComponent,
+    AppHeaderComponent,
     UserDisplayedComponent,
     SnakeJoystickPage,
     SnakeOptionsPage,
-    TestPage
+    TestPage,
+    LoginPage
 ];
 
 @NgModule({

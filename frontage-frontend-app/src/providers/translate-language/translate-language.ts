@@ -2,12 +2,6 @@ import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/map';
 import { TranslateService } from '@ngx-translate/core';
 
-/*
-  Generated class for the TranslateLanguageProvider provider.
-
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
 @Injectable()
 export class TranslateLanguageProvider {
 
@@ -22,5 +16,4 @@ export class TranslateLanguageProvider {
   setLanguage(language: string) {
     this.translateProvider.use(language);
   }
-
 }
