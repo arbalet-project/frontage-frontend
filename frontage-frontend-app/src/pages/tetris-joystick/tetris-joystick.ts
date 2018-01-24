@@ -43,11 +43,9 @@ export class TetrisJoystickPage {
     }
   }
 
-
   onUp() {
     this.socket.send("^");
   }
-
   onDown() {
     this.socket.send("v");
   }

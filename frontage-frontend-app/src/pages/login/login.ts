@@ -41,11 +41,6 @@ export class LoginPage {
     }
   }
 
-  testPage(){
-    //Change page
-    this.navCtrl.push(TestPage);
-  }
-
   checkFacade(isServerUp: boolean) {
     if (isServerUp) {
       this.isServerUp = isServerUp;

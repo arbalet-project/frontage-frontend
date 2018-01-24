@@ -1,18 +1,56 @@
-page-snake-joystick {
-
+.scroll-content {
+    padding:0px!important;
 }
 
 #base{
-    position:relative;
+    background-image: url("../../assets/img/joystick-empty.svg");
+    background-repeat: no-repeat;
+    position:absolute;
+    width: 100vw;
+    height: 100vw;
+    top:10vh!important;
 }
 
-ion-content {
-    background-image:"../../assets/img/joystick.svg";
+#arrow-up{
+    background-image: url("../../assets/img/triangle-up.svg");
+    background-repeat: no-repeat;
+    background-color: rgba(0,0,0,0);
+    width:10vw;
+    height: 10vw;
+    position: absolute;
+    top:10vw!important;
+    left:45vw!important;
 }
 
-#left {
-    display: block;
-    position: relative;
-    top: 50%;
-    bottom: 50%;
+#arrow-down{
+    background-image: url("../../assets/img/triangle-down.svg");
+    background-repeat: no-repeat;
+    background-color: rgba(0,0,0,0);
+    width:10vw;
+    height: 10vw;
+    position: absolute;
+    top:80vw!important;
+    left:45vw!important;
+}
+
+#arrow-right{
+    background-image: url("../../assets/img/triangle-right.svg");
+    background-repeat: no-repeat;
+    background-color: rgba(0,0,0,0);
+    width:10vw;
+    height: 10vw;
+    position: absolute;
+    top:45vw!important;
+    left:80vw!important;
+}
+
+#arrow-left{
+    background-image: url("../../assets/img/triangle-left.svg");
+    background-repeat: no-repeat;
+    background-color: rgba(0,0,0,0);
+    width:10vw;
+    height: 10vw;
+    position: absolute;
+    top:45vw!important;
+    left:10vw!important;
 }

@@ -2,6 +2,56 @@ page-test {
 
 }
 
+.scroll-content {
+    padding:0px!important;
+}
+
+#base{
+    background-image: url("../../assets/img/joystick-empty.svg");
+    background-repeat: no-repeat;
+    // background-color: blue ;
+    width: 100vw;
+    height: 100vw;
+    top:10vh;
+}
+
+#arrow-up{
+    background-color: rgba(0,0,0,0);
+    width:10vw;
+    height: 10vw;
+    position: absolute;
+    top:10%;
+    left:45%;
+}
+
+#arrow-down{
+    background-color: rgba(0,0,0,0);
+    width:10vw;
+    height: 10vw;
+    position: absolute;
+    top:80%;
+    left:45%;
+}
+
+#arrow-right{
+    background-color: rgba(0,0,0,0);
+    width:10vw;
+    height: 10vw;
+    position: absolute;
+    top:45%;
+    left:80%;
+}
+
+#arrow-left{
+    background-color: rgba(0,0,0,0);
+    width:10vw;
+    height: 10vw;
+    position: absolute;
+    top:45%;
+    left:10%;
+}
+
+    
 // .coloration {
 
 // }
