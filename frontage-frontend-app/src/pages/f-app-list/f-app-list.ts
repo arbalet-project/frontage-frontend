@@ -1,3 +1,4 @@
+import { TetrisOptionsPage } from './../tetris-options/tetris-options';
 import { SnakeOptionsPage } from './../snake-options/snake-options';
 import { SweepRandOptionsPage } from './../sweep-rand-options/sweep-rand-options';
 import { RandomFlashingOptionsPage } from './../random-flashing-options/random-flashing-options';
@@ -40,6 +41,7 @@ export class FAppListPage {
   }
 
   private establishNavigationPageName(fAppName: string): any {
+    console.log("fAppName : " + fAppName);
     switch(fAppName) {
       case "Flags" : {
         return FlagsOptionsPage;
@@ -55,6 +57,9 @@ export class FAppListPage {
       }
       case "Snake" :{
         return SnakeOptionsPage;
+      }
+      case "Tetris" :{
+        return TetrisOptionsPage;
       }
       default: {
         return FlagsOptionsPage;
