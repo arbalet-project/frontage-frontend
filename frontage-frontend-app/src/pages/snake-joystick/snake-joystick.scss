@@ -6,6 +6,10 @@ page-snake-joystick {
     position:relative;
 }
 
+ion-content {
+    background-image:"../../assets/img/joystick.svg";
+}
+
 #left {
     display: block;
     position: relative;

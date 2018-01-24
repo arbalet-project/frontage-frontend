@@ -1,3 +1,4 @@
+import { TestPage } from './../pages/test/test';
 import { SnakeJoystickPage } from './../pages/snake-joystick/snake-joystick';
 import { SweepRandOptionsPage } from './../pages/sweep-rand-options/sweep-rand-options';
 import { FlagsJoytickPage } from './../pages/flags-joytick/flags-joytick';
@@ -48,7 +49,8 @@ let components:any[] = [
     LanguageComponent,
     UserDisplayedComponent,
     SnakeJoystickPage,
-    SnakeOptionsPage
+    SnakeOptionsPage,
+    TestPage
 ];
 
 @NgModule({

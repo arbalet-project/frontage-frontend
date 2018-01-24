@@ -1,3 +1,4 @@
+import { TestPage } from './../test/test';
 import { LocalStorageProvider } from './../../providers/local-storage/local-storage';
 import { FAppListPage } from './../f-app-list/f-app-list';
 import { TimeProvider } from './../../providers/time/time';
@@ -38,6 +39,11 @@ export class HomePage {
           .subscribe(isServerUp => this.checkFacade(isServerUp), e => this.handleError(e));
       });
     }
+  }
+
+  testPage(){
+    //Change page
+    this.navCtrl.push(TestPage);
   }
 
   checkFacade(isServerUp: boolean) {
