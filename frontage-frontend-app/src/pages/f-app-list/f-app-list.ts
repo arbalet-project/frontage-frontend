@@ -9,12 +9,6 @@ import { NavController } from 'ionic-angular';
 import { DataFAppsProvider } from '../../providers/data-f-apps/data-f-apps';
 import { SweepAsyncOptionsPage } from '../sweep-async-options/sweep-async-options';
 
-/**
- * Generated class for the FAppListPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 @Component({
   selector: 'page-f-app-list',
   templateUrl: 'f-app-list.html',
@@ -32,7 +26,6 @@ export class FAppListPage {
   }
 
   showOptions(fApp: FApp) {
-    // this.navCtrl.push(this.computePageName(fApp), { selectedFapp: fApp, test: "test" });
     this.navCtrl.push(this.establishNavigationPageName(fApp.name), { selectedFapp: fApp, test: "test" });
   }
 

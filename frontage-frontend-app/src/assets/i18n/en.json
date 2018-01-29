@@ -12,7 +12,7 @@
     "LOGIN_PAGE_FRONTAGE_DOWN_ALERT": "The facade is not active. It will be available at: ",
     "LOGIN_PAGE_SERVER_DOWN_ALERT":"Server is not reachable. Are you nearby the frontage?",
     "LOGIN_PAGE_FOOTER_MESSAGE":"All rights reserved",
-    "LOGIN_PAGE_FORM_TITLE":"Choose your nickname",
+    "LOGIN_PAGE_FORM_TITLE":"Select your nickname",
 
     "FAPP_PAGE_TITLE":"Frontage app list",
     "FAPP_PAGE_OPTIONS_BUTTON":"Show settings",

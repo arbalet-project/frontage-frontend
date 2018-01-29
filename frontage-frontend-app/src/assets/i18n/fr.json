@@ -8,11 +8,11 @@
 
     "LOGIN_PAGE_USER_LABEL":"Nom d'utilisateur",
     "LOGIN_PAGE_PWD_LABEL":"Mot de passe",
-    "LOGIN_PAGE_START_BUTTON":"Se connecter",
+    "LOGIN_PAGE_START_BUTTON":"Valider",
     "LOGIN_PAGE_FRONTAGE_DOWN_ALERT": "La façade n'est pas active. Elle sera allumée à",
     "LOGIN_PAGE_SERVER_DOWN_ALERT":"Le serveur est indisponible : êtes-vous à proximité de la façade Arbalet Frontage ?",
     "LOGIN_PAGE_FOOTER_MESSAGE":"Tous droits réservés",
-    "LOGIN_PAGE_FORM_TITLE":"Formulaire de connexion",
+    "LOGIN_PAGE_FORM_TITLE":"Sélectionnez votre sobriquet",
 
     "FAPP_PAGE_TITLE":"Liste des applications de la façade",
     "FAPP_PAGE_OPTIONS_BUTTON":"Afficher les options",
