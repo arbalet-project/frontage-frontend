@@ -1,6 +1,7 @@
 import { NicknameGeneratorProvider } from './../../providers/nickname-generator/nickname-generator';
 import { Component } from '@angular/core';
 import { NavParams } from 'ionic-angular';
+import { environment } from '../../app/environment';
 
 @Component({
   selector: 'page-snake-joystick',
@@ -19,7 +20,7 @@ export class SnakeJoystickPage {
 
   initSocket() {
     
-    this.socket = new WebSocket("ws://192.168.1.23:8124");
+    this.socket = new WebSocket(`${environment.webSocketAdress}`);
 
     this.socket.onmessage = function (message) {
       console.log(message);

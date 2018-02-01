@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
+import { environment } from '../../app/environment';
 
 @Injectable()
 export class WebSocketProvider {
 
-  url: string = "ws://192.168.1.23:8124";
+  url: string = `${environment.webSocketAdress}`;
 
   constructor(public http: Http) { }
 
