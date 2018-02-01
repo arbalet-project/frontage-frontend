@@ -28,7 +28,7 @@ export class LoginPage {
   constructor(private navCtrl: NavController, private authentication: AuthenticationProvider, private time: TimeProvider,
     nicknameGeneratorProvider: NicknameGeneratorProvider, public localStorageProvider: LocalStorageProvider) {
 
-    this.userName = nicknameGeneratorProvider.generateNicknameFr();
+    this.userName = nicknameGeneratorProvider.generateNickname();
     authentication.isServerUp()
       .subscribe(isServerUp => this.checkFacade(isServerUp), e => this.handleError(e));
 
