@@ -6,7 +6,6 @@ import { TimeProvider } from './../../providers/time/time';
 import { Observable, Subscription } from 'rxjs/Rx';
 import { AuthenticationProvider } from '../../providers/authentication/authentication';
 import { NicknameGeneratorProvider } from '../../providers/nickname-generator/nickname-generator';
-import { TestPage } from './../test/test';
 
 @Component({
   selector: 'page-login',

@@ -1,5 +1,4 @@
 import { TetrisOptionsPage } from './../pages/tetris-options/tetris-options';
-import { TestPage } from './../pages/test/test';
 import { LoginPage } from './../pages/login/login';
 import { SnakeJoystickPage } from './../pages/snake-joystick/snake-joystick';
 import { SweepRandOptionsPage } from './../pages/sweep-rand-options/sweep-rand-options';
@@ -53,7 +52,6 @@ let components:any[] = [
     UserDisplayedComponent,
     SnakeJoystickPage,
     SnakeOptionsPage,
-    TestPage,
     LoginPage,
     TetrisOptionsPage,
     TetrisJoystickPage

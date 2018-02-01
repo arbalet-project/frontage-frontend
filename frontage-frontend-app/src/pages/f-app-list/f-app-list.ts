@@ -36,12 +36,7 @@ export class FAppListPage {
     this.navCtrl.push(this.establishNavigationPageName(fApp.name), { selectedFapp: fApp, test: "test" });
   }
 
-  printList() {
-    console.log("list : " + JSON.stringify(this.fAppList));
-  }
-
   private establishNavigationPageName(fAppName: string): any {
-    console.log("fAppName : " + fAppName);
     switch(fAppName) {
       case "Flags" : {
         return FlagsOptionsPage;

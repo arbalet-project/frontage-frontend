@@ -14,8 +14,14 @@
 
 
 <ion-content padding>
-  <button id="up" ion-button (click)=onUp()>haut</button>
-  <button id="down" ion-button (click)=onDown()>bas</button>
-  <button id="left" ion-button (click)=onLeft()>gauche</button>
-  <button id="right" ion-button (click)=onRight()>droite</button>
-</ion-content>
+  
+    <div id="base">
+        <div id="arrow-up"></div>
+        <div id="arrow-down"></div>
+        <div id="arrow-right" (click)="onRight()" ></div>
+        <div id="arrow-left" (click)="onLeft()" ></div>
+    </div>
+
+    <div id="arrow-left" (click)="onUp()" ></div>
+  
+  </ion-content>
