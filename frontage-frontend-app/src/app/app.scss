@@ -15,7 +15,6 @@
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
 
-
     .bg {
         background-image: url('../assets/img/background.png');
         background-size:cover;
@@ -30,5 +29,9 @@
     }
 
     ion-footer {
+        background: rgba(0,0,0,0.5);
+    }
+
+    .toolbar-background {
         background: rgba(0,0,0,0.5);
     }

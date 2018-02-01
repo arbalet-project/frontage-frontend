@@ -12,7 +12,7 @@
             <ion-thumbnail item-start>
               <img width="90" height="35" src="assets/img/{{fApp.name}}.jpeg">
             </ion-thumbnail>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas placerat ex eget erat dictum, nec elementum orci rutrum.
+            {{fApp.name + "_DESCRIPTION" | uppercase | translate}}
           </ion-item>
     </ion-list>
   </div>
@@ -20,8 +20,6 @@
   <ng-template #elseBlock>
     <h2>{{"FAPP_PAGE_NO_APP_ALERT" | translate}} </h2>
   </ng-template>
-
-  <button ion-button primary (click)="printList()">Print list</button>
 </ion-content>
 
 <ion-footer></ion-footer>
