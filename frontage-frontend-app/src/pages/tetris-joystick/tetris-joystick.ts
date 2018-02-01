@@ -12,6 +12,8 @@ export class TetrisJoystickPage {
   socket:WebSocket;
 
   constructor(public nicknameGeneratorProvider: NicknameGeneratorProvider, public navParams: NavParams) {
+    console.log("tetris joystick");
+
     this.nom = nicknameGeneratorProvider.generateNicknameFr();
 
     this.initSocket();

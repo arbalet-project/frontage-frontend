@@ -16,6 +16,8 @@ export class SnakeOptionsPage {
   fAppPosition: number;
 
   constructor(public navCtrl: NavController, public dataFAppsProvider: DataFAppsProvider, public formBuilder: FormBuilder) {
+    console.log("snake option")
+
     this.fAppOptions = formBuilder.group({
       fAppColor: ""
     });

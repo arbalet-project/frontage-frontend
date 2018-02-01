@@ -15,6 +15,8 @@ export class SnakeJoystickPage {
   constructor(public nicknameGeneratorProvider: NicknameGeneratorProvider, public navParams: NavParams) {
     this.nom = nicknameGeneratorProvider.generateNicknameFr();
 
+    console.log("snake joystick")
+
     this.initSocket();
   }
 

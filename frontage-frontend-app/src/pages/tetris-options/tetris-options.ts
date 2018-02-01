@@ -16,6 +16,7 @@ export class TetrisOptionsPage {
   fAppPosition: number;
 
   constructor(public navCtrl: NavController, public dataFAppsProvider: DataFAppsProvider, public formBuilder: FormBuilder) {
+    console.log("tetris option");
   }
 
   lauchApp() {
