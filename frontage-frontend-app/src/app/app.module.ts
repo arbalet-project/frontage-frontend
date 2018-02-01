@@ -9,6 +9,7 @@ import { WaitingPage } from './../pages/waiting/waiting';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
+import { SentryErrorHandler } from './../providers/errors-handlers/sentry-errorhandler';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -79,7 +80,7 @@ let components:any[] = [
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    {provide: ErrorHandler, useClass: SentryErrorHandler},
     {provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorProvider, multi: true},
     DataFAppsProvider,
     AuthenticationProvider,
