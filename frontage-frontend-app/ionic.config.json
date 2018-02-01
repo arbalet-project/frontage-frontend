@@ -4,15 +4,5 @@
   "type": "ionic-angular",
   "integrations": {
     "cordova": {}
-  },
-  "proxies":[
-    {
-      "path": "/base",
-      "proxyUrl": "http://localhost:8080"
-    },
-    {
-      "path": "/server",
-      "proxyUrl": "http://192.168.1.23:8123"
-    }
-  ]
+  }
 }

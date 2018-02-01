@@ -7,13 +7,6 @@ import { NavController } from 'ionic-angular';
 import 'rxjs/add/operator/catch';
 import { SweepRandJoystickPage } from '../sweep-rand-joystick/sweep-rand-joystick';
 
-/**
- * Generated class for the SweepRandOptionsPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
 @Component({
   selector: 'page-sweep-rand-options',
   templateUrl: 'sweep-rand-options.html',

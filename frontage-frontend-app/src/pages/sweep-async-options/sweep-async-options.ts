@@ -6,13 +6,6 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { SweepAsyncJoystickPage } from '../sweep-async-joystick/sweep-async-joystick';
 
-/**
- * Generated class for the SweepAsyncOptionsPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
 @Component({
   selector: 'page-sweep-async-options',
   templateUrl: 'sweep-async-options.html',

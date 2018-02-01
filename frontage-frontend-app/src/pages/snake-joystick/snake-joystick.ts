@@ -2,13 +2,6 @@ import { NicknameGeneratorProvider } from './../../providers/nickname-generator/
 import { Component } from '@angular/core';
 import { NavParams } from 'ionic-angular';
 
-/**
- * Generated class for the SnakesJoystickPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
 @Component({
   selector: 'page-snake-joystick',
   templateUrl: 'snake-joystick.html',
