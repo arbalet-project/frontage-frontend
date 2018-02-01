@@ -1,15 +1,22 @@
 {
+    "HOME_PAGE_APP_TITLE": "Arbalet Frontage",
+    "HOME_PAGE_MESSAGE_1": "Bienvenue ! Vous êtes connecté à la façade pixelisée interactive du bâtiment A1 de l'Université de Bordeaux :",
+    "HOME_PAGE_MESSAGE_2": ". 71 Pixels colorés s'illuminent le long des fenêtres du bâtiment.",
+    "HOME_PAGE_MESSAGE_3": "En poursuivant, vous pourrez changer les couleurs d'Arbalet Frontage, jouer à Tetris Snake et d'autres jeux, ou même apprendre un langage de programmation lors d'un atelier encadré par un formateur ",
+    "HOME_PAGE_HREF_MESSAGE": "consulter la date du prochain atelier",
+   
     "FLAGS":"Flags",
-    "FLAGS_DESCRIPTION":"Un drapeau est une pièce d’étoffe attachée à une hampe, qui représente la « personne morale » d'un groupe ou d'une communauté : une nation, un territoire, une ville, une organisation, une compagnie commerciale ou un régiment.",
     "RANDOMFLASHING":"RandomFlashing",
-    "RANDOMFLASHING_DESCRIPTION":"Un synonyme de hasard ou de stochastique.",
     "SWEEPASYNC":"SweepAsync",
-    "SWEEPASYNC_DESCRIPTION":"La machine asynchrone, connue également sous le terme anglo-saxon de machine à induction, est une machine électrique à courant alternatif sans connexion entre le stator et le rotor.",
     "SWEEPRAND":"SweepRand",
-    "SWEEPRAND_DESCRIPTION":"Un synonyme de hasard ou de stochastique.",
     "SNAKE": "Snake",
-    "SNAKE_DESCRIPTION": "Rejoignez votre enfance en jouant à ce jeu culte sur votre façade favorite...",
     "SNAP": "Snap",
+
+    "FLAGS_DESCRIPTION":"Un drapeau est une pièce d’étoffe attachée à une hampe, qui représente la « personne morale » d'un groupe ou d'une communauté : une nation, un territoire, une ville, une organisation, une compagnie commerciale ou un régiment.",
+    "RANDOMFLASHING_DESCRIPTION":"Un synonyme de hasard ou de stochastique.",
+    "SWEEPASYNC_DESCRIPTION":"La machine asynchrone, connue également sous le terme anglo-saxon de machine à induction, est une machine électrique à courant alternatif sans connexion entre le stator et le rotor.",
+    "SWEEPRAND_DESCRIPTION":"Un synonyme de hasard ou de stochastique.",
+    "SNAKE_DESCRIPTION": "Rejoignez votre enfance en jouant à ce jeu culte sur votre façade favorite...",
     "SNAP_DESCRIPTION": "Schni Schna Schnappi Schnappi Schnappi Schnapp Schni Schna Schnappi Schnappi Schnappi Schnapp  ", 
 
     "HOME_PAGE_START_BUTTON":"C'est parti !",
@@ -26,7 +33,6 @@
     "FAPP_PAGE_OPTIONS_BUTTON":"Afficher les options",
     "FAPP_PAGE_NO_APP_ALERT":"Aucune applicationi disponible",
 
-    "FLAGS_OPTIONS_PAGE_TITLE":"Options de Flags",
     "FLAGS_OPTIONS_PAGE_LIST":"Liste des drapeaux disponibles",
     "FRENCH":"Français",
     "GERMANY":"Allemand",
@@ -35,10 +41,12 @@
     "FLAGS_OPTIONS_PAGE_START_BUTTON":"Lancer l'application",
     "FLAGS_OPTIONS_PAGE_QUEUE_ALERT":"Soyez patient ! Vous avez été placé en attente dans la queue à la position : ",
 
+    "FLAGS_OPTIONS_PAGE_TITLE":"Options de Flags",
     "RF_OPTIONS_PAGE_TITLE":"Options de Random Flashing",
     "SA_OPTIONS_PAGE_TITLE":"Options de Sweep Async",
     "SR_OPTIONS_PAGE_TITLE":"Options de Sweep Random",
     "SNAKE_OPTIONS_PAGE_TITLE":"Options de Snake",
+
     "COLOR_APP_OPTIONS_PAGE_COLOR_LABEL":"Couleur : ",
     "COLOR_APP_OPTIONS_PAGE_DARK_BLUE_LABEL":"Bleu Foncé",
     "COLOR_APP_OPTIONS_PAGE_PINK_LABEL":"Rose",
@@ -53,5 +61,7 @@
     "STOP_APP":"Quitter la queue",
     
     "LANGUAGE_COMPONENT_FR":"FR",
-    "LANGUAGE_COMPONENT_EN":"AN"
+    "LANGUAGE_COMPONENT_EN":"AN",
+
+    "TESTDSQD": "<p>Bienvenue ! Vous êtes connecté à la façade pixelisée interactive du bâtiment A1 de l'Université de Bordeaux : <b>Arbalet Frontage</b>. 71 Pixels colorés s'illuminent le long des fenêtres du bâtiment.</p> <p>En poursuivant, vous pourrez changer les couleurs d'Arbalet Frontage, jouer à Tetris Snake et d'autres jeux, ou même apprendre un langage de programmation lors d'un atelier encadré par un formateur (<a href=\"http://arbalet-project.org/frontage\">consulter la date du prochain atelier</a>).</p>"
 }
