@@ -1,21 +1,14 @@
 <ion-header>
   <ion-navbar>
-    <ion-item color="light">
-      <ion-title item-start>{{"FAPP_PAGE_TITLE" | translate}}</ion-title>
-      <div item-end>
-        <user-displayed></user-displayed>
-      </div>
-    </ion-item>
+    <ion-title item-start>{{"FAPP_PAGE_TITLE" | translate}}</ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content padding class="bg">
   <div *ngIf="fAppList; else elseBlock;">
     <ion-list *ngFor="let fApp of fAppList">
-      <ion-card>
-        <ion-card-header>{{fApp.name | uppercase | translate}}</ion-card-header>
-        <ion-card-content>
-          <ion-item text-wrap>
+          <ion-item text-wrap (click)="showOptions(fApp)">
+            <p>{{fApp.name | uppercase | translate}}</p>
             <ion-thumbnail item-start>
               <img width="90" height="35" src="assets/img/{{fApp.name}}.jpeg">
             </ion-thumbnail>
@@ -23,11 +16,6 @@
             In in velit sed tortor laoreet ornare vel consequat magna. Nullam pulvinar ac est quis maximus. In vitae nunc
             orci.
           </ion-item>
-        </ion-card-content>
-        <ion-card-content>
-          <button ion-button primary (click)="showOptions(fApp)">{{"FAPP_PAGE_OPTIONS_BUTTON" | translate}}</button>
-        </ion-card-content>
-      </ion-card>
     </ion-list>
   </div>
 
