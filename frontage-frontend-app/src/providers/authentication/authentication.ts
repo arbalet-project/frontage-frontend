@@ -1,3 +1,4 @@
+import { environment } from './../../app/environment';
 import { LocalStorageProvider } from './../local-storage/local-storage';
 import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/map';
@@ -6,12 +7,6 @@ import 'rxjs/add/operator/first';
 import 'rxjs/add/operator/toPromise';
 import { HttpClient } from '@angular/common/http';
 
-/*
-  Generated class for the AuthenticationProvider provider.
-
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
 @Injectable()
 export class AuthenticationProvider {
 
@@ -19,7 +14,7 @@ export class AuthenticationProvider {
   authEndpoint: string;
 
   constructor(public http: HttpClient, public localStorageProvider: LocalStorageProvider) {
-    this.baseUrl = "/server";
+    this.baseUrl = `${environment.backEndBaseUrl}`;
     this.authEndpoint = "/b/login";
   }
 

@@ -6,20 +6,15 @@ import 'rxjs/add/operator/map';
 import { Observable } from 'rxjs/Rx';
 import * as _ from "lodash";
 import { HttpClient } from '@angular/common/http';
+import { environment } from '../../app/environment';
 
-/*
-  Generated class for the DataFAppsProvider provider.
-
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
 @Injectable()
 export class DataFAppsProvider {
 
   baseUrl: string;
 
   constructor(public http: HttpClient, public authentication: AuthenticationProvider) {
-    this.baseUrl = "/server";
+    this.baseUrl = `${environment.backEndBaseUrl}`;
   }
 
   public getList(): Observable<FApp[]> {
