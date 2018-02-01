@@ -1,14 +1,17 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>snake-options</ion-title>
+    <ion-title>{{"SNAKE_OPTIONS_PAGE_TITLE" | translate }}</ion-title>
   </ion-navbar>
 
 </ion-header>
 
-
-<ion-content padding>
-
-
-  <button ion-button full (click)="lauchApp()">{{"COLOR_APP_OPTIONS_PAGE_START_BUTTON" | translate}}</button>
+<ion-content padding class="bg">
 </ion-content>
+
+<ion-footer>
+    <button ion-button icon-end full color="secondary" class="tr" (click)="launchApp()">
+      {{"COLOR_APP_OPTIONS_PAGE_START_BUTTON" | translate}}
+      <ion-icon color="secondary" ios="ios-trending-up" md="md-trending-up"></ion-icon>
+    </button>
+</ion-footer>

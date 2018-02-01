@@ -1,8 +1,16 @@
 {
     "FLAGS":"Flags",
+    "FLAGS_DESCRIPTION":"A flag is a piece of fabric (most often rectangular or quadrilateral) with a distinctive design that is used as a symbol, as a signaling device, or as decoration. ",
     "RANDOMFLASHING":"RandomFlashing",
+    "RANDOMFLASHING_DESCRIPTION":"Random page is a link which will automatically (and randomly) take you to any page",
     "SWEEPASYNC":"SweepAsync",
+    "SWEEPASYNC_DESCRIPTION":"These may be outside events such as the arrival of signals, or actions instigated by a program that take place concurrently with program execution, without the program blocking to wait for results.",
     "SWEEPRAND":"SweepRand",
+    "SWEEPRAND_DESCRIPTION":"Random page is a link which will automatically (and randomly) take you to any page",
+    "SNAKE": "Snake",
+    "SNAKE_DESCRIPTION": "Come back to your childhood with wonderful cult historical snaky game !",
+    "SNAP": "Snap",
+    "SNAP_DESCRIPTION": "Schni Schna Schnappi Schnappi Schnappi Schnapp Schni Schna Schnappi Schnappi Schnappi Schnapp  ", 
 
     "HOME_PAGE_START_BUTTON":"Let's go!",
 
@@ -30,6 +38,7 @@
     "RF_OPTIONS_PAGE_TITLE":"Random Flashing Settings",
     "SA_OPTIONS_PAGE_TITLE":"Sweep Async Settings",
     "SR_OPTIONS_PAGE_TITLE":"Sweep Random Settings",
+    "SNAKE_OPTIONS_PAGE_TITLE":"Snake Settings",
     "COLOR_APP_OPTIONS_PAGE_COLOR_LABEL":"Color : ",
     "COLOR_APP_OPTIONS_PAGE_DARK_BLUE_LABEL":"Dark Blue",
     "COLOR_APP_OPTIONS_PAGE_PINK_LABEL":"Pink",

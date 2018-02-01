@@ -1,3 +1,4 @@
+import { TranslateLanguageProvider } from './../translate-language/translate-language';
 import { Injectable } from '@angular/core';
 
 @Injectable()
@@ -33,9 +34,19 @@ export class NicknameGeneratorProvider {
     , "souriceau", "taureau", "tétard", "tigre"];
   nounsFrF: string[] = ["belette", "biche", "brebis", "chouette", "giraphe", "licorne", "loutre", "mangouste", "marmotte", "poule", "pieuvre", "taupe", "tortue"];
 
-  constructor() {}
+  constructor(private translateLanguageProvider:TranslateLanguageProvider) {}
 
   generateNickname(): string {
+    let language = this.translateLanguageProvider.getLanguage();
+
+    if(language == 'fr') {
+      return this.generateNicknameFr();
+    } else {
+      return this.generateNicknameEn();
+    }
+  }
+
+  generateNicknameEn(): string {
 
     let adjRank = this.getRandomNumberBetween(0, this.adjectives.length);
     let nounsRank = this.getRandomNumberBetween(0, this.nouns.length);

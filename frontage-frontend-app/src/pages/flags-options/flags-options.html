@@ -1,15 +1,10 @@
 <ion-header>
   <ion-navbar>
-    <ion-item color="light">
-      <ion-title>{{"FLAGS_OPTIONS_PAGE_TITLE" | translate}}</ion-title>
-      <div item-end>
-        <user-displayed></user-displayed>
-      </div>
-    </ion-item>
+    <ion-title>{{"FLAGS_OPTIONS_PAGE_TITLE" | translate}}</ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content padding class="bg">
   <div *ngIf="parametersList">
     <ion-list radio-group [(ngModel)]="selectedParameter">
       <ion-list-header>
@@ -22,10 +17,6 @@
     </ion-list>
   </div>
 
-  <div *ngIf="fAppPosition === -1; else elseBlock;">
-    <button ion-button primary (click)="startFapp()">{{"FLAGS_OPTIONS_PAGE_START_BUTTON" | translate}}</button>
-  </div>
-
   <ng-template #elseBlock>
     <ion-item>
       <ion-label>{{"FLAGS_OPTIONS_PAGE_QUEUE_ALERT" | translate}} {{fAppPosition}}</ion-label>
@@ -33,3 +24,12 @@
   </ng-template>
 
 </ion-content>
+
+<ion-footer>
+  <div *ngIf="fAppPosition === -1; else elseBlock;">
+    <button ion-button icon-end full color="secondary" class="tr" (click)="starFapp()">
+      {{"FLAGS_OPTIONS_PAGE_START_BUTTON" | translate}}
+      <ion-icon color="secondary" ios="ios-flag" md="md-flag"></ion-icon>
+    </button>
+  </div>
+</ion-footer>

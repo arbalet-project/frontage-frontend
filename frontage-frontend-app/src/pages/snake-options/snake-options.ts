@@ -23,7 +23,7 @@ export class SnakeOptionsPage {
     });
   }
 
-  lauchApp() {
+  launchApp() {
 
     let options: FAppOptions = {
       name: "Snake",

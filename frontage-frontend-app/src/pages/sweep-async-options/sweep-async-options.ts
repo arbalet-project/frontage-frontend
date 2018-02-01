@@ -20,7 +20,7 @@ export class SweepAsyncOptionsPage {
     });
   }
 
-  lauchApp() {
+  launchApp() {
 
     let options: FAppOptions = {
       name: "SweepAsync",

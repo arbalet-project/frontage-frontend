@@ -22,7 +22,7 @@ export class RandomFlashingOptionsPage {
     });
   }
 
-  lauchApp() {
+  launchApp() {
 
     let options: FAppOptions = {
       name: "RandomFlashing",

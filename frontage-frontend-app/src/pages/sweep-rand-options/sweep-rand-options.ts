@@ -21,7 +21,7 @@ export class SweepRandOptionsPage {
     });
   }
 
-  lauchApp() {
+  launchApp() {
 
     let options: FAppOptions = {
       name: "SweepRand",

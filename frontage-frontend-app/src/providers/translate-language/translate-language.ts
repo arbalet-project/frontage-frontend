@@ -16,4 +16,8 @@ export class TranslateLanguageProvider {
   setLanguage(language: string) {
     this.translateProvider.use(language);
   }
+
+  getLanguage(): string {
+    return this.translateProvider.currentLang;
+  }
 }
