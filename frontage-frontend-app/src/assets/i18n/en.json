@@ -1,8 +1,8 @@
 {
     "HOME_PAGE_APP_TITLE": "Arbalet Frontage",
-    "HOME_PAGE_MESSAGE_1": "Welcome ! You are connected to the interactive frontage of the Bordeaux University A1 building :",
-    "HOME_PAGE_MESSAGE_2": ". 71 colorful pixels enlight all the building windows.",
-    "HOME_PAGE_MESSAGE_3": "By using this app, you will be able to pick which colors are displayed on the frontage, to play your childhood games such as Tetris, Snake and more, or even learn to program during special events  ",
+    "HOME_PAGE_MESSAGE_1": "Welcome! You are connected to the interactive facade of building A1 of Bordeaux University.",
+    "HOME_PAGE_MESSAGE_2": ". 71 colorful pixels enlight all the building's windows.",
+    "HOME_PAGE_MESSAGE_3": "By using this app, you will be able to change colors of the facade, enjoy retrogaming such as Tetris Snake and more, or even learn computer program during special workshops with a trainer  ",
     "HOME_PAGE_HREF_MESSAGE": "check the date of the next workshop",
 
     "FLAGS":"Flags",
@@ -12,12 +12,12 @@
     "SNAKE": "Snake",
     "SNAP": "Snap",
 
-    "FLAGS_DESCRIPTION":"A flag is a piece of fabric (most often rectangular or quadrilateral) with a distinctive design that is used as a symbol, as a signaling device, or as decoration. ",
-    "RANDOMFLASHING_DESCRIPTION":"Random page is a link which will automatically (and randomly) take you to any page",
-    "SWEEPASYNC_DESCRIPTION":"These may be outside events such as the arrival of signals, or actions instigated by a program that take place concurrently with program execution, without the program blocking to wait for results.",
-    "SWEEPRAND_DESCRIPTION":"Random page is a link which will automatically (and randomly) take you to any page",
-    "SNAKE_DESCRIPTION": "Come back to your childhood with wonderful cult historical snaky game !",
-    "SNAP_DESCRIPTION": "Schni Schna Schnappi Schnappi Schnappi Schnapp Schni Schna Schnappi Schnappi Schnappi Schnapp  ", 
+    "FLAGS_DESCRIPTION":"Light Arbalet Frontage to the colors of your country!",
+    "RANDOMFLASHING_DESCRIPTION":"Make Arbalet Frontage slowly flashing.",
+    "SWEEPASYNC_DESCRIPTION":"Display the full color whell, each window at a different pace.",
+    "SWEEPRAND_DESCRIPTION":"Dispaly the full color wheel, with a spread color range.",
+    "SNAKE_DESCRIPTION": "Play a Snake and eat apples. You can cross walls, but don't smash your tail!",
+    "SNAP_DESCRIPTION": "Learning computer programming with a playful and creative approach by creating your own light animation thanks to this visual programming language  ", 
 
     "HOME_PAGE_START_BUTTON":"Let's go!",
 
@@ -42,10 +42,10 @@
     "FLAGS_OPTIONS_PAGE_QUEUE_ALERT":"Wait a little, you are queued in position: ",
 
     "FLAGS_OPTIONS_PAGE_TITLE":"Settings",
-    "RF_OPTIONS_PAGE_TITLE":"Random Flashing Settings",
-    "SA_OPTIONS_PAGE_TITLE":"Sweep Async Settings",
-    "SR_OPTIONS_PAGE_TITLE":"Sweep Random Settings",
-    "SNAKE_OPTIONS_PAGE_TITLE":"Snake Settings",
+    "RF_OPTIONS_PAGE_TITLE":"Settings",
+    "SA_OPTIONS_PAGE_TITLE":"Settings",
+    "SR_OPTIONS_PAGE_TITLE":"Settings",
+    "SNAKE_OPTIONS_PAGE_TITLE":"Settings",
 
     "COLOR_APP_OPTIONS_PAGE_COLOR_LABEL":"Color : ",
     "COLOR_APP_OPTIONS_PAGE_DARK_BLUE_LABEL":"Dark Blue",
