@@ -7,7 +7,7 @@ import { HttpInterceptorProvider } from './../providers/http-interceptor/http-in
 import { WaitingPage } from './../pages/waiting/waiting';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
-import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
+import { IonicApp, IonicModule } from 'ionic-angular';
 import { SentryErrorHandler } from './../providers/errors-handlers/sentry-errorhandler';
 
 import { MyApp } from './app.component';
