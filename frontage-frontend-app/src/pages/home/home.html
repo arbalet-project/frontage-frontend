@@ -15,19 +15,12 @@
   </ion-card>
 
   <ion-card>
-    <ion-slides>
-      <ion-slide>
-        <img src="assets/img/SweepAsync.jpeg" />
-      </ion-slide>
-      <ion-slide>
-        <img src="assets/img/SweepRand.jpeg" />
-      </ion-slide>
-      <ion-slide>
-        <img src="assets/img/home_screen.jpg" />
+    <ion-slides autoplay="1500" loop="true" speed="1500">
+      <ion-slide *ngFor="let slide of slideData">
+        <img class="center-img" src="{{slide.image}}" />
       </ion-slide>
     </ion-slides>
   </ion-card>
-
 </ion-content>
 
 <ion-footer>
