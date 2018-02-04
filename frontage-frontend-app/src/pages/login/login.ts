@@ -6,6 +6,7 @@ import { TimeProvider } from './../../providers/time/time';
 import { Observable, Subscription } from 'rxjs/Rx';
 import { AuthenticationProvider } from '../../providers/authentication/authentication';
 import { NicknameGeneratorProvider } from '../../providers/nickname-generator/nickname-generator';
+import { DisplayWhen } from 'ionic-angular/components/show-hide-when/display-when';
 
 @Component({
   selector: 'page-login',
@@ -16,6 +17,7 @@ export class LoginPage {
   isServerUp: boolean = false;
   isFacadeUp: boolean = false;
   isPwdDisplayed: boolean = false;
+  nbHeaderTapped: number = 0;
 
   exception: any;
   nextTime: Date;
@@ -106,5 +108,17 @@ export class LoginPage {
   handleError(e: any): any {
     this.exception = e;
     console.log("Error status : " + e.status);
+  }
+
+  /**
+   * If the user tap more than 7, display the password field
+   * @param event 
+   */
+  headerTapEvent(event) {
+    this.nbHeaderTapped++;
+
+    if(this.nbHeaderTapped > 7){
+      this.displayPwd();
+    }
   }
 }
