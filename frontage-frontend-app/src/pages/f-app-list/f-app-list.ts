@@ -8,6 +8,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { DataFAppsProvider } from '../../providers/data-f-apps/data-f-apps';
 import { SweepAsyncOptionsPage } from '../sweep-async-options/sweep-async-options';
+import { LocalStorageProvider } from '../../providers/local-storage/local-storage';
 
 @Component({
   selector: 'page-f-app-list',
@@ -17,12 +18,17 @@ export class FAppListPage {
 
   fAppList: FApp[];
   fAppPosition: number;
+  isAdmin: boolean = false;
 
-  constructor(public navCtrl: NavController, public fAppsData: DataFAppsProvider) {
+  constructor(public navCtrl: NavController, public fAppsData: DataFAppsProvider, public localStorageProvider: LocalStorageProvider) {
+    console.log(this.isAdmin);
+    //Check if the connected user is admin
+    this.isAdmin = this.localStorageProvider.isAdmin();
+    console.log(this.isAdmin);
 
+    //Get the f-app list
     fAppsData.getList()
       .subscribe(fAppList => this.fAppList = fAppList);
-
   }
 
   showOptions(fApp: FApp) {
@@ -30,23 +36,23 @@ export class FAppListPage {
   }
 
   private establishNavigationPageName(fAppName: string): any {
-    switch(fAppName) {
-      case "Flags" : {
+    switch (fAppName) {
+      case "Flags": {
         return FlagsOptionsPage;
       }
-      case "RandomFlashing" :{
+      case "RandomFlashing": {
         return RandomFlashingOptionsPage;
       }
-      case "SweepAsync" :{
+      case "SweepAsync": {
         return SweepAsyncOptionsPage;
       }
-      case "SweepRand" :{
+      case "SweepRand": {
         return SweepRandOptionsPage;
       }
-      case "Snake" :{
+      case "Snake": {
         return SnakeOptionsPage;
       }
-      case "Tetris" :{
+      case "Tetris": {
         return TetrisOptionsPage;
       }
       default: {
