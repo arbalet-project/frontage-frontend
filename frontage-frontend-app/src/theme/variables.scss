@@ -48,12 +48,17 @@ $colors: (
 
 $toolbar-ios-title-text-color: rgb(255, 255, 255);
 $toolbar-ios-title-font-size: 1.7rem;
+$checkbox-ios-background-color-on: color($colors, secondary);
+$checkbox-ios-border-color-on: color($colors, secondary);
+
 // App Material Design Variables
 // --------------------------------------------------
 // Material Design only Sass variables can go here
 
 $toolbar-md-title-text-color: rgb(255, 255, 255);
 $toolbar-md-title-font-size: 1.9rem;
+$checkbox-md-icon-background-color-on: color($colors, secondary);
+$checkbox-md-icon-border-color-on: color($colors, secondary);
 
 // App Windows Variables
 // --------------------------------------------------
@@ -61,6 +66,8 @@ $toolbar-md-title-font-size: 1.9rem;
 
 $toolbar-wp-title-text-color: rgb(255, 255, 255);
 $toolbar-wp-title-font-size: 1.5rem;
+$checkbox-wp-icon-background-color-on: color($colors, secondary);
+$checkbox-wp-icon-border-color-on: color($colors, secondary);
 
 // App Theme
 // --------------------------------------------------

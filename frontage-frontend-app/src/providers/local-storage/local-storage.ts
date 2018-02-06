@@ -34,8 +34,13 @@ export class LocalStorageProvider {
     this.localStorage.setItem(this.isAdminStorageKey, isAdmin);
   }
 
-  public isAdmin(): string {
-    return this.localStorage.getItem(this.isAdminStorageKey);
+  public isAdmin(): boolean {
+    let isAdmin: boolean = false;
+    let isAdminString = this.localStorage.getItem(this.isAdminStorageKey);
+    if (isAdminString == 'true') {
+      isAdmin = true;
+    }
+    return isAdmin;
   }
 
 }

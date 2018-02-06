@@ -32,6 +32,7 @@
     "FAPP_PAGE_TITLE":"Frontage app list",
     "FAPP_PAGE_OPTIONS_BUTTON":"Show settings",
     "FAPP_PAGE_NO_APP_ALERT":"No application available :(",
+    "FAPP_PAGE_ADMIN_BUTTON":"Set the scheduler",
 
     "FLAGS_OPTIONS_PAGE_LIST":"Available flags: ",
     "FRENCH":"French",
