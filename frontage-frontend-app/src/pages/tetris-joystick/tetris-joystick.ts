@@ -1,6 +1,6 @@
 import { NicknameGeneratorProvider } from './../../providers/nickname-generator/nickname-generator';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { NavParams } from 'ionic-angular';
 import { environment } from '../../app/environment';
 
 @Component({

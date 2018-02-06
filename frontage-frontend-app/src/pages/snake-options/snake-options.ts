@@ -4,7 +4,7 @@ import { DataFAppsProvider } from './../../providers/data-f-apps/data-f-apps';
 import { FAppOptions } from './../../models/f-app-options';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController } from 'ionic-angular';
 
 @Component({
   selector: 'page-snake-options',

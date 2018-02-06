@@ -6,7 +6,6 @@ import { TimeProvider } from './../../providers/time/time';
 import { Observable, Subscription } from 'rxjs/Rx';
 import { AuthenticationProvider } from '../../providers/authentication/authentication';
 import { NicknameGeneratorProvider } from '../../providers/nickname-generator/nickname-generator';
-import { DisplayWhen } from 'ionic-angular/components/show-hide-when/display-when';
 
 @Component({
   selector: 'page-login',

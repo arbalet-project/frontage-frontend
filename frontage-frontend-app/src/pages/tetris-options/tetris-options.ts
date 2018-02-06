@@ -4,7 +4,7 @@ import { TetrisJoystickPage } from './../tetris-joystick/tetris-joystick';
 import { WaitingPage } from './../waiting/waiting';
 import { DataFAppsProvider } from './../../providers/data-f-apps/data-f-apps';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { NavController } from 'ionic-angular';
 
 @Component({
   selector: 'page-tetris-options',
