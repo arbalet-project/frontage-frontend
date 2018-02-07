@@ -40,14 +40,14 @@ export class AuthenticationProvider {
     }
 
     return this.http.post(this.baseUrl + this.authEndpoint, body)
-      .map(response => this.extractToken(response));
+      .map(response => this.finalizeLogin(response));
 
     // Call as an admin
     // return this.http.post(this.baseUrl + this.authEndpoint, '{"username": "frontageadmin", "password": "frontagepassword"}', options)
     //   .map(response => this.extractToken(response));
   }
 
-  private extractToken(response): boolean {
+  private finalizeLogin(response): boolean {
     let token = response.token;
     if (token) {
       this.localStorageProvider.setAuthToken(token);

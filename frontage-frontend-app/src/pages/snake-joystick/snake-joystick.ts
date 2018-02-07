@@ -15,8 +15,6 @@ export class SnakeJoystickPage {
   constructor(public nicknameGeneratorProvider: NicknameGeneratorProvider, public navParams: NavParams) {
     this.nom = nicknameGeneratorProvider.generateNicknameFr();
 
-    console.log("snake joystick")
-
     this.initSocket();
   }
 
@@ -25,14 +23,11 @@ export class SnakeJoystickPage {
     this.socket = new WebSocket(`${environment.webSocketAdress}`);
 
     this.socket.onmessage = function (message) {
-      console.log(message);
       return message;
     };
 
     let self = this;
-    this.socket.onopen = function () {
-      console.log("connected !");
-      self.socket.send("coucou, c'est " + self.nom);
+      this.socket.onopen = function () {
     };
 
     this.socket.onerror = function () {

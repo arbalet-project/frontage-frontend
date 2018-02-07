@@ -8,27 +8,28 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class FlagsJoytickPage {
 
-  selectedParam: string;
-  paramsList: any;
+  selectedParameter: string;
+  parametersList: string[];
 
   socket: WebSocket;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public wsProvider: WebSocketProvider) {
     let joystickParams = navParams.get('joystickParams');
-    this.paramsList = joystickParams.paramsList;
-    this.selectedParam = joystickParams.current;
+
+    this.parametersList = joystickParams.parametersList;
+    this.selectedParameter = joystickParams.selectedParameter;
+
+    console.log("les params : " + JSON.stringify(this.selectedParameter));
 
     this.socket = this.wsProvider.getSocket();
 
     this.socket.onmessage = function (message) {
-      console.log(message);
       return message;
     };
   }
 
   sendOption() {
-
-    this.socket.send("{payload: {flag:'" + this.selectedParam + "'}}");
+    this.socket.send("{payload: {flag:'" + this.parametersList + "'}}");
   }
 
 

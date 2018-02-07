@@ -1,26 +1,23 @@
 <ion-header>
-
-  <ion-navbar>
-    <ion-title>FlagsJoytick</ion-title>
-  </ion-navbar>
-
+  <ion-title>{{"FLAGS_JOYSTICK_PAGE_TITLE" | translate}}</ion-title>
 </ion-header>
 
 
-<ion-content padding>
-
-    <ion-list radio-group>
+<ion-content padding class="bg">
+  <div *ngIf="parametersList">
+    <ion-list radio-group [(ngModel)]="selectedParameter">
       <ion-list-header>
         Options :
       </ion-list-header>
 
-      <ion-item *ngFor="let flag of paramsList" [(ngModel)]="selectedParameter">
+      <ion-item *ngFor="let flag of this.parametersList">
         <ion-label>{{flag | uppercase | translate}}</ion-label>
         <ion-radio value="{{ flag }}"></ion-radio>
       </ion-item>
     </ion-list>
+  </div>
 
-
-  <button ion-button (click)="sendOption()">Web Socket</button>
-
+  <ion-footer>
+    <button ion-button (click)="sendOption()">Web Socket</button>
+  </ion-footer>
 </ion-content>

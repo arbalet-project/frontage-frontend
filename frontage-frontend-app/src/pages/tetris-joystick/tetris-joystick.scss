@@ -1,59 +1,74 @@
 page-tetris-joystick {
     .scroll-content {
         padding:0px!important;
+    } 
+
+    #base{
+        background-image: url("../../assets/img/full-joystick.svg");
+        background-repeat: no-repeat;
+        position: relative;
+        height: 90vh;
+        width: 90vh;
+        padding:0px!important;
     }
-    
-    // #base{
-    //     background-image: url("../../assets/img/joystick-empty.svg");
-    //     background-repeat: no-repeat;
-    //     position:absolute;
-    //     width: 100vw;
-    //     height: 100vw;
-    //     top:10vh!important;
-    // }
-    
-    // #arrow-up{
-    //     background-image: url("../../assets/img/triangle-up.svg");
-    //     background-repeat: no-repeat;
-    //     background-color: rgba(0,0,0,0);
-    //     width:10vw;
-    //     height: 10vw;
-    //     position: absolute;
-    //     top:10vw!important;
-    //     left:45vw!important;
-    // }
-    
-    // #arrow-down{
-    //     background-image: url("../../assets/img/triangle-down.svg");
-    //     background-repeat: no-repeat;
-    //     background-color: rgba(0,0,0,0);
-    //     width:10vw;
-    //     height: 10vw;
-    //     position: absolute;
-    //     top:80vw!important;
-    //     left:45vw!important;
-    // }
-    
-    #arrow-right{
-        background-image: url("../../assets/img/triangle-right.svg");
+
+    #arrow-left{
+        background-image: url("../../assets/img/triangle-up.svg");
         background-repeat: no-repeat;
         background-color: rgba(0,0,0,0);
-        width:10vw;
-        height: 10vw;
+        width:3.5vh;
+        height: 3.5vh;
         position: absolute;
-        top:45vw!important;
-        left:80vw!important;
+        top:7.5vh;
+        left:18vh;
+        
     }
     
-    #arrow-left{
+    #arrow-down{
         background-image: url("../../assets/img/triangle-left.svg");
         background-repeat: no-repeat;
         background-color: rgba(0,0,0,0);
-        width:10vw;
-        height: 10vw;
+        width:3.5vh;
+        height: 3.5vh;
         position: absolute;
-        top:45vw!important;
-        left:10vw!important;
+        top:15vh;
+        left:10.5vh;
+        
     }
+
+    #arrow-up{
+        background-image: url("../../assets/img/triangle-right.svg");
+        background-repeat: no-repeat;
+        background-color: rgba(0,0,0,0);
+        width:3.5vh;
+        height: 3.5vh;
+        position: absolute;
+        top:15vh;
+        left:25.3vh ;
+       
+    }
+
+    #arrow-right{
+        background-image: url("../../assets/img/triangle-down.svg");
+        background-repeat: no-repeat;
+        background-color: rgba(0,0,0,0);
+        width:3.5vh;
+        height: 3.5vh;
+        position: absolute;
+        top:22vh;
+        left:18vh;
+    }
+
+    #turn-button{
+        background-image: url("../../assets/img/turn-button.svg");
+        background-repeat: no-repeat;
+        background-color: rgba(0,0,0,0);
+        width:3.5vh;
+        height: 3.5vh;
+        position: absolute;
+        top:60vh;
+        left:18vh;
+    }
+
 }
 

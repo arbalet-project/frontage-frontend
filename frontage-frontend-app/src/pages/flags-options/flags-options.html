@@ -22,12 +22,11 @@
       <ion-label>{{"FLAGS_OPTIONS_PAGE_QUEUE_ALERT" | translate}} {{fAppPosition}}</ion-label>
     </ion-item>
   </ng-template>
-
 </ion-content>
 
 <ion-footer>
   <div *ngIf="fAppPosition === -1; else elseBlock;">
-    <button ion-button icon-end full color="secondary" class="tr" (click)="starFapp()">
+    <button ion-button icon-end full color="secondary" class="tr" (click)="startFapp()">
       {{"FLAGS_OPTIONS_PAGE_START_BUTTON" | translate}}
       <ion-icon color="secondary" ios="ios-flag" md="md-flag"></ion-icon>
     </button>

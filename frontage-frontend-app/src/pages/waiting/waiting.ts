@@ -69,6 +69,6 @@ export class WaitingPage {
   }
 
   startApp() {
-      this.navCtrl.push(this.joystickPage, {joystickParams:this.joystickParams});
+    this.navCtrl.push(this.joystickPage, {joystickParams:this.joystickParams});
   }
 }

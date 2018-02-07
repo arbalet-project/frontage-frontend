@@ -51,4 +51,7 @@ export class TetrisJoystickPage {
   onRight() {
     this.socket.send(">");
   }
+  onTurn() {
+    this.socket.send(">");
+  }
 }
