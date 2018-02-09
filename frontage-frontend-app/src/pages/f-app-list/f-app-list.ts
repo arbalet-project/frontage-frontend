@@ -21,10 +21,8 @@ export class FAppListPage {
   isAdmin: boolean = false;
 
   constructor(public navCtrl: NavController, public fAppsData: DataFAppsProvider, public localStorageProvider: LocalStorageProvider) {
-    console.log(this.isAdmin);
     //Check if the connected user is admin
     this.isAdmin = this.localStorageProvider.isAdmin();
-    console.log(this.isAdmin);
 
     //Get the f-app list
     fAppsData.getList()
