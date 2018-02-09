@@ -1,0 +1,22 @@
+<ion-header>
+  <app-header></app-header>
+</ion-header>
+
+<ion-content padding class="bg">
+  <ion-card>
+    <ion-card-header>
+      {{"ERROR_PAGE_TITLE" | translate}}
+      <ion-icon color="secondary" ios="ios-bug" md="md-bug"></ion-icon>
+    </ion-card-header>
+    <ion-card-content>
+      {{"ERROR_PAGE_MESSAGE" | translate}}
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+
+<ion-footer>
+  <button ion-button icon-end full color="secondary" class="tr" (click)="goToLoginPage()">
+    {{"ERROR_PAGE_BUTTON" | translate}}
+    <ion-icon color="secondary" ios="ios-help-buoy" md="md-help-buoy"></ion-icon>
+  </button>
+</ion-footer>

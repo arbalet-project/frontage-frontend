@@ -30,13 +30,13 @@ export class LoginPage {
 
     this.userName = nicknameGeneratorProvider.generateNickname();
     authentication.isServerUp()
-      .subscribe(isServerUp => this.checkFacade(isServerUp), e => this.handleError(e));
+      .subscribe(isServerUp => this.checkFacade(isServerUp), e => e);
 
     //If the server is not up check periodicaly his status
     if (!this.isServerUp) {
       this.serverUpSubscription = Observable.interval(500 * 60).subscribe(x => {
         authentication.isServerUp()
-          .subscribe(isServerUp => this.checkFacade(isServerUp), e => this.handleError(e));
+          .subscribe(isServerUp => this.checkFacade(isServerUp), e => e);
       });
     }
   }
@@ -102,11 +102,6 @@ export class LoginPage {
 
   displayPwd() {
     this.isPwdDisplayed = !this.isPwdDisplayed;
-  }
-
-  handleError(e: any): any {
-    this.exception = e;
-    console.log("Error status : " + e.status);
   }
 
   /**

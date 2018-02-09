@@ -59,5 +59,9 @@
     "STOP_APP":"Leave queue",
 
     "LANGUAGE_COMPONENT_FR":"FR",
-    "LANGUAGE_COMPONENT_EN":"EN"
+    "LANGUAGE_COMPONENT_EN":"EN",
+
+    "ERROR_PAGE_TITLE": "Well this is embarrassing ...",
+    "ERROR_PAGE_MESSAGE": "An unknown error appeared ! You may try to reconnect by clicking on the button below.",
+    "ERROR_PAGE_BUTTON": "Se reconnecter"
 }

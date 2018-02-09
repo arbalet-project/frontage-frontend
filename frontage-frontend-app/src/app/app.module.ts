@@ -34,6 +34,7 @@ import { UserDisplayedComponent } from '../components/user-diplayed/user-display
 import { SnakeOptionsPage } from '../pages/snake-options/snake-options';
 import { AppHeaderComponent } from '../components/app-header/app-header';
 import { TetrisJoystickPage } from '../pages/tetris-joystick/tetris-joystick';
+import { ErrorPage } from '../pages/error/error';
 
 export function createTranslateLoader(http: Http) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -55,7 +56,8 @@ let components:any[] = [
     SnakeOptionsPage,
     LoginPage,
     TetrisOptionsPage,
-    TetrisJoystickPage
+    TetrisJoystickPage,
+    ErrorPage
 ];
 
 @NgModule({
@@ -85,8 +87,8 @@ let components:any[] = [
     TimeProvider,
     WebSocketProvider,
     HttpInterceptorProvider,
-    LocalStorageProvider,
     NicknameGeneratorProvider,
+    LocalStorageProvider,
     TranslateLanguageProvider
   ]
 })

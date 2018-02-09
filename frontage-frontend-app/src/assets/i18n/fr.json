@@ -64,5 +64,9 @@
     "STOP_APP":"Abandonner",
     
     "LANGUAGE_COMPONENT_FR":"FR",
-    "LANGUAGE_COMPONENT_EN":"EN"
+    "LANGUAGE_COMPONENT_EN":"EN",
+
+    "ERROR_PAGE_TITLE": "Oups ! C'est embarrassant ...",
+    "ERROR_PAGE_MESSAGE": "Une erreur inconnue s'est produite. Veuillez vous reconnecter en cliquant sur le bouton ci-dessous.",
+    "ERROR_PAGE_BUTTON": "Se reconnecter"
 }
