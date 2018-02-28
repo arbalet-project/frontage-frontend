@@ -2,6 +2,8 @@ import { NicknameGeneratorProvider } from './../../providers/nickname-generator/
 import { Component } from '@angular/core';
 import { NavParams } from 'ionic-angular';
 import { environment } from '../../app/environment';
+import { ScreenOrientation } from '@ionic-native/screen-orientation';
+import { LocalStorageProvider } from './../../providers/local-storage/local-storage';
 
 @Component({
   selector: 'page-snake-joystick',
@@ -12,9 +14,9 @@ export class SnakeJoystickPage {
   nom:string = "";
   socket:WebSocket;
 
-  constructor(public nicknameGeneratorProvider: NicknameGeneratorProvider, public navParams: NavParams) {
-    this.nom = nicknameGeneratorProvider.generateNicknameFr();
+  constructor(public nicknameGeneratorProvider: NicknameGeneratorProvider, public navParams: NavParams, public screenOrientation: ScreenOrientation, public localStorageProvider: LocalStorageProvider) {
 
+    this.nom = localStorageProvider.getUserName();
     this.initSocket();
   }
 
@@ -26,7 +28,6 @@ export class SnakeJoystickPage {
       return message;
     };
 
-    let self = this;
       this.socket.onopen = function () {
     };
 
@@ -47,5 +48,10 @@ export class SnakeJoystickPage {
   }
   onRight() {
     this.socket.send(">");
+  }
+
+  test() {
+    alert("orientation :")
+    alert(this.screenOrientation.type)
   }
 }

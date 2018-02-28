@@ -1,4 +1,6 @@
+import { FormGroup, FormBuilder } from '@angular/forms';
 import { Component } from '@angular/core';
+import { WebSocketProvider } from './../../providers/web-socket/web-socket';
 import { NavController, NavParams } from 'ionic-angular';
 
 @Component({
@@ -7,11 +9,25 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class RandomFlashingJoystickPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  fAppOptions: FormGroup;
+  socket: WebSocket;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public formBuilder: FormBuilder, public wsProvider: WebSocketProvider) {
+    let joystickParams = navParams.get('joystickParams');
+
+    this.fAppOptions = formBuilder.group({
+      fAppColor: ""
+    });
+
+    this.socket = this.wsProvider.getSocket();
+
+    this.socket.onmessage = function (message) {
+      return message;
+    };
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad RandomFlashingJoystickPage');
+  sendOption(option) {
+    this.socket.send("{payload: {flag:'" + this.fAppOptions.value.fAppColor + "'}}");
   }
 
 }

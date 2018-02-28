@@ -1,3 +1,6 @@
+import { SweepRandJoystickPage } from './../pages/sweep-rand-joystick/sweep-rand-joystick';
+import { SweepAsyncJoystickPage } from './../pages/sweep-async-joystick/sweep-async-joystick';
+import { RandomFlashingJoystickPage } from './../pages/random-flashing-joystick/random-flashing-joystick';
 import { TetrisOptionsPage } from './../pages/tetris-options/tetris-options';
 import { LoginPage } from './../pages/login/login';
 import { SnakeJoystickPage } from './../pages/snake-joystick/snake-joystick';
@@ -35,6 +38,7 @@ import { SnakeOptionsPage } from '../pages/snake-options/snake-options';
 import { AppHeaderComponent } from '../components/app-header/app-header';
 import { TetrisJoystickPage } from '../pages/tetris-joystick/tetris-joystick';
 import { ErrorPage } from '../pages/error/error';
+import { ScreenOrientation } from '@ionic-native/screen-orientation';
 
 export function createTranslateLoader(http: Http) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -45,11 +49,14 @@ let components:any[] = [
     HomePage,
     FAppListPage,
     WaitingPage,
-    FlagsJoytickPage,
     FlagsOptionsPage,
+    FlagsJoytickPage,
     SweepAsyncOptionsPage,
+    SweepAsyncJoystickPage,
     SweepRandOptionsPage,
+    SweepRandJoystickPage,
     RandomFlashingOptionsPage,
+    RandomFlashingJoystickPage,
     AppHeaderComponent,
     UserDisplayedComponent,
     SnakeJoystickPage,
@@ -89,7 +96,8 @@ let components:any[] = [
     HttpInterceptorProvider,
     NicknameGeneratorProvider,
     LocalStorageProvider,
-    TranslateLanguageProvider
+    TranslateLanguageProvider,
+    ScreenOrientation
   ]
 })
 export class AppModule {}

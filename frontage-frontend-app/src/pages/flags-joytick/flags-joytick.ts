@@ -32,5 +32,4 @@ export class FlagsJoytickPage {
     this.socket.send("{payload: {flag:'" + this.parametersList + "'}}");
   }
 
-
 }

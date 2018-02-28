@@ -4,16 +4,16 @@ page-snake-joystick {
     } 
 
     #base{
-        background-image: url("../../assets/img/full-joystick.svg");
+        background-image: url("assets/img/full-joystick.svg");
         background-repeat: no-repeat;
         position: relative;
-        height: 90vh;
+        height: 80vh;
         width: 90vh;
         padding:0px!important;
     }
 
     #arrow-left{
-        background-image: url("../../assets/img/triangle-up.svg");
+        background-image: url("assets/img/triangle-up.svg");
         background-repeat: no-repeat;
         background-color: rgba(0,0,0,0);
         width:3.5vh;
@@ -25,7 +25,7 @@ page-snake-joystick {
     }
     
     #arrow-down{
-        background-image: url("../../assets/img/triangle-left.svg");
+        background-image: url("assets/img/triangle-left.svg");
         background-repeat: no-repeat;
         background-color: rgba(0,0,0,0);
         width:3.5vh;
@@ -37,7 +37,7 @@ page-snake-joystick {
     }
 
     #arrow-up{
-        background-image: url("../../assets/img/triangle-right.svg");
+        background-image: url("assets/img/triangle-right.svg");
         background-repeat: no-repeat;
         background-color: rgba(0,0,0,0);
         width:3.5vh;

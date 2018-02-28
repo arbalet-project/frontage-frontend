@@ -9,7 +9,7 @@ page-tetris-joystick {
         position: relative;
         height: 90vh;
         width: 90vh;
-        padding:0px!important;
+        padding:0vw!important;
     }
 
     #arrow-left{
@@ -36,18 +36,6 @@ page-tetris-joystick {
         
     }
 
-    #arrow-up{
-        background-image: url("../../assets/img/triangle-right.svg");
-        background-repeat: no-repeat;
-        background-color: rgba(0,0,0,0);
-        width:3.5vh;
-        height: 3.5vh;
-        position: absolute;
-        top:15vh;
-        left:25.3vh ;
-       
-    }
-
     #arrow-right{
         background-image: url("../../assets/img/triangle-down.svg");
         background-repeat: no-repeat;
@@ -63,11 +51,11 @@ page-tetris-joystick {
         background-image: url("../../assets/img/turn-button.svg");
         background-repeat: no-repeat;
         background-color: rgba(0,0,0,0);
-        width:3.5vh;
-        height: 3.5vh;
+        width:22vh;
+        height: 22vh;
         position: absolute;
-        top:60vh;
-        left:18vh;
+        top:36.5vh;
+        left:9vh;
     }
 
 }
