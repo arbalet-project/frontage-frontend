@@ -13,7 +13,6 @@ export class RandomFlashingJoystickPage {
   socket: WebSocket;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public formBuilder: FormBuilder, public wsProvider: WebSocketProvider) {
-    let joystickParams = navParams.get('joystickParams');
 
     this.fAppOptions = formBuilder.group({
       fAppColor: ""
@@ -29,5 +28,4 @@ export class RandomFlashingJoystickPage {
   sendOption(option) {
     this.socket.send("{payload: {flag:'" + this.fAppOptions.value.fAppColor + "'}}");
   }
-
 }
