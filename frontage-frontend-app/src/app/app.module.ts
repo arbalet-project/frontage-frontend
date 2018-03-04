@@ -39,6 +39,7 @@ import { AppHeaderComponent } from '../components/app-header/app-header';
 import { TetrisJoystickPage } from '../pages/tetris-joystick/tetris-joystick';
 import { ErrorPage } from '../pages/error/error';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
+import { Vibration } from '@ionic-native/vibration'
 
 export function createTranslateLoader(http: Http) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -97,7 +98,8 @@ let components:any[] = [
     NicknameGeneratorProvider,
     LocalStorageProvider,
     TranslateLanguageProvider,
-    ScreenOrientation
+    ScreenOrientation,
+    Vibration    
   ]
 })
 export class AppModule {}
