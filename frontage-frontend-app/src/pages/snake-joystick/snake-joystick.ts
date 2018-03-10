@@ -15,8 +15,9 @@ export class SnakeJoystickPage {
   socket:WebSocket;
 
   constructor(public nicknameGeneratorProvider: NicknameGeneratorProvider, public navParams: NavParams, public screenOrientation: ScreenOrientation, public localStorageProvider: LocalStorageProvider) {
-
+    this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
     this.nom = localStorageProvider.getUserName();
+
     this.initSocket();
   }
 
@@ -37,18 +38,32 @@ export class SnakeJoystickPage {
   }
 
   onUp() {
-    this.socket.send("^");
+    alert("up");
   }
 
   onDown() {
-    this.socket.send("v");
+    alert("down");
   }
   onLeft() {
-    this.socket.send("<");
+    alert("left");
   }
   onRight() {
-    this.socket.send(">");
+    alert("right");
   }
+
+  // onUp() {
+  //   this.socket.send("^");
+  // }
+
+  // onDown() {
+  //   this.socket.send("v");
+  // }
+  // onLeft() {
+  //   this.socket.send("<");
+  // }
+  // onRight() {
+  //   this.socket.send(">");
+  // }
 
   test() {
     alert("orientation :")

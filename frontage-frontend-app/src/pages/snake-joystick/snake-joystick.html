@@ -1,20 +1,41 @@
-<ion-header>
+<!-- <ion-header>
 
   <ion-navbar>
     <ion-title>snake-joystick</ion-title>
   </ion-navbar>
 
-</ion-header>
+</ion-header> -->
 
 
 <ion-content>
+<svg id="joystick" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 65 35.2">
+  <defs>
+  <style>.cls-1{fill:#95a5a6;}.cls-2{fill:#bdc3c7;}.cls-3{fill:#ecf0f1;}.cls-4{fill:#7f8c8d;}.cls-5{fill:#27ae60;}.cls-6{fill:#f39c12;}.cls-7{fill:#2980b9;}.cls-8{fill:#c0392b;}
+  </style>
+  </defs>
+  <title>Joystick
+  </title>
+  <g id="Calque_2" data-name="Calque 2">
+  <g id="Layer_1" data-name="Layer 1">
+  <g id="_Groupe_" data-name="&lt;Groupe&gt;">
+  <path id="_Tracé_" data-name="&lt;Tracé&gt;" class="cls-1" d="M16.3,2.7a20.48,20.48,0,0,0-5.6.8A16.59,16.59,0,0,0,0,18.9,16.39,16.39,0,0,0,10.7,34.1c2.6,1.1,5.8,1.1,8.6,1.1,5.3,0,8.6-5.7,13.2-5.4,4.6-.3,7.9,5.4,13.2,5.4,2.8,0,6,0,8.6-1.1A16.53,16.53,0,0,0,65,18.9c0-6.8-4.3-13.3-10.7-15.4a20.48,20.48,0,0,0-5.6-.8H16.3Z"/>
+  <path id="_Tracé_2" data-name="&lt;Tracé&gt;" class="cls-2" d="M16.3,0a20.48,20.48,0,0,0-5.6.8A16.59,16.59,0,0,0,0,16.2,16.39,16.39,0,0,0,10.7,31.4c2.6,1.1,5.8,1.1,8.6,1.1,5.3,0,8.6-5.7,13.2-5.4,4.6-.3,7.9,5.4,13.2,5.4,2.8,0,6,0,8.6-1.1A16.53,16.53,0,0,0,65,16.2C65,9.4,60.7,2.9,54.3.8A20.48,20.48,0,0,0,48.7,0H16.3Z"/>
+  <circle id="_Tracé_3" data-name="&lt;Tracé&gt;" class="cls-3" cx="15.02" cy="16.88" r="13.5"/>
+  <path id="_Tracé_4" data-name="&lt;Tracé&gt;" class="cls-4" d="M15.09,5.38a3.74,3.74,0,0,0-3.86,3.83v3.83H7.37a3.74,3.74,0,0,0-3.86,3.83,3.92,3.92,0,0,0,3.86,3.83h3.71v3.83a3.92,3.92,0,0,0,3.86,3.83,4,4,0,0,0,3.86-3.83V20.72h3.86a4,4,0,0,0,3.86-3.83,3.74,3.74,0,0,0-3.86-3.83H18.8V9.22A3.63,3.63,0,0,0,15.09,5.38Z"/>
+  <!-- <circle id="bt1" class="cls-3" cx="50.02" cy="16.88" r="13.5"/> -->
+  <!-- <circle id="bt2" class="cls-5" cx="42.55" cy="16.88" r="4.5"/>
+  <circle id="bt3" class="cls-6" cx="50.02" cy="24.88" r="4.5"/>
+  <circle id="bt4" class="cls-7" cx="50.02" cy="8.97" r="4.5"/>
+  <circle id="bt5" class="cls-8" cx="57.87" cy="16.88" r="4.5"/> -->
+  <path id="_Tracé_5" data-name="&lt;Tracé&gt;" class="cls-4" d="M30.93,15.48a1.43,1.43,0,0,0-1.4,1.4,1.37,1.37,0,0,0,1.4,1.4h2.7a1.43,1.43,0,0,0,1.4-1.4,1.37,1.37,0,0,0-1.4-1.4Z"/>
+  </g>
+  <polygon (click)="onUp()" points="15.14 6.4 12.02 12.4 18.02 12.4 15.14 6.4"/>
+  <polygon (click)="onLeft()" points="25.78 17 19.78 13.88 19.78 19.88 25.78 17"/>
+  <polygon (click)="onRight()"  points="3.92 16.85 9.92 19.97 9.92 13.97 3.92 16.85"/>
+  <polygon (click)="onDown()"  points="15.14 27.37 18.02 21.37 12.02 21.37 15.14 27.37"/>
+  </g>
+  </g>
+  </svg>
   
-   <div type="image/svg+xml" id="base">
-        <div type="image/svg+xml" id="arrow-up" (click)="onUp()" ></div>
-        <div type="image/svg+xml" id="arrow-down" (click)="onDown()" ></div>
-        <div type="image/svg+xml" id="arrow-right" (click)="onRight()" ></div>
-        <div type="image/svg+xml" id="arrow-left" (click)="onLeft()" ></div>
-    </div>
-
-    <button ion-button (click)="test()">test</button>
+    <!-- <button ion-button (click)="test()">test</button> -->
 </ion-content>

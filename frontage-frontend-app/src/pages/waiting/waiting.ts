@@ -31,6 +31,7 @@ export class WaitingPage {
     }
 
     if (serverResponse.queued) {
+      console.log("On a reçu une réponse du serveur : " + JSON.stringify(serverResponse))
       this.state="queued";
       this.positionSubscription = Observable.interval(serverResponse.keep_alive_delay * 50)
         .subscribe(x => {
