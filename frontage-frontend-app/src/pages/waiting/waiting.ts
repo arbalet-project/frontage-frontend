@@ -34,10 +34,7 @@ export class WaitingPage {
     if (serverResponse.queued) {
       this.state="queued";
       this.positionSubscription = Observable.interval(serverResponse.keep_alive_delay * 50)
-        .subscribe(x => {
-          this.dataFAppsProvider.checkPosition()
-            .subscribe(response => this.checkPosition(response))
-        });
+        .subscribe(x => this.positionSubscriptionStart(x));
     } else if (serverResponse.status === 403) {
       this.state="error";
       this.message = "Vous ne pouvez lancer qu'une seule application à la fois. Vous êtes déjà dans la queue.";
@@ -48,6 +45,11 @@ export class WaitingPage {
       this.message = "Une erreur inconnue s'est produite. Tentez de redémarrer l'application."
     }
 
+  }
+
+  positionSubscriptionStart(x) {
+    this.dataFAppsProvider.checkPosition()
+       .subscribe(response => this.checkPosition(response));
   }
 
   checkPosition(response: any) {
@@ -64,15 +66,14 @@ export class WaitingPage {
   }
 
   backButtonAction() {
-    this.cancel();
-  }
-
-  cancel() {
     this.dataFAppsProvider.stopApp().subscribe(response => this.navCtrl.push(FAppListPage));
   }
 
   ionViewWillLeave(){
-    this.positionSubscription.unsubscribe();
+    if(this.positionSubscription) {
+       this.positionSubscription.unsubscribe();
+       this.positionSubscription=undefined;
+    }
   }
 
   startApp() {
