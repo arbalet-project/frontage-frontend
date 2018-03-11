@@ -1,7 +1,7 @@
 page-snake-joystick {
-    .scroll-content {
-        padding:0px!important;
-    } 
+    // .scroll-content {
+    //     padding:0px!important;
+    // } 
 
     #joystick {
         height: 90vh;
@@ -13,59 +13,4 @@ page-snake-joystick {
         transform: translate(-50%, -50%);
     }
 
-    // #base{
-    //     background-image: url("assets/img/full-joystick.svg");
-    //     background-repeat: no-repeat;
-    //     position: relative;
-    //     height: 80vh;
-    //     width: 90vh;
-    //     padding:0px!important;
-    // }
-    // 
-    // #arrow-left{
-    //     background-image: url("assets/img/triangle-up.svg");
-    //     background-repeat: no-repeat;
-    //     background-color: rgba(0,0,0,0);
-    //     width:3.5vh;
-    //     height: 3.5vh;
-    //     position: absolute;
-    //     top:7.5vh;
-    //     left:18vh;
-        
-    // }
-    
-    // #arrow-down{
-    //     background-image: url("assets/img/triangle-left.svg");
-    //     background-repeat: no-repeat;
-    //     background-color: rgba(0,0,0,0);
-    //     width:3.5vh;
-    //     height: 3.5vh;
-    //     position: absolute;
-    //     top:15vh;
-    //     left:10.5vh;
-        
-    // }
-
-    // #arrow-up{
-    //     background-image: url("assets/img/triangle-right.svg");
-    //     background-repeat: no-repeat;
-    //     background-color: rgba(0,0,0,0);
-    //     width:3.5vh;
-    //     height: 3.5vh;
-    //     position: absolute;
-    //     top:15vh;
-    //     left:25.3vh ;
-       
-    // }
-
-    // #arrow-right{
-    //     background-image: url("../../assets/img/triangle-down.svg");
-    //     background-repeat: no-repeat;
-    //     background-color: rgba(0,0,0,0);
-    //     width:3.5vh;
-    //     height: 3.5vh;
-    //     position: absolute;
-    //     top:22vh;
-    //     left:18vh;
-    // }
 }

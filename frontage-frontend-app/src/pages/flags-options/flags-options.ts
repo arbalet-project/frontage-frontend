@@ -34,9 +34,13 @@ export class FlagsOptionsPage {
       }
     };
 
-    console.log(JSON.stringify(this.parametersList));
     this.dataFAppsProvider.launchFApp(options)
-      .subscribe(response => this.navCtrl.push(WaitingPage, {info:response, joystick:FlagsJoytickPage, joystickParams:{parametersList:this.parametersList, selectedParameter:this.selectedParameter}}));
+      .subscribe(response => this.goToNextPage(response));
+  }
+
+  goToNextPage(response) {
+    this.navCtrl.pop();
+    this.navCtrl.push(WaitingPage, {info:response, joystick:FlagsJoytickPage, joystickParams:{parametersList:this.parametersList, selectedParameter:this.selectedParameter}})
   }
 
 }

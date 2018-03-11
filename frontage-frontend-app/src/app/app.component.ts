@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { Nav, Platform } from 'ionic-angular';
+import { Nav, Platform, ViewController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
@@ -31,7 +31,27 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       this.statusBar.styleDefault();
       this.splashScreen.hide();
+
+
+      this.platform.registerBackButtonAction(() => {
+        
+        let activeView: ViewController = this.nav.getActive();
+    
+        if(activeView != null){
+          if (typeof activeView.instance.backButtonAction === 'function'){
+            activeView.instance.backButtonAction();
+          }
+          else if(this.nav.canGoBack()) {
+            this.nav.pop();
+          }
+          else {
+            this.nav.parent.select(0); // goes to the first tab
+          }
+        }
+      });
     });
+
+    
   }
 
   openPage(page) {
@@ -39,4 +59,6 @@ export class MyApp {
     // we wouldn't want the back button to show in this scenario
     this.nav.setRoot(page.component);
   }
+
+  
 }

@@ -1,6 +1,6 @@
 import { NicknameGeneratorProvider } from './../../providers/nickname-generator/nickname-generator';
 import { Component } from '@angular/core';
-import { NavParams } from 'ionic-angular';
+import { NavParams, NavController } from 'ionic-angular';
 import { environment } from '../../app/environment';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
 import { LocalStorageProvider } from './../../providers/local-storage/local-storage';
@@ -14,7 +14,7 @@ export class SnakeJoystickPage {
   nom:string = "";
   socket:WebSocket;
 
-  constructor(public nicknameGeneratorProvider: NicknameGeneratorProvider, public navParams: NavParams, public screenOrientation: ScreenOrientation, public localStorageProvider: LocalStorageProvider) {
+  constructor(public nicknameGeneratorProvider: NicknameGeneratorProvider, public navCtrl: NavController, public navParams: NavParams, public screenOrientation: ScreenOrientation, public localStorageProvider: LocalStorageProvider) {
     this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
     this.nom = localStorageProvider.getUserName();
 
@@ -33,40 +33,31 @@ export class SnakeJoystickPage {
     };
 
     this.socket.onerror = function () {
+      alert("la connection a échouée");
       console.log("Erreur, la connection a échouée.");
     }
   }
 
   onUp() {
-    alert("up");
+    this.socket.send("^");
   }
-
   onDown() {
-    alert("down");
+    this.socket.send("v");
   }
   onLeft() {
-    alert("left");
+    this.socket.send("<");
   }
   onRight() {
-    alert("right");
+    this.socket.send(">");
   }
 
-  // onUp() {
-  //   this.socket.send("^");
-  // }
+  ionViewDidLeave(){
+    this.quitPage();
+  }
 
-  // onDown() {
-  //   this.socket.send("v");
-  // }
-  // onLeft() {
-  //   this.socket.send("<");
-  // }
-  // onRight() {
-  //   this.socket.send(">");
-  // }
-
-  test() {
-    alert("orientation :")
-    alert(this.screenOrientation.type)
+  quitPage(){
+    
+    this.socket.send("q");
+    this.screenOrientation.unlock();
   }
 }

@@ -28,13 +28,18 @@ export class SweepAsyncOptionsPage {
         dur_min: 1,
         dur_max: 15,
         refresh_rate: 80,
-        colors: [ this.fAppOptions.value.fAppColor ],
+        colors: [this.fAppOptions.value.fAppColor],
         uapp: "swipe"
       }
     }
 
-    
+
     this.dataFAppsProvider.launchFApp(options)
-      .subscribe(response => this.navCtrl.push(WaitingPage, {info:response, joystick: SweepAsyncJoystickPage}));
+      .subscribe(response => this.goToNextPage(response));
+  }
+
+  goToNextPage(response) {
+    this.navCtrl.pop();
+    this.navCtrl.push(WaitingPage, { info: response, joystick: SweepAsyncJoystickPage });
   }
 }

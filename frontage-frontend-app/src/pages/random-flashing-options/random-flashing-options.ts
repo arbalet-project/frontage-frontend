@@ -37,7 +37,12 @@ export class RandomFlashingOptionsPage {
 
     
     this.dataFAppsProvider.launchFApp(options)
-      .subscribe(response => this.navCtrl.push(WaitingPage, {info:response, joystick:RandomFlashingJoystickPage}));
+      .subscribe(response => this.goToNextPage(response));
+  }
+
+  goToNextPage(response) {
+    this.navCtrl.pop();
+    this.navCtrl.push(WaitingPage, {info:response, joystick:RandomFlashingJoystickPage});
   }
 }
 

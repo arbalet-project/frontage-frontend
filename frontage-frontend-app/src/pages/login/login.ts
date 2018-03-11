@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { LocalStorageProvider } from './../../providers/local-storage/local-storage';
 import { FAppListPage } from './../f-app-list/f-app-list';
@@ -6,6 +6,7 @@ import { TimeProvider } from './../../providers/time/time';
 import { Observable, Subscription } from 'rxjs/Rx';
 import { AuthenticationProvider } from '../../providers/authentication/authentication';
 import { NicknameGeneratorProvider } from '../../providers/nickname-generator/nickname-generator';
+import { Navbar } from 'ionic-angular';
 
 @Component({
   selector: 'page-login',
@@ -115,4 +116,5 @@ export class LoginPage {
       this.displayPwd();
     }
   }
+
 }

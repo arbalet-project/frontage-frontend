@@ -1,3 +1,5 @@
+import { LocalStorageProvider } from './../../providers/local-storage/local-storage';
+import { ScreenOrientation } from '@ionic-native/screen-orientation';
 import { NicknameGeneratorProvider } from './../../providers/nickname-generator/nickname-generator';
 import { Component } from '@angular/core';
 import { NavParams } from 'ionic-angular';
@@ -11,10 +13,10 @@ export class TetrisJoystickPage {
   nom:string = "";
   socket:WebSocket;
 
-  constructor(public nicknameGeneratorProvider: NicknameGeneratorProvider, public navParams: NavParams) {
+  constructor(public navParams: NavParams, public screenOrientation: ScreenOrientation, public localStorageProvider: LocalStorageProvider ) {
     console.log("tetris joystick");
-
-    this.nom = nicknameGeneratorProvider.generateNicknameFr();
+    this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
+    this.nom = localStorageProvider.getUserName();
 
     this.initSocket();
   }
@@ -51,6 +53,20 @@ export class TetrisJoystickPage {
   onRight() {
     this.socket.send(">");
   }
+  turn() {
+    this.socket.send("@");
+  }
 
-  
+  ionViewDidLeave(){
+    this.quitPage();
+  }
+
+  backButtonAction(){
+    this.quitPage();
+  }
+
+  quitPage(){
+    this.socket.send("q");
+    this.screenOrientation.unlock();
+  }
 }

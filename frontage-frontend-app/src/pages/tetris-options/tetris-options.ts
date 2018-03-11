@@ -27,8 +27,13 @@ export class TetrisOptionsPage {
       }
     }
 
-    
+
     this.dataFAppsProvider.launchFApp(options)
-      .subscribe(response => this.navCtrl.push(WaitingPage, {info:response, joystick: TetrisJoystickPage}));
+      .subscribe(response => this.goToNextPage(response));
+  }
+
+  goToNextPage(response) {
+    this.navCtrl.pop();
+    this.navCtrl.push(WaitingPage, { info: response, joystick: TetrisJoystickPage });
   }
 }

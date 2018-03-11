@@ -28,4 +28,8 @@ export class SweepRandJoystickPage {
   sendOption(option) {
     this.socket.send("{payload: {flag:'" + this.fAppOptions.value.fAppColor + "'}}");
   }
+
+  ionViewDidLeave(){
+    this.socket.send("q");
+  }
 }

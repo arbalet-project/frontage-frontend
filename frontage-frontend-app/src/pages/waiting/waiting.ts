@@ -22,7 +22,8 @@ export class WaitingPage {
   constructor(public navCtrl: NavController, public navParams: NavParams, public dataFAppsProvider: DataFAppsProvider) {
 
     this.joystickPage = navParams.get('joystick');
-    this.joystickParams = navParams.get('joystickParams');
+    this.joystickParams = navParams.get('joystickParams')
+
 
     let serverResponse: any = navParams.get('info');
     //If queued then periodically check the position in the queue 
@@ -31,7 +32,6 @@ export class WaitingPage {
     }
 
     if (serverResponse.queued) {
-      console.log("On a reçu une réponse du serveur : " + JSON.stringify(serverResponse))
       this.state="queued";
       this.positionSubscription = Observable.interval(serverResponse.keep_alive_delay * 50)
         .subscribe(x => {
@@ -40,7 +40,7 @@ export class WaitingPage {
         });
     } else if (serverResponse.status === 403) {
       this.state="error";
-      this.message = "Erreur : Vous ne pouvez lancer qu'une seule application à la fois. Vous êtes déjà dans la queue.";
+      this.message = "Vous ne pouvez lancer qu'une seule application à la fois. Vous êtes déjà dans la queue.";
     } else if (serverResponse.status === 200) {
       this.startApp();
     } else {
@@ -58,18 +58,25 @@ export class WaitingPage {
 
     if (this.position === -1) {
       this.message = "L'application est en train de se lancer !";
-      this.positionSubscription.unsubscribe();
 
       this.startApp();
     }
   }
 
+  backButtonAction() {
+    this.cancel();
+  }
+
   cancel() {
     this.dataFAppsProvider.stopApp().subscribe(response => this.navCtrl.push(FAppListPage));
+  }
+
+  ionViewWillLeave(){
     this.positionSubscription.unsubscribe();
   }
 
   startApp() {
+    this.navCtrl.pop();
     this.navCtrl.push(this.joystickPage, {joystickParams:this.joystickParams});
   }
 }
