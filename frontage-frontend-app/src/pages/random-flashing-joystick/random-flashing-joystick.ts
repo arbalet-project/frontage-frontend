@@ -1,3 +1,4 @@
+import { DataFAppsProvider } from './../../providers/data-f-apps/data-f-apps';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { Component } from '@angular/core';
 import { WebSocketProvider } from './../../providers/web-socket/web-socket';
@@ -12,7 +13,8 @@ export class RandomFlashingJoystickPage {
   fAppOptions: FormGroup;
   socket: WebSocket;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public formBuilder: FormBuilder, public wsProvider: WebSocketProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public formBuilder: FormBuilder, public wsProvider: WebSocketProvider,
+                public fAppProvider:DataFAppsProvider) {
 
     this.fAppOptions = formBuilder.group({
       fAppColor: ""
@@ -31,5 +33,10 @@ export class RandomFlashingJoystickPage {
 
   ionViewDidLeave(){
     this.socket.send("q");
+  }
+
+  stopFApp() {
+    this.fAppProvider.stopApp();
+    this.navCtrl.pop();
   }
 }

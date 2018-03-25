@@ -19,7 +19,18 @@ export class HomePage {
     this.navCtrl.push(LoginPage);
   }
 
+  // sendWithSocket() {
+  //   const socket = io("http://192.168.1.17:8123/socket");
+  //   alert("socket id : " + socket.id)
 
+  //   socket.on('connect', () => {alert("connect"); socket.emit("pouet")});
 
+  //   socket.on('coucou', msg => alert("Message : " + msg));
 
+  //   socket.on('error', (error) => alert("erreur : " + JSON.stringify(error) ))
+
+  //   socket.on('connect_timeout', (timeout) => alert("timeout : " + JSON.stringify(timeout) ))
+
+  //   socket.on('connect_error', (connect_error) => alert("connect_error : " + JSON.stringify(connect_error) ))
+  // }
 }

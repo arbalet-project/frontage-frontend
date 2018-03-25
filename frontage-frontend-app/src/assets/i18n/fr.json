@@ -11,6 +11,7 @@
     "SWEEPRAND":"SweepRand",
     "SNAKE": "Snake",
     "SNAP": "Snap",
+    "TETRIS": "Tetris",
 
     "FLAGS_DESCRIPTION":"Mettez Arbalet Frontage à la couleur de votre pays !",
     "RANDOMFLASHING_DESCRIPTION":"Faîtes scintiller Arbalet Frontage de façon calme et reposante.",
@@ -42,6 +43,7 @@
     "ITALY":"Italien",
     "FLAGS_OPTIONS_PAGE_START_BUTTON":"Lancer l'application",
     "FLAGS_OPTIONS_PAGE_QUEUE_ALERT":"Veuillez patientez, vous êtes en file d'attente en position ",
+    
 
     "FLAGS_OPTIONS_PAGE_TITLE":"Choisissez vos options",
     "RF_OPTIONS_PAGE_TITLE":"Choisissez vos options",
@@ -50,6 +52,7 @@
     "SNAKE_OPTIONS_PAGE_TITLE":"Choisissez vos options",
 
     "FLAGS_JOYSTICK_PAGE_TITLE":"Drapeaux",
+    "FLAGS_JOYSTICK_PAGE_CHANGE_BUTTON":"Changer de drapeaux",
 
     "COLOR_APP_OPTIONS_PAGE_COLOR_LABEL":"Couleur : ",
     "COLOR_APP_OPTIONS_PAGE_DARK_BLUE_LABEL":"Bleu Foncé",
@@ -62,7 +65,7 @@
     "SETTINGS_PAGE_EN":"Anglais",
 
     "WAITING":"En attente",
-    "STOP_APP":"Abandonner",
+    "STOP_APP":"Quitter",
     
     "LANGUAGE_COMPONENT_FR":"FR",
     "LANGUAGE_COMPONENT_EN":"EN",

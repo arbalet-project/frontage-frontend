@@ -1,3 +1,4 @@
+import { DataFAppsProvider } from './../../providers/data-f-apps/data-f-apps';
 import { NicknameGeneratorProvider } from './../../providers/nickname-generator/nickname-generator';
 import { Component } from '@angular/core';
 import { NavParams, NavController } from 'ionic-angular';
@@ -14,7 +15,8 @@ export class SnakeJoystickPage {
   nom:string = "";
   socket:WebSocket;
 
-  constructor(public nicknameGeneratorProvider: NicknameGeneratorProvider, public navCtrl: NavController, public navParams: NavParams, public screenOrientation: ScreenOrientation, public localStorageProvider: LocalStorageProvider) {
+  constructor(public nicknameGeneratorProvider: NicknameGeneratorProvider, public navCtrl: NavController, public navParams: NavParams, 
+    public screenOrientation: ScreenOrientation, public localStorageProvider: LocalStorageProvider, public fAppProvider: DataFAppsProvider) {
     this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
     this.nom = localStorageProvider.getUserName();
 
@@ -33,8 +35,7 @@ export class SnakeJoystickPage {
     };
 
     this.socket.onerror = function () {
-      alert("la connection a échouée");
-      console.log("Erreur, la connection a échouée.");
+      throw "Tetris Snake : Erreur, la connexion websocket a échouée."
     }
   }
 
@@ -55,9 +56,13 @@ export class SnakeJoystickPage {
     this.quitPage();
   }
 
+  stopFApp() {
+    this.navCtrl.pop();
+  }
+
   quitPage(){
-    
-    this.socket.send("q");
+    this.fAppProvider.stopApp();
+    this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
     this.screenOrientation.unlock();
   }
 }

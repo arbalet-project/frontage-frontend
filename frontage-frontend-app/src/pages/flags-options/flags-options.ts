@@ -17,7 +17,7 @@ export class FlagsOptionsPage {
   selectedParameter: string = "french";
   fAppPosition: number;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public dataFAppsProvider: DataFAppsProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public fAppProvider: DataFAppsProvider) {
 
     let fAppParams: FApp = navParams.get('selectedFapp');
     if (fAppParams) {
@@ -33,8 +33,8 @@ export class FlagsOptionsPage {
         uapp: this.selectedParameter
       }
     };
-
-    this.dataFAppsProvider.launchFApp(options)
+    
+    this.fAppProvider.launchFApp(options)
       .subscribe(response => this.goToNextPage(response));
   }
 
@@ -42,5 +42,4 @@ export class FlagsOptionsPage {
     this.navCtrl.pop();
     this.navCtrl.push(WaitingPage, {info:response, joystick:FlagsJoytickPage, joystickParams:{parametersList:this.parametersList, selectedParameter:this.selectedParameter}})
   }
-
 }

@@ -17,16 +17,16 @@ export class TetrisOptionsPage {
 
   constructor(public navCtrl: NavController, public dataFAppsProvider: DataFAppsProvider, public formBuilder: FormBuilder) {
     console.log("tetris option");
+    
   }
 
-  lauchApp() {
+  launchApp() {
 
     let options: FAppOptions = {
       name: "Tetris",
       params: {
       }
     }
-
 
     this.dataFAppsProvider.launchFApp(options)
       .subscribe(response => this.goToNextPage(response));

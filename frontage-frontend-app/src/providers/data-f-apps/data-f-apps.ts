@@ -40,7 +40,6 @@ export class DataFAppsProvider {
   }
 
   public stopApp() : Observable<any> {
-    
     return this.http.delete(this.baseUrl + "/b/apps/position");
   }
 }

@@ -1,8 +1,8 @@
+import { DataFAppsProvider } from './../../providers/data-f-apps/data-f-apps';
 import { LocalStorageProvider } from './../../providers/local-storage/local-storage';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
-import { NicknameGeneratorProvider } from './../../providers/nickname-generator/nickname-generator';
 import { Component } from '@angular/core';
-import { NavParams } from 'ionic-angular';
+import { NavParams, NavController } from 'ionic-angular';
 import { environment } from '../../app/environment';
 
 @Component({
@@ -13,8 +13,9 @@ export class TetrisJoystickPage {
   nom:string = "";
   socket:WebSocket;
 
-  constructor(public navParams: NavParams, public screenOrientation: ScreenOrientation, public localStorageProvider: LocalStorageProvider ) {
-    console.log("tetris joystick");
+  constructor(public navParams: NavParams, public screenOrientation: ScreenOrientation, public navCtrl: NavController, 
+    public localStorageProvider: LocalStorageProvider, public fAppProvider:DataFAppsProvider) {
+
     this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
     this.nom = localStorageProvider.getUserName();
 
@@ -32,41 +33,38 @@ export class TetrisJoystickPage {
 
     let self = this;
     this.socket.onopen = function () {
-      console.log("connected !");
       self.socket.send("coucou, c'est " + self.nom);
     };
 
     this.socket.onerror = function () {
-      console.log("Erreur, la connection a échouée.");
+      throw "Tetris Joystick : Erreur, la connexion websocket a échouée."
     }
   }
 
-  onUp() {
-    this.socket.send("^");
-  }
   onDown() {
-    this.socket.send("v");
-  }
-  onLeft() {
     this.socket.send("<");
   }
-  onRight() {
+  onUp() {
     this.socket.send(">");
   }
+  onRight() {
+    this.socket.send("v");
+  }
   turn() {
-    this.socket.send("@");
+    this.socket.send("^");
   }
 
   ionViewDidLeave(){
     this.quitPage();
   }
 
-  backButtonAction(){
-    this.quitPage();
+  stopFApp() {
+    this.navCtrl.pop();
   }
 
   quitPage(){
-    this.socket.send("q");
+    this.fAppProvider.stopApp();
+    this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
     this.screenOrientation.unlock();
   }
 }

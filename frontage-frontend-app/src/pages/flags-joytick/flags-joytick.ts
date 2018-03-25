@@ -1,3 +1,4 @@
+import { DataFAppsProvider } from './../../providers/data-f-apps/data-f-apps';
 import { WebSocketProvider } from './../../providers/web-socket/web-socket';
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
@@ -13,23 +14,27 @@ export class FlagsJoytickPage {
 
   socket: WebSocket;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public wsProvider: WebSocketProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public wsProvider: WebSocketProvider, public fAppProvider: DataFAppsProvider) {
     let joystickParams = navParams.get('joystickParams');
 
     this.parametersList = joystickParams.parametersList;
     this.selectedParameter = joystickParams.selectedParameter;
 
-    console.log("les params : " + JSON.stringify(this.selectedParameter));
-
     this.socket = this.wsProvider.getSocket();
 
     this.socket.onmessage = function (message) {
+      alert("message : " + JSON.stringify(message))
       return message;
     };
   }
 
-  sendOption() {
-    this.socket.send("{payload: {flag:'" + this.parametersList + "'}}");
+  changeFlag(){
+    this.socket.send("{flag:'" + this.selectedParameter + "'}");
+  }
+
+  stopFApp() {
+    this.fAppProvider.stopApp();
+    this.navCtrl.pop();
   }
 
 }

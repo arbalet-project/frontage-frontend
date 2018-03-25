@@ -1,4 +1,3 @@
-import { FAppListPage } from './../f-app-list/f-app-list';
 import { DataFAppsProvider } from './../../providers/data-f-apps/data-f-apps';
 import { Subscription, Observable } from 'rxjs/Rx';
 import { Component } from '@angular/core';
@@ -41,8 +40,8 @@ export class WaitingPage {
     } else if (serverResponse.status === 200) {
       this.startApp();
     } else {
-      this.state="error";
-      this.message = "Une erreur inconnue s'est produite. Tentez de redémarrer l'application."
+      this.message = ""
+      throw "WaitingPage : erreur la reponse HTTP du serveur est [" + serverResponse.status + "]";
     }
 
   }
@@ -66,7 +65,7 @@ export class WaitingPage {
   }
 
   backButtonAction() {
-    this.dataFAppsProvider.stopApp().subscribe(response => this.navCtrl.push(FAppListPage));
+    this.dataFAppsProvider.stopApp().subscribe(response => this.navCtrl.pop());
   }
 
   ionViewWillLeave(){

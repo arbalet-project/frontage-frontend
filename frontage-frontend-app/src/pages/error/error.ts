@@ -13,6 +13,11 @@ export class ErrorPage {
 
   goToLoginPage(){
     //Change page
+    this.navCtrl.popToRoot();
     this.navCtrl.push(LoginPage);
+  }
+
+  backButtonAction() {
+    this.goToLoginPage();
   }
 }
