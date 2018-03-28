@@ -65,5 +65,5 @@
 
     "ERROR_PAGE_TITLE": "Well this is embarrassing ...",
     "ERROR_PAGE_MESSAGE": "An unknown error appeared ! You may try to reconnect by clicking on the button below.",
-    "ERROR_PAGE_BUTTON": "Se reconnecter"
+    "ERROR_PAGE_BUTTON": "Reconnect"
 }
