@@ -1,6 +1,6 @@
 import { LoginPage } from './../login/login';
-import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { Component, Input } from '@angular/core';
+import { NavController, NavParams } from 'ionic-angular';
 
 @Component({
   selector: 'page-error',
@@ -8,7 +8,15 @@ import { NavController } from 'ionic-angular';
 })
 export class ErrorPage {
 
-  constructor(public navCtrl: NavController) {
+  errorMessage: String;
+  isDisplayed: boolean = false;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.errorMessage = this.navParams.get("errorMessage");
+  }
+
+  displayError() {
+    this.isDisplayed = !this.isDisplayed;
   }
 
   goToLoginPage(){

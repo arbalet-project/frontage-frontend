@@ -108,7 +108,6 @@ export class LoginPage {
    */
   headerTapEvent(event) {
     this.nbHeaderTapped++;
-    console.log(this.nbHeaderTapped);
 
     if (this.nbHeaderTapped > 7) {
       this.displayPwd();

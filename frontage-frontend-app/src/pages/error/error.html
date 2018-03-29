@@ -11,7 +11,17 @@
     <ion-card-content>
       {{"ERROR_PAGE_MESSAGE" | translate}}
     </ion-card-content>
-  </ion-card> 
+  </ion-card>
+  <ion-card>
+    <ion-card-header (tap)="displayError()">
+      {{"ERROR_PAGE_DETAIL" | translate }}
+    </ion-card-header>
+    <ion-card-content>
+      <div *ngIf="isDisplayed">
+        {{errorMessage}}
+      </div>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
 
 <ion-footer>
