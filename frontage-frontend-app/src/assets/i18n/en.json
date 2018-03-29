@@ -41,6 +41,7 @@
     "SPAIN":"Spanish",
     "ITALY":"Italian",
     "FLAGS_OPTIONS_PAGE_START_BUTTON":"Start application",
+    "FLAGS_OPTIONS_PAGE_FORCE_START_BUTTON":"Force application",
     "FLAGS_OPTIONS_PAGE_QUEUE_ALERT":"Wait a little, you are queued in position: ",
 
     "FLAGS_OPTIONS_PAGE_TITLE":"Settings",

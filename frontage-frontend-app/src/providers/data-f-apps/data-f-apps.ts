@@ -34,6 +34,13 @@ export class DataFAppsProvider {
       .catch(error => Observable.of(error));
   }
 
+  public launchForcedFApp(fAppOptions: FAppOptions): Observable<any> {
+    let body = fAppOptions;
+    return this.http
+      .post<any>(this.baseUrl + "/b/apps/admin/running", body)
+      .catch(error => Observable.of(error));
+  }
+
   public checkPosition(): Observable<any> {
     return this.http
       .get<any>(this.baseUrl + "/b/apps/position");

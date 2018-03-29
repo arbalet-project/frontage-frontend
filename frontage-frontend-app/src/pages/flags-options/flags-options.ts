@@ -1,3 +1,5 @@
+import { FAppListPage } from './../f-app-list/f-app-list';
+import { LocalStorageProvider } from './../../providers/local-storage/local-storage';
 import { FlagsJoytickPage } from './../flags-joytick/flags-joytick';
 import { WaitingPage } from './../waiting/waiting';
 import { FAppOptions } from './../../models/f-app-options';
@@ -16,8 +18,12 @@ export class FlagsOptionsPage {
   parametersList: string[];
   selectedParameter: string = "french";
   fAppPosition: number;
+  isAdmin: boolean = false;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public fAppProvider: DataFAppsProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public dataFAppsProvider: DataFAppsProvider, public localStorageProvider: LocalStorageProvider) {
+
+    //Check if the connected user is admin
+    this.isAdmin = this.localStorageProvider.isAdmin();
 
     let fAppParams: FApp = navParams.get('selectedFapp');
     if (fAppParams) {
@@ -34,7 +40,7 @@ export class FlagsOptionsPage {
       }
     };
     
-    this.fAppProvider.launchFApp(options)
+    this.dataFAppsProvider.launchFApp(options)
       .subscribe(response => this.goToNextPage(response));
   }
 
@@ -42,4 +48,15 @@ export class FlagsOptionsPage {
     this.navCtrl.pop();
     this.navCtrl.push(WaitingPage, {info:response, joystick:FlagsJoytickPage, joystickParams:{parametersList:this.parametersList, selectedParameter:this.selectedParameter}})
   }
+
+  forceFapp() {
+    let options: FAppOptions = {
+      name: "Flags",
+      params: {
+        uapp: this.selectedParameter
+      }
+    };
+    this.dataFAppsProvider.launchForcedFApp(options)
+      .subscribe(response => response);
+  };
 }

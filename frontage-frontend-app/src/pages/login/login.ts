@@ -83,17 +83,14 @@ export class LoginPage {
         this.pushPage(isAuthenticated));
   }
 
+  /**
+   * If the user is authenticated, proceed to the fapp list
+   * @param isAuthenticated
+   */
   pushPage(isAuthenticated: boolean) {
     if (isAuthenticated) {
       //Save the user name in the local storage
       this.localStorageProvider.setUserName(this.userName);
-
-      //Save the user information in the local storage
-      var isAdmin = "false";
-      if (this.isPwdDisplayed && this.password) {
-        isAdmin = "true";
-      }
-      this.localStorageProvider.setAdmin(isAdmin);
 
       //Change page
       this.navCtrl.push(FAppListPage);
@@ -105,13 +102,14 @@ export class LoginPage {
   }
 
   /**
-   * If the user tap more than 7, display the password field
+   * If the user tap the header more than 7, display the password field
+   * If the user keep tapping, the field will hide/show depending on its state.
    * @param event 
    */
   headerTapEvent(event) {
     this.nbHeaderTapped++;
 
-    if(this.nbHeaderTapped > 7){
+    if (this.nbHeaderTapped > 7) {
       this.displayPwd();
     }
   }

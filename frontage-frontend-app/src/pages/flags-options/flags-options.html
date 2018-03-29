@@ -23,3 +23,16 @@
         </button>
   </ion-footer>
 </ion-content>
+
+<ion-footer>
+  <div *ngIf="fAppPosition === -1; else elseBlock;">
+    <button ion-button icon-end full color="secondary" class="tr" (click)="startFapp()">
+      {{"FLAGS_OPTIONS_PAGE_START_BUTTON" | translate}}
+      <ion-icon color="secondary" ios="ios-flag" md="md-flag"></ion-icon>
+    </button>
+    <button *ngIf="isAdmin" ion-button icon-end full color="secondary" class="tr" (click)="forceFapp()">
+      {{"FLAGS_OPTIONS_PAGE_FORCE_START_BUTTON" | translate}}
+      <ion-icon color="danger" ios="ios-key" md="md-key"></ion-icon>
+    </button>
+  </div>
+</ion-footer>

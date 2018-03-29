@@ -31,9 +31,8 @@ export class AuthenticationProvider {
   public auth(userName: string, password: string): Observable<boolean> {
 
     let body;
-    let isAdmin = this.localStorageProvider.isAdmin();
-    //If the user is admin send the password
-    if (isAdmin) {
+    //If the user wishes to log as and admin send the password
+    if (password) {
       body = { "username": userName, "password": password };
     } else {
       body = { "username": userName };
@@ -41,16 +40,35 @@ export class AuthenticationProvider {
 
     return this.http.post(this.baseUrl + this.authEndpoint, body)
       .map(response => this.finalizeLogin(response));
-
-    // Call as an admin
-    // return this.http.post(this.baseUrl + this.authEndpoint, '{"username": "frontageadmin", "password": "frontagepassword"}', options)
-    //   .map(response => this.extractToken(response));
   }
 
+  /**
+   * Convert the token in a readable state
+   * @param token 
+   */
+  private parseJwt(token): any {
+    var base64Url = token.split('.')[1];
+    var base64 = base64Url.replace('-', '+').replace('_', '/');
+    return JSON.parse(window.atob(base64));
+  }
+
+  private isAdmin(parsedToken): boolean {
+    return parsedToken.is_admin;
+  }
+
+  /**
+   * Save the token and check if the user is an admin
+   * @param response 
+   */
   private finalizeLogin(response): boolean {
     let token = response.token;
     if (token) {
       this.localStorageProvider.setAuthToken(token);
+      let parsedToken = this.parseJwt(token);
+      this.localStorageProvider.setAdmin("false");
+      if (this.isAdmin(parsedToken)) {
+        this.localStorageProvider.setAdmin("true");
+      }
       return true;
     } else {
       return false;

@@ -42,6 +42,7 @@
     "SPAIN":"Espagnol",
     "ITALY":"Italien",
     "FLAGS_OPTIONS_PAGE_START_BUTTON":"Lancer l'application",
+    "FLAGS_OPTIONS_PAGE_FORCE_START_BUTTON":"Forcer l'application",
     "FLAGS_OPTIONS_PAGE_QUEUE_ALERT":"Veuillez patientez, vous êtes en file d'attente en position ",
     
 
