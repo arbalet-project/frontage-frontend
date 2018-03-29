@@ -1,8 +1,8 @@
 export const environment = {
-    backEndBaseUrl: "http://192.168.1.23:8123",
-    webSocketAdress: "ws://192.168.1.23:8124",
-    // backEndBaseUrl: "http://62.210.141.185:8123",
-    // webSocketAdress: "ws://62.210.141.185:8124",
+    // // backEndBaseUrl: "http://192.168.1.23:8123",
+    // webSocketAdress: "ws://192.168.1.23:8124",
+    backEndBaseUrl: "http://62.210.141.185:8123",
+    webSocketAdress: "ws://62.210.141.185:8124",
     // backEndBaseUrl: "http://localhost:8123",
     // webSocketAdress: "ws://localhost:8124",
     sentryUri: "http://2cdae4b5898d4475bafd33bd4a5f71ed@192.168.1.23:9000/3",

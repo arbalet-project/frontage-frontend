@@ -13,7 +13,7 @@
           <ion-input placeholder="{{'LOGIN_PAGE_USER_LABEL' | translate}}" [(ngModel)]="userName" type="text"></ion-input>
         </ion-item>
         <ion-item *ngIf="isPwdDisplayed">
-          <ion-input placeholder="{{'LOGIN_PAGE_PWD_LABEL' | translate}}" [(ngModel)]="password" type="text"></ion-input>
+          <ion-input placeholder="{{'LOGIN_PAGE_PWD_LABEL' | translate}}" [(ngModel)]="password" type="password"></ion-input>
         </ion-item>
       </ion-list>
       <div *ngIf="isFacadeUp; else elseBlock;">
