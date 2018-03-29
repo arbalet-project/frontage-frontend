@@ -2,8 +2,9 @@ import { DataFAppsProvider } from './../../providers/data-f-apps/data-f-apps';
 import { LocalStorageProvider } from './../../providers/local-storage/local-storage';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
 import { Component } from '@angular/core';
-import { NavParams, NavController } from 'ionic-angular';
+import { NavParams, NavController, Platform } from 'ionic-angular';
 import { environment } from '../../app/environment';
+
 
 @Component({
   selector: 'page-tetris-joystick',
@@ -14,9 +15,11 @@ export class TetrisJoystickPage {
   socket:WebSocket;
 
   constructor(public navParams: NavParams, public screenOrientation: ScreenOrientation, public navCtrl: NavController, 
-    public localStorageProvider: LocalStorageProvider, public fAppProvider:DataFAppsProvider) {
+    public localStorageProvider: LocalStorageProvider, public fAppProvider:DataFAppsProvider, public platform: Platform) {
 
-    this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
+      if (this.platform.is('mobile')) {
+        this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
+      }
     this.nom = localStorageProvider.getUserName();
 
     this.initSocket();
@@ -64,7 +67,10 @@ export class TetrisJoystickPage {
 
   quitPage(){
     this.fAppProvider.stopApp();
-    this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
-    this.screenOrientation.unlock();
+    
+    if (this.platform.is('mobile')) {
+      this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
+      this.screenOrientation.unlock();
+    }
   }
 }

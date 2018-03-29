@@ -64,7 +64,9 @@ export class SnakeJoystickPage {
 
   quitPage() {
     this.fAppProvider.stopApp();
-    this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
-    this.screenOrientation.unlock();
+    if (this.platform.is('mobile')) {
+      this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
+      this.screenOrientation.unlock();
+    }
   }
 }
