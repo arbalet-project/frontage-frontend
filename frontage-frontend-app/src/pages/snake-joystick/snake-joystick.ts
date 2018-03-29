@@ -1,7 +1,7 @@
 import { DataFAppsProvider } from './../../providers/data-f-apps/data-f-apps';
 import { NicknameGeneratorProvider } from './../../providers/nickname-generator/nickname-generator';
 import { Component } from '@angular/core';
-import { NavParams, NavController } from 'ionic-angular';
+import { NavParams, NavController, Platform } from 'ionic-angular';
 import { environment } from '../../app/environment';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
 import { LocalStorageProvider } from './../../providers/local-storage/local-storage';
@@ -12,26 +12,28 @@ import { LocalStorageProvider } from './../../providers/local-storage/local-stor
 })
 export class SnakeJoystickPage {
 
-  nom:string = "";
-  socket:WebSocket;
+  nom: string = "";
+  socket: WebSocket;
 
-  constructor(public nicknameGeneratorProvider: NicknameGeneratorProvider, public navCtrl: NavController, public navParams: NavParams, 
-    public screenOrientation: ScreenOrientation, public localStorageProvider: LocalStorageProvider, public fAppProvider: DataFAppsProvider) {
-    this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
+  constructor(public nicknameGeneratorProvider: NicknameGeneratorProvider, public navCtrl: NavController, public navParams: NavParams,
+    public screenOrientation: ScreenOrientation, public localStorageProvider: LocalStorageProvider, public fAppProvider: DataFAppsProvider, public platform: Platform) {
+    if (this.platform.is('mobile')) {
+      this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
+    }
     this.nom = localStorageProvider.getUserName();
 
     this.initSocket();
   }
 
   initSocket() {
-    
+
     this.socket = new WebSocket(`${environment.webSocketAdress}`);
 
     this.socket.onmessage = function (message) {
       return message;
     };
 
-      this.socket.onopen = function () {
+    this.socket.onopen = function () {
     };
 
     this.socket.onerror = function () {
@@ -52,7 +54,7 @@ export class SnakeJoystickPage {
     this.socket.send(">");
   }
 
-  ionViewDidLeave(){
+  ionViewDidLeave() {
     this.quitPage();
   }
 
@@ -60,7 +62,7 @@ export class SnakeJoystickPage {
     this.navCtrl.pop();
   }
 
-  quitPage(){
+  quitPage() {
     this.fAppProvider.stopApp();
     this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
     this.screenOrientation.unlock();
