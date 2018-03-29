@@ -5,6 +5,8 @@
 </ion-header>
 
 <ion-content padding class="bg">
+    <form [formGroup]="fAppOptions" (ngSubmit)="lauchApp()">
+
     <ion-item>
       <ion-label>{{"COLOR_APP_OPTIONS_PAGE_COLOR_LABEL" | translate}}</ion-label>
       <ion-select formControlName="fAppColor">
@@ -12,6 +14,7 @@
         <ion-option value="pink">{{"COLOR_APP_OPTIONS_PAGE_PINK_LABEL" | translate}}</ion-option>
       </ion-select>
     </ion-item>
+    </form>
 </ion-content>
 
 <ion-footer>

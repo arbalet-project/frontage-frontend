@@ -23,7 +23,6 @@ export class FlagsJoytickPage {
     this.socket = this.wsProvider.getSocket();
 
     this.socket.onmessage = function (message) {
-      alert("message : " + JSON.stringify(message))
       return message;
     };
   }
