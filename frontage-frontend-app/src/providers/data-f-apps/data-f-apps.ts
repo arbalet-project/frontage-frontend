@@ -34,23 +34,6 @@ export class DataFAppsProvider {
       .catch(error => Observable.of(error));
   }
 
-  public launchForcedFApp(fAppOptions: FAppOptions): Observable<any> {
-    let body = fAppOptions;
-    return this.http
-      .post<any>(this.baseUrl + "/b/apps/admin/running", body)
-      .catch(error => Observable.of(error));
-  }
-
-  public setScheduledApp(fApp: FApp): Observable<any> {
-    let body = {
-      app_name: fApp.name,
-      app_state: fApp.scheduled
-    }
-    return this.http
-      .post<any>(this.baseUrl + "/b/apps/default/", body)
-      .catch(error => Observable.of(error));
-  }
-
   public checkPosition(): Observable<any> {
     return this.http
       .get<any>(this.baseUrl + "/b/apps/position");

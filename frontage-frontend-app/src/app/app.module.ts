@@ -43,6 +43,7 @@ import { ErrorPage } from '../pages/error/error';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
 import { Vibration } from '@ionic-native/vibration';
 import { SettingPage } from '../pages/setting/setting';
+import { AdminProvider } from '../providers/admin/admin';
 
 export function createTranslateLoader(http: Http) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -105,7 +106,8 @@ let components:any[] = [
     LocalStorageProvider,
     TranslateLanguageProvider,
     ScreenOrientation,
-    Vibration
+    Vibration,
+    AdminProvider
   ]
 })
 export class AppModule {}

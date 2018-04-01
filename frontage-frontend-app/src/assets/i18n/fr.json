@@ -51,6 +51,9 @@
     "SA_OPTIONS_PAGE_TITLE":"Choisissez vos options",
     "SR_OPTIONS_PAGE_TITLE":"Choisissez vos options",
     "SNAKE_OPTIONS_PAGE_TITLE":"Choisissez vos options",
+    "TETRIS_OPTIONS_PAGE_TITLE":"Choisissez vos options",
+
+    "OPTIONS_PAGE_NO_OPTIONS": "Aucunes options nécessaires pour cette application",
 
     "FLAGS_JOYSTICK_PAGE_TITLE":"Drapeaux",
     "FLAGS_JOYSTICK_PAGE_CHANGE_BUTTON":"Changer de drapeaux",

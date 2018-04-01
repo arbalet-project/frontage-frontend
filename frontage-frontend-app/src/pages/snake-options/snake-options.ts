@@ -1,3 +1,4 @@
+import { AdminProvider } from './../../providers/admin/admin';
 import { LocalStorageProvider } from './../../providers/local-storage/local-storage';
 import { SnakeJoystickPage } from './../snake-joystick/snake-joystick';
 import { WaitingPage } from './../waiting/waiting';
@@ -17,7 +18,12 @@ export class SnakeOptionsPage {
   fAppPosition: number;
   isAdmin: boolean = false;
 
-  constructor(public navCtrl: NavController, public dataFAppsProvider: DataFAppsProvider, public formBuilder: FormBuilder, public localStorageProvider : LocalStorageProvider) {
+  constructor(public navCtrl: NavController,
+    public dataFAppsProvider: DataFAppsProvider,
+    public formBuilder: FormBuilder,
+    public localStorageProvider: LocalStorageProvider,
+    public adminProvider: AdminProvider) {
+
     //Check if the connected user is admin
     this.isAdmin = this.localStorageProvider.isAdmin();
 
@@ -33,14 +39,14 @@ export class SnakeOptionsPage {
       params: {
       }
     }
-    
+
     this.dataFAppsProvider.launchFApp(options)
       .subscribe(response => this.goToNextPage(response));
   }
 
   goToNextPage(response) {
     this.navCtrl.pop();
-    this.navCtrl.push(WaitingPage, {info:response, joystick:SnakeJoystickPage});
+    this.navCtrl.push(WaitingPage, { info: response, joystick: SnakeJoystickPage });
   }
 
   forceFapp() {
@@ -48,7 +54,7 @@ export class SnakeOptionsPage {
       name: "Snake",
       params: {}
     };
-    this.dataFAppsProvider.launchForcedFApp(options)
+    this.adminProvider.launchForcedFApp(options)
       .subscribe(response => response);
-  };
+  }
 }

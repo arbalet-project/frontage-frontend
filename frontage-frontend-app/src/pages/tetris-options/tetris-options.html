@@ -1,18 +1,19 @@
 <ion-header>
-
   <ion-navbar>
-    <ion-title>tetris-options</ion-title>
+    <ion-title>{{"TETRIS_OPTIONS_PAGE_TITLE" | translate }}</ion-title>
   </ion-navbar>
-
 </ion-header>
 
-
 <ion-content padding class="bg">
-
 </ion-content>
+
 <ion-footer>
-  <button ion-button icon-end full color="secondary" class="tr" (click)="launchApp()" >
-      {{"COLOR_APP_OPTIONS_PAGE_START_BUTTON" | translate}}
-      <ion-icon color="secondary" ios="ios-trending-up" md="md-trending-up"></ion-icon>
+  <button ion-button icon-end full color="secondary" class="tr" (click)="launchApp()">
+    {{"COLOR_APP_OPTIONS_PAGE_START_BUTTON" | translate}}
+    <ion-icon color="secondary" ios="ios-cube" md="md-cube"></ion-icon>
+  </button>
+  <button *ngIf="isAdmin" ion-button icon-end full color="secondary" class="tr" (click)="forceFapp()">
+    {{"OPTIONS_PAGE_FORCE_START_BUTTON" | translate}}
+    <ion-icon color="danger" ios="ios-key" md="md-key"></ion-icon>
   </button>
 </ion-footer>

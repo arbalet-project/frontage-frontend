@@ -1,12 +1,7 @@
+import { FAppOptions } from './../../models/f-app-options';
+import { AdminProvider } from './../../providers/admin/admin';
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the SnapOptionPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @Component({
   selector: 'page-snap-option',
@@ -14,11 +9,21 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class SnapOptionPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController,
+    public navParams: NavParams,
+    public adminProvider: AdminProvider) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SnapOptionPage');
   }
 
+  forceFapp() {
+    let options: FAppOptions = {
+      name: "Snap",
+      params: {}
+    };
+    this.adminProvider.launchForcedFApp(options)
+      .subscribe(response => response);
+  }
 }

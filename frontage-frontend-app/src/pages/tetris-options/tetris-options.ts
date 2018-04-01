@@ -1,3 +1,5 @@
+import { LocalStorageProvider } from './../../providers/local-storage/local-storage';
+import { AdminProvider } from './../../providers/admin/admin';
 import { FAppOptions } from './../../models/f-app-options';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { TetrisJoystickPage } from './../tetris-joystick/tetris-joystick';
@@ -14,10 +16,16 @@ export class TetrisOptionsPage {
 
   fAppOptions: FormGroup;
   fAppPosition: number;
+  isAdmin: boolean = false;
 
-  constructor(public navCtrl: NavController, public dataFAppsProvider: DataFAppsProvider, public formBuilder: FormBuilder) {
-    console.log("tetris option");
-    
+  constructor(public navCtrl: NavController,
+    public dataFAppsProvider: DataFAppsProvider,
+    public formBuilder: FormBuilder,
+    public adminProvider: AdminProvider,
+    public localStorageProvider: LocalStorageProvider) {
+      
+    //Check if the connected user is admin
+    this.isAdmin = this.localStorageProvider.isAdmin();
   }
 
   launchApp() {
@@ -35,5 +43,14 @@ export class TetrisOptionsPage {
   goToNextPage(response) {
     this.navCtrl.pop();
     this.navCtrl.push(WaitingPage, { info: response, joystick: TetrisJoystickPage });
+  }
+
+  forceFapp() {
+    let options: FAppOptions = {
+      name: "Tetris",
+      params: {}
+    };
+    this.adminProvider.launchForcedFApp(options)
+      .subscribe(response => response);
   }
 }

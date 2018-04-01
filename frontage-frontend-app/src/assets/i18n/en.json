@@ -50,6 +50,9 @@
     "SA_OPTIONS_PAGE_TITLE":"Settings",
     "SR_OPTIONS_PAGE_TITLE":"Settings",
     "SNAKE_OPTIONS_PAGE_TITLE":"Settings",
+    "TETRIS_OPTIONS_PAGE_TITLE":"Settings",
+
+    "OPTIONS_PAGE_NO_OPTIONS": "No options needed for this FApp.",
 
     "FLAGS_JOYSTICK_PAGE_TITLE":"Flags",
     "FLAGS_JOYSTICK_PAGE_CHANGE_BUTTON":"Change flag",

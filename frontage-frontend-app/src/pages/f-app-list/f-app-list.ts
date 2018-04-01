@@ -1,3 +1,4 @@
+import { AdminProvider } from './../../providers/admin/admin';
 import { SnapOptionPage } from './../snap-option/snap-option';
 import { TetrisOptionsPage } from './../tetris-options/tetris-options';
 import { SnakeOptionsPage } from './../snake-options/snake-options';
@@ -22,7 +23,10 @@ export class FAppListPage {
   fAppPosition: number;
   isAdmin: boolean = false;
 
-  constructor(public navCtrl: NavController, public fAppsData: DataFAppsProvider, public localStorageProvider: LocalStorageProvider) {
+  constructor(public navCtrl: NavController,
+    public fAppsData: DataFAppsProvider,
+    public localStorageProvider: LocalStorageProvider,
+    public adminProvider: AdminProvider) {
     //Check if the connected user is admin
     this.isAdmin = this.localStorageProvider.isAdmin();
 
@@ -37,7 +41,7 @@ export class FAppListPage {
 
   updateScheduledApp(fApp: FApp) {
     console.log(fApp.scheduled);
-    this.fAppsData.setScheduledApp(fApp).subscribe();
+    this.adminProvider.setScheduledApp(fApp).subscribe();
   }
 
   goToSettings() {
@@ -63,10 +67,10 @@ export class FAppListPage {
       }
       case "Tetris": {
         return TetrisOptionsPage;
-      }case "Snap": {
+      } case "Snap": {
         return SnapOptionPage
       }
-      
+
       default: {
         return FlagsOptionsPage;
       }

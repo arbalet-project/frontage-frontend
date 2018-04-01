@@ -20,6 +20,10 @@
 <ion-footer>
   <button ion-button icon-end full color="secondary" class="tr" (click)="launchApp()">
     {{"COLOR_APP_OPTIONS_PAGE_START_BUTTON" | translate}}
-    <ion-icon color="secondary" ios="ios-flag" md="md-flag"></ion-icon>
+    <ion-icon color="secondary" ios="ios-color-palette" md="md-color-palette"></ion-icon>
+  </button>
+  <button *ngIf="isAdmin" ion-button icon-end full color="secondary" class="tr" (click)="forceFapp()">
+    {{"OPTIONS_PAGE_FORCE_START_BUTTON" | translate}}
+    <ion-icon color="danger" ios="ios-key" md="md-key"></ion-icon>
   </button>
 </ion-footer>

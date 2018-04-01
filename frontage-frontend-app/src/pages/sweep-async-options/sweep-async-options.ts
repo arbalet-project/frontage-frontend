@@ -1,3 +1,5 @@
+import { LocalStorageProvider } from './../../providers/local-storage/local-storage';
+import { AdminProvider } from './../../providers/admin/admin';
 import { WaitingPage } from './../waiting/waiting';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { DataFAppsProvider } from './../../providers/data-f-apps/data-f-apps';
@@ -13,8 +15,18 @@ import { SweepAsyncJoystickPage } from '../sweep-async-joystick/sweep-async-joys
 export class SweepAsyncOptionsPage {
   fAppOptions: FormGroup;
   fAppPosition: number;
+  isAdmin: boolean = false;
 
-  constructor(public navCtrl: NavController, public dataFAppsProvider: DataFAppsProvider, public formBuilder: FormBuilder) {
+  constructor(public navCtrl: NavController,
+    public dataFAppsProvider: DataFAppsProvider,
+    public formBuilder: FormBuilder,
+    public adminProvider: AdminProvider,
+    public localStorageProvider: LocalStorageProvider) {
+      
+    //Check if the connected user is admin
+    this.isAdmin = this.localStorageProvider.isAdmin();
+
+
     this.fAppOptions = formBuilder.group({
       fAppColor: ""
     });
@@ -41,5 +53,14 @@ export class SweepAsyncOptionsPage {
   goToNextPage(response) {
     this.navCtrl.pop();
     this.navCtrl.push(WaitingPage, { info: response, joystick: SweepAsyncJoystickPage });
+  }
+
+  forceFapp() {
+    let options: FAppOptions = {
+      name: "SweepAsync",
+      params: {}
+    };
+    this.adminProvider.launchForcedFApp(options)
+      .subscribe(response => response);
   }
 }

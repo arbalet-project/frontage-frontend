@@ -1,3 +1,4 @@
+import { AdminProvider } from './../../providers/admin/admin';
 import { LocalStorageProvider } from './../../providers/local-storage/local-storage';
 import { FlagsJoytickPage } from './../flags-joytick/flags-joytick';
 import { WaitingPage } from './../waiting/waiting';
@@ -19,7 +20,11 @@ export class FlagsOptionsPage {
   fAppPosition: number;
   isAdmin: boolean = false;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public dataFAppsProvider: DataFAppsProvider, public localStorageProvider: LocalStorageProvider) {
+  constructor(public navCtrl: NavController,
+    public navParams: NavParams,
+    public dataFAppsProvider: DataFAppsProvider,
+    public localStorageProvider: LocalStorageProvider,
+    public adminProvider: AdminProvider) {
 
     //Check if the connected user is admin
     this.isAdmin = this.localStorageProvider.isAdmin();
@@ -38,14 +43,14 @@ export class FlagsOptionsPage {
         uapp: this.selectedParameter
       }
     };
-    
+
     this.dataFAppsProvider.launchFApp(options)
       .subscribe(response => this.goToNextPage(response));
   }
 
   goToNextPage(response) {
     this.navCtrl.pop();
-    this.navCtrl.push(WaitingPage, {info:response, joystick:FlagsJoytickPage, joystickParams:{parametersList:this.parametersList, selectedParameter:this.selectedParameter}})
+    this.navCtrl.push(WaitingPage, { info: response, joystick: FlagsJoytickPage, joystickParams: { parametersList: this.parametersList, selectedParameter: this.selectedParameter } })
   }
 
   forceFapp() {
@@ -55,7 +60,7 @@ export class FlagsOptionsPage {
         uapp: this.selectedParameter
       }
     };
-    this.dataFAppsProvider.launchForcedFApp(options)
+    this.adminProvider.launchForcedFApp(options)
       .subscribe(response => response);
-  };
+  }
 }
