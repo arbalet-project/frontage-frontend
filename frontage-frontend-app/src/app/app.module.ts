@@ -70,8 +70,7 @@ let components:any[] = [
     TetrisJoystickPage,
     ErrorPage,
     SnapJoystickPage,
-    SnapOptionPage
-    ErrorPage,
+    SnapOptionPage,
     SettingPage
 ];
 
