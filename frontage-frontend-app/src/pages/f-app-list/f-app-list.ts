@@ -1,3 +1,4 @@
+import { SnapOptionPage } from './../snap-option/snap-option';
 import { TetrisOptionsPage } from './../tetris-options/tetris-options';
 import { SnakeOptionsPage } from './../snake-options/snake-options';
 import { SweepRandOptionsPage } from './../sweep-rand-options/sweep-rand-options';
@@ -57,7 +58,10 @@ export class FAppListPage {
       }
       case "Tetris": {
         return TetrisOptionsPage;
+      }case "Snap": {
+        return SnapOptionPage
       }
+      
       default: {
         return FlagsOptionsPage;
       }

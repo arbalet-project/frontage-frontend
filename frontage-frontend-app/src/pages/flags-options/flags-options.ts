@@ -1,4 +1,3 @@
-import { FAppListPage } from './../f-app-list/f-app-list';
 import { LocalStorageProvider } from './../../providers/local-storage/local-storage';
 import { FlagsJoytickPage } from './../flags-joytick/flags-joytick';
 import { WaitingPage } from './../waiting/waiting';

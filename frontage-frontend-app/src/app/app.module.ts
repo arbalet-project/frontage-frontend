@@ -1,3 +1,5 @@
+import { SnapOptionPage } from './../pages/snap-option/snap-option';
+import { SnapJoystickPage } from './../pages/snap-joystick/snap-joystick';
 import { SweepRandJoystickPage } from './../pages/sweep-rand-joystick/sweep-rand-joystick';
 import { SweepAsyncJoystickPage } from './../pages/sweep-async-joystick/sweep-async-joystick';
 import { RandomFlashingJoystickPage } from './../pages/random-flashing-joystick/random-flashing-joystick';
@@ -65,7 +67,9 @@ let components:any[] = [
     LoginPage,
     TetrisOptionsPage,
     TetrisJoystickPage,
-    ErrorPage
+    ErrorPage,
+    SnapJoystickPage,
+    SnapOptionPage
 ];
 
 @NgModule({

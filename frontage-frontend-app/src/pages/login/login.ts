@@ -34,7 +34,7 @@ export class LoginPage {
 
     //If the server is not up check periodicaly his status
     if (!this.isServerUp) {
-      this.serverUpSubscription = Observable.interval(500 * 60).subscribe(x => {
+      this.serverUpSubscription = Observable.interval(5000).subscribe(x => {
         authentication.isServerUp()
           .subscribe(isServerUp => this.checkFacade(isServerUp), e => e);
       });

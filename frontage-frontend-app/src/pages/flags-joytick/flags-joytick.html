@@ -7,7 +7,7 @@
   <div *ngIf="parametersList">
     <ion-list radio-group [(ngModel)]="selectedParameter">
       <ion-list-header>
-        Options :
+        {{"FLAGS_OPTIONS_PAGE_LIST" | translate}}
       </ion-list-header>
       <ion-item *ngFor="let flag of this.parametersList">
         <ion-label>{{flag | uppercase | translate}}</ion-label>

@@ -60,10 +60,10 @@
           <path id="_Tracé_5" data-name="&lt;Tracé&gt;" class="cls-4" d="M30.93,15.48a1.43,1.43,0,0,0-1.4,1.4,1.37,1.37,0,0,0,1.4,1.4h2.7a1.43,1.43,0,0,0,1.4-1.4,1.37,1.37,0,0,0-1.4-1.4Z"
           />
         </g>
-        <polygon (click)="onUp()" points="15.14 6.4 12.02 12.4 18.02 12.4 15.14 6.4" />
-        <polygon (click)="onLeft()" points="25.78 17 19.78 13.88 19.78 19.88 25.78 17" />
-        <polygon (click)="onRight()" points="3.92 16.85 9.92 19.97 9.92 13.97 3.92 16.85" />
-        <polygon (click)="onDown()" points="15.14 27.37 18.02 21.37 12.02 21.37 15.14 27.37" />
+        <polygon (mousedown)="onUp()" (touchend)="switchBackUp()" [ngClass]="{'white': isUpWhite, 'black': !isUpWhite}" points="15.14 6.4 12.02 12.4 18.02 12.4 15.14 6.4" />
+        <polygon (mousedown)="onRight()" (touchend)="switchBackRight()"  [ngClass]="{'white': isRightWhite, 'black': !isRightWhite}" points="25.78 17 19.78 13.88 19.78 19.88 25.78 17" />
+        <polygon (mousedown)="onLeft()" (touchend)="switchBackLeft()" [ngClass]="{'white': isLeftWhite, 'black': !isLeftWhite}" points="3.92 16.85 9.92 19.97 9.92 13.97 3.92 16.85" />
+        <polygon (mousedown)="onDown()" (touchend)="switchBackDown()" [ngClass]="{'white': isDownWhite, 'black': !isDownWhite}" points="15.14 27.37 18.02 21.37 12.02 21.37 15.14 27.37" />
       </g>
     </g>
   </svg>

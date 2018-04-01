@@ -1,3 +1,4 @@
+import { Vibration } from '@ionic-native/vibration';
 import { DataFAppsProvider } from './../../providers/data-f-apps/data-f-apps';
 import { NicknameGeneratorProvider } from './../../providers/nickname-generator/nickname-generator';
 import { Component } from '@angular/core';
@@ -15,8 +16,14 @@ export class SnakeJoystickPage {
   nom: string = "";
   socket: WebSocket;
 
+  isUpWhite:Boolean = false;
+  isDownWhite:Boolean = false;
+  isRightWhite:Boolean = false;
+  isLeftWhite:Boolean = false;
+
   constructor(public nicknameGeneratorProvider: NicknameGeneratorProvider, public navCtrl: NavController, public navParams: NavParams,
-    public screenOrientation: ScreenOrientation, public localStorageProvider: LocalStorageProvider, public fAppProvider: DataFAppsProvider, public platform: Platform) {
+              public screenOrientation: ScreenOrientation, public localStorageProvider: LocalStorageProvider, public fAppProvider: DataFAppsProvider, public platform: Platform,
+              public vibration: Vibration ) {
     if (this.platform.is('mobile')) {
       this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
     }
@@ -37,21 +44,45 @@ export class SnakeJoystickPage {
     };
 
     this.socket.onerror = function () {
-      throw "Tetris Snake : Erreur, la connexion websocket a échouée."
+      throw "Snake : Erreur, la connexion websocket a échouée."
     }
   }
 
   onUp() {
     this.socket.send("^");
+    // this.isUpWhite = true;
+    this.vibration.vibrate(200);
   }
   onDown() {
     this.socket.send("v");
+    // this.isDownWhite = true;
+    this.vibration.vibrate(200);
   }
   onLeft() {
     this.socket.send("<");
+    // this.isLeftWhite = true;
+    this.vibration.vibrate(200);
   }
   onRight() {
     this.socket.send(">");
+    // this.isRightWhite = true;
+    this.vibration.vibrate(200);
+  }
+  
+  switchBack(isWhite:Boolean) {
+    isWhite = !isWhite;
+  }
+  switchBackUp(){
+    this.isUpWhite = !this.isUpWhite
+  }
+  switchBackDown(){
+    this.isDownWhite = !this.isDownWhite
+  }
+  switchBackLeft(){
+    this.isLeftWhite = !this.isLeftWhite
+  }
+  switchBackRight(){
+    this.isRightWhite = !this.isRightWhite
   }
 
   ionViewDidLeave() {
