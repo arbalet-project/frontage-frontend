@@ -30,7 +30,7 @@
 </ion-content>
 
 <ion-footer>
-  <button ion-button icon-end full color="secondary" class="tr" *ngIf="isAdmin">
+  <button ion-button icon-end full color="secondary" class="tr" *ngIf="isAdmin" (click)="goToSettings()">
     {{"FAPP_PAGE_ADMIN_BUTTON" | translate}}
     <ion-icon color="danger" ios="ios-hammer" md="md-hammer"></ion-icon>
   </button>

@@ -42,6 +42,7 @@ import { TetrisJoystickPage } from '../pages/tetris-joystick/tetris-joystick';
 import { ErrorPage } from '../pages/error/error';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
 import { Vibration } from '@ionic-native/vibration';
+import { SettingPage } from '../pages/setting/setting';
 
 export function createTranslateLoader(http: Http) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -69,7 +70,8 @@ let components:any[] = [
     TetrisJoystickPage,
     ErrorPage,
     SnapJoystickPage,
-    SnapOptionPage
+    SnapOptionPage,
+    SettingPage
 ];
 
 @NgModule({
