@@ -65,6 +65,14 @@
     "LANGUAGE_COMPONENT_FR":"FR",
     "LANGUAGE_COMPONENT_EN":"EN",
 
+    "SETTINGS_PAGE_TITLE":"Settings",
+    "SETTINGS_PAGE_OPENING_HOUR":"Opening hour",
+    "SETTINGS_PAGE_CLOSING_HOUR":"Closing hour",
+    "SETTINGS_PAGE_CLEAR_QUEUE_LABEL":"Empty player queue",
+    "SETTINGS_PAGE_CLEAR_QUEUE_BUTTON":"Clear queue",
+    "SETTINGS_PAGE_SHUTDOWN_FRONTAGE_BUTTON":"Shutdown the frontage",
+    "SETTINGS_PAGE_BACK_BUTTON":"Back to list",
+
     "ERROR_PAGE_TITLE": "Well this is embarrassing ...",
     "ERROR_PAGE_DETAIL": "Error detail",
     "ERROR_PAGE_MESSAGE": "An unknown error appeared ! You may try to reconnect by clicking on the button below.",

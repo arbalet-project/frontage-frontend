@@ -10,6 +10,7 @@ import { NavController } from 'ionic-angular';
 import { DataFAppsProvider } from '../../providers/data-f-apps/data-f-apps';
 import { SweepAsyncOptionsPage } from '../sweep-async-options/sweep-async-options';
 import { LocalStorageProvider } from '../../providers/local-storage/local-storage';
+import { SettingPage } from '../setting/setting';
 
 @Component({
   selector: 'page-f-app-list',
@@ -37,6 +38,10 @@ export class FAppListPage {
   updateScheduledApp(fApp: FApp) {
     console.log(fApp.scheduled);
     this.fAppsData.setScheduledApp(fApp).subscribe();
+  }
+
+  goToSettings() {
+    this.navCtrl.push(SettingPage);
   }
 
   private establishNavigationPageName(fAppName: string): any {
