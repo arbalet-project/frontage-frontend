@@ -33,6 +33,11 @@ export class FAppListPage {
     this.navCtrl.push(this.establishNavigationPageName(fApp.name), { selectedFapp: fApp, test: "test" });
   }
 
+  updateScheduledApp(fApp: FApp) {
+    console.log(fApp.scheduled);
+    this.fAppsData.setScheduledApp(fApp).subscribe();
+  }
+
   private establishNavigationPageName(fAppName: string): any {
     switch (fAppName) {
       case "Flags": {

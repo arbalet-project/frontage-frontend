@@ -16,8 +16,8 @@
               {{fApp.name + "_DESCRIPTION" | uppercase | translate}}
             </ion-item>
           </ion-col>
-          <ion-col col-2 *ngIf="isAdmin" style="display: flex; align-content: center; align-items: center;">
-            <ion-checkbox></ion-checkbox>
+          <ion-col col-2 *ngIf="isAdmin && fApp.name != 'Snap'" style="display: flex; align-content: center; align-items: center;">
+            <ion-checkbox [(ngModel)]="fApp.scheduled" (ionChange)="updateScheduledApp(fApp)"></ion-checkbox>
           </ion-col>
         </ion-row>
       </ion-grid>
@@ -32,6 +32,6 @@
 <ion-footer>
   <button ion-button icon-end full color="secondary" class="tr" *ngIf="isAdmin">
     {{"FAPP_PAGE_ADMIN_BUTTON" | translate}}
-    <ion-icon color="danger" ios="ios-alarm" md="md-alarm"></ion-icon>
+    <ion-icon color="danger" ios="ios-hammer" md="md-hammer"></ion-icon>
   </button>
 </ion-footer>

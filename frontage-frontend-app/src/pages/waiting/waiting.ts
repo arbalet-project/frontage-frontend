@@ -9,12 +9,12 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class WaitingPage {
 
-  state:string = "waiting";
+  state: string = "waiting";
   position: number;
   message: string = 'En attente du serveur';
-  
-  joystickPage:any;
-  joystickParams:any;
+
+  joystickPage: any;
+  joystickParams: any;
 
   positionSubscription: Subscription;
 
@@ -23,7 +23,6 @@ export class WaitingPage {
     this.joystickPage = navParams.get('joystick');
     this.joystickParams = navParams.get('joystickParams')
 
-
     let serverResponse: any = navParams.get('info');
     //If queued then periodically check the position in the queue 
     if (serverResponse.status === 400) {
@@ -31,11 +30,11 @@ export class WaitingPage {
     }
 
     if (serverResponse.queued) {
-      this.state="queued";
+      this.state = "queued";
       this.positionSubscription = Observable.interval(serverResponse.keep_alive_delay * 50)
         .subscribe(x => this.positionSubscriptionStart(x));
     } else if (serverResponse.status === 403) {
-      this.state="error";
+      this.state = "error";
       this.message = "Vous ne pouvez lancer qu'une seule application à la fois. Vous êtes déjà dans la queue.";
     } else if (serverResponse.status === 200) {
       this.startApp();
@@ -48,7 +47,7 @@ export class WaitingPage {
 
   positionSubscriptionStart(x) {
     this.dataFAppsProvider.checkPosition()
-       .subscribe(response => this.checkPosition(response));
+      .subscribe(response => this.checkPosition(response));
   }
 
   checkPosition(response: any) {
@@ -68,15 +67,15 @@ export class WaitingPage {
     this.dataFAppsProvider.stopApp().subscribe(response => this.navCtrl.pop());
   }
 
-  ionViewWillLeave(){
-    if(this.positionSubscription) {
-       this.positionSubscription.unsubscribe();
-       this.positionSubscription=undefined;
+  ionViewWillLeave() {
+    if (this.positionSubscription) {
+      this.positionSubscription.unsubscribe();
+      this.positionSubscription = undefined;
     }
   }
 
   startApp() {
     this.navCtrl.pop();
-    this.navCtrl.push(this.joystickPage, {joystickParams:this.joystickParams});
+    this.navCtrl.push(this.joystickPage, { joystickParams: this.joystickParams });
   }
 }

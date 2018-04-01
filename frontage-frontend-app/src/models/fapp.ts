@@ -4,4 +4,5 @@ export interface FApp {
     params_list: {
         uapp: string[];
     };
+    scheduled: string;
 }
