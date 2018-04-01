@@ -41,7 +41,7 @@ export class FlagsJoytickPage {
   }
 
   changeFlag(){
-    this.socket.send("{'flag':'" + this.selectedParameter + "'}");
+    this.socket.send('{"flag": "' + this.selectedParameter + '"}');
   }
 
   quitPage() {
