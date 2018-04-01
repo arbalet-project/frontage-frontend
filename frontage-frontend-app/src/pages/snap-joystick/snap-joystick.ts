@@ -21,4 +21,12 @@ export class SnapJoystickPage {
     console.log('ionViewDidLoad SnapJoystickPage');
   }
 
+  ionViewDidLeave(){
+    this.quitPage()
+  }
+
+  quitPage() {
+    // this.fAppProvider.stopApp();
+    this.navCtrl.pop();
+  }
 }

@@ -32,11 +32,12 @@ export class RandomFlashingJoystickPage {
   }
 
   ionViewDidLeave(){
-    this.socket.send("q");
+    this.quitPage()
   }
 
-  stopFApp() {
+  quitPage() {
     this.fAppProvider.stopApp();
     this.navCtrl.pop();
   }
+  
 }

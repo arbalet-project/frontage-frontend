@@ -44,9 +44,13 @@ export class FlagsJoytickPage {
     this.socket.send("{'flag':'" + this.selectedParameter + "'}");
   }
 
-  stopFApp() {
+  quitPage() {
     this.fAppProvider.stopApp();
     this.navCtrl.pop();
+  }
+
+  ionViewDidLeave() {
+    this.quitPage();
   }
 
 }
