@@ -46,7 +46,6 @@ export class FlagsJoytickPage {
 
   quitPage() {
     this.fAppProvider.stopApp();
-    this.navCtrl.pop();
   }
 
   ionViewDidLeave() {

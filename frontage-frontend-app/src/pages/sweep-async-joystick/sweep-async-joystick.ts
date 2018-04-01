@@ -3,6 +3,7 @@ import { WebSocketProvider } from './../../providers/web-socket/web-socket';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { environment } from '../../app/environment';
 
 @Component({
   selector: 'page-sweep-async-joystick',
@@ -20,15 +21,27 @@ export class SweepAsyncJoystickPage {
       fAppColor: ""
     });
 
-    this.socket = this.wsProvider.getSocket();
+    this.initSocket();
+  }
+
+  initSocket() {
+
+    this.socket = new WebSocket(`${environment.webSocketAdress}`);
 
     this.socket.onmessage = function (message) {
       return message;
     };
+
+    this.socket.onopen = function () {
+    };
+
+    this.socket.onerror = function () {
+      throw "Sweep-Async : Erreur, la connexion websocket a échouée."
+    }
   }
 
   sendOption(option) {
-    this.socket.send("{payload: {flag:'" + this.fAppOptions.value.fAppColor + "'}}");
+    this.socket.send('{"color":' + this.fAppOptions.value.fAppColor + "'}");
   }
 
   ionViewDidLeave(){
