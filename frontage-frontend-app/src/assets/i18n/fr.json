@@ -58,9 +58,11 @@
     "FLAGS_JOYSTICK_PAGE_TITLE":"Drapeaux",
     "FLAGS_JOYSTICK_PAGE_CHANGE_BUTTON":"Changer de drapeaux",
 
+    "SR_JOYSTICK_PAGE_TITLE":"Changer de theme",
+
     "COLOR_APP_OPTIONS_PAGE_COLOR_LABEL":"Couleur : ",
-    "COLOR_APP_OPTIONS_PAGE_DARK_BLUE_LABEL":"Bleu Foncé",
-    "COLOR_APP_OPTIONS_PAGE_PINK_LABEL":"Rose",
+    "DARKBLUE":"Bleu Foncé",
+    "PINK":"Rose",
     "COLOR_APP_OPTIONS_PAGE_START_BUTTON":"Lancer l'application",
 
     "SETTINGS_PAGE_TITLE":"Paramètres",

@@ -1,7 +1,6 @@
 import { LocalStorageProvider } from './../../providers/local-storage/local-storage';
 import { AdminProvider } from './../../providers/admin/admin';
 import { WaitingPage } from './../waiting/waiting';
-import { FormBuilder, FormGroup } from '@angular/forms';
 import { DataFAppsProvider } from './../../providers/data-f-apps/data-f-apps';
 import { FAppOptions } from './../../models/f-app-options';
 import { Component } from '@angular/core';
@@ -13,26 +12,18 @@ import { SweepAsyncJoystickPage } from '../sweep-async-joystick/sweep-async-joys
   templateUrl: 'sweep-async-options.html',
 })
 export class SweepAsyncOptionsPage {
-  fAppOptions: FormGroup;
   fAppPosition: number;
   isAdmin: boolean = false;
 
-  constructor(public navCtrl: NavController,
-    public dataFAppsProvider: DataFAppsProvider,
-    public formBuilder: FormBuilder,
-    public adminProvider: AdminProvider,
+  constructor(public navCtrl: NavController, public dataFAppsProvider: DataFAppsProvider, public adminProvider: AdminProvider,
     public localStorageProvider: LocalStorageProvider) {
       
     //Check if the connected user is admin
     this.isAdmin = this.localStorageProvider.isAdmin();
 
-
-    this.fAppOptions = formBuilder.group({
-      fAppColor: ""
-    });
   }
 
-  launchApp() {
+  startFapp() {
 
     let options: FAppOptions = {
       name: "SweepAsync",
@@ -40,7 +31,6 @@ export class SweepAsyncOptionsPage {
         dur_min: 1,
         dur_max: 15,
         refresh_rate: 80,
-        colors: [this.fAppOptions.value.fAppColor],
         uapp: "swipe"
       }
     }

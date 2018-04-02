@@ -24,7 +24,6 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { DataFAppsProvider } from '../providers/data-f-apps/data-f-apps';
 import { AuthenticationProvider } from '../providers/authentication/authentication';
 import { TimeProvider } from '../providers/time/time';
-import { WebSocketProvider } from '../providers/web-socket/web-socket';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { LocalStorageProvider } from '../providers/local-storage/local-storage';
 import { NicknameGeneratorProvider } from '../providers/nickname-generator/nickname-generator';
@@ -100,7 +99,6 @@ let components:any[] = [
     DataFAppsProvider,
     AuthenticationProvider,
     TimeProvider,
-    WebSocketProvider,
     HttpInterceptorProvider,
     NicknameGeneratorProvider,
     LocalStorageProvider,

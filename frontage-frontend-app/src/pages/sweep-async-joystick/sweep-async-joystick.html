@@ -8,21 +8,11 @@
 
 
 <ion-content padding class="bg">
-  <form [formGroup]="fAppOptions" (ngSubmit)="sendOption()">
-
-    <ion-item>
-      <ion-label>{{"COLOR_APP_OPTIONS_PAGE_COLOR_LABEL" | translate}}</ion-label>
-      <ion-select formControlName="fAppColor">
-        <ion-option value="darkblue">{{"COLOR_APP_OPTIONS_PAGE_DARK_BLUE_LABEL" | translate}}</ion-option>
-        <ion-option value="pink">{{"COLOR_APP_OPTIONS_PAGE_PINK_LABEL" | translate}}</ion-option>
-      </ion-select>
-    </ion-item>
-  </form>
-
-  <ion-footer>
-    <button ion-button icon-end full color="secondary" class="tr" (click)="stopFApp()">
-      {{"STOP_APP" | translate}}
-      <ion-icon color="secondary" ios="ios-flag" md="md-flag"></ion-icon>
-    </button>
-  </ion-footer>
 </ion-content>
+
+<ion-footer>
+  <button ion-button icon-end full color="secondary" class="tr" (click)="stopFApp()">
+    {{"STOP_APP" | translate}}
+    <ion-icon color="secondary" ios="ios-flag" md="md-flag"></ion-icon>
+  </button>
+</ion-footer>

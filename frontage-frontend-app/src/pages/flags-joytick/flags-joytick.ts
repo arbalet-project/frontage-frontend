@@ -1,5 +1,4 @@
 import { DataFAppsProvider } from './../../providers/data-f-apps/data-f-apps';
-import { WebSocketProvider } from './../../providers/web-socket/web-socket';
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { environment } from '../../app/environment';
@@ -21,7 +20,7 @@ export class FlagsJoytickPage {
     this.parametersList = joystickParams.parametersList;
     this.selectedParameter = joystickParams.selectedParameter;
 
-    this.initSocket();
+    // this.initSocket();
   }
 
   initSocket() {

@@ -6,7 +6,6 @@ import { FAppOptions } from './../../models/f-app-options';
 
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { FormBuilder, FormGroup } from '@angular/forms';
 import { RandomFlashingJoystickPage } from '../random-flashing-joystick/random-flashing-joystick';
 
 @Component({
@@ -15,24 +14,19 @@ import { RandomFlashingJoystickPage } from '../random-flashing-joystick/random-f
 })
 export class RandomFlashingOptionsPage {
 
-  fAppOptions: FormGroup;
   fAppPosition: number;
+  parametersList: string[] = ["darkblue", "pink"];
+  selectedParameter: string = "darkblue";
   isAdmin: boolean = false;
 
-  constructor(public navCtrl: NavController,
-    public dataFAppsProvider: DataFAppsProvider,
-    public formBuilder: FormBuilder,
-    public adminProvider: AdminProvider,
+  constructor(public navCtrl: NavController, public dataFAppsProvider: DataFAppsProvider, public adminProvider: AdminProvider,
     public localStorageProvider: LocalStorageProvider) {
-      
-    //Check if the connected user is admin
+
     this.isAdmin = this.localStorageProvider.isAdmin();
-    this.fAppOptions = formBuilder.group({
-      fAppColor: ""
-    });
+
   }
 
-  launchApp() {
+  startFapp() {
 
     let options: FAppOptions = {
       name: "RandomFlashing",
@@ -40,7 +34,7 @@ export class RandomFlashingOptionsPage {
         dur_min: 1,
         dur_max: 15,
         refresh_rate: 80,
-        colors: [this.fAppOptions.value.fAppColor],
+        colors: this.selectedParameter,
         uapp: "flashes"
       }
     }
@@ -52,7 +46,7 @@ export class RandomFlashingOptionsPage {
 
   goToNextPage(response) {
     this.navCtrl.pop();
-    this.navCtrl.push(WaitingPage, { info: response, joystick: RandomFlashingJoystickPage });
+    this.navCtrl.push(WaitingPage, { info: response, joystick: RandomFlashingJoystickPage, joystickParams: { parametersList: this.parametersList, selectedParameter: this.selectedParameter } });
   }
 
   forceFapp() {

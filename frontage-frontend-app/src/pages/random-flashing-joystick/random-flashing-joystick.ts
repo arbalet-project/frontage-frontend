@@ -1,7 +1,5 @@
 import { DataFAppsProvider } from './../../providers/data-f-apps/data-f-apps';
-import { FormGroup, FormBuilder } from '@angular/forms';
 import { Component } from '@angular/core';
-import { WebSocketProvider } from './../../providers/web-socket/web-socket';
 import { NavController, NavParams } from 'ionic-angular';
 import { environment } from '../../app/environment';
 
@@ -11,17 +9,18 @@ import { environment } from '../../app/environment';
 })
 export class RandomFlashingJoystickPage {
 
-  fAppOptions: FormGroup;
   socket: WebSocket;
+  selectedParameter: string;
+  parametersList: string[];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public formBuilder: FormBuilder, public wsProvider: WebSocketProvider,
-                public fAppProvider:DataFAppsProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public fAppProvider:DataFAppsProvider) {
 
-    this.fAppOptions = formBuilder.group({
-      fAppColor: ""
-    });
+    let joystickParams = navParams.get('joystickParams');
 
-    this.initSocket();
+    this.parametersList = joystickParams.parametersList;
+    this.selectedParameter = joystickParams.selectedParameter;
+
+    // this.initSocket();
   }
 
   initSocket() {
@@ -41,7 +40,7 @@ export class RandomFlashingJoystickPage {
   }
 
   sendOption(option) {
-    this.socket.send('{"color":"' + this.fAppOptions.value.fAppColor + '"}');
+    this.socket.send('{"color":"' + this.selectedParameter + '"}');
   }
 
   ionViewDidLeave(){

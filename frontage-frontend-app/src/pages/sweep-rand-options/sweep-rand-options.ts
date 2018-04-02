@@ -1,8 +1,8 @@
+import { NavParams } from 'ionic-angular/navigation/nav-params';
 import { LocalStorageProvider } from './../../providers/local-storage/local-storage';
 import { AdminProvider } from './../../providers/admin/admin';
 import { WaitingPage } from './../waiting/waiting';
 import { DataFAppsProvider } from './../../providers/data-f-apps/data-f-apps';
-import { FormGroup, FormBuilder } from '@angular/forms';
 import { FAppOptions } from './../../models/f-app-options';
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
@@ -14,25 +14,20 @@ import { SweepRandJoystickPage } from '../sweep-rand-joystick/sweep-rand-joystic
   templateUrl: 'sweep-rand-options.html',
 })
 export class SweepRandOptionsPage {
-  fAppOptions: FormGroup;
   fAppPosition: number;
+  parametersList: string[] = ["african", "gender", "teddy", "warm"];
+  selectedParameter: string = "african";
+
   isAdmin: boolean = false;
 
-  constructor(public navCtrl: NavController,
-    public dataFAppsProvider: DataFAppsProvider,
-    public formBuilder: FormBuilder,
-    public adminProvider: AdminProvider,
-    public localStorageProvider: LocalStorageProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public dataFAppsProvider: DataFAppsProvider,
+    public adminProvider: AdminProvider, public localStorageProvider: LocalStorageProvider) {
 
     //Check if the connected user is admin
     this.isAdmin = this.localStorageProvider.isAdmin();
-
-    this.fAppOptions = formBuilder.group({
-      fAppColor: ""
-    });
   }
 
-  launchApp() {
+  startFapp() {
 
     let options: FAppOptions = {
       name: "SweepRand",
@@ -40,7 +35,7 @@ export class SweepRandOptionsPage {
         dur_min: 1,
         dur_max: 15,
         refresh_rate: 80,
-        colors: [this.fAppOptions.value.fAppColor],
+        colors: this.selectedParameter,
         uapp: "flashes"
       }
     }
@@ -52,7 +47,7 @@ export class SweepRandOptionsPage {
 
   goToNextPage(response) {
     this.navCtrl.pop();
-    this.navCtrl.push(WaitingPage, { info: response, joystick: SweepRandJoystickPage });
+    this.navCtrl.push(WaitingPage, { info: response, joystick: SweepRandJoystickPage, joystickParams: { parametersList: this.parametersList, selectedParameter: this.selectedParameter } });
   }
 
   forceFapp() {

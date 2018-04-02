@@ -1,4 +1,3 @@
-import { FAppListPage } from './../f-app-list/f-app-list';
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 

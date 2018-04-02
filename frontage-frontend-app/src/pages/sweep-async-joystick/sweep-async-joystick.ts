@@ -1,6 +1,4 @@
 import { DataFAppsProvider } from './../../providers/data-f-apps/data-f-apps';
-import { WebSocketProvider } from './../../providers/web-socket/web-socket';
-import { FormGroup, FormBuilder } from '@angular/forms';
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { environment } from '../../app/environment';
@@ -11,17 +9,11 @@ import { environment } from '../../app/environment';
 })
 export class SweepAsyncJoystickPage {
 
-  fAppOptions: FormGroup;
   socket: WebSocket;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public formBuilder: FormBuilder, public wsProvider: WebSocketProvider,
+  constructor(public navCtrl: NavController, public navParams: NavParams, 
                 public fAppProvider:DataFAppsProvider) {
 
-    this.fAppOptions = formBuilder.group({
-      fAppColor: ""
-    });
-
-    this.initSocket();
   }
 
   initSocket() {
@@ -38,10 +30,6 @@ export class SweepAsyncJoystickPage {
     this.socket.onerror = function () {
       throw "Sweep-Async : Erreur, la connexion websocket a échouée."
     }
-  }
-
-  sendOption(option) {
-    this.socket.send('{"color":' + this.fAppOptions.value.fAppColor + "'}");
   }
 
   ionViewDidLeave(){

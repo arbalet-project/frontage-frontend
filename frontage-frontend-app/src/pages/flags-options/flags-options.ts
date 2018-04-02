@@ -17,7 +17,6 @@ export class FlagsOptionsPage {
   flag: FApp;
   parametersList: string[];
   selectedParameter: string = "french";
-  fAppPosition: number;
   isAdmin: boolean = false;
 
   constructor(public navCtrl: NavController,
@@ -33,7 +32,6 @@ export class FlagsOptionsPage {
     if (fAppParams) {
       this.parametersList = fAppParams.params_list.uapp;
     }
-    this.fAppPosition = -1;
   }
 
   startFapp() {

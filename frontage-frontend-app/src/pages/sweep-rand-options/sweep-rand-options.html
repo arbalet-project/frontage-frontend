@@ -5,20 +5,21 @@
 </ion-header>
 
 <ion-content padding class="bg">
-  <form [formGroup]="fAppOptions" (ngSubmit)="lauchApp()">
-
-    <ion-item>
-      <ion-label>{{"COLOR_APP_OPTIONS_PAGE_COLOR_LABEL" | translate}}</ion-label>
-      <ion-select formControlName="fAppColor">
-        <ion-option value="darkblue">{{"COLOR_APP_OPTIONS_PAGE_DARK_BLUE_LABEL" | translate}}</ion-option>
-        <ion-option value="pink">{{"COLOR_APP_OPTIONS_PAGE_PINK_LABEL" | translate}}</ion-option>
-      </ion-select>
-    </ion-item>
-  </form>
+  <div *ngIf="parametersList">
+    <ion-list radio-group [(ngModel)]="selectedParameter">
+      <ion-list-header>
+        {{"COLOR_APP_OPTIONS_PAGE_COLOR_LABEL" | translate}}
+      </ion-list-header>
+      <ion-item *ngFor="let parameter of parametersList">
+        <ion-label>{{ parameter | uppercase | translate }}</ion-label>
+        <ion-radio value="{{ parameter }}"></ion-radio>
+      </ion-item>
+    </ion-list>
+  </div>
 </ion-content>
 
 <ion-footer>
-  <button ion-button icon-end full color="secondary" class="tr" (click)="launchApp()">
+  <button ion-button icon-end full color="secondary" class="tr" (click)="startFapp()">
     {{"COLOR_APP_OPTIONS_PAGE_START_BUTTON" | translate}}
     <ion-icon color="secondary" ios="ios-color-palette" md="md-color-palette"></ion-icon>
   </button>
