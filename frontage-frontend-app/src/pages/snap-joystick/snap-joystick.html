@@ -13,6 +13,28 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-header>
+  <ion-title>{{"SNAP_JOYSTICK_PAGE_TITLE" | translate}}</ion-title>
+</ion-header>
 
+
+<ion-content padding class="bg">
+  <div *ngIf="parametersList">
+    <ion-list radio-group [(ngModel)]="selectedParameter">
+      <ion-list-header>
+        {{"SNAP_OPTIONS_PAGE_LIST" | translate}}
+      </ion-list-header>
+      <ion-item *ngFor="let flag of this.parametersList">
+        <ion-label>{{flag | uppercase | translate}}</ion-label>
+        <ion-radio value="{{ flag }}"></ion-radio>
+      </ion-item>
+    </ion-list>
+  </div>
 </ion-content>
+
+<ion-footer>
+  <button ion-button icon-end full color="secondary" class="tr" (click)="stopFApp()">
+    {{"STOP_APP" | translate}}
+    <ion-icon color="secondary" ios="ios-flag" md="md-flag"></ion-icon>
+  </button>
+</ion-footer>

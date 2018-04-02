@@ -33,11 +33,10 @@ export class SweepAsyncJoystickPage {
   }
 
   ionViewDidLeave(){
-    this.quitPage()
+    this.fAppProvider.stopApp();
   }
 
-  quitPage() {
-    this.fAppProvider.stopApp();
+  stopFApp() {
     this.navCtrl.pop();
   }
 }

@@ -54,6 +54,9 @@
 
     "OPTIONS_PAGE_NO_OPTIONS": "No options needed for this FApp.",
 
+    "SNAP_OPTIONS_PAGE_TITLE":"Snap",
+    "SNAP_OPTIONS_PAGE_START_BUTTON":"Start Snap",
+
     "FLAGS_JOYSTICK_PAGE_TITLE":"Flags",
     "FLAGS_JOYSTICK_PAGE_CHANGE_BUTTON":"Change flag",
 

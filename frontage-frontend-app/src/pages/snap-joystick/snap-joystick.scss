@@ -1,3 +1,11 @@
 page-snap-joystick {
+    ion-item.item, ion-list-header.list-header {
+        box-shadow: none;
+        background: rgba(0,0,0,0.5);
+        border-radius: 5px;
+    }
 
+    a, p, ion-item.item{
+        color: #fff;
+    }
 }

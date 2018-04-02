@@ -1,4 +1,4 @@
-import { SnapOptionPage } from './../pages/snap-option/snap-option';
+import { SnapOptionsPage } from './../pages/snap-options/snap-options';
 import { SnapJoystickPage } from './../pages/snap-joystick/snap-joystick';
 import { SweepRandJoystickPage } from './../pages/sweep-rand-joystick/sweep-rand-joystick';
 import { SweepAsyncJoystickPage } from './../pages/sweep-async-joystick/sweep-async-joystick';
@@ -44,6 +44,7 @@ import { Vibration } from '@ionic-native/vibration';
 import { SettingPage } from '../pages/setting/setting';
 import { AdminProvider } from '../providers/admin/admin';
 
+
 export function createTranslateLoader(http: Http) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
@@ -70,7 +71,7 @@ let components:any[] = [
     TetrisJoystickPage,
     ErrorPage,
     SnapJoystickPage,
-    SnapOptionPage,
+    SnapOptionsPage,
     SettingPage
 ];
 

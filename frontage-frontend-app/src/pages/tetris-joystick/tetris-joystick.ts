@@ -77,19 +77,15 @@ export class TetrisJoystickPage {
   }
 
   ionViewDidLeave(){
-    this.quitPage();
-  }
-
-  stopFApp() {
-    this.navCtrl.pop();
-  }
-
-  quitPage(){
     this.fAppProvider.stopApp();
     
     if (this.platform.is('mobile')) {
       this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
       this.screenOrientation.unlock();
     }
+  }
+
+  stopFApp() {
+    this.navCtrl.pop();
   }
 }

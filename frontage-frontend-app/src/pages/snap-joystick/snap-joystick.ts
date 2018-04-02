@@ -1,3 +1,5 @@
+import { DataFAppsProvider } from './../../providers/data-f-apps/data-f-apps';
+import { environment } from './../../app/environment';
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
@@ -13,20 +15,39 @@ import { NavController, NavParams } from 'ionic-angular';
   templateUrl: 'snap-joystick.html',
 })
 export class SnapJoystickPage {
+  selectedParameter: string;
+  parametersList: string[];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  socket: WebSocket;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public fAppProvider:DataFAppsProvider) {
+    let joystickParams = navParams.get('joystickParams');
+
+    alert(JSON.stringify(joystickParams))
+    // this.initSocket();
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad SnapJoystickPage');
+  initSocket() {
+
+    this.socket = new WebSocket(`${environment.webSocketAdress}`);
+
+    this.socket.onmessage = function (message) {
+      return message;
+    };
+
+    this.socket.onopen = function () {
+    };
+
+    this.socket.onerror = function () {
+      throw "Snap : Erreur, la connexion websocket a échouée."
+    }
   }
 
-  ionViewDidLeave(){
-    this.quitPage()
+  ionViewDidLeave() {
+    this.fAppProvider.stopApp();
   }
 
   quitPage() {
-    // this.fAppProvider.stopApp();
     this.navCtrl.pop();
   }
 }

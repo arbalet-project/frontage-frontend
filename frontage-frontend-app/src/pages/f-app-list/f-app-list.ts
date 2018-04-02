@@ -1,5 +1,5 @@
 import { AdminProvider } from './../../providers/admin/admin';
-import { SnapOptionPage } from './../snap-option/snap-option';
+import { SnapOptionsPage } from './../snap-options/snap-options';
 import { TetrisOptionsPage } from './../tetris-options/tetris-options';
 import { SnakeOptionsPage } from './../snake-options/snake-options';
 import { SweepRandOptionsPage } from './../sweep-rand-options/sweep-rand-options';
@@ -67,10 +67,10 @@ export class FAppListPage {
       }
       case "Tetris": {
         return TetrisOptionsPage;
-      } case "Snap": {
-        return SnapOptionPage
+      } 
+      case "Snap": {
+        return SnapOptionsPage
       }
-
       default: {
         return FlagsOptionsPage;
       }

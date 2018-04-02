@@ -38,16 +38,16 @@ export class SweepRandJoystickPage {
       throw "Sweep-Rand : Erreur, la connexion websocket a échouée."
     }
   }
+
   sendOption(option) {
     this.socket.send('{type:"' + this.selectedParameter + '"}');
   }
 
   ionViewDidLeave() {
-    this.quitPage()
+    this.fAppProvider.stopApp();
   }
 
-  quitPage() {
-    this.fAppProvider.stopApp();
+  stopFApp() {
     this.navCtrl.pop();
   }
 }

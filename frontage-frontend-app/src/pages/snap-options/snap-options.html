@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{"SNAP_OPTIONS_PAGE_TITLE" | translate}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="bg">
+
+</ion-content>
+
+<ion-footer>
+    <button ion-button icon-end full color="secondary" class="tr" (click)="startFapp()">
+      {{"SNAP_OPTIONS_PAGE_START_BUTTON" | translate}}
+      <ion-icon color="secondary" ios="ios-flag" md="md-flag"></ion-icon>
+    </button>
+    <button *ngIf="isAdmin" ion-button icon-end full color="secondary" class="tr" (click)="forceFapp()">
+      {{"OPTIONS_PAGE_FORCE_START_BUTTON" | translate}}
+      <ion-icon color="danger" ios="ios-key" md="md-key"></ion-icon>
+    </button>
+</ion-footer>
