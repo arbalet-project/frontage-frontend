@@ -54,22 +54,22 @@ export class TetrisJoystickPage {
   onDown() {
     this.socket.send("<");
     // this.isDownWhite = true;
-    this.vibration.vibrate(200);
+    this.vibration.vibrate(40);
   }
   onUp() {
     this.socket.send(">");
     // this.isUpWhite = true;
-    this.vibration.vibrate(200);
+    this.vibration.vibrate(40);
   }
   onRight() {
     this.socket.send("v");
     // this.isRightWhite = true
-    this.vibration.vibrate(200);
+    this.vibration.vibrate(40);
   }
   turn() {
     this.socket.send("^");
     // this.isTurnLight = true;
-    this.vibration.vibrate(200);
+    this.vibration.vibrate(40);
   }
 
   switchBack(isWhite:Boolean) {

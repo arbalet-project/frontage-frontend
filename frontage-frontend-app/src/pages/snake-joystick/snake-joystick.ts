@@ -56,22 +56,22 @@ export class SnakeJoystickPage {
   onUp() {
     this.socket.send("^");
     // this.isUpWhite = true;
-    this.vibration.vibrate(200);
+    this.vibration.vibrate(40);
   }
   onDown() {
     this.socket.send("v");
     // this.isDownWhite = true;
-    this.vibration.vibrate(200);
+    this.vibration.vibrate(40);
   }
   onLeft() {
     this.socket.send("<");
     // this.isLeftWhite = true;
-    this.vibration.vibrate(200);
+    this.vibration.vibrate(40);
   }
   onRight() {
     this.socket.send(">");
     // this.isRightWhite = true;
-    this.vibration.vibrate(200);
+    this.vibration.vibrate(40);
   }
 
   switchBack(isWhite: Boolean) {
