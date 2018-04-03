@@ -64,7 +64,7 @@ export class WaitingPage {
   }
 
   backButtonAction() {
-    this.dataFAppsProvider.stopApp();
+    this.dataFAppsProvider.quitQueue();
     this.navCtrl.pop();
   }
 
