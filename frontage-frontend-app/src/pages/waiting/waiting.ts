@@ -64,7 +64,8 @@ export class WaitingPage {
   }
 
   backButtonAction() {
-    this.dataFAppsProvider.stopApp().subscribe(response => this.navCtrl.pop());
+    this.dataFAppsProvider.stopApp();
+    this.navCtrl.pop();
   }
 
   ionViewWillLeave() {

@@ -39,7 +39,11 @@ export class DataFAppsProvider {
       .get<any>(this.baseUrl + "/b/apps/position");
   }
 
-  public stopApp(): Observable<any> {
-    return this.http.delete(this.baseUrl + "/b/apps/position");
+  public stopApp() {
+    this.http.delete(this.baseUrl + "/b/apps/running").subscribe(respopnse => console.log("ok"));
+  }
+
+  public quitQueue() {
+    this.http.delete(this.baseUrl + "/b/apps/position").subscribe(response => console.log("ok"));
   }
 }

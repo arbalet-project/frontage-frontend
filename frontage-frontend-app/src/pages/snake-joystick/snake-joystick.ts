@@ -92,6 +92,7 @@ export class SnakeJoystickPage {
 
   ionViewDidLeave() {
     this.fAppProvider.stopApp();
+
     if (this.platform.is('mobile')) {
       this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
       this.screenOrientation.unlock();

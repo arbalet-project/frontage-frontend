@@ -11,9 +11,10 @@ export class SweepAsyncJoystickPage {
 
   socket: WebSocket;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, 
-                public fAppProvider:DataFAppsProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+    public fAppProvider: DataFAppsProvider) {
 
+      // this.initSocket();
   }
 
   initSocket() {
@@ -32,7 +33,7 @@ export class SweepAsyncJoystickPage {
     }
   }
 
-  ionViewDidLeave(){
+  ionViewDidLeave() {
     this.fAppProvider.stopApp();
   }
 

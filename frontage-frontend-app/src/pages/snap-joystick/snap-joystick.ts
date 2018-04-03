@@ -24,7 +24,7 @@ export class SnapJoystickPage {
     let joystickParams = navParams.get('joystickParams');
 
     alert(JSON.stringify(joystickParams))
-    // this.initSocket();
+    this.initSocket();
   }
 
   initSocket() {

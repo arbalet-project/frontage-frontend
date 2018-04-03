@@ -20,7 +20,7 @@ export class FlagsJoytickPage {
     this.parametersList = joystickParams.parametersList;
     this.selectedParameter = joystickParams.selectedParameter;
 
-    // this.initSocket();
+    this.initSocket();
   }
 
   initSocket() {
