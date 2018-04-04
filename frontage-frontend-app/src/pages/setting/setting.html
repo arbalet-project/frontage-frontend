@@ -3,28 +3,28 @@
 </ion-header>
 
 <ion-content padding class="bg">
-  <button ion-button full icon-end color="secondary" class="tr">
-    {{"SETTINGS_PAGE_CLEAR_QUEUE_BUTTON" |translate}}
-    <ion-icon color="danger" ios="ios-trash" md="md-trash"></ion-icon>
-  </button>
+  <ion-item>
+    <button ion-button full icon-end color="secondary" class="tr" (click)="clearUserQueue()">
+      {{"SETTINGS_PAGE_CLEAR_QUEUE_BUTTON" |translate}}
+      <ion-icon color="danger" ios="ios-trash" md="md-trash"></ion-icon>
+    </button>
+  </ion-item>
   <ion-item>
     <ion-label>{{"SETTINGS_PAGE_OPENING_HOUR" | translate}}</ion-label>
-    <ion-select>
-      <ion-option>Sunset</ion-option>
-      <ion-option>Sunset+1</ion-option>
+    <ion-select *ngIf="openingHourList" [(ngModel)]="selectedOpeningHour" (ionChange)="setOpeningHour()">
+      <ion-option *ngFor="let openingHour of openingHourList">{{openingHour}}</ion-option>
     </ion-select>
   </ion-item>
   <ion-item>
     <ion-label>{{"SETTINGS_PAGE_CLOSING_HOUR" |translate}}</ion-label>
-    <ion-select>
-      <ion-option>Sundown</ion-option>
-      <ion-option>Sundown+1</ion-option>
+    <ion-select *ngIf="closingHourList" [(ngModel)]="selectedClosingHour" (ionChange)="setClosingHour()">
+      <ion-option *ngFor="let closingHour of closingHourList">{{closingHour}}</ion-option>
     </ion-select>
   </ion-item>
-  <button ion-button full icon-end color="secondary" class="tr">
-    {{"SETTINGS_PAGE_SHUTDOWN_FRONTAGE_BUTTON" |translate}}
-    <ion-icon color="danger" ios="ios-power" md="md-power"></ion-icon>
-  </button>
+  <ion-item>
+    <ion-label>{{"SETTINGS_PAGE_SHUTDOWN_FRONTAGE_BUTTON" |translate}}</ion-label>
+    <ion-checkbox [(ngModel)]="schedulerState" (ionChange)="updateScheduler()"></ion-checkbox>
+  </ion-item>
 </ion-content>
 
 <ion-footer>
