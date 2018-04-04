@@ -109,7 +109,7 @@ export class LoginPage {
   headerTapEvent(event) {
     this.nbHeaderTapped++;
 
-    if (this.nbHeaderTapped > 7) {
+    if (this.nbHeaderTapped > 1) {
       this.displayPwd();
     }
   }
