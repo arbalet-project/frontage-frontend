@@ -76,6 +76,13 @@ export class LoginPage {
     //Stop checking the server status
     this.serverUpSubscription.unsubscribe();
 
+    //FIXME : Remove for PROD§§§§§
+    if (this.password
+      && this.password.length > 0) {
+      this.password = "frontagepassword";
+      this.userName = "frontageadmin";
+    }
+
     //Ask for an authentication token
     this.authentication
       .auth(this.userName, this.password)
