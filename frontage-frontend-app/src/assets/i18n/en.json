@@ -44,6 +44,7 @@
     "FLAGS_OPTIONS_PAGE_QUEUE_ALERT":"Wait a little, you are queued in position: ",
 
     "OPTIONS_PAGE_FORCE_START_BUTTON":"Force application",
+    "OPTIONS_PAGE_SEND_SCHEDULER_OPTION_BUTTON":"Send scheduled app options",
     
     "FLAGS_OPTIONS_PAGE_TITLE":"Settings",
     "RF_OPTIONS_PAGE_TITLE":"Settings",
