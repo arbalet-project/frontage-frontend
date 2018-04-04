@@ -5,10 +5,8 @@
 </ion-header>
 
 <ion-content padding class="bg">
-  <ion-item>
-    <ion-label>
-      {{"OPTIONS_PAGE_NO_OPTIONS" | translate}}
-    </ion-label>
+  <ion-item text-wrap>
+    {{"OPTIONS_PAGE_NO_OPTIONS" | translate}}
   </ion-item>
 </ion-content>
 
@@ -17,8 +15,8 @@
     {{"COLOR_APP_OPTIONS_PAGE_START_BUTTON" | translate}}
     <ion-icon color="secondary" ios="ios-color-palette" md="md-color-palette"></ion-icon>
   </button>
-    <button *ngIf="isAdmin" ion-button icon-end full color="secondary" class="tr" (click)="forceFapp()">
-      {{"OPTIONS_PAGE_FORCE_START_BUTTON" | translate}}
-      <ion-icon color="danger" ios="ios-key" md="md-key"></ion-icon>
-    </button>
+  <button *ngIf="isAdmin" ion-button icon-end full color="secondary" class="tr" (click)="forceFapp()">
+    {{"OPTIONS_PAGE_FORCE_START_BUTTON" | translate}}
+    <ion-icon color="danger" ios="ios-key" md="md-key"></ion-icon>
+  </button>
 </ion-footer>
