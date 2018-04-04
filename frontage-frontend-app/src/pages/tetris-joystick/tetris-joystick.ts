@@ -1,3 +1,4 @@
+import { Dialogs } from '@ionic-native/dialogs';
 import { Vibration } from '@ionic-native/vibration';
 import { DataFAppsProvider } from './../../providers/data-f-apps/data-f-apps';
 import { LocalStorageProvider } from './../../providers/local-storage/local-storage';
@@ -5,6 +6,7 @@ import { ScreenOrientation } from '@ionic-native/screen-orientation';
 import { Component } from '@angular/core';
 import { NavParams, NavController, Platform } from 'ionic-angular';
 import { environment } from '../../app/environment';
+
 
 
 @Component({
@@ -22,7 +24,7 @@ export class TetrisJoystickPage {
 
   constructor(public navParams: NavParams, public screenOrientation: ScreenOrientation, public navCtrl: NavController, 
               public localStorageProvider: LocalStorageProvider, public fAppProvider:DataFAppsProvider, public platform: Platform,
-              public vibration: Vibration ) {
+              public vibration: Vibration, public dialogs: Dialogs ) {
 
       if (this.platform.is('mobile')) {
         this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
@@ -37,8 +39,18 @@ export class TetrisJoystickPage {
     this.socket = new WebSocket(`${environment.webSocketAdress}`);
 
     this.socket.onmessage = function (message) {
-      alert(message);
-      alert(message.data);
+      
+      let response = JSON.parse(message.data);
+
+      if(response.code == 1) {
+        self.dialogs.alert('<h1 i18>GET_OUT</h1>')
+      }else if (response.message == 2 ) {
+        self.dialogs.alert('<h1 i18>GAME_OVER</h1>')
+      }else if (response.message == 3 ) {
+        self.dialogs.alert('<h1 i18>EXPIRE_SOON</h1>')
+      }else if (response.message == 4 ) {
+        self.dialogs.alert('<h1 i18>EXPIRE</h1>')
+      }
 
       self.vibration.vibrate([1000, 100, 1000, 100, 1000]);
       return message;

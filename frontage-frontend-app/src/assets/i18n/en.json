@@ -70,6 +70,11 @@
     "PINK":"Pink",
     "COLOR_APP_OPTIONS_PAGE_START_BUTTON":"Start application",
 
+    "GET_OUT":"It is time to let others enjoy the frontage :)",
+    "GAME_OVER":"Game Over :)",
+    "EXPIRE_SOON":"Your turn will end soon.",
+    "EXPIRE":"Your turn is over. You can still play until someone else start an app.",
+
     "WAITING":"Waiting",
     "STOP_APP":"Leave queue",
 

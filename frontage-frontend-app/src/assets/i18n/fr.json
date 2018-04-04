@@ -78,6 +78,11 @@
     "SETTINGS_PAGE_SHUTDOWN_FRONTAGE_BUTTON":"Couper la façade",
     "SETTINGS_PAGE_BACK_BUTTON":"Retour à la liste",
 
+    "GET_OUT":"Il est temps de laisser quelqu'un d'autre jouer :)",
+    "GAME_OVER":"Game Over :)",
+    "EXPIRE_SOON":"Votre tour est bientôt fini",
+    "EXPIRE":"Votre tour est fini. Vous pouvez encore jouer jusqu'à ce que quelqu'un lance une application",
+
     "WAITING":"En attente",
     "STOP_APP":"Quitter",
     

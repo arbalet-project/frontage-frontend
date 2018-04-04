@@ -1,3 +1,4 @@
+import { Dialogs } from '@ionic-native/dialogs';
 import { SnapOptionsPage } from './../pages/snap-options/snap-options';
 import { SnapJoystickPage } from './../pages/snap-joystick/snap-joystick';
 import { SweepRandJoystickPage } from './../pages/sweep-rand-joystick/sweep-rand-joystick';
@@ -106,7 +107,8 @@ let components:any[] = [
     TranslateLanguageProvider,
     ScreenOrientation,
     Vibration,
-    AdminProvider
+    AdminProvider,
+    Dialogs
   ]
 })
 export class AppModule {}
