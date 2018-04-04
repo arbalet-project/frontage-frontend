@@ -37,7 +37,10 @@ export class TetrisJoystickPage {
     this.socket = new WebSocket(`${environment.webSocketAdress}`);
 
     this.socket.onmessage = function (message) {
-      console.log(message);
+      alert(message);
+      alert(message.data);
+
+      self.vibration.vibrate([1000, 100, 1000, 100, 1000]);
       return message;
     };
 
@@ -53,27 +56,19 @@ export class TetrisJoystickPage {
 
   onDown() {
     this.socket.send("<");
-    // this.isDownWhite = true;
     this.vibration.vibrate(40);
   }
   onUp() {
     this.socket.send(">");
-    // this.isUpWhite = true;
     this.vibration.vibrate(40);
   }
   onRight() {
     this.socket.send("v");
-    // this.isRightWhite = true
     this.vibration.vibrate(40);
   }
   turn() {
     this.socket.send("^");
-    // this.isTurnLight = true;
     this.vibration.vibrate(40);
-  }
-
-  switchBack(isWhite:Boolean) {
-    isWhite = !isWhite;
   }
 
   ionViewDidLeave(){

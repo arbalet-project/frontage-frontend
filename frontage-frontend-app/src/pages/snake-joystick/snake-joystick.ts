@@ -21,14 +21,13 @@ export class SnakeJoystickPage {
   isRightWhite: Boolean = false;
   isLeftWhite: Boolean = false;
 
-  constructor(public nicknameGeneratorProvider: NicknameGeneratorProvider,
-    public navCtrl: NavController,
-    public navParams: NavParams,
-    public screenOrientation: ScreenOrientation,
+  constructor(public nicknameGeneratorProvider: NicknameGeneratorProvider, public navCtrl: NavController, 
+    public navParams: NavParams, public screenOrientation: ScreenOrientation,
     public localStorageProvider: LocalStorageProvider,
     public fAppProvider: DataFAppsProvider,
     public platform: Platform,
     public vibration: Vibration) {
+
     if (this.platform.is('mobile')) {
       this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
     }
@@ -38,10 +37,14 @@ export class SnakeJoystickPage {
   }
 
   initSocket() {
-
+    let self = this;
     this.socket = new WebSocket(`${environment.webSocketAdress}`);
 
     this.socket.onmessage = function (message) {
+      alert(message);
+      alert(message.data);
+
+      self.vibration.vibrate([1000, 100, 1000, 100, 1000]);
       return message;
     };
 
@@ -55,39 +58,19 @@ export class SnakeJoystickPage {
 
   onUp() {
     this.socket.send("^");
-    // this.isUpWhite = true;
     this.vibration.vibrate(40);
   }
   onDown() {
     this.socket.send("v");
-    // this.isDownWhite = true;
     this.vibration.vibrate(40);
   }
   onLeft() {
     this.socket.send("<");
-    // this.isLeftWhite = true;
     this.vibration.vibrate(40);
   }
   onRight() {
     this.socket.send(">");
-    // this.isRightWhite = true;
     this.vibration.vibrate(40);
-  }
-
-  switchBack(isWhite: Boolean) {
-    isWhite = !isWhite;
-  }
-  switchBackUp() {
-    this.isUpWhite = !this.isUpWhite
-  }
-  switchBackDown() {
-    this.isDownWhite = !this.isDownWhite
-  }
-  switchBackLeft() {
-    this.isLeftWhite = !this.isLeftWhite
-  }
-  switchBackRight() {
-    this.isRightWhite = !this.isRightWhite
   }
 
   ionViewDidLeave() {

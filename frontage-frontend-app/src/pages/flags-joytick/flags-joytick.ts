@@ -28,6 +28,7 @@ export class FlagsJoytickPage {
     this.socket = new WebSocket(`${environment.webSocketAdress}`);
 
     this.socket.onmessage = function (message) {
+      alert(message);
       return message;
     };
 
