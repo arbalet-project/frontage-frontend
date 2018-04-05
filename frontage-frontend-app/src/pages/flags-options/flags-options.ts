@@ -61,4 +61,16 @@ export class FlagsOptionsPage {
     this.adminProvider.launchForcedFApp(options)
       .subscribe(response => response);
   }
+
+  sendScheduledFappOptions() {
+    let options: FAppOptions = {
+      name: "Flags",
+      params: {
+        uapp: this.selectedParameter
+      }
+    };
+
+    this.adminProvider.sendScheduledFappOptions(options)
+      .subscribe(response => this.goToNextPage(response));
+  }
 }

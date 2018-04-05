@@ -53,4 +53,11 @@ export class AdminProvider {
       .post<any>(this.baseUrl + "/b/apps/default/", body)
       .catch(error => Observable.of(error));
   }
+
+  public sendScheduledFappOptions(fAppOptions: FAppOptions): Observable<any> {
+    let body = fAppOptions;
+    return this.http
+      .post<any>(this.baseUrl + "/b/apps/default/"+ fAppOptions.name, body)
+      .catch(error => Observable.of(error));
+  }
 }
