@@ -1,3 +1,4 @@
+import { Observable } from 'rxjs/Rx';
 import { HttpClient } from '@angular/common/http';
 import { DataFAppsProvider } from './../../providers/data-f-apps/data-f-apps';
 import { environment } from './../../app/environment';
@@ -37,10 +38,19 @@ export class SnapJoystickPage {
   }
 
   handleResponse(response){
-    alert(JSON.stringify(response));
-    
     this.selectedClient=response.selected_client;
     this.clientsList=response.list_clients;
+  }
+
+  authorize() {
+    alert("authorize");
+    let body='{selected_client:' + this.selectedClient + '}';
+    alert("body : " + body+ " |test " + JSON.stringify(this.selectedClient));
+    this.http.post<any>(this.baseUrl + this.authorizeEndpoint, body)
+             .subscribe(
+               response => alert("send " + body + " et receive " + JSON.stringify(response) + " |test " + JSON.stringify(this.selectedClient)),
+               err=> alert("error : " + JSON.stringify(err))
+              );
   }
 
   ionViewDidLeave() {
