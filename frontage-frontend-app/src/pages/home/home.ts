@@ -20,5 +20,4 @@ export class HomePage {
     //Change page
     this.navCtrl.push(LoginPage);
   }
-
 }

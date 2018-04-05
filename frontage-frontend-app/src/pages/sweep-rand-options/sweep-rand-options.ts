@@ -58,4 +58,20 @@ export class SweepRandOptionsPage {
     this.adminProvider.launchForcedFApp(options)
       .subscribe(response => response);
   }
+
+  sendScheduledFappOptions() {
+    let options: FAppOptions = {
+      name: "SweepRand",
+      params: {
+        dur_min: 1,
+        dur_max: 15,
+        refresh_rate: 80,
+        colors: this.selectedParameter,
+        uapp: "flashes"
+      }
+    };
+
+    this.adminProvider.sendScheduledFappOptions(options)
+      .subscribe(response => this.goToNextPage(response));
+  }
 }
