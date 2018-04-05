@@ -13,17 +13,18 @@
 </ion-header>
 
 <ion-content padding class="bg">
-  <div *ngIf="parametersList">
-    <ion-list radio-group [(ngModel)]="selectedParameter">
-      <ion-list-header>
-        {{"SNAP_OPTIONS_PAGE_LIST" | translate}}
-      </ion-list-header>
-      <ion-item *ngFor="let flag of this.parametersList">
-        <ion-label>{{flag | uppercase | translate}}</ion-label>
-        <ion-radio value="{{ flag }}"></ion-radio>
-      </ion-item>
-    </ion-list>
+
+  <button ion-button class="tr" (click)="getClientsInfo()">Get Clients</button>
+
+  <div *ngIf="selectedClient && clientList">
+      <ion-list *ngFor="let client of clientList" radio-group [(ngModel)]="selectedClient">
+        <ion-item>
+          <ion-label>{{selectedClient}}</ion-label>
+          <ion-radio value="{{selectedClient}}"></ion-radio>
+        </ion-item>
+      </ion-list>
   </div>
+
 </ion-content>
 
 <ion-footer>

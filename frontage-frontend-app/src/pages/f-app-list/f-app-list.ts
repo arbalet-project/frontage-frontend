@@ -40,7 +40,6 @@ export class FAppListPage {
   }
 
   updateScheduledApp(fApp: FApp) {
-    console.log(fApp.scheduled);
     this.adminProvider.setScheduledApp(fApp).subscribe();
   }
 

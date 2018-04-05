@@ -40,10 +40,16 @@ export class DataFAppsProvider {
   }
 
   public stopApp() {
-    this.http.delete(this.baseUrl + "/b/apps/running").subscribe(respopnse => console.log("ok"));
+    this.http.delete(this.baseUrl + "/b/apps/running").subscribe(
+      response => console.log("ok"), 
+      err => alert("Erreur :" + JSON.stringify(err))
+    );
   }
 
   public quitQueue() {
-    this.http.delete(this.baseUrl + "/b/apps/position").subscribe(response => console.log("ok"));
+    this.http.delete(this.baseUrl + "/b/apps/position").subscribe(
+      response => console.log("ok"),
+      err => alert("Erreur :" + JSON.stringify(err))
+    );
   }
 }

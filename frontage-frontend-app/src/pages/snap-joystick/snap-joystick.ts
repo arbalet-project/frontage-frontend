@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { DataFAppsProvider } from './../../providers/data-f-apps/data-f-apps';
 import { environment } from './../../app/environment';
 import { Component } from '@angular/core';
@@ -15,32 +16,26 @@ import { NavController, NavParams } from 'ionic-angular';
   templateUrl: 'snap-joystick.html',
 })
 export class SnapJoystickPage {
-  selectedParameter: string;
-  parametersList: string[];
+  selectedClient: string;
+  clientsList: string[];
 
+  baseUrl:string;
+  authorizeEndpoint:string = "/authorize";
+  clientsEndpoint:string = "/clients";
   socket: WebSocket;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public fAppProvider:DataFAppsProvider) {
-    let joystickParams = navParams.get('joystickParams');
+  constructor(public navCtrl: NavController, public navParams: NavParams, public fAppProvider:DataFAppsProvider, public http: HttpClient) {
 
-    alert(JSON.stringify(joystickParams))
-    this.initSocket();
+    this.baseUrl = `${environment.snapBaseUrl}`;
   }
 
-  initSocket() {
-
-    this.socket = new WebSocket(`${environment.webSocketAdress}`);
-
-    this.socket.onmessage = function (message) {
-      return message;
-    };
-
-    this.socket.onopen = function () {
-    };
-
-    this.socket.onerror = function () {
-      throw "Snap : Erreur, la connexion websocket a échouée."
-    }
+  getClientsInfo() {
+    alert("URL : " + this.baseUrl + this.clientsEndpoint)
+    this.http.get<any>(this.baseUrl + this.clientsEndpoint)
+    .subscribe(
+      response => alert(JSON.stringify(response)), 
+      err => alert(JSON.stringify(err))
+    );
   }
 
   ionViewDidLeave() {

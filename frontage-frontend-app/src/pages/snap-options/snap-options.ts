@@ -37,7 +37,6 @@ export class SnapOptionsPage {
   }
 
   goToNextPage(response) {
-    alert(JSON.stringify(response));
 
     this.navCtrl.pop();
     this.navCtrl.push(WaitingPage, { info: response, joystick: SnapJoystickPage })
