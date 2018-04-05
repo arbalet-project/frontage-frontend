@@ -41,15 +41,13 @@ export class DataFAppsProvider {
 
   public stopApp() {
     this.http.delete(this.baseUrl + "/b/apps/running").subscribe(
-      response => console.log("ok"), 
-      err => alert("Erreur :" + JSON.stringify(err))
+      response => console.log("ok")
     );
   }
 
   public quitQueue() {
     this.http.delete(this.baseUrl + "/b/apps/position").subscribe(
-      response => console.log("ok"),
-      err => alert("Erreur :" + JSON.stringify(err))
+      response => console.log("ok")
     );
   }
 }

@@ -30,19 +30,24 @@ export class SnapJoystickPage {
   }
 
   getClientsInfo() {
-    alert("URL : " + this.baseUrl + this.clientsEndpoint)
     this.http.get<any>(this.baseUrl + this.clientsEndpoint)
     .subscribe(
-      response => alert(JSON.stringify(response)), 
-      err => alert(JSON.stringify(err))
+      response => this.handleResponse(response)
     );
+  }
+
+  handleResponse(response){
+    alert(JSON.stringify(response));
+    
+    this.selectedClient=response.selected_client;
+    this.clientsList=response.list_clients;
   }
 
   ionViewDidLeave() {
     this.fAppProvider.stopApp();
   }
 
-  quitPage() {
+  stopFApp() {
     this.navCtrl.pop();
   }
 }

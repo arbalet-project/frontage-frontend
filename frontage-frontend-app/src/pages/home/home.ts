@@ -21,4 +21,8 @@ export class HomePage {
     this.navCtrl.push(LoginPage);
   }
 
+  test(){
+    alert("<h1>Yoh !<h1>");
+  }
+
 }
