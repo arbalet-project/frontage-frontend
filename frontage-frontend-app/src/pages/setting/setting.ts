@@ -36,7 +36,7 @@ export class SettingPage implements OnInit {
   }
 
   clearUserQueue() {
-    this.adminProvider.clearUserQueue();
+    this.adminProvider.clearUserQueue().subscribe();
   }
 
   updateScheduler() {
