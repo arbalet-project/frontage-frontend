@@ -16,21 +16,10 @@ export class FlagsOptionsPage {
 
   flag: FApp;
   parametersList: string[];
-  selectedParameter: string = "french";
   isAdmin: boolean = false;
 
-  joystick: any = FlagsJoytickPage;
-  joystickParams: any = {
-    parametersList: this.parametersList,
-    selectedParameter: this.selectedParameter
-  };
-  
-  options: FAppOptions = {
-    name: "Flags",
-    params: {
-      uapp: this.selectedParameter
-    }
-  }
+  joystickPage: any = FlagsJoytickPage;
+  fAppOptions: FAppOptions;
 
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
@@ -45,45 +34,12 @@ export class FlagsOptionsPage {
     if (fAppParams) {
       this.parametersList = fAppParams.params_list.uapp;
     }
-  }
 
-  startFapp() {
-    let options: FAppOptions = {
+    this.fAppOptions = {
       name: "Flags",
       params: {
-        uapp: this.selectedParameter
+        uapp: "french"
       }
-    };
-
-    this.dataFAppsProvider.launchFApp(options)
-      .subscribe(response => this.goToNextPage(response));
-  }
-
-  goToNextPage(response) {
-    this.navCtrl.pop();
-    this.navCtrl.push(WaitingPage, { info: response, joystick: FlagsJoytickPage, joystickParams: { parametersList: this.parametersList, selectedParameter: this.selectedParameter } })
-  }
-
-  forceFapp() {
-    let options: FAppOptions = {
-      name: "Flags",
-      params: {
-        uapp: this.selectedParameter
-      }
-    };
-    this.adminProvider.launchForcedFApp(options)
-      .subscribe(response => response);
-  }
-
-  sendScheduledFappOptions() {
-    let options: FAppOptions = {
-      name: "Flags",
-      params: {
-        uapp: this.selectedParameter
-      }
-    };
-
-    this.adminProvider.sendScheduledFAppOptions(options)
-      .subscribe(response => this.goToNextPage(response));
+    }
   }
 }

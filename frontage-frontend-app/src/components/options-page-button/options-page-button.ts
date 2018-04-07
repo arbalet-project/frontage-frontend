@@ -13,16 +13,19 @@ import { Component, Input } from '@angular/core';
 export class OptionsPageButtonComponent {
 
   @Input()
-  options: FAppOptions;
+  fAppOptions: FAppOptions;
 
   @Input()
   isAdmin: boolean;
 
   @Input()
-  joystick: any;
+  joystickPage: any;
 
   @Input()
-  joystickParams: any;
+  parametersList: any;
+
+  @Input()
+  selectedParameter: any;
 
   constructor(public navCtrl: NavController,
     public dataFAppsProvider: DataFAppsProvider,
@@ -34,17 +37,17 @@ export class OptionsPageButtonComponent {
    * Button actions
    */
   startFapp() {
-    this.dataFAppsProvider.launchFApp(this.options)
+    this.dataFAppsProvider.launchFApp(this.fAppOptions)
       .subscribe(response => this.goToNextPage(response));
   }
 
   forceFapp() {
-    this.adminProvider.launchForcedFApp(this.options)
+    this.adminProvider.launchForcedFApp(this.fAppOptions)
       .subscribe(response => response);
   }
 
   sendScheduledFappOptions() {
-    this.adminProvider.sendScheduledFAppOptions(this.options)
+    this.adminProvider.sendScheduledFAppOptions(this.fAppOptions)
       .subscribe(response => this.goToNextPage(response));
   }
 
@@ -53,6 +56,14 @@ export class OptionsPageButtonComponent {
    */
   goToNextPage(response) {
     this.navCtrl.pop();
-    this.navCtrl.push(WaitingPage, { info: response, joystick: this.joystick, joystickParams: this.joystickParams })
+    this.navCtrl.push(WaitingPage, {
+      info: response,
+      joystick: this.joystickPage,
+      joystickParams:
+        {
+          parametersList: this.parametersList,
+          selectedParameter: this.selectedParameter
+        }
+    })
   }
 }
