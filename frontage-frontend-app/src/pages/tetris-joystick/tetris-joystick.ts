@@ -17,6 +17,7 @@ import { environment } from '../../app/environment';
 export class TetrisJoystickPage {
   nom: string = "";
   socket: WebSocket;
+  isExpireSoon:Boolean=false;
 
   isUpWhite: Boolean = false;
   isDownWhite: Boolean = false;
@@ -45,7 +46,7 @@ export class TetrisJoystickPage {
     let self = this;
     this.socket = new WebSocket(`${environment.webSocketAdress}`);
 
-    this.socket.onmessage = message => self.websocketMessageHandler.handleMessage(message, this.navCtrl);
+    this.socket.onmessage = message => self.websocketMessageHandler.handleMessage(message, this.navCtrl, this);
 
     this.socket.onopen = function () {
     };

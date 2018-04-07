@@ -13,7 +13,7 @@
       <ion-list-header>
         {{"FLAGS_OPTIONS_PAGE_LIST" | translate}}
       </ion-list-header>
-      <ion-item *ngFor="let flag of this.parametersList">
+      <ion-item *ngFor="let flag of this.parametersList" (click)="changeFlag()">
         <ion-label>{{flag | uppercase | translate}}</ion-label>
         <ion-radio value="{{ flag }}"></ion-radio>
       </ion-item>

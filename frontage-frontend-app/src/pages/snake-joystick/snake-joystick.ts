@@ -16,6 +16,7 @@ export class SnakeJoystickPage {
 
   nom: string = "";
   socket: WebSocket;
+  isExpireSoon:Boolean=false;
 
   isUpWhite: Boolean = false;
   isDownWhite: Boolean = false;
@@ -42,7 +43,7 @@ export class SnakeJoystickPage {
     let self = this;
     this.socket = new WebSocket(`${environment.webSocketAdress}`);
 
-    this.socket.onmessage = message => self.websocketMessageHandler.handleMessage(message, this.navCtrl);
+    this.socket.onmessage = message => self.websocketMessageHandler.handleMessage(message, this.navCtrl, this);
 
 
     this.socket.onopen = function () {
@@ -77,6 +78,10 @@ export class SnakeJoystickPage {
       this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
       this.screenOrientation.unlock();
     }
+  }
+
+  ionViewDidEnter(){
+    this.isExpireSoon = false;
   }
 
   stopFApp() {

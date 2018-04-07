@@ -30,11 +30,7 @@ export class RandomFlashingOptionsPage {
     let options = {
       name: "RandomFlashing",
       params: {
-        dur_min: 1,
-        dur_max: 15,
-        refresh_rate: 80,
-        colors: this.selectedParameter,
-        uapp: "flashes"
+        colors:  this.selectedParameter
       }
     }
 
@@ -59,11 +55,7 @@ export class RandomFlashingOptionsPage {
     let options = {
       name: "RandomFlashing",
       params: {
-        dur_min: 1,
-        dur_max: 15,
-        refresh_rate: 80,
-        colors: this.selectedParameter,
-        uapp: "flashes"
+        colors:  this.selectedParameter
       }
     };
 
