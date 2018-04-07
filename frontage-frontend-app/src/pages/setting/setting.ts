@@ -1,3 +1,4 @@
+import { AuthenticationProvider } from './../../providers/authentication/authentication';
 import { AdminHoursSettings } from './../../models/admin-hours-settings';
 import { AdminProvider } from './../../providers/admin/admin';
 import { Component, OnInit } from '@angular/core';
@@ -9,8 +10,7 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class SettingPage implements OnInit {
 
-  frontageState: boolean = true;
-  hoursSettings: AdminHoursSettings;
+  frontageState: boolean = false;
   openingHourList: String[] = [];
   closingHourList: String[] = [];
   selectedOpeningHour: String;
@@ -18,10 +18,11 @@ export class SettingPage implements OnInit {
 
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
-    public adminProvider: AdminProvider) {
+    public adminProvider: AdminProvider,
+    public authentication: AuthenticationProvider) {
 
-    this.initClosingHourList();
-    this.initOpeningHourList();
+    this.initHourList("sunset+", this.openingHourList);
+    this.initHourList("sunrise-", this.closingHourList);
   }
 
   /**
@@ -30,31 +31,30 @@ export class SettingPage implements OnInit {
   ngOnInit() {
     this.adminProvider.getCurrentSunsetAndSunDown()
       .subscribe((hoursSettings: AdminHoursSettings) => {
-        this.selectedOpeningHour = hoursSettings.on;
-        this.selectedClosingHour = hoursSettings.off;
+        this.selectedOpeningHour = this.initHoursFormat(hoursSettings.on);
+        this.selectedClosingHour = this.initHoursFormat(hoursSettings.off);
       });
+
+    this.authentication.isFacadeUp()
+      .subscribe(res => this.frontageState = res);
   }
 
-  private initOpeningHourList() {
-    let j: number;
-    for (j = 0; j <= 5; j++) {
-      this.openingHourList.push("sunset+" + j);
-    }
-    let i: number;
-    for (i = 0; i <= 23; i++) {
-      this.openingHourList.push(i + "h00");
-    }
+  private initHoursFormat(hoursFromBack: String): String{
+    return hoursFromBack.substring(0,2) + ':00';
   }
 
-  private initClosingHourList() {
+  private initHourList(sunValue: String, listToInit: String[]) {
     let j: number;
     for (j = 0; j <= 5; j++) {
-      this.closingHourList.push("sunrise-" + j);
+      listToInit.push(sunValue + j.toString());
     }
-
-    var i: number;
+    let i: number
     for (i = 0; i <= 23; i++) {
-      this.closingHourList.push(i + "h00");
+      let hourToPush: String = i + ":00";
+      if(i<10){
+        hourToPush = "0" + hourToPush;
+      }
+      listToInit.push(hourToPush);
     }
   }
 
@@ -77,10 +77,10 @@ export class SettingPage implements OnInit {
   }
 
   setOpeningHour() {
-    this.adminProvider.setFrontageOpeningHour(this.selectedOpeningHour);
-  }  
+    this.adminProvider.setFrontageOpeningHour(this.selectedOpeningHour).subscribe();
+  }
 
-  setClosingHour(){
-    this.adminProvider.setFrontageClosingHour(this.selectedClosingHour);
+  setClosingHour() {
+    this.adminProvider.setFrontageClosingHour(this.selectedClosingHour).subscribe();
   }
 }

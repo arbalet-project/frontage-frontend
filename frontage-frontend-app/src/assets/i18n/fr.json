@@ -75,7 +75,7 @@
     "SETTINGS_PAGE_OPENING_HOUR":"Horaire ouverture",
     "SETTINGS_PAGE_CLOSING_HOUR":"Horaire fermeture",
     "SETTINGS_PAGE_CLEAR_QUEUE_BUTTON":"Vider Queue",
-    "SETTINGS_PAGE_SHUTDOWN_FRONTAGE_BUTTON":"Couper la façade",
+    "SETTINGS_PAGE_SHUTDOWN_FRONTAGE_BUTTON":"Façade allumée",
     "SETTINGS_PAGE_BACK_BUTTON":"Retour à la liste",
 
     "GET_OUT":"Il est temps de laisser quelqu'un d'autre jouer :)",

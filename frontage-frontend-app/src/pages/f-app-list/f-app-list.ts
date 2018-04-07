@@ -36,7 +36,7 @@ export class FAppListPage {
   }
 
   showOptions(fApp: FApp) {
-    this.navCtrl.push(this.establishNavigationPageName(fApp.name), { selectedFapp: fApp, test: "test" });
+    this.navCtrl.push(this.establishNavigationPageName(fApp.name), { selectedFapp: fApp });
   }
 
   updateScheduledApp(fApp: FApp) {
