@@ -82,6 +82,12 @@
     "GAME_OVER":"Game Over :)",
     "EXPIRE_SOON":"Votre tour est bientôt fini",
     "EXPIRE":"Votre tour est fini. Vous pouvez encore jouer jusqu'à ce que quelqu'un lance une application",
+    "UNKNOWN_MESSAGE":"Un message inconnu est reçu du serveur.Message: ",
+    "GAME_OVER_TITLE":"Game Over",
+    "CLOSE_APP_TITLE":"Application terminée",
+    "CODE_EXPIRE_TITLE":"Temps arrivée à expiration",
+    "EXPIRE_SOON_TITLE":"Expire bientôt",
+    "UNKNOWN_CODE_TITLE":"Code Inconnu",
 
     "WAITING":"En attente",
     "STOP_APP":"Quitter",

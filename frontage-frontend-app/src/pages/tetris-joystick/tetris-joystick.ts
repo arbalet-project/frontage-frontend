@@ -1,3 +1,4 @@
+import { WebsocketMessageHandlerProvider } from './../../providers/websocket-message-handler/websocket-message-handler';
 import { Dialogs } from '@ionic-native/dialogs';
 import { Vibration } from '@ionic-native/vibration';
 import { DataFAppsProvider } from './../../providers/data-f-apps/data-f-apps';
@@ -14,51 +15,41 @@ import { environment } from '../../app/environment';
   templateUrl: 'tetris-joystick.html',
 })
 export class TetrisJoystickPage {
-  nom:string = "";
-  socket:WebSocket;
+  nom: string = "";
+  socket: WebSocket;
 
-  isUpWhite:Boolean = false;
-  isDownWhite:Boolean = false;
-  isRightWhite:Boolean = false;
-  isTurnLight:Boolean = false;
+  isUpWhite: Boolean = false;
+  isDownWhite: Boolean = false;
+  isRightWhite: Boolean = false;
+  isTurnLight: Boolean = false;
 
-  constructor(public navParams: NavParams, public screenOrientation: ScreenOrientation, public navCtrl: NavController, 
-              public localStorageProvider: LocalStorageProvider, public fAppProvider:DataFAppsProvider, public platform: Platform,
-              public vibration: Vibration, public dialogs: Dialogs ) {
+  constructor(public navParams: NavParams,
+    public screenOrientation: ScreenOrientation,
+    public navCtrl: NavController,
+    public localStorageProvider: LocalStorageProvider,
+    public fAppProvider: DataFAppsProvider,
+    public platform: Platform,
+    public vibration: Vibration,
+    public dialogs: Dialogs,
+    public websocketMessageHandler: WebsocketMessageHandlerProvider) {
 
-      if (this.platform.is('mobile')) {
-        this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
-      }
+    if (this.platform.is('mobile')) {
+      this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
+    }
     this.nom = localStorageProvider.getUserName();
 
     this.initSocket();
   }
 
   initSocket() {
-    
+    let self = this;
     this.socket = new WebSocket(`${environment.webSocketAdress}`);
 
     this.socket.onmessage = function (message) {
-      
-      let response = JSON.parse(message.data);
-
-      if(response.code == 1) {
-        self.dialogs.alert('<h1 i18>GET_OUT</h1>')
-      }else if (response.message == 2 ) {
-        self.dialogs.alert('<h1 i18>GAME_OVER</h1>')
-      }else if (response.message == 3 ) {
-        self.dialogs.alert('<h1 i18>EXPIRE_SOON</h1>')
-      }else if (response.message == 4 ) {
-        self.dialogs.alert('<h1 i18>EXPIRE</h1>')
-      }
-
-      self.vibration.vibrate([1000, 100, 1000, 100, 1000]);
-      return message;
+      self.websocketMessageHandler.handleMessage(message);
     };
 
-    let self = this;
     this.socket.onopen = function () {
-      self.socket.send("coucou, c'est " + self.nom);
     };
 
     this.socket.onerror = function () {
@@ -83,9 +74,9 @@ export class TetrisJoystickPage {
     this.vibration.vibrate(40);
   }
 
-  ionViewDidLeave(){
+  ionViewDidLeave() {
     this.fAppProvider.stopApp();
-    
+
     if (this.platform.is('mobile')) {
       this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
       this.screenOrientation.unlock();

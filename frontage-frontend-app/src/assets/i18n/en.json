@@ -74,6 +74,12 @@
     "GAME_OVER":"Game Over :)",
     "EXPIRE_SOON":"Your turn will end soon.",
     "EXPIRE":"Your turn is over. You can still play until someone else start an app.",
+    "UNKNOWN_MESSAGE":"An uncknown message was received from the server. Message: ",
+    "GAME_OVER_TITLE":"Game Over",
+    "CLOSE_APP_TITLE":"Application finished",
+    "CODE_EXPIRE_TITLE":"Time out",
+    "EXPIRE_SOON_TITLE":"Expire Soon",
+    "UNKNOWN_CODE_TITLE":"Unknown Code",
 
     "WAITING":"Waiting",
     "STOP_APP":"Leave queue",

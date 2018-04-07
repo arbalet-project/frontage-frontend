@@ -44,6 +44,7 @@ import { ScreenOrientation } from '@ionic-native/screen-orientation';
 import { Vibration } from '@ionic-native/vibration';
 import { SettingPage } from '../pages/setting/setting';
 import { AdminProvider } from '../providers/admin/admin';
+import { WebsocketMessageHandlerProvider } from '../providers/websocket-message-handler/websocket-message-handler';
 
 
 export function createTranslateLoader(http: Http) {
@@ -108,7 +109,8 @@ let components:any[] = [
     ScreenOrientation,
     Vibration,
     AdminProvider,
-    Dialogs
+    Dialogs,
+    WebsocketMessageHandlerProvider
   ]
 })
 export class AppModule {}

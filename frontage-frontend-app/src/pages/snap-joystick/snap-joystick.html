@@ -16,7 +16,7 @@
 
   <button ion-button class="tr" (click)="getClientsInfo()">Get Clients</button>
   
-  <div *ngIf="selectedClient && clientsList; else elseBlock;">
+  <div *ngIf="selectedClient && clientsList; else elseBlock;" (click)="alert('click3')">
     <ion-list *ngFor="let client of clientsList" radio-group [(ngModel)]="selectedClient">
       <ion-item text-wrap (click)="alert('click')">
         <ion-label (click)="alert('click2')">{{client}}</ion-label>

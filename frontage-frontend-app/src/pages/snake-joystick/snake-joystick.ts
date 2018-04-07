@@ -1,3 +1,4 @@
+import { WebsocketMessageHandlerProvider } from './../../providers/websocket-message-handler/websocket-message-handler';
 import { Vibration } from '@ionic-native/vibration';
 import { DataFAppsProvider } from './../../providers/data-f-apps/data-f-apps';
 import { NicknameGeneratorProvider } from './../../providers/nickname-generator/nickname-generator';
@@ -21,12 +22,13 @@ export class SnakeJoystickPage {
   isRightWhite: Boolean = false;
   isLeftWhite: Boolean = false;
 
-  constructor(public nicknameGeneratorProvider: NicknameGeneratorProvider, public navCtrl: NavController, 
+  constructor(public nicknameGeneratorProvider: NicknameGeneratorProvider, public navCtrl: NavController,
     public navParams: NavParams, public screenOrientation: ScreenOrientation,
     public localStorageProvider: LocalStorageProvider,
     public fAppProvider: DataFAppsProvider,
     public platform: Platform,
-    public vibration: Vibration) {
+    public vibration: Vibration,
+    public websocketMessageHandler: WebsocketMessageHandlerProvider) {
 
     if (this.platform.is('mobile')) {
       this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
@@ -41,11 +43,7 @@ export class SnakeJoystickPage {
     this.socket = new WebSocket(`${environment.webSocketAdress}`);
 
     this.socket.onmessage = function (message) {
-      alert(message);
-      alert(message.data);
-
-      self.vibration.vibrate([1000, 100, 1000, 100, 1000]);
-      return message;
+      self.websocketMessageHandler.handleMessage(message);
     };
 
     this.socket.onopen = function () {
