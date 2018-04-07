@@ -1,18 +1,20 @@
 <ion-header>
+
   <ion-navbar>
     <ion-title>{{"SR_JOYSTICK_PAGE_TITLE" | translate}}</ion-title>
   </ion-navbar>
+
 </ion-header>
 
 <ion-content padding class="bg">
   <div *ngIf="parametersList">
-    <ion-list radio-group [(ngModel)]="selectedParameter" *ngFor="let parameter of parametersList">
+    <ion-list radio-group [(ngModel)]="selectedParameter" >
       <ion-list-header>
         {{"COLOR_APP_OPTIONS_PAGE_COLOR_LABEL" | translate}}
       </ion-list-header>
-      <ion-item (click)=sendOption(parameter)>
+      <ion-item *ngFor="let parameter of this.parametersList">
         <ion-label>{{ parameter | uppercase | translate }}</ion-label>
-        <ion-radio value="{{ parameter }}"></ion-radio>
+        <ion-radio (ionSelect)="sendOption()" value="{{ parameter }}"></ion-radio>
       </ion-item>
     </ion-list>
   </div>

@@ -61,10 +61,9 @@
     "SNAP_JOYSTICK_PAGE_TITLE":"Snap Joystick",
 
     "FLAGS_JOYSTICK_PAGE_TITLE":"Flags",
-    "FLAGS_JOYSTICK_PAGE_CHANGE_BUTTON":"Change flag",
-
     "SR_JOYSTICK_PAGE_TITLE":"Change theme",
-
+    "SA_JOYSTICK_PAGE_TITLE":"Sweep Async",
+    
     "COLOR_APP_OPTIONS_PAGE_COLOR_LABEL":"Color : ",
     "DARKBLUE":"Dark Blue",
     "PINK":"Pink",

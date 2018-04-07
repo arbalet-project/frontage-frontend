@@ -16,11 +16,11 @@
 
   <button ion-button class="tr" (click)="getClientsInfo()">Get Clients</button>
   
-  <div *ngIf="selectedClient && clientsList; else elseBlock;" (click)="alert('click3')">
+  <div *ngIf="selectedClient && clientsList; else elseBlock;">
     <ion-list *ngFor="let client of clientsList" radio-group [(ngModel)]="selectedClient">
-      <ion-item text-wrap (click)="alert('click')">
-        <ion-label (click)="alert('click2')">{{client}}</ion-label>
-        <ion-radio (click)="alert('click3')" value="{{client}}"></ion-radio>
+      <ion-item text-wrap >
+        <ion-label >{{client}}</ion-label>
+        <ion-radio (ionSelect)="authorize()" value="{{client}}"></ion-radio>
       </ion-item>
     </ion-list>
   </div>

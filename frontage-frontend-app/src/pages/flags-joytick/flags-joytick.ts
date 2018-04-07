@@ -1,3 +1,4 @@
+import { WebsocketMessageHandlerProvider } from './../../providers/websocket-message-handler/websocket-message-handler';
 import { DataFAppsProvider } from './../../providers/data-f-apps/data-f-apps';
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
@@ -14,7 +15,8 @@ export class FlagsJoytickPage {
 
   socket: WebSocket;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public fAppProvider: DataFAppsProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public fAppProvider: DataFAppsProvider,
+    public websocketMessageHandler:WebsocketMessageHandlerProvider) {
     let joystickParams = navParams.get('joystickParams');
 
     this.parametersList = joystickParams.parametersList;
@@ -24,13 +26,11 @@ export class FlagsJoytickPage {
   }
 
   initSocket() {
-
+    
     this.socket = new WebSocket(`${environment.webSocketAdress}`);
 
-    this.socket.onmessage = function (message) {
-      alert(message);
-      return message;
-    };
+    let self = this;
+    this.socket.onmessage = message => self.websocketMessageHandler.handleMessage(message, this.navCtrl, this);
 
     this.socket.onopen = function () {
     };
@@ -40,16 +40,16 @@ export class FlagsJoytickPage {
     }
   }
 
-  changeFlag(){
+  sendOption(){
     this.socket.send('{"flag": "' + this.selectedParameter + '"}');
   }
 
-  quitPage() {
-    this.fAppProvider.stopApp();
+  stopFApp() {
+    this.navCtrl.pop();
   }
 
   ionViewDidLeave() {
-    this.quitPage();
+    this.fAppProvider.stopApp();
   }
 
 }

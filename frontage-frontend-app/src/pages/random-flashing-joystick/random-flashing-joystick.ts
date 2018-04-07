@@ -1,3 +1,4 @@
+import { WebsocketMessageHandlerProvider } from './../../providers/websocket-message-handler/websocket-message-handler';
 import { DataFAppsProvider } from './../../providers/data-f-apps/data-f-apps';
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
@@ -13,7 +14,8 @@ export class RandomFlashingJoystickPage {
   selectedParameter: string;
   parametersList: string[];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public fAppProvider:DataFAppsProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public fAppProvider:DataFAppsProvider,
+    public websocketMessageHandler:WebsocketMessageHandlerProvider) {
 
     let joystickParams = navParams.get('joystickParams');
 
@@ -27,9 +29,8 @@ export class RandomFlashingJoystickPage {
 
     this.socket = new WebSocket(`${environment.webSocketAdress}`);
 
-    this.socket.onmessage = function (message) {
-      return message;
-    };
+    let self = this;
+    this.socket.onmessage = message => self.websocketMessageHandler.handleMessage(message, this.navCtrl, this);
 
     this.socket.onopen = function () {
     };
@@ -39,7 +40,7 @@ export class RandomFlashingJoystickPage {
     }
   }
 
-  sendOption(option) {
+  sendOption() {
     this.socket.send('{"color":"' + this.selectedParameter + '"}');
   }
 
