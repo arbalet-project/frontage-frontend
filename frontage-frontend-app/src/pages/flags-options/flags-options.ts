@@ -19,7 +19,7 @@ export class FlagsOptionsPage {
   isAdmin: boolean = false;
 
   joystickPage: any = FlagsJoytickPage;
-  fAppOptions: FAppOptions;
+  fAppOptions: any;
 
   constructor(public navCtrl: NavController,
     public navParams: NavParams,

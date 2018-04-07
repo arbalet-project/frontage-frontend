@@ -1,6 +1,5 @@
 import { WaitingPage } from './../../pages/waiting/waiting';
 import { NavController } from 'ionic-angular';
-import { FAppOptions } from './../../models/f-app-options';
 import { AdminProvider } from './../../providers/admin/admin';
 import { LocalStorageProvider } from './../../providers/local-storage/local-storage';
 import { DataFAppsProvider } from './../../providers/data-f-apps/data-f-apps';
@@ -13,7 +12,7 @@ import { Component, Input } from '@angular/core';
 export class OptionsPageButtonComponent {
 
   @Input()
-  fAppOptions: FAppOptions;
+  fAppOptions: any;
 
   @Input()
   isAdmin: boolean;
