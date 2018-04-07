@@ -71,7 +71,7 @@ export class SweepRandOptionsPage {
       }
     };
 
-    this.adminProvider.sendScheduledFappOptions(options)
+    this.adminProvider.sendScheduledFAppOptions(options)
       .subscribe(response => this.goToNextPage(response));
   }
 }

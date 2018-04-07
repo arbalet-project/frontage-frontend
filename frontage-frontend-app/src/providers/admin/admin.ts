@@ -17,47 +17,69 @@ export class AdminProvider {
     this.baseUrl = `${environment.backEndBaseUrl}`;
   }
 
+  /**
+   * Hours setup
+   */
   public getCurrentSunsetAndSunDown(): Observable<AdminHoursSettings> {
     return this.http
-      .get<any>(this.baseUrl + "/b/admin/cal");
+      .get<AdminHoursSettings>(this.baseUrl + "/b/admin/cal");
   }
 
-  public clearUserQueue() : Observable<any>{
+  public setFrontageOpeningHour(openingHour: String): Observable<any> {
+    let body = {
+      sunrise_offset: openingHour
+    }
+    return this.http.patch('/b/admin/state', body);
+  }
+
+  public setFrontageClosingHour(closingHour: String): Observable<any> {
+    let body = {
+      sundown_offset: closingHour
+    }
+    return this.http.patch('/b/admin/state', body);
+  }
+  /**
+   * Settings part
+   */
+  public clearUserQueue(): Observable<any> {
     return this.http
-      .delete<any>(this.baseUrl + "/b/apps/queue")
+      .delete(this.baseUrl + "/b/apps/queue")
       .catch(error => Observable.of(error));
   }
 
-  public updateSchedulerState(state: boolean) {
+  public updateFrontageState(state: boolean) {
     let body = {
-      enabled : state
+      enabled: state
     }
     return this.http
-      .post<any>(this.baseUrl + "/b/admin/enabled", body)
+      .post(this.baseUrl + "/b/admin/enabled", body)
       .catch(error => Observable.of(error));
   }
 
+  /**
+   * FApp launching
+   */
   public launchForcedFApp(fAppOptions: FAppOptions): Observable<any> {
     let body = fAppOptions;
     return this.http
-      .post<any>(this.baseUrl + "/b/apps/admin/running", body)
+      .post(this.baseUrl + "/b/apps/admin/running", body)
       .catch(error => Observable.of(error));
   }
 
-  public setScheduledApp(fApp: FApp): Observable<any> {
+  public setScheduledFApp(fApp: FApp): Observable<any> {
     let body = {
       app_name: fApp.name,
       app_state: fApp.scheduled
     }
     return this.http
-      .post<any>(this.baseUrl + "/b/apps/default/", body)
+      .post(this.baseUrl + "/b/apps/default/", body)
       .catch(error => Observable.of(error));
   }
 
-  public sendScheduledFappOptions(fAppOptions: FAppOptions): Observable<any> {
+  public sendScheduledFAppOptions(fAppOptions: FAppOptions): Observable<any> {
     let body = fAppOptions;
     return this.http
-      .post<any>(this.baseUrl + "/b/apps/default/"+ fAppOptions.name, body)
+      .post(this.baseUrl + "/b/apps/default/" + fAppOptions.name, body)
       .catch(error => Observable.of(error));
   }
 }

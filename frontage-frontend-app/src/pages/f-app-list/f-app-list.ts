@@ -40,7 +40,7 @@ export class FAppListPage {
   }
 
   updateScheduledApp(fApp: FApp) {
-    this.adminProvider.setScheduledApp(fApp).subscribe();
+    this.adminProvider.setScheduledFApp(fApp).subscribe();
   }
 
   goToSettings() {

@@ -9,7 +9,7 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class SettingPage implements OnInit {
 
-  schedulerState: boolean = true;
+  frontageState: boolean = true;
   hoursSettings: AdminHoursSettings;
   openingHourList: String[] = [];
   closingHourList: String[] = [];
@@ -24,31 +24,15 @@ export class SettingPage implements OnInit {
     this.initOpeningHourList();
   }
 
+  /**
+   * Init data
+   */
   ngOnInit() {
     this.adminProvider.getCurrentSunsetAndSunDown()
-      .subscribe(response => {
-        this.hoursSettings = response;
+      .subscribe((hoursSettings: AdminHoursSettings) => {
+        this.selectedOpeningHour = hoursSettings.on;
+        this.selectedClosingHour = hoursSettings.off;
       });
-  }
-
-  goToFappList() {
-    this.navCtrl.pop();
-  }
-
-  clearUserQueue() {
-    this.adminProvider.clearUserQueue().subscribe();
-  }
-
-  updateScheduler() {
-    this.adminProvider.updateSchedulerState(this.schedulerState);
-  }
-
-  setOpeningHour() {
-    console.log("opening");
-  }  
-
-  setClosingHour(){
-    console.log("closing");
   }
 
   private initOpeningHourList() {
@@ -72,5 +56,31 @@ export class SettingPage implements OnInit {
     for (i = 0; i <= 23; i++) {
       this.closingHourList.push(i + "h00");
     }
+  }
+
+  /**
+   * Navigation
+   */
+  goToFappList() {
+    this.navCtrl.pop();
+  }
+
+  /**
+   * Admin Actions
+   */
+  clearUserQueue() {
+    this.adminProvider.clearUserQueue().subscribe();
+  }
+
+  updateFrontageState() {
+    this.adminProvider.updateFrontageState(this.frontageState);
+  }
+
+  setOpeningHour() {
+    this.adminProvider.setFrontageOpeningHour(this.selectedOpeningHour);
+  }  
+
+  setClosingHour(){
+    this.adminProvider.setFrontageClosingHour(this.selectedClosingHour);
   }
 }
