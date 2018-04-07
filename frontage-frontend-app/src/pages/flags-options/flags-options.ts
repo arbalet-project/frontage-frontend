@@ -2,7 +2,7 @@ import { AdminProvider } from './../../providers/admin/admin';
 import { LocalStorageProvider } from './../../providers/local-storage/local-storage';
 import { FlagsJoytickPage } from './../flags-joytick/flags-joytick';
 import { WaitingPage } from './../waiting/waiting';
-import { FAppOptions } from './../../models/f-app-options';
+
 import { DataFAppsProvider } from './../../providers/data-f-apps/data-f-apps';
 import { FApp } from './../../models/fapp';
 import { Component } from '@angular/core';
@@ -35,7 +35,7 @@ export class FlagsOptionsPage {
   }
 
   startFapp() {
-    let options: FAppOptions = {
+    let options = {
       name: "Flags",
       params: {
         uapp: this.selectedParameter
@@ -52,7 +52,7 @@ export class FlagsOptionsPage {
   }
 
   forceFapp() {
-    let options: FAppOptions = {
+    let options = {
       name: "Flags",
       params: {
         uapp: this.selectedParameter
@@ -63,7 +63,7 @@ export class FlagsOptionsPage {
   }
 
   sendScheduledFappOptions() {
-    let options: FAppOptions = {
+    let options= {
       name: "Flags",
       params: {
         uapp: this.selectedParameter

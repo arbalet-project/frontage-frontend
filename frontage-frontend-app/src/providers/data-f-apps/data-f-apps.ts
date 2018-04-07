@@ -1,5 +1,4 @@
 import { Observable } from 'rxjs/Observable';
-import { FAppOptions } from './../../models/f-app-options';
 import { FApp } from './../../models/fapp';
 import { AuthenticationProvider } from './../authentication/authentication';
 import { Injectable } from '@angular/core';
@@ -27,7 +26,7 @@ export class DataFAppsProvider {
         .value());
   }
 
-  public launchFApp(fAppOptions: FAppOptions): Observable<any> {
+  public launchFApp(fAppOptions): Observable<any> {
     let body = fAppOptions;
     return this.http
       .post<any>(this.baseUrl + "/b/apps/running", body)

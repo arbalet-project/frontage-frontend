@@ -1,7 +1,6 @@
 import { AdminHoursSettings } from './../../models/admin-hours-settings';
 import { FApp } from './../../models/fapp';
 import { Observable } from 'rxjs/Observable';
-import { FAppOptions } from './../../models/f-app-options';
 import { AuthenticationProvider } from './../authentication/authentication';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -59,7 +58,7 @@ export class AdminProvider {
   /**
    * FApp launching
    */
-  public launchForcedFApp(fAppOptions: FAppOptions): Observable<any> {
+  public launchForcedFApp(fAppOptions): Observable<any> {
     let body = fAppOptions;
     return this.http
       .post(this.baseUrl + "/b/apps/admin/running", body)
@@ -76,7 +75,7 @@ export class AdminProvider {
       .catch(error => Observable.of(error));
   }
 
-  public sendScheduledFAppOptions(fAppOptions: FAppOptions): Observable<any> {
+  public sendScheduledFAppOptions(fAppOptions): Observable<any> {
     let body = fAppOptions;
     return this.http
       .post(this.baseUrl + "/b/apps/default/" + fAppOptions.name, body)

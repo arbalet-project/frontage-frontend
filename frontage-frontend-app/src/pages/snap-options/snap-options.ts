@@ -2,7 +2,6 @@ import { AdminProvider } from './../../providers/admin/admin';
 import { LocalStorageProvider } from './../../providers/local-storage/local-storage';
 
 import { WaitingPage } from './../waiting/waiting';
-import { FAppOptions } from './../../models/f-app-options';
 import { DataFAppsProvider } from './../../providers/data-f-apps/data-f-apps';
 import { FApp } from './../../models/fapp';
 import { Component } from '@angular/core';
@@ -25,11 +24,8 @@ export class SnapOptionsPage {
   }
 
   startFapp() {
-    let options: FAppOptions = {
+    let options = {
       name: "Snap",
-      params: {
-        uapp: ""
-      }
     };
 
     this.dataFAppsProvider.launchFApp(options)
@@ -43,11 +39,8 @@ export class SnapOptionsPage {
   }
 
   forceFapp() {
-    let options: FAppOptions = {
+    let options = {
       name: "Snap",
-      params: {
-        uapp: ""
-      }
     };
     this.adminProvider.launchForcedFApp(options)
       .subscribe(response => response);

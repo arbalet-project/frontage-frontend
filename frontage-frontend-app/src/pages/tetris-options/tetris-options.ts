@@ -1,6 +1,5 @@
 import { LocalStorageProvider } from './../../providers/local-storage/local-storage';
 import { AdminProvider } from './../../providers/admin/admin';
-import { FAppOptions } from './../../models/f-app-options';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { TetrisJoystickPage } from './../tetris-joystick/tetris-joystick';
 import { WaitingPage } from './../waiting/waiting';
@@ -30,10 +29,8 @@ export class TetrisOptionsPage {
 
   launchApp() {
 
-    let options: FAppOptions = {
+    let options = {
       name: "Tetris",
-      params: {
-      }
     }
 
     this.dataFAppsProvider.launchFApp(options)
@@ -46,9 +43,8 @@ export class TetrisOptionsPage {
   }
 
   forceFapp() {
-    let options: FAppOptions = {
+    let options = {
       name: "Tetris",
-      params: {}
     };
     this.adminProvider.launchForcedFApp(options)
       .subscribe(response => response);

@@ -2,7 +2,6 @@ import { LocalStorageProvider } from './../../providers/local-storage/local-stor
 import { AdminProvider } from './../../providers/admin/admin';
 import { WaitingPage } from './../waiting/waiting';
 import { DataFAppsProvider } from './../../providers/data-f-apps/data-f-apps';
-import { FAppOptions } from './../../models/f-app-options';
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { SweepAsyncJoystickPage } from '../sweep-async-joystick/sweep-async-joystick';
@@ -25,14 +24,8 @@ export class SweepAsyncOptionsPage {
 
   startFapp() {
 
-    let options: FAppOptions = {
-      name: "SweepAsync",
-      params: {
-        dur_min: 1,
-        dur_max: 15,
-        refresh_rate: 80,
-        uapp: "swipe"
-      }
+    let options = {
+      name: "SweepAsync"
     }
 
 
@@ -46,9 +39,8 @@ export class SweepAsyncOptionsPage {
   }
 
   forceFapp() {
-    let options: FAppOptions = {
-      name: "SweepAsync",
-      params: {}
+    let options= {
+      name: "SweepAsync"
     };
     this.adminProvider.launchForcedFApp(options)
       .subscribe(response => response);

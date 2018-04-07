@@ -17,15 +17,16 @@ export class SentryErrorHandler extends IonicErrorHandler {
     }
 
     handleError(error) {
-
+        alert("error : " + error);
+        alert("original error : " + error.originalError);
         try {
             Raven.captureException(error.originalError || error);
 
             //As the navCtrller cannot be injected in a provider, it has to be got from the App
-            this.app.getActiveNav().push(ErrorPage, {errorMessage: JSON.stringify(error)});
+            this.app.getActiveNav().push(ErrorPage, {errorMessage: error});
         }
         catch (e) {
-            alert("erreur en plus : " + JSON.stringify(e));
+            alert("erreur en plus : " + e);
             console.error(e);
         }
     }

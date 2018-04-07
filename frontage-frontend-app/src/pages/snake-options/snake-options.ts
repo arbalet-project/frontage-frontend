@@ -3,7 +3,6 @@ import { LocalStorageProvider } from './../../providers/local-storage/local-stor
 import { SnakeJoystickPage } from './../snake-joystick/snake-joystick';
 import { WaitingPage } from './../waiting/waiting';
 import { DataFAppsProvider } from './../../providers/data-f-apps/data-f-apps';
-import { FAppOptions } from './../../models/f-app-options';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
@@ -34,10 +33,8 @@ export class SnakeOptionsPage {
 
   launchApp() {
 
-    let options: FAppOptions = {
+    let options = {
       name: "Snake",
-      params: {
-      }
     }
 
     this.dataFAppsProvider.launchFApp(options)
@@ -50,9 +47,8 @@ export class SnakeOptionsPage {
   }
 
   forceFapp() {
-    let options: FAppOptions = {
+    let options = {
       name: "Snake",
-      params: {}
     };
     this.adminProvider.launchForcedFApp(options)
       .subscribe(response => response);

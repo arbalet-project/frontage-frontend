@@ -2,7 +2,6 @@ import { LocalStorageProvider } from './../../providers/local-storage/local-stor
 import { AdminProvider } from './../../providers/admin/admin';
 import { WaitingPage } from './../waiting/waiting';
 import { DataFAppsProvider } from './../../providers/data-f-apps/data-f-apps';
-import { FAppOptions } from './../../models/f-app-options';
 
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
@@ -28,7 +27,7 @@ export class RandomFlashingOptionsPage {
 
   startFapp() {
 
-    let options: FAppOptions = {
+    let options = {
       name: "RandomFlashing",
       params: {
         dur_min: 1,
@@ -49,16 +48,15 @@ export class RandomFlashingOptionsPage {
   }
 
   forceFapp() {
-    let options: FAppOptions = {
+    let options = {
       name: "RandomFlashing",
-      params: {}
     };
     this.adminProvider.launchForcedFApp(options)
       .subscribe(response => response);
   }
 
   sendScheduledFappOptions() {
-    let options: FAppOptions = {
+    let options = {
       name: "RandomFlashing",
       params: {
         dur_min: 1,

@@ -45,9 +45,7 @@ export class TetrisJoystickPage {
     let self = this;
     this.socket = new WebSocket(`${environment.webSocketAdress}`);
 
-    this.socket.onmessage = function (message) {
-      self.websocketMessageHandler.handleMessage(message);
-    };
+    this.socket.onmessage = message => self.websocketMessageHandler.handleMessage(message, this.navCtrl);
 
     this.socket.onopen = function () {
     };

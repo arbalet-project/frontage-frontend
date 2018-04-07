@@ -3,7 +3,6 @@ import { LocalStorageProvider } from './../../providers/local-storage/local-stor
 import { AdminProvider } from './../../providers/admin/admin';
 import { WaitingPage } from './../waiting/waiting';
 import { DataFAppsProvider } from './../../providers/data-f-apps/data-f-apps';
-import { FAppOptions } from './../../models/f-app-options';
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import 'rxjs/add/operator/catch';
@@ -29,14 +28,10 @@ export class SweepRandOptionsPage {
 
   startFapp() {
 
-    let options: FAppOptions = {
+    let options = {
       name: "SweepRand",
       params: {
-        dur_min: 1,
-        dur_max: 15,
-        refresh_rate: 80,
-        colors: this.selectedParameter,
-        uapp: "flashes"
+        uapp: this.selectedParameter
       }
     }
 
@@ -51,7 +46,7 @@ export class SweepRandOptionsPage {
   }
 
   forceFapp() {
-    let options: FAppOptions = {
+    let options = {
       name: "SweepRand",
       params: {}
     };
@@ -60,14 +55,10 @@ export class SweepRandOptionsPage {
   }
 
   sendScheduledFappOptions() {
-    let options: FAppOptions = {
+    let options = {
       name: "SweepRand",
       params: {
-        dur_min: 1,
-        dur_max: 15,
-        refresh_rate: 80,
-        colors: this.selectedParameter,
-        uapp: "flashes"
+        uapp: this.selectedParameter
       }
     };
 
