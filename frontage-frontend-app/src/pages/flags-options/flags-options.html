@@ -6,7 +6,7 @@
 
 <ion-content padding class="bg">
   <div *ngIf="parametersList">
-    <ion-list radio-group [(ngModel)]="selectedParameter">
+    <ion-list radio-group [(ngModel)]="fAppOptions.params.uapp">
       <ion-list-header>
         {{"FLAGS_OPTIONS_PAGE_LIST" | translate}}
       </ion-list-header>
@@ -19,16 +19,6 @@
 </ion-content>
 
 <ion-footer>
-  <button ion-button icon-end full color="secondary" class="tr" (click)="startFapp()">
-    {{"FLAGS_OPTIONS_PAGE_START_BUTTON" | translate}}
-    <ion-icon color="secondary" ios="ios-flag" md="md-flag"></ion-icon>
-  </button>
-  <button *ngIf="isAdmin" ion-button icon-end full color="secondary" class="tr" (click)="forceFapp()">
-    {{"OPTIONS_PAGE_FORCE_START_BUTTON" | translate}}
-    <ion-icon color="danger" ios="ios-key" md="md-key"></ion-icon>
-  </button>
-  <button *ngIf="isAdmin" ion-button icon-end full color="secondary" class="tr" (click)="sendScheduledFappOptions()">
-    {{"OPTIONS_PAGE_SEND_SCHEDULER_OPTION_BUTTON" | translate}}
-    <ion-icon color="danger" ios="ios-alarm" md="md-alarm"></ion-icon>
-  </button>
+  <options-page-button [fAppOptions]="fAppOptions" [isAdmin]="isAdmin" [joystickPage]="joystickPage" [selectedParameter]="fAppOptions.params.uapp"
+    [parametersList]="parametersList"></options-page-button>
 </ion-footer>

@@ -1,3 +1,4 @@
+import { OptionsPageButtonComponent } from './../components/options-page-button/options-page-button';
 import { Dialogs } from '@ionic-native/dialogs';
 import { SnapOptionsPage } from './../pages/snap-options/snap-options';
 import { SnapJoystickPage } from './../pages/snap-joystick/snap-joystick';
@@ -46,7 +47,6 @@ import { SettingPage } from '../pages/setting/setting';
 import { AdminProvider } from '../providers/admin/admin';
 import { WebsocketMessageHandlerProvider } from '../providers/websocket-message-handler/websocket-message-handler';
 
-
 export function createTranslateLoader(http: Http) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
@@ -74,7 +74,8 @@ let components:any[] = [
     ErrorPage,
     SnapJoystickPage,
     SnapOptionsPage,
-    SettingPage
+    SettingPage,
+    OptionsPageButtonComponent
 ];
 
 @NgModule({
