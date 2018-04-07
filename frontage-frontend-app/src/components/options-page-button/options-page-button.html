@@ -1,0 +1,12 @@
+  <button ion-button icon-end full color="secondary" class="tr" (click)="startFapp()">
+    {{"FLAGS_OPTIONS_PAGE_START_BUTTON" | translate}}
+    <ion-icon color="secondary" ios="ios-flag" md="md-flag"></ion-icon>
+  </button>
+  <button *ngIf="isAdmin" ion-button icon-end full color="secondary" class="tr" (click)="forceFapp()">
+    {{"OPTIONS_PAGE_FORCE_START_BUTTON" | translate}}
+    <ion-icon color="danger" ios="ios-key" md="md-key"></ion-icon>
+  </button>
+  <button *ngIf="isAdmin" ion-button icon-end full color="secondary" class="tr" (click)="sendScheduledFappOptions()">
+    {{"OPTIONS_PAGE_SEND_SCHEDULER_OPTION_BUTTON" | translate}}
+    <ion-icon color="danger" ios="ios-alarm" md="md-alarm"></ion-icon>
+  </button>

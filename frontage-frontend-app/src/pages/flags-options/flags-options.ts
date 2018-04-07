@@ -19,6 +19,19 @@ export class FlagsOptionsPage {
   selectedParameter: string = "french";
   isAdmin: boolean = false;
 
+  joystick: any = FlagsJoytickPage;
+  joystickParams: any = {
+    parametersList: this.parametersList,
+    selectedParameter: this.selectedParameter
+  };
+  
+  options: FAppOptions = {
+    name: "Flags",
+    params: {
+      uapp: this.selectedParameter
+    }
+  }
+
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     public dataFAppsProvider: DataFAppsProvider,
