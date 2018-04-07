@@ -12,6 +12,8 @@ export class WaitingPage {
   state: string = "waiting";
   position: number;
   message: string = 'En attente du serveur';
+  isLaunched:boolean = false;
+  isWaitingServer:boolean = false;
 
   joystickPage: any;
   joystickParams: any;
@@ -31,7 +33,7 @@ export class WaitingPage {
 
     if (serverResponse.queued) {
       this.state = "queued";
-      this.positionSubscription = Observable.interval(serverResponse.keep_alive_delay * 50)
+      this.positionSubscription = Observable.interval(200)
         .subscribe(x => this.positionSubscriptionStart(x));
     } else if (serverResponse.status === 403) {
       this.state = "error";
@@ -46,20 +48,24 @@ export class WaitingPage {
   }
 
   positionSubscriptionStart(x) {
+    this.isWaitingServer=true;
     this.dataFAppsProvider.checkPosition()
       .subscribe(response => this.checkPosition(response));
   }
 
   checkPosition(response: any) {
-
     this.position = response.position;
 
     this.message = "Vous êtes dans la queue à la position : " + this.position;
 
+    this.isWaitingServer=false;
     if (this.position === -1) {
-      this.message = "L'application est en train de se lancer !";
+      if(!this.isLaunched){
+        this.isLaunched=true;
+        this.message = "L'application est en train de se lancer !";
 
-      this.startApp();
+        this.startApp();
+      }
     }
   }
 
@@ -73,6 +79,11 @@ export class WaitingPage {
       this.positionSubscription.unsubscribe();
       this.positionSubscription = undefined;
     }
+  }
+
+  ionViewWillAppear() {
+    this.isLaunched=false;
+    this.isWaitingServer=false;
   }
 
   startApp() {

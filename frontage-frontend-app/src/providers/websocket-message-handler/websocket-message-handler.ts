@@ -21,9 +21,7 @@ export class WebsocketMessageHandlerProvider {
   }
 
   handleMessage(message) {
-    let data = message.data;
-
-    alert(data.code);
+    let data = JSON.parse(message.data);
 
     let title:string;
     let message_displayed:string;
