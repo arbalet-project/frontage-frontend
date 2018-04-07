@@ -35,7 +35,7 @@ export class WebsocketMessageHandlerProvider {
     } else if (data.code == this.CODE_CLOSE_APP) {
       this.showPopUp("CLOSE_APP_TITLE", "GET_OUT");
       navCtrl.pop();
-    } else if (data.code == this.CODE_GAME_OVER) {
+    } else if (data.code == this.CODE_EXPIRE) {
       this.showPopUp("CODE_EXPIRE_TITLE", "EXPIRE")
       navCtrl.pop();
     } else if (data.code == this.CODE_EXPIRE_SOON) {
