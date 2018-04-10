@@ -39,8 +39,8 @@ export class SettingPage implements OnInit {
       .subscribe(res => this.frontageState = res);
   }
 
-  private initHoursFormat(hoursFromBack: String): String{
-    return hoursFromBack.substring(0,2) + ':00';
+  private initHoursFormat(hoursFromBack: String): String {
+    return hoursFromBack.substring(0, 2) + ':00';
   }
 
   private initHourList(sunValue: String, listToInit: String[]) {
@@ -51,7 +51,7 @@ export class SettingPage implements OnInit {
     let i: number
     for (i = 0; i <= 23; i++) {
       let hourToPush: String = i + ":00";
-      if(i<10){
+      if (i < 10) {
         hourToPush = "0" + hourToPush;
       }
       listToInit.push(hourToPush);
@@ -77,10 +77,24 @@ export class SettingPage implements OnInit {
   }
 
   setOpeningHour() {
+    //Check if the admin choosed an offset or an hour
+    if (this.selectedOpeningHour
+      && this.selectedOpeningHour.length > 7
+      && this.selectedOpeningHour.substring(0, 7) == 'sunset+') {
+      let offset: String = this.selectedOpeningHour.substring(7, 1);
+      this.adminProvider.setFrontageOpeningOffset(offset).subscribe();
+    }
     this.adminProvider.setFrontageOpeningHour(this.selectedOpeningHour).subscribe();
   }
 
   setClosingHour() {
+    //Check if the admin choosed an offset or an hour
+    if (this.selectedClosingHour
+      && this.selectedClosingHour.length > 8
+      && this.selectedClosingHour.substring(0, 8) == 'sunrise-') {
+      let offset: String = this.selectedClosingHour.substring(7, 1);
+      this.adminProvider.setFrontageClosingOffset(offset).subscribe();
+    }
     this.adminProvider.setFrontageClosingHour(this.selectedClosingHour).subscribe();
   }
 }

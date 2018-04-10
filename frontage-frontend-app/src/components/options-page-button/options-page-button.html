@@ -1,6 +1,6 @@
 <button ion-button icon-end full color="secondary" class="tr" (click)="startFapp()">
   {{"OPTIONS_PAGE_START_BUTTON" | translate}}
-  <ion-icon color="secondary" ios="ios-flag" md="md-flag"></ion-icon>
+  <ion-icon color="secondary" [ios]="iosIcon ? iosIcon: 'ios-log-in'" [md]="mdIcon ? mdIcon : 'md-log-in'"></ion-icon>
 </button>
 <button *ngIf="isAdmin" ion-button icon-end full color="secondary" class="tr" (click)="forceFapp()">
   {{"OPTIONS_PAGE_FORCE_START_BUTTON" | translate}}

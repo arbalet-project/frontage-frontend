@@ -31,9 +31,9 @@ export class FlagsOptionsPage {
     this.isAdmin = this.localStorageProvider.isAdmin();
 
     //Get the flags list
-    let fAppParams: FApp = navParams.get('selectedFapp');
-    if (fAppParams) {
-      this.parametersList = fAppParams.params_list.uapp;
+    this.flag = navParams.get('selectedFapp');
+    if (this.flag) {
+      this.parametersList = this.flag.params_list.uapp;
     }
 
     //Init the flag options to send to the back

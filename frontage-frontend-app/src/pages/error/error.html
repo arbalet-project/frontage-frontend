@@ -15,7 +15,7 @@
   <ion-card>
     <ion-card-header (tap)="displayError()">
       {{"ERROR_PAGE_DETAIL" | translate }}
-      <ion-icon [ios]="isDisplayed ? 'ios-arrow-dropup-circle': 'ios-arrow-dropdown-circle'" [md]="isDisplayed ? 'md-arrow-dropup-circle':'md-arrow-dropdown-circle'"></ion-icon>
+      <ion-icon color="secondary" [ios]="isDisplayed ? 'ios-arrow-up': 'ios-arrow-down'" [md]="isDisplayed ? 'ios-arrow-up':'ios-arrow-down'"></ion-icon>
     </ion-card-header>
     <ion-card-content>
       <div *ngIf="isDisplayed">
