@@ -63,7 +63,7 @@ export class AdminProvider {
 
   public updateFrontageState(state: boolean) {
     let body = {
-      enabled: state
+      state: state
     }
     return this.http
       .post(this.baseUrl + "/b/admin/enabled", body)
