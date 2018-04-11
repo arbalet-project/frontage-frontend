@@ -1,3 +1,4 @@
+import { Subscription } from 'rxjs/Rx';
 import { AuthenticationProvider } from './../../providers/authentication/authentication';
 import { AdminHoursSettings } from './../../models/admin-hours-settings';
 import { AdminProvider } from './../../providers/admin/admin';
@@ -81,10 +82,11 @@ export class SettingPage implements OnInit {
     if (this.selectedOpeningHour
       && this.selectedOpeningHour.length > 7
       && this.selectedOpeningHour.substring(0, 7) == 'sunset+') {
-      let offset: String = this.selectedOpeningHour.substring(7, 1);
+      let offset: String = this.selectedOpeningHour.substring(7);
       this.adminProvider.setFrontageOpeningOffset(offset).subscribe();
+    } else {
+      this.adminProvider.setFrontageOpeningHour(this.selectedOpeningHour).subscribe();
     }
-    this.adminProvider.setFrontageOpeningHour(this.selectedOpeningHour).subscribe();
   }
 
   setClosingHour() {
@@ -92,9 +94,10 @@ export class SettingPage implements OnInit {
     if (this.selectedClosingHour
       && this.selectedClosingHour.length > 8
       && this.selectedClosingHour.substring(0, 8) == 'sunrise-') {
-      let offset: String = this.selectedClosingHour.substring(7, 1);
+      let offset: String = this.selectedClosingHour.substring(7,9);
       this.adminProvider.setFrontageClosingOffset(offset).subscribe();
+    } else {
+      this.adminProvider.setFrontageClosingHour(this.selectedClosingHour).subscribe();
     }
-    this.adminProvider.setFrontageClosingHour(this.selectedClosingHour).subscribe();
   }
 }

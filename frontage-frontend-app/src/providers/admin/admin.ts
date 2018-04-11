@@ -26,14 +26,14 @@ export class AdminProvider {
 
   public setFrontageOpeningHour(openingHour: String): Observable<any> {
     let body = {
-      sunrise: openingHour
+      sundown: openingHour
     }
     return this.http.patch(this.baseUrl + '/b/admin/state', body);
   }
 
   public setFrontageClosingHour(closingHour: String): Observable<any> {
     let body = {
-      sundown: closingHour
+      sunrise: closingHour
     }
     return this.http.patch(this.baseUrl + '/b/admin/state', body);
   }
