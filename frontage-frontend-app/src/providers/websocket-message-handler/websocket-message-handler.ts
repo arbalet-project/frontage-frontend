@@ -1,3 +1,4 @@
+import { environment } from './../../app/environment';
 import { TranslateService } from '@ngx-translate/core'
 import { Vibration } from '@ionic-native/vibration';
 import { AlertController } from 'ionic-angular';
@@ -16,8 +17,24 @@ export class WebsocketMessageHandlerProvider {
   CODE_EXPIRE = "3"
   CODE_EXPIRE_SOON = "4"
 
+  socket: WebSocket;
+
   constructor(private alertCtrl: AlertController, public vibration: Vibration, public tranlation: TranslateService) {
-    console.log('Hello WebsocketMessageHandlerProvider Provider');
+  }
+
+  initSocket(navCtrl, page) {
+    
+    this.socket = new WebSocket(`${environment.webSocketAdress}`);
+
+    let self = this;
+    this.socket.onmessage = message => self.handleMessage(message, navCtrl, page);
+
+    this.socket.onopen = function () {
+    };
+
+    this.socket.onerror = function () {
+      throw "Flags : Erreur, la connexion websocket a échouée."
+    }
   }
 
   handleMessage(message, navCtrl, page) {

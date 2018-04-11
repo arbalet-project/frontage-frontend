@@ -63,9 +63,17 @@ export class SnapJoystickPage {
 
     this.http.post<any>(this.baseUrl + this.authorizeEndpoint, body)
       .subscribe(
-        response => alert("send " + body + " et receive " + JSON.stringify(response) + " |test " + JSON.stringify(this.selectedClient)),
-        err => alert("error : " + JSON.stringify(err))
+        response => console.log("ok"),
+        err => this.handleError(err)
       );
+  }
+
+  handleError(err) {
+    if (err.status) {
+      alert("Désolé, ce client n'est plus connecté.");
+    } else {
+      throw "Le serveur à renvoyé une réponse inattendu : " + JSON.stringify(err)
+    }
   }
 
   ionViewWillAppear() {

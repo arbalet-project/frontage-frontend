@@ -13,8 +13,6 @@
 </ion-header>
 
 <ion-content padding class="bg">
-
-  <button ion-button class="tr" (click)="getClientsInfo()">Get Clients</button>
   
   <div *ngIf="selectedClient && clientsList; else elseBlock;">
     <ion-list *ngFor="let client of clientsList" radio-group [(ngModel)]="selectedClient">
