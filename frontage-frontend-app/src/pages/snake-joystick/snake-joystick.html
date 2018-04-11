@@ -62,10 +62,14 @@
           <path id="_Tracé_5" data-name="&lt;Tracé&gt;" class="cls-4" d="M30.93,15.48a1.43,1.43,0,0,0-1.4,1.4,1.37,1.37,0,0,0,1.4,1.4h2.7a1.43,1.43,0,0,0,1.4-1.4,1.37,1.37,0,0,0-1.4-1.4Z"
           />
         </g>
-        <polygon (mousedown)="onUp()" points="15.14 6.4 12.02 12.4 18.02 12.4 15.14 6.4" />
-        <polygon (mousedown)="onRight()" points="25.78 17 19.78 13.88 19.78 19.88 25.78 17" />
-        <polygon (mousedown)="onLeft()" points="3.92 16.85 9.92 19.97 9.92 13.97 3.92 16.85" />
-        <polygon (mousedown)="onDown()" points="15.14 27.37 18.02 21.37 12.02 21.37 15.14 27.37" />
+        <polygon id="up" points="15.14 6.4 12.02 12.4 18.02 12.4 15.14 6.4" />
+        <polygon id="right" points="25.78 17 19.78 13.88 19.78 19.88 25.78 17" />
+        <polygon id="left" points="3.92 16.85 9.92 19.97 9.92 13.97 3.92 16.85" />
+        <polygon id="down" points="15.14 27.37 18.02 21.37 12.02 21.37 15.14 27.37" />
+        <circle (click)="onLeft()" class="hitboxLeft" fill="#FFFFFF" fill-opacity="0.1" cx="7.4" cy="17" r="4.5" />
+        <circle (click)="onDown()" class="hitboxDown" fill="#FFFFFF" fill-opacity="0.1" cx="15" cy="24.3" r="4.5" />
+        <circle (click)="onUp()" class="hitboxUp" fill="#FFFFFF" fill-opacity="0.1" cx="15" cy="9.3" r="4.5" />
+        <circle (click)="onRight()" class="hitboxRight" fill="#FFFFFF" fill-opacity="0.1" cx="22.5" cy="17" r="4.5" />
       </g>
     </g>
   </svg>

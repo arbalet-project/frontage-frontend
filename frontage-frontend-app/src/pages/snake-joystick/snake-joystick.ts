@@ -45,7 +45,6 @@ export class SnakeJoystickPage {
 
     this.socket.onmessage = message => self.websocketMessageHandler.handleMessage(message, this.navCtrl, this);
 
-
     this.socket.onopen = function () {
     };
 

@@ -46,44 +46,49 @@ export class WebsocketMessageHandlerProvider {
     let output = this.CODE_GAME_OVER;
 
     if (data.code == this.CODE_GAME_OVER) {
-      this.showPopUp("GAME_OVER_TITLE", "GAME_OVER");
-      navCtrl.pop();
+      this.showPopUp("GAME_OVER_TITLE", "GAME_OVER", navCtrl);
       this.vibration.vibrate([1000, 100, 1000, 100, 1000]);
     } else if (data.code == this.CODE_CLOSE_APP) {
-      this.showPopUp("CLOSE_APP_TITLE", "GET_OUT");
-      navCtrl.pop();
+      this.showPopUp("CLOSE_APP_TITLE", "GET_OUT", navCtrl);
     } else if (data.code == this.CODE_EXPIRE) {
-      this.showPopUp("CODE_EXPIRE_TITLE", "EXPIRE")
-      navCtrl.pop();
+      this.showPopUp("CODE_EXPIRE_TITLE", "EXPIRE", navCtrl)
     } else if (data.code == this.CODE_EXPIRE_SOON) {
       page.expireSoon = true;
     } else {
-      this.showPopUp("UNKNOWN_CODE_TITLE", "UNKNOWN_MESSAGE");
-      navCtrl.pop();
+      this.showPopUp("UNKNOWN_CODE_TITLE", "UNKNOWN_MESSAGE", navCtrl);
+
     }
 
     
   }
 
-  showPopUp(titleKey, messageKey){
-    let popUpContent: any = {};
+  showPopUp(titleKey, messageKey, navCtrl){
+    let title:string;
+    let message:string;
+    let button:any = {};
     
     this.tranlation.get(titleKey).subscribe(t => {
-      popUpContent.title = t;
+      title = t;
     });
     this.tranlation.get(messageKey).subscribe(t => {
-      popUpContent.message = t;
+      message = t;
     });
-
-    popUpContent.buttons = [{
-      text: 'Ok',
-      handler: () => {
-        let navTransition = popUp.dismiss();
-      }
-    }]
-
-    let popUp = this.alertCtrl.create(popUpContent);
+    
+    let popUp = this.alertCtrl.create({
+      title: title,
+      message: message,
+      buttons: [{
+        text: 'Ok',
+        handler: () => {
+          let navTransition = popUp.dismiss();
+          navTransition.then(() => {
+            navCtrl.pop();
+          });
+        }
+      }]
+    });
 
     popUp.present();
   }
+
 }

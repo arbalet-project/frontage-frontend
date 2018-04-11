@@ -38,7 +38,7 @@ export class WaitingPage {
 
     if (serverResponse.queued) {
       this.state = "queued";
-      this.positionSubscription = Observable.interval(200)
+      this.positionSubscription = Observable.interval(1000)
         .subscribe(x => this.positionSubscriptionStart(x));
     } else if (serverResponse.status === 403) {
       this.state = "error";

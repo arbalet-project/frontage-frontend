@@ -9,7 +9,7 @@ export class NicknameGeneratorProvider {
      "mysterious", "mystic", "noisy", "nutty", "lazy", "sagacious", "sexy", "scatterbrain", "shaggy", "shining", "skilled",
     "sleepy", "sneezy", "stylish", "shaggy", "shy", "spoty", "talktive", "timid", "tiny", "vengeful", "vivacious", "voracious", "wily", "wise"];
 
-  nouns: string[] = ["beaver", "bunny", "camel", "carrot", "cheeta", "chicken", "crab", "cub", "cupcake", "deer", "dormouse", "duck", "jackal", "horse", "hedgedog", 
+  nouns: string[] = ["beaver", "bunny", "camel", "carrot", "cheeta", "chicken", "crab", "cub", "cupcake", "deer", "dormouse", "duck", "jackal", "kitten", "horse", "hedgedog", 
     "hippopotamus", "lama", "lemur", "leopard", "lynx", "kangaroo", "kitten", "kiwi", "koala", "mammoth", "monkey", "okapi", "otter", "owl", 
     "panda", "pangolin", "parrot", "porcupine", "pony", "sloth", "tadpole", "tiger", "tortoise", "turkey", "sea horse", "seal", "squirrel", "unicorn", "whale", "worm"];
 

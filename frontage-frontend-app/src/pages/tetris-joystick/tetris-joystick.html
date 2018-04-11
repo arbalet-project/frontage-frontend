@@ -9,7 +9,7 @@
 
 <ion-content padding class="bg">
   <div *ngIf="isExpireSoon">Time out is close</div>
-  
+
   <svg id="joystick" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 65 35.2">
     <defs>
       <style>
@@ -55,17 +55,21 @@
           <path id="_Tracé_4" data-name="&lt;Tracé&gt;" class="cls-4" d="M15.09,5.38a3.74,3.74,0,0,0-3.86,3.83v3.83H7.37a3.74,3.74,0,0,0-3.86,3.83,3.92,3.92,0,0,0,3.86,3.83h3.71v3.83a3.92,3.92,0,0,0,3.86,3.83,4,4,0,0,0,3.86-3.83V20.72h3.86a4,4,0,0,0,3.86-3.83,3.74,3.74,0,0,0-3.86-3.83H18.8V9.22A3.63,3.63,0,0,0,15.09,5.38Z"
           />
           <circle class="cls-3" cx="50.02" cy="16.88" r="13.5" />
-          <circle (mousedown)="turn()" (mouseup)="switchBack(this.turnGreenLight)" [ngClass]="{'turnGreenLight': isTurnLight, 'turnGreen': !isTurnLight}"
-            cx="42.55" cy="16.88" r="4.5" />
+          <circle (click)="turn()" cx="42.55" cy="16.88" r="4.5" />
           <path id="_Tracé_5" data-name="&lt;Tracé&gt;" class="cls-4" d="M30.93,15.48a1.43,1.43,0,0,0-1.4,1.4,1.37,1.37,0,0,0,1.4,1.4h2.7a1.43,1.43,0,0,0,1.4-1.4,1.37,1.37,0,0,0-1.4-1.4Z"
           />
         </g>
-        <polygon (mousedown)="onUp()" points="15.14 6.4 12.02 12.4 18.02 12.4 15.14 6.4" />
-        <polygon (mousedown)="onRight()" points="25.78 17 19.78 13.88 19.78 19.88 25.78 17" />
-        <polygon (mousedown)="onDown()" points="15.14 27.37 18.02 21.37 12.02 21.37 15.14 27.37" />
-        <!-- <polygon (mousedown)="onLeft()" [ngClass]="{'white': isLeftWhite, 'class2': !isLeftWhite}" (mouseup)="switchBack(this.isLeftWhite)" points="3.92 16.85 9.92 19.97 9.92 13.97 3.92 16.85" /> -->
+        <polygon id=up points="15.14 6.4 12.02 12.4 18.02 12.4 15.14 6.4" />
+        <polygon points="25.78 17 19.78 13.88 19.78 19.88 25.78 17" />
+        <polygon points="15.14 27.37 18.02 21.37 12.02 21.37 15.14 27.37" />
+        <!-- <polygon points="3.92 16.85 9.92 19.97 9.92 13.97 3.92 16.85" /> -->
+        <!-- <circle class="hitboxLeft" fill="#FFFFFF" fill-opacity="0.1" cx="7.4" cy="17" r="4.5" /> -->
+        <circle (click)="onDown()" class="hitboxDown" fill="##FFFFFF" fill-opacity="0.1" cx="15" cy="24.3" r="4.5" />
+        <circle (click)="onUp()" class="hitboxUp" fill="##FFFFFF" fill-opacity="0.1" cx="15" cy="9.3" r="4.5" />
+        <circle (click)="onRight()" class="hitboxRight" fill="#FFFFFF" fill-opacity="0.1" cx="22.5" cy="17" r="4.5" />
       </g>
     </g>
+    
   </svg>
 
   <ion-footer>
