@@ -36,7 +36,7 @@ export class DataFAppsProvider {
   public checkPosition(): Observable<any> {
     return this.http
       .get<any>(this.baseUrl + "/b/apps/position")
-      .timeout(2000);
+      .timeout(4000);
   }
 
   public stopApp() {

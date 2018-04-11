@@ -12,8 +12,8 @@ export class WaitingPage {
   state: string = "waiting";
   position: number;
   message: string = 'En attente du serveur';
-  isLaunched:boolean = false;
-  isWaitingServer:boolean = false;
+  isLaunched: boolean = false;
+  isWaitingServer: boolean = false;
 
   joystickPage: any;
   joystickParams: any;
@@ -26,6 +26,7 @@ export class WaitingPage {
     this.joystickParams = navParams.get('joystickParams')
 
     let serverResponse: any = navParams.get('info');
+
     //If queued then periodically check the position in the queue 
     if (serverResponse.status === 400) {
       this.startApp();
@@ -48,9 +49,11 @@ export class WaitingPage {
   }
 
   positionSubscriptionStart(x) {
-    this.isWaitingServer=true;
-    this.dataFAppsProvider.checkPosition()
-      .subscribe(response => this.checkPosition(response));
+    if (!this.isWaitingServer) {
+      this.isWaitingServer = true;
+      this.dataFAppsProvider.checkPosition()
+        .subscribe(response => this.checkPosition(response));
+    }
   }
 
   checkPosition(response: any) {
@@ -58,10 +61,10 @@ export class WaitingPage {
 
     this.message = "Vous êtes dans la queue à la position : " + this.position;
 
-    this.isWaitingServer=false;
+    this.isWaitingServer = false;
     if (this.position === -1) {
-      if(!this.isLaunched){
-        this.isLaunched=true;
+      if (!this.isLaunched) {
+        this.isLaunched = true;
         this.message = "L'application est en train de se lancer !";
 
         this.startApp();
@@ -69,11 +72,15 @@ export class WaitingPage {
     }
   }
 
-  backButtonAction() {
+  backButtonClick() {
+    this.backButtonAction();
+  }
+
+  backButtonAction(){
     this.dataFAppsProvider.quitQueue();
     this.navCtrl.pop();
   }
-
+  
   ionViewWillLeave() {
     if (this.positionSubscription) {
       this.positionSubscription.unsubscribe();
@@ -82,12 +89,13 @@ export class WaitingPage {
   }
 
   ionViewWillAppear() {
-    this.isLaunched=false;
-    this.isWaitingServer=false;
+    this.isLaunched = false;
+    this.isWaitingServer = false;
   }
 
   startApp() {
-    this.navCtrl.pop();
-    this.navCtrl.push(this.joystickPage, { joystickParams: this.joystickParams });
+    this.navCtrl.push(this.joystickPage, { joystickParams: this.joystickParams }).then(() => {
+      this.navCtrl.remove(this.navCtrl.getPrevious().index);
+    });
   }
 }
