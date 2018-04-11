@@ -26,17 +26,32 @@ export class AdminProvider {
 
   public setFrontageOpeningHour(openingHour: String): Observable<any> {
     let body = {
-      sunrise_offset: openingHour
+      sundown: openingHour
     }
-    return this.http.patch('/b/admin/state', body);
+    return this.http.patch(this.baseUrl + '/b/admin/state', body);
   }
 
   public setFrontageClosingHour(closingHour: String): Observable<any> {
     let body = {
-      sundown_offset: closingHour
+      sunrise: closingHour
     }
-    return this.http.patch('/b/admin/state', body);
+    return this.http.patch(this.baseUrl + '/b/admin/state', body);
   }
+
+  public setFrontageOpeningOffset(openingOffset: String): Observable<any> {
+    let body = {
+      sundown_offset: openingOffset
+    }
+    return this.http.patch(this.baseUrl + '/b/admin/state', body);
+  }
+
+  public setFrontageClosingOffset(closingOffset: String): Observable<any> {
+    let body = {
+      sunrise_offset: closingOffset
+    }
+    return this.http.patch(this.baseUrl + '/b/admin/state', body);
+  }
+
   /**
    * Settings part
    */

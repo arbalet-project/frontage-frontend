@@ -10,7 +10,9 @@ import { Component, Input } from '@angular/core';
   templateUrl: 'options-page-button.html'
 })
 export class OptionsPageButtonComponent {
-
+  /**
+   * Component inputs
+   */
   @Input()
   fAppOptions: any;
 
@@ -26,10 +28,22 @@ export class OptionsPageButtonComponent {
   @Input()
   selectedParameter: any;
 
+  @Input()
+  iconKey: any;
+
+  /**
+   * Local variable
+   */
+  mdIcon: String;
+  iosIcon: String;
+
   constructor(public navCtrl: NavController,
     public dataFAppsProvider: DataFAppsProvider,
     public localStorageProvider: LocalStorageProvider,
     public adminProvider: AdminProvider) {
+      console.log(this.iconKey);
+      this.mdIcon = "md-" + this.iconKey;
+      this.iosIcon = "ios-" + this.iconKey;
   }
 
   /**

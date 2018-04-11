@@ -25,6 +25,10 @@ export class WaitingPage {
     this.joystickPage = navParams.get('joystick');
     this.joystickParams = navParams.get('joystickParams')
 
+    //Check if the user is the owner of the current app
+    let currentApp: any = this.dataFAppsProvider.getCurrentApp().subscribe();
+    console.log("hoyes : " + currentApp.username);
+
     let serverResponse: any = navParams.get('info');
 
     //If queued then periodically check the position in the queue 

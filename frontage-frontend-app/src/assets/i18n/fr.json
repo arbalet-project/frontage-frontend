@@ -41,7 +41,6 @@
     "GERMANY":"Allemand",
     "SPAIN":"Espagnol",
     "ITALY":"Italien",
-    "FLAGS_OPTIONS_PAGE_START_BUTTON":"Lancer l'application",
     "FLAGS_OPTIONS_PAGE_QUEUE_ALERT":"Veuillez patientez, vous êtes en file d'attente en position ",
     
     "OPTIONS_PAGE_FORCE_START_BUTTON":"Forcer l'application",
@@ -55,6 +54,7 @@
     "TETRIS_OPTIONS_PAGE_TITLE":"Choisissez vos options",
 
     "OPTIONS_PAGE_NO_OPTIONS": "Aucune option nécessaire pour cette application",
+    "OPTIONS_PAGE_START_BUTTON":"Lancer l'application",
 
     "SNAP_OPTIONS_PAGE_TITLE":"Snap",
     "SNAP_OPTIONS_PAGE_START_BUTTON":"Lancer Snap",

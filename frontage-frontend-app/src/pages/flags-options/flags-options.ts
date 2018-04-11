@@ -30,11 +30,13 @@ export class FlagsOptionsPage {
     //Check if the connected user is admin
     this.isAdmin = this.localStorageProvider.isAdmin();
 
-    let fAppParams: FApp = navParams.get('selectedFapp');
-    if (fAppParams) {
-      this.parametersList = fAppParams.params_list.uapp;
+    //Get the flags list
+    this.flag = navParams.get('selectedFapp');
+    if (this.flag) {
+      this.parametersList = this.flag.params_list.uapp;
     }
 
+    //Init the flag options to send to the back
     this.fAppOptions = {
       name: "Flags",
       params: {

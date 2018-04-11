@@ -33,6 +33,12 @@ export class DataFAppsProvider {
       .catch(error => Observable.of(error));
   }
 
+  public getCurrentApp(): Observable<any> {
+    return this.http
+      .get<any>(this.baseUrl + "/b/apps/running")
+      .catch(error => Observable.of(error));
+  }
+
   public checkPosition(): Observable<any> {
     return this.http
       .get<any>(this.baseUrl + "/b/apps/position")

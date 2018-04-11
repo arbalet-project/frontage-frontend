@@ -40,7 +40,6 @@
     "GERMANY":"German",
     "SPAIN":"Spanish",
     "ITALY":"Italian",
-    "FLAGS_OPTIONS_PAGE_START_BUTTON":"Start application",
     "FLAGS_OPTIONS_PAGE_QUEUE_ALERT":"Wait a little, you are queued in position: ",
 
     "OPTIONS_PAGE_FORCE_START_BUTTON":"Force application",
@@ -54,6 +53,7 @@
     "TETRIS_OPTIONS_PAGE_TITLE":"Settings",
 
     "OPTIONS_PAGE_NO_OPTIONS": "No options needed for this FApp.",
+    "OPTIONS_PAGE_START_BUTTON":"Start application",
 
     "SNAP_OPTIONS_PAGE_TITLE":"Snap",
     "SNAP_OPTIONS_PAGE_START_BUTTON":"Start Snap",
