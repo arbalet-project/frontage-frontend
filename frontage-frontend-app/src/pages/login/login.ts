@@ -45,7 +45,7 @@ export class LoginPage {
     if (isServerUp) {
       this.isServerUp = isServerUp;
       this.authentication.isFacadeUp()
-        .subscribe(response => this.handleFacadeStatus(response));
+        .subscribe(response => this.handleFacadeStatus(response.is_usable));
     }
   }
 

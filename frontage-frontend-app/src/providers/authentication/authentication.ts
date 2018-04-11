@@ -23,9 +23,9 @@ export class AuthenticationProvider {
       .map(response => response.is_up);
   }
 
-  public isFacadeUp(): Observable<boolean> {
+  public isFacadeUp(): Observable<any> {
     return this.http.get<any>(this.baseUrl + "/frontage/status")
-      .map(response => response.is_usable);
+      .map(response => response);
   }
 
   public auth(userName: string, password: string): Observable<boolean> {

@@ -37,7 +37,7 @@ export class SettingPage implements OnInit {
       });
 
     this.authentication.isFacadeUp()
-      .subscribe(res => this.frontageState = res);
+      .subscribe(res => this.frontageState = res.state);
   }
 
   private initHoursFormat(hoursFromBack: String): String {
@@ -74,7 +74,7 @@ export class SettingPage implements OnInit {
   }
 
   updateFrontageState() {
-    this.adminProvider.updateFrontageState(this.frontageState);
+    this.adminProvider.updateFrontageState(this.frontageState).subscribe();
   }
 
   setOpeningHour() {
