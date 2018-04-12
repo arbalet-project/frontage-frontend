@@ -41,7 +41,7 @@ export class RandomFlashingJoystickPage {
   }
 
   sendOption() {
-    this.socket.send('{"color":"' + this.selectedParameter + '"}');
+    this.socket.send('{"colors":"' + this.selectedParameter + '"}');
   }
 
   ionViewDidLeave(){

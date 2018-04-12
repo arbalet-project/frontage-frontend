@@ -3,7 +3,6 @@ import { LocalStorageProvider } from './../../providers/local-storage/local-stor
 
 import { WaitingPage } from './../waiting/waiting';
 import { DataFAppsProvider } from './../../providers/data-f-apps/data-f-apps';
-import { FApp } from './../../models/fapp';
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { SnapJoystickPage } from '../snap-joystick/snap-joystick';

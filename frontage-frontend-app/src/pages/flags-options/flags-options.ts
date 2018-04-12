@@ -1,7 +1,6 @@
 import { AdminProvider } from './../../providers/admin/admin';
 import { LocalStorageProvider } from './../../providers/local-storage/local-storage';
 import { FlagsJoytickPage } from './../flags-joytick/flags-joytick';
-import { WaitingPage } from './../waiting/waiting';
 
 import { DataFAppsProvider } from './../../providers/data-f-apps/data-f-apps';
 import { FApp } from './../../models/fapp';

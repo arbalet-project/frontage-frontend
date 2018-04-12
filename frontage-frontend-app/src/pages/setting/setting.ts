@@ -1,4 +1,3 @@
-import { Subscription } from 'rxjs/Rx';
 import { AuthenticationProvider } from './../../providers/authentication/authentication';
 import { AdminHoursSettings } from './../../models/admin-hours-settings';
 import { AdminProvider } from './../../providers/admin/admin';

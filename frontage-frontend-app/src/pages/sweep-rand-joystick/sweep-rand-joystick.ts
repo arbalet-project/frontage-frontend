@@ -42,7 +42,7 @@ export class SweepRandJoystickPage {
   }
 
   sendOption(option) {
-    this.socket.send('{type:"' + this.selectedParameter + '"}');
+    this.socket.send('{"uapp":"' + this.selectedParameter + '"}');
   }
 
   ionViewDidLeave() {

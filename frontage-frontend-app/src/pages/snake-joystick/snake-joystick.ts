@@ -16,12 +16,9 @@ export class SnakeJoystickPage {
 
   nom: string = "";
   socket: WebSocket;
-  isExpireSoon:Boolean=false;
+  isExpireSoon: Boolean = false;
 
-  isUpWhite: Boolean = false;
-  isDownWhite: Boolean = false;
-  isRightWhite: Boolean = false;
-  isLeftWhite: Boolean = false;
+  isGameOver: Boolean = false;
 
   constructor(public nicknameGeneratorProvider: NicknameGeneratorProvider, public navCtrl: NavController,
     public navParams: NavParams, public screenOrientation: ScreenOrientation,
@@ -71,16 +68,19 @@ export class SnakeJoystickPage {
   }
 
   ionViewDidLeave() {
-    this.fAppProvider.stopApp();
-
+    if (!this.isGameOver) {
+      this.fAppProvider.stopApp();
+    }
+    
     if (this.platform.is('mobile')) {
       this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
       this.screenOrientation.unlock();
     }
   }
 
-  ionViewDidEnter(){
+  ionViewWillEnter() {
     this.isExpireSoon = false;
+    this.isGameOver = false;
   }
 
   stopFApp() {

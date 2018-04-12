@@ -17,12 +17,9 @@ import { environment } from '../../app/environment';
 export class TetrisJoystickPage {
   nom: string = "";
   socket: WebSocket;
-  isExpireSoon:Boolean=false;
+  isExpireSoon: Boolean = false;
 
-  isUpWhite: Boolean = false;
-  isDownWhite: Boolean = false;
-  isRightWhite: Boolean = false;
-  isTurnLight: Boolean = false;
+  isGameOver: Boolean = false;
 
   constructor(public navParams: NavParams,
     public screenOrientation: ScreenOrientation,
@@ -74,12 +71,19 @@ export class TetrisJoystickPage {
   }
 
   ionViewDidLeave() {
-    this.fAppProvider.stopApp();
-
+    if (!this.isGameOver) {
+      this.fAppProvider.stopApp();
+    }
+    
     if (this.platform.is('mobile')) {
       this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
       this.screenOrientation.unlock();
     }
+  }
+
+  ionViewWillEnter() {
+    this.isExpireSoon = false;
+    this.isGameOver = false;
   }
 
   stopFApp() {

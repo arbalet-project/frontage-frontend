@@ -40,12 +40,8 @@ export class WebsocketMessageHandlerProvider {
   handleMessage(message, navCtrl, page) {
     let data = JSON.parse(message.data);
 
-    let title: string;
-    let message_displayed: string;
-    
-    let output = this.CODE_GAME_OVER;
-
     if (data.code == this.CODE_GAME_OVER) {
+      page.isGameOver = true;
       this.showPopUp("GAME_OVER_TITLE", "GAME_OVER", navCtrl);
       this.vibration.vibrate([1000, 100, 1000, 100, 1000]);
     } else if (data.code == this.CODE_CLOSE_APP) {
@@ -65,7 +61,6 @@ export class WebsocketMessageHandlerProvider {
   showPopUp(titleKey, messageKey, navCtrl){
     let title:string;
     let message:string;
-    let button:any = {};
     
     this.tranlation.get(titleKey).subscribe(t => {
       title = t;
@@ -80,10 +75,10 @@ export class WebsocketMessageHandlerProvider {
       buttons: [{
         text: 'Ok',
         handler: () => {
-          let navTransition = popUp.dismiss();
-          navTransition.then(() => {
+          popUp.dismiss().then(() => {
             navCtrl.pop();
           });
+          return false;
         }
       }]
     });

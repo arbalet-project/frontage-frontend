@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, AlertController } from 'ionic-angular';
+import { NavController } from 'ionic-angular';
 import { NavParams } from 'ionic-angular/navigation/nav-params';
 import { LoginPage } from '../login/login';
 import { Location } from '@angular/common';
