@@ -89,6 +89,10 @@
     "UNKNOWN_CODE_TITLE":"Code Inconnu",
 
     "WAITING":"En attente",
+    "WAITING_SERVER":"En attente du serveur",
+    "ALREADY_QUEUED":"Vous ne pouvez lancer qu'une seule application à la fois. Vous êtes déjà dans la queue.",
+    "QUEUED":"Vous êtes dans la queue à la position : ",
+    "STARTING":"L'application est en train de se lancer !",
     "STOP_APP":"Quitter",
     
     "LANGUAGE_COMPONENT_FR":"FR",

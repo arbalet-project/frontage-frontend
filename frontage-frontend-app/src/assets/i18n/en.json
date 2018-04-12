@@ -81,6 +81,10 @@
     "UNKNOWN_CODE_TITLE":"Unknown Code",
 
     "WAITING":"Waiting",
+    "WAITING_SERVER":"Wait for server response",
+    "ALREADY_QUEUED":"You can start only one application at a time. Wait until the previous app expire.",
+    "QUEUED":"You are queued at position: ",
+    "STARTING":"The applicaiton is starting.",
     "STOP_APP":"Leave queue",
 
     "LANGUAGE_COMPONENT_FR":"FR",

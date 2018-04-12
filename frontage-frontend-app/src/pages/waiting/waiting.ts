@@ -1,3 +1,4 @@
+import { TranslateService } from '@ngx-translate/core';
 import { DataFAppsProvider } from './../../providers/data-f-apps/data-f-apps';
 import { Subscription, Observable } from 'rxjs/Rx';
 import { Component } from '@angular/core';
@@ -8,10 +9,14 @@ import { NavController, NavParams } from 'ionic-angular';
   templateUrl: 'waiting.html',
 })
 export class WaitingPage {
+  WAITING_SERVER: string = "";
+  ALREADY_QUEUED: string = "";
+  QUEUED: string = "";
+  STARTING: string = "";
 
-  state: string = "waiting";
+
   position: number;
-  message: string = 'En attente du serveur';
+  message: string;
   isLaunched: boolean = false;
   isWaitingServer: boolean = false;
 
@@ -20,14 +25,29 @@ export class WaitingPage {
 
   positionSubscription: Subscription;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public dataFAppsProvider: DataFAppsProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public dataFAppsProvider: DataFAppsProvider,
+    public tranlation: TranslateService) {
+
+    tranlation.get("WAITING_SERVER").subscribe(t => {
+      this.WAITING_SERVER = t;
+    });
+    tranlation.get("ALREADY_QUEUED").subscribe(t => {
+      this.ALREADY_QUEUED = t;
+    });
+    tranlation.get("QUEUED").subscribe(t => {
+      this.QUEUED = t;
+    });
+    tranlation.get("STARTING").subscribe(t => {
+      this.STARTING = t;
+    });
+
+    this.message = this.WAITING_SERVER;
 
     this.joystickPage = navParams.get('joystick');
     this.joystickParams = navParams.get('joystickParams')
 
     //Check if the user is the owner of the current app
     let currentApp: any = this.dataFAppsProvider.getCurrentApp().subscribe();
-    console.log("hoyes : " + currentApp.username);
 
     let serverResponse: any = navParams.get('info');
 
@@ -37,16 +57,13 @@ export class WaitingPage {
     }
 
     if (serverResponse.queued) {
-      this.state = "queued";
       this.positionSubscription = Observable.interval(1000)
         .subscribe(x => this.positionSubscriptionStart(x));
     } else if (serverResponse.status === 403) {
-      this.state = "error";
-      this.message = "Vous ne pouvez lancer qu'une seule application à la fois. Vous êtes déjà dans la queue.";
+      this.message = this.ALREADY_QUEUED;
     } else if (serverResponse.status === 200) {
       this.startApp();
     } else {
-      this.message = ""
       throw "WaitingPage : erreur la reponse HTTP du serveur est [" + serverResponse.status + "]";
     }
 
@@ -63,13 +80,12 @@ export class WaitingPage {
   checkPosition(response: any) {
     this.position = response.position;
 
-    this.message = "Vous êtes dans la queue à la position : " + this.position;
+    this.message = this.QUEUED + this.position;
 
     this.isWaitingServer = false;
     if (this.position === -1) {
       if (!this.isLaunched) {
         this.isLaunched = true;
-        this.message = "L'application est en train de se lancer !";
 
         this.startApp();
       }
@@ -80,11 +96,11 @@ export class WaitingPage {
     this.backButtonAction();
   }
 
-  backButtonAction(){
+  backButtonAction() {
     this.dataFAppsProvider.quitQueue();
     this.navCtrl.pop();
   }
-  
+
   ionViewWillLeave() {
     if (this.positionSubscription) {
       this.positionSubscription.unsubscribe();
@@ -98,6 +114,7 @@ export class WaitingPage {
   }
 
   startApp() {
+    this.message = this.STARTING;
     this.navCtrl.push(this.joystickPage, { joystickParams: this.joystickParams }).then(() => {
       this.navCtrl.remove(this.navCtrl.getPrevious().index);
     });
