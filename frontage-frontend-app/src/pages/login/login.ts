@@ -29,13 +29,17 @@ export class LoginPage {
     nicknameGeneratorProvider: NicknameGeneratorProvider, public localStorageProvider: LocalStorageProvider) {
 
     this.userName = nicknameGeneratorProvider.generateNickname();
-    authentication.isServerUp()
+
+  }
+
+  ionViewDidEnter() {
+    this.authentication.isServerUp()
       .subscribe(isServerUp => this.checkFacade(isServerUp), e => e);
 
     //If the server is not up check periodicaly his status
     if (!this.isServerUp) {
       this.serverUpSubscription = Observable.interval(5000).subscribe(x => {
-        authentication.isServerUp()
+        this.authentication.isServerUp()
           .subscribe(isServerUp => this.checkFacade(isServerUp), e => e);
       });
     }

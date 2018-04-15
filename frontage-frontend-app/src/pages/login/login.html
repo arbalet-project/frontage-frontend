@@ -16,7 +16,7 @@
           <ion-input placeholder="{{'LOGIN_PAGE_PWD_LABEL' | translate}}" [(ngModel)]="password" type="password" clearInput></ion-input>
         </ion-item>
       </ion-list>
-      <div *ngIf="isFacadeUp; else elseBlock;">
+      <div *ngIf="isFacadeUp || (isPwdDisplayed && isServerUp); else elseBlock;">
         <button ion-button block outline color="light" (click)="start()">{{"LOGIN_PAGE_START_BUTTON" | translate}}</button>
       </div>
       <ng-template #elseBlock>
