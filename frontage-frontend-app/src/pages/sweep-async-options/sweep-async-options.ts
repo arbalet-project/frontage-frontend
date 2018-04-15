@@ -13,6 +13,8 @@ import { SweepAsyncJoystickPage } from '../sweep-async-joystick/sweep-async-joys
 export class SweepAsyncOptionsPage {
   fAppPosition: number;
   isAdmin: boolean = false;
+  fAppOptions: any;
+  joystickPage: any = SweepAsyncJoystickPage;
 
   constructor(public navCtrl: NavController, public dataFAppsProvider: DataFAppsProvider, public adminProvider: AdminProvider,
     public localStorageProvider: LocalStorageProvider) {
@@ -20,29 +22,9 @@ export class SweepAsyncOptionsPage {
     //Check if the connected user is admin
     this.isAdmin = this.localStorageProvider.isAdmin();
 
-  }
-
-  startFapp() {
-
-    let options = {
-      name: "SweepAsync"
+    //Init the flag options to send to the back
+    this.fAppOptions = {
+      name: "SweepAsync",
     }
-
-
-    this.dataFAppsProvider.launchFApp(options)
-      .subscribe(response => this.goToNextPage(response));
-  }
-
-  goToNextPage(response) {
-    this.navCtrl.pop();
-    this.navCtrl.push(WaitingPage, { info: response, joystick: SweepAsyncJoystickPage });
-  }
-
-  forceFapp() {
-    let options= {
-      name: "SweepAsync"
-    };
-    this.adminProvider.launchForcedFApp(options)
-      .subscribe(response => response);
   }
 }
