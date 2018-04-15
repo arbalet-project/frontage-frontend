@@ -36,12 +36,4 @@ export class SnapOptionsPage {
     this.navCtrl.pop();
     this.navCtrl.push(WaitingPage, { info: response, joystick: SnapJoystickPage })
   }
-
-  forceFapp() {
-    let options = {
-      name: "Snap",
-    };
-    this.adminProvider.launchForcedFApp(options)
-      .subscribe(response => response);
-  }
 }
