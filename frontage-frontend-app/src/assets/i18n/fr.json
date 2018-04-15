@@ -76,6 +76,7 @@
     "SETTINGS_PAGE_CLEAR_QUEUE_BUTTON":"Vider la file d'attente",
     "SETTINGS_PAGE_SHUTDOWN_FRONTAGE_BUTTON":"Façade allumée",
     "SETTINGS_PAGE_BACK_BUTTON":"Retour à la liste",
+    "SETTINGS_PAGE_UNFORCE_BUTTON":"Relache FApp forcée",
 
     "GET_OUT":"Il est temps de laisser quelqu'un d'autre jouer :)",
     "GAME_OVER":"Game Over :)",
