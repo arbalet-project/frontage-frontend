@@ -14,7 +14,7 @@ import { RandomFlashingJoystickPage } from '../random-flashing-joystick/random-f
 export class RandomFlashingOptionsPage {
 
   fAppPosition: number;
-  parametersList: string[] = ["darkblue", "pink"];
+  parametersList: string[] = ["darkblue", "deeppink"];
   selectedParameter: string = "darkblue";
   isAdmin: boolean = false;
 
