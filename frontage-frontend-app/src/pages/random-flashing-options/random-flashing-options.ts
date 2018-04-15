@@ -17,50 +17,21 @@ export class RandomFlashingOptionsPage {
   parametersList: string[] = ["darkblue", "deeppink"];
   selectedParameter: string = "darkblue";
   isAdmin: boolean = false;
+  fAppOptions: any;
+  joystickPage: any = RandomFlashingJoystickPage;
 
   constructor(public navCtrl: NavController, public dataFAppsProvider: DataFAppsProvider, public adminProvider: AdminProvider,
     public localStorageProvider: LocalStorageProvider) {
 
     this.isAdmin = this.localStorageProvider.isAdmin();
 
-  }
-
-  startFapp() {
-
-    let options = {
+    //Init the flag options to send to the back
+    this.fAppOptions = {
       name: "RandomFlashing",
       params: {
-        colors:  this.selectedParameter
+        colors: this.selectedParameter
       }
     }
-
-    this.dataFAppsProvider.launchFApp(options)
-      .subscribe(response => this.goToNextPage(response));
-  }
-
-  goToNextPage(response) {
-    this.navCtrl.pop();
-    this.navCtrl.push(WaitingPage, { info: response, joystick: RandomFlashingJoystickPage, joystickParams: { parametersList: this.parametersList, selectedParameter: this.selectedParameter } });
-  }
-
-  forceFapp() {
-    let options = {
-      name: "RandomFlashing",
-    };
-    this.adminProvider.launchForcedFApp(options)
-      .subscribe(response => response);
-  }
-
-  sendScheduledFappOptions() {
-    let options = {
-      name: "RandomFlashing",
-      params: {
-        colors:  this.selectedParameter
-      }
-    };
-
-    this.adminProvider.sendScheduledFAppOptions(options)
-      .subscribe(response => this.goToNextPage(response));
   }
 }
 
