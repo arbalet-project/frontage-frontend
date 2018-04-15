@@ -13,8 +13,6 @@ export class FlagsJoytickPage {
   selectedParameter: string;
   parametersList: string[];
 
-  socket: WebSocket;
-
   constructor(public navCtrl: NavController, public navParams: NavParams, public fAppProvider: DataFAppsProvider,
     public websocketMessageHandler:WebsocketMessageHandlerProvider) {
     let joystickParams = navParams.get('joystickParams');
@@ -22,26 +20,11 @@ export class FlagsJoytickPage {
     this.parametersList = joystickParams.parametersList;
     this.selectedParameter = joystickParams.selectedParameter;
 
-    this.initSocket();
+    websocketMessageHandler.initSocket(navCtrl, this);
   }
-
-  initSocket() {
-    
-    this.socket = new WebSocket(`${environment.webSocketAdress}`);
-
-    let self = this;
-    this.socket.onmessage = message => self.websocketMessageHandler.handleMessage(message, this.navCtrl, this);
-
-    this.socket.onopen = function () {
-    };
-
-    this.socket.onerror = function () {
-      throw "Flags : Erreur, la connexion websocket a échouée."
-    }
-  }
-
+  
   sendOption(){
-    this.socket.send('{"flag": "' + this.selectedParameter + '"}');
+    this.websocketMessageHandler.send('{"flag": "' + this.selectedParameter + '"}');
   }
 
   stopFApp() {

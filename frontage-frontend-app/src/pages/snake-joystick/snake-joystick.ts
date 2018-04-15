@@ -15,7 +15,6 @@ import { LocalStorageProvider } from './../../providers/local-storage/local-stor
 export class SnakeJoystickPage {
 
   nom: string = "";
-  socket: WebSocket;
   isExpireSoon: Boolean = false;
 
   isGameOver: Boolean = false;
@@ -33,37 +32,23 @@ export class SnakeJoystickPage {
     }
     this.nom = localStorageProvider.getUserName();
 
-    this.initSocket();
-  }
-
-  initSocket() {
-    let self = this;
-    this.socket = new WebSocket(`${environment.webSocketAdress}`);
-
-    this.socket.onmessage = message => self.websocketMessageHandler.handleMessage(message, this.navCtrl, this);
-
-    this.socket.onopen = function () {
-    };
-
-    this.socket.onerror = function () {
-      throw "Snake : Erreur, la connexion websocket a échouée."
-    }
+    websocketMessageHandler.initSocket(navCtrl, this);
   }
 
   onUp() {
-    this.socket.send("^");
+    this.websocketMessageHandler.send("^");
     this.vibration.vibrate(40);
   }
   onDown() {
-    this.socket.send("v");
+    this.websocketMessageHandler.send("v");
     this.vibration.vibrate(40);
   }
   onLeft() {
-    this.socket.send("<");
+    this.websocketMessageHandler.send("<");
     this.vibration.vibrate(40);
   }
   onRight() {
-    this.socket.send(">");
+    this.websocketMessageHandler.send(">");
     this.vibration.vibrate(40);
   }
 

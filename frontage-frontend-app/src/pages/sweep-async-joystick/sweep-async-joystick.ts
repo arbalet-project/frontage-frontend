@@ -15,24 +15,9 @@ export class SweepAsyncJoystickPage {
   constructor(public navCtrl: NavController, public navParams: NavParams,
     public fAppProvider: DataFAppsProvider, public websocketMessageHandler:WebsocketMessageHandlerProvider) {
 
-    this.initSocket();
+    websocketMessageHandler.initSocket(navCtrl, this);
   }
 
-  initSocket() {
-
-    this.socket = new WebSocket(`${environment.webSocketAdress}`);
-
-    let self = this;
-    this.socket.onmessage = message => self.websocketMessageHandler.handleMessage(message, this.navCtrl, this);
-
-
-    this.socket.onopen = function () {
-    };
-
-    this.socket.onerror = function () {
-      throw "Sweep-Async : Erreur, la connexion websocket a échouée."
-    }
-  }
 
   ionViewDidLeave() {
     this.fAppProvider.stopApp();

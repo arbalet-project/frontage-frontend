@@ -2,6 +2,7 @@ import { environment } from './../../app/environment';
 import { TranslateService } from '@ngx-translate/core'
 import { Vibration } from '@ionic-native/vibration';
 import { AlertController } from 'ionic-angular';
+import { ToastController } from 'ionic-angular';
 import { Injectable } from '@angular/core';
 
 /*
@@ -19,11 +20,11 @@ export class WebsocketMessageHandlerProvider {
 
   socket: WebSocket;
 
-  constructor(private alertCtrl: AlertController, public vibration: Vibration, public tranlation: TranslateService) {
+  constructor(private alertCtrl: AlertController, public vibration: Vibration, public tranlation: TranslateService, public toastCtrl:ToastController) {
   }
 
   initSocket(navCtrl, page) {
-    
+
     this.socket = new WebSocket(`${environment.webSocketAdress}`);
 
     let self = this;
@@ -33,7 +34,7 @@ export class WebsocketMessageHandlerProvider {
     };
 
     this.socket.onerror = function () {
-      throw "Flags : Erreur, la connexion websocket a échouée."
+      throw "Erreur, la connexion websocket a échouée."
     }
   }
 
@@ -47,36 +48,50 @@ export class WebsocketMessageHandlerProvider {
     } else if (data.code == this.CODE_CLOSE_APP) {
       this.showPopUp("CLOSE_APP_TITLE", "GET_OUT", navCtrl);
     } else if (data.code == this.CODE_EXPIRE) {
-      this.showPopUp("CODE_EXPIRE_TITLE", "EXPIRE", navCtrl)
+      this.showToast("EXPIRE");
     } else if (data.code == this.CODE_EXPIRE_SOON) {
-      page.expireSoon = true;
+      // page.expireSoon = true;
+      // alert("expire soon");
     } else {
-      this.showPopUp("UNKNOWN_CODE_TITLE", "UNKNOWN_MESSAGE", navCtrl);
-
+      // alert("Les data : " + message);
+      console.log("data :");
+      console.log(data);
+      console.log(message.data);
+      // alert("L'erreur :" + erreur);
+      // alert("L'erreur message : " + message.message);
+      // this.showPopUp("UNKNOWN_CODE_TITLE", "UNKNOWN_MESSAGE", navCtrl);
     }
-
-    
   }
 
-  showPopUp(titleKey, messageKey, navCtrl){
-    let title:string;
-    let message:string;
-    
-    this.tranlation.get(titleKey).subscribe(t => {
-      title = t;
+  showToast(messageKey) {
+    let content = this.getTranslation(messageKey);
+
+    let toast = this.toastCtrl.create({
+      message: content,
+      duration: 4000,
+      position: 'top'
     });
-    this.tranlation.get(messageKey).subscribe(t => {
-      message = t;
+
+    toast.setShowCloseButton(true);
+
+    toast.onDidDismiss(() => {
+      console.log('Dismissed toast');
     });
-    
+  
+    toast.present();
+    this.vibration.vibrate([1000]);
+  }
+
+  showPopUp(titleKey, messageKey, navCtrl) {
+
     let popUp = this.alertCtrl.create({
-      title: title,
-      message: message,
+      title: this.getTranslation(titleKey),
+      message: this.getTranslation(messageKey),
       buttons: [{
         text: 'Ok',
         handler: () => {
           popUp.dismiss().then(() => {
-            navCtrl.pop();
+              navCtrl.pop();
           });
           return false;
         }
@@ -84,6 +99,19 @@ export class WebsocketMessageHandlerProvider {
     });
 
     popUp.present();
+  }
+
+  getTranslation(key){
+    let content = "";
+    this.tranlation.get(key).subscribe(t => {
+      content = t;
+    });
+
+    return content;
+  }
+
+  send(message){
+    this.socket.send(message);
   }
 
 }

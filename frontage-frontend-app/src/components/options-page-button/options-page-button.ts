@@ -68,7 +68,6 @@ export class OptionsPageButtonComponent {
    * Navigation
    */
   goToNextPage(response) {
-    this.navCtrl.pop();
     this.navCtrl.push(WaitingPage, {
       info: response,
       joystick: this.joystickPage,
@@ -77,6 +76,8 @@ export class OptionsPageButtonComponent {
           parametersList: this.parametersList,
           selectedParameter: this.selectedParameter
         }
-    })
+    }).then(() => {
+      this.navCtrl.remove(this.navCtrl.getPrevious().index);
+    });
   }
 }

@@ -10,7 +10,6 @@ import { environment } from '../../app/environment';
 })
 export class RandomFlashingJoystickPage {
 
-  socket: WebSocket;
   selectedParameter: string;
   parametersList: string[];
 
@@ -22,26 +21,11 @@ export class RandomFlashingJoystickPage {
     this.parametersList = joystickParams.parametersList;
     this.selectedParameter = joystickParams.selectedParameter;
 
-    this.initSocket();
-  }
-
-  initSocket() {
-
-    this.socket = new WebSocket(`${environment.webSocketAdress}`);
-
-    let self = this;
-    this.socket.onmessage = message => self.websocketMessageHandler.handleMessage(message, this.navCtrl, this);
-
-    this.socket.onopen = function () {
-    };
-
-    this.socket.onerror = function () {
-      throw "Random-Flashing : Erreur, la connexion websocket a échouée."
-    }
+    websocketMessageHandler.initSocket(navCtrl, this);
   }
 
   sendOption() {
-    this.socket.send('{"colors":"' + this.selectedParameter + '"}');
+    this.websocketMessageHandler.send('{"colors":"' + this.selectedParameter + '"}');
   }
 
   ionViewDidLeave(){

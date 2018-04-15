@@ -16,7 +16,6 @@ import { environment } from '../../app/environment';
 })
 export class TetrisJoystickPage {
   nom: string = "";
-  socket: WebSocket;
   isExpireSoon: Boolean = false;
 
   isGameOver: Boolean = false;
@@ -36,37 +35,23 @@ export class TetrisJoystickPage {
     }
     this.nom = localStorageProvider.getUserName();
 
-    this.initSocket();
-  }
-
-  initSocket() {
-    let self = this;
-    this.socket = new WebSocket(`${environment.webSocketAdress}`);
-
-    this.socket.onmessage = message => self.websocketMessageHandler.handleMessage(message, this.navCtrl, this);
-
-    this.socket.onopen = function () {
-    };
-
-    this.socket.onerror = function () {
-      throw "Tetris Joystick : Erreur, la connexion websocket a échouée."
-    }
+    websocketMessageHandler.initSocket(navCtrl, this);
   }
 
   onDown() {
-    this.socket.send("<");
+    this.websocketMessageHandler.send("<");
     this.vibration.vibrate(40);
   }
   onUp() {
-    this.socket.send(">");
+    this.websocketMessageHandler.send(">");
     this.vibration.vibrate(40);
   }
   onRight() {
-    this.socket.send("v");
+    this.websocketMessageHandler.send("v");
     this.vibration.vibrate(40);
   }
   turn() {
-    this.socket.send("^");
+    this.websocketMessageHandler.send("^");
     this.vibration.vibrate(40);
   }
 

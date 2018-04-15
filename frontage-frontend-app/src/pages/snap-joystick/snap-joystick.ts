@@ -1,3 +1,4 @@
+import { WebsocketMessageHandlerProvider } from './../../providers/websocket-message-handler/websocket-message-handler';
 import { Observable, Subscription } from 'rxjs/Rx';
 import { HttpClient } from '@angular/common/http';
 import { DataFAppsProvider } from './../../providers/data-f-apps/data-f-apps';
@@ -23,17 +24,19 @@ export class SnapJoystickPage {
   baseUrl: string;
   authorizeEndpoint: string = "/authorize";
   clientsEndpoint: string = "/clients";
-  socket: WebSocket;
 
   updateListSubscription: Subscription;
   isWaiting: Boolean = false;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public fAppProvider: DataFAppsProvider, public http: HttpClient) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public fAppProvider: DataFAppsProvider, public http: HttpClient,
+    public websocketMessageHandler: WebsocketMessageHandlerProvider) {
 
     this.baseUrl = `${environment.snapBaseUrl}`;
 
     this.updateListSubscription = Observable.interval(200)
       .subscribe(x => this.updateList(x));
+
+      websocketMessageHandler.initSocket(navCtrl, this);
   }
 
   updateList(x) {

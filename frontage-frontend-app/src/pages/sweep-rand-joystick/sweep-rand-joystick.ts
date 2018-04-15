@@ -22,27 +22,11 @@ export class SweepRandJoystickPage {
     this.parametersList = joystickParams.parametersList;
     this.selectedParameter = joystickParams.selectedParameter;
 
-    this.initSocket();
-  }
-
-  initSocket() {
-
-    this.socket = new WebSocket(`${environment.webSocketAdress}`);
-
-    let self = this;
-    this.socket.onmessage = message => self.websocketMessageHandler.handleMessage(message, this.navCtrl, this);
-
-
-    this.socket.onopen = function () {
-    };
-
-    this.socket.onerror = function () {
-      throw "Sweep-Rand : Erreur, la connexion websocket a échouée."
-    }
+    websocketMessageHandler.initSocket(navCtrl, this);
   }
 
   sendOption(option) {
-    this.socket.send('{"uapp":"' + this.selectedParameter + '"}');
+    this.websocketMessageHandler.send('{"uapp":"' + this.selectedParameter + '"}');
   }
 
   ionViewDidLeave() {
