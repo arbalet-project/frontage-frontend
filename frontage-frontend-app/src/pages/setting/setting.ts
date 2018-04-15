@@ -10,9 +10,10 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class SettingPage implements OnInit {
 
-  frontageState: boolean = false;
+  selectedFrontageState: boolean = false;
   openingHourList: String[] = [];
   closingHourList: String[] = [];
+  frontageStateList: String[] = ['on', 'off', 'scheduled'];
   selectedOpeningHour: String;
   selectedClosingHour: String;
 
@@ -36,7 +37,9 @@ export class SettingPage implements OnInit {
       });
 
     this.authentication.isFacadeUp()
-      .subscribe(res => this.frontageState = res.state);
+      .subscribe(res => {
+        this.selectedFrontageState = res.state
+      });
   }
 
   private initHoursFormat(hoursFromBack: String): String {
@@ -73,7 +76,7 @@ export class SettingPage implements OnInit {
   }
 
   updateFrontageState() {
-    this.adminProvider.updateFrontageState(this.frontageState).subscribe();
+    this.adminProvider.updateFrontageState(this.selectedFrontageState).subscribe();
   }
 
   setOpeningHour() {
@@ -93,7 +96,7 @@ export class SettingPage implements OnInit {
     if (this.selectedClosingHour
       && this.selectedClosingHour.length > 8
       && this.selectedClosingHour.substring(0, 8) == 'sunrise-') {
-      let offset: String = this.selectedClosingHour.substring(7,9);
+      let offset: String = this.selectedClosingHour.substring(7, 9);
       this.adminProvider.setFrontageClosingOffset(offset).subscribe();
     } else {
       this.adminProvider.setFrontageClosingHour(this.selectedClosingHour).subscribe();

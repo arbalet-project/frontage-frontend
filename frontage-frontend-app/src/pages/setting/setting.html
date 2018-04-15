@@ -22,11 +22,9 @@
     </ion-select>
   </ion-item>
   <ion-item>
-    <ion-label>{{"SETTINGS_PAGE_SHUTDOWN_FRONTAGE_BUTTON" |translate}}</ion-label>
-    <ion-select [(ngModel)]="frontageState" (ionChange)="updateFrontageState()">
-      <ion-option>on</ion-option>
-      <ion-option>off</ion-option>
-      <ion-option>scheduled</ion-option>
+    <ion-label>{{"SETTINGS_PAGE_SHUTDOWN_FRONTAGE_BUTTON" | translate}}</ion-label>
+    <ion-select *ngIf="frontageStateList" [(ngModel)]="selectedFrontageState" (ionChange)="updateFrontageState()">
+      <ion-option *ngFor="let frontageState of frontageStateList">{{frontageState}}</ion-option>
     </ion-select>
   </ion-item>
   <ion-item>
