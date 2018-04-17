@@ -3,7 +3,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { DataFAppsProvider } from './../../providers/data-f-apps/data-f-apps';
 import { Subscription, Observable } from 'rxjs/Rx';
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, AlertController } from 'ionic-angular';
 
 @Component({
   selector: 'page-waiting',
@@ -15,22 +15,28 @@ export class WaitingPage {
   QUEUED: string = "";
   STARTING: string = "";
 
+  alertMessage: string = "";
 
   position: number;
   message: string;
   isLaunched: boolean = false;
   isWaitingServer: boolean = false;
-  username: String;
+  username: string;
 
   joystickPage: any;
   joystickParams: any;
 
   positionSubscription: Subscription;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public dataFAppsProvider: DataFAppsProvider,
+  constructor(private alertCtrl: AlertController, public navCtrl: NavController, public navParams: NavParams, public dataFAppsProvider: DataFAppsProvider,
     public tranlation: TranslateService, public localStorage: LocalStorageProvider, public translateService: TranslateService) {
 
+    //Get the user login
     this.username = this.localStorage.getUserName();
+
+    this.translateService.get("WAITING_KICK_FROM_QUEUE").subscribe(translatedMesssage => {
+      this.alertMessage = translatedMesssage;
+    });
 
     tranlation.get("WAITING_SERVER").subscribe(t => {
       this.WAITING_SERVER = t;
@@ -121,8 +127,21 @@ export class WaitingPage {
           this.navCtrl.remove(this.navCtrl.getPrevious().index);
         });
       } else {
-        alert("Ejecté de la file d'attente");
-        this.navCtrl.pop();
+        let popup = this.alertCtrl.create({
+          title: this.alertMessage,
+          message: this.alertMessage,
+          buttons: [{
+            text: 'Ok',
+            handler: () => {
+              popup.dismiss().then(() => {
+                this.navCtrl.pop();
+              });
+              return false;
+            }
+          }]
+        });
+
+        popup.present();
       }
     });
   }
