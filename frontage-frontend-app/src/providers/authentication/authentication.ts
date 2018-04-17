@@ -12,10 +12,12 @@ export class AuthenticationProvider {
 
   baseUrl: string;
   authEndpoint: string;
+  adminAuthEndpoint: string;
 
   constructor(public http: HttpClient, public localStorageProvider: LocalStorageProvider) {
     this.baseUrl = `${environment.backEndBaseUrl}`;
     this.authEndpoint = "/b/login";
+    this.adminAuthEndpoint = "/b/adminlogin";
   }
 
   public isServerUp(): Observable<boolean> {
@@ -28,17 +30,31 @@ export class AuthenticationProvider {
       .map(response => response);
   }
 
-  public auth(userName: string, password: string): Observable<boolean> {
-
+  public adminAuth(userName: string, password: string): Observable<boolean> {
+    console.log("admin")
     let body;
     //If the user wishes to log as and admin send the password
     if (password) {
       body = { "username": userName, "password": password };
     } else {
-      body = { "username": userName };
+      body = { "username": userName, "password": "" };
     }
 
-    return this.http.post(this.baseUrl + this.authEndpoint, body)
+    return this.auth(body, this.adminAuthEndpoint);
+  }
+
+  public normalAuth(userName: string): Observable<boolean> {
+    console.log("normal")
+    let body;
+    body = { "username": userName };
+
+    return this.auth(body, this.authEndpoint);
+  }
+
+  private auth(body, endpoint) : Observable<boolean>{
+    console.log("Endpoint : " + this.baseUrl + endpoint)
+
+    return this.http.post(this.baseUrl + endpoint, body)
       .map(response => this.finalizeLogin(response));
   }
 
@@ -61,6 +77,8 @@ export class AuthenticationProvider {
    * @param response 
    */
   private finalizeLogin(response): boolean {
+    console.log("Response : " + JSON.stringify(response))
+
     let token = response.token;
     if (token) {
       this.localStorageProvider.setAuthToken(token);

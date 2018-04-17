@@ -21,7 +21,7 @@ export class LoginPage {
   exception: any;
   nextTime: Date;
   userName: string;
-  password: string;
+  password: string = "";
 
   serverUpSubscription: Subscription;
 
@@ -32,7 +32,7 @@ export class LoginPage {
 
   }
 
-  ionViewDidEnter() {
+  ionViewWillEnter() {
     this.authentication.isServerUp()
       .subscribe(isServerUp => this.checkFacade(isServerUp), e => e);
 
@@ -88,10 +88,17 @@ export class LoginPage {
     }
 
     //Ask for an authentication token
-    this.authentication
-      .auth(this.userName, this.password)
+    if(this.isPwdDisplayed){
+      this.authentication
+      .adminAuth(this.userName, this.password)
       .subscribe(isAuthenticated =>
         this.pushPage(isAuthenticated));
+    }else {
+      this.authentication
+      .normalAuth(this.userName)
+      .subscribe(isAuthenticated =>
+        this.pushPage(isAuthenticated));
+    }
   }
 
   /**
@@ -124,5 +131,4 @@ export class LoginPage {
       this.displayPwd();
     }
   }
-
 }
