@@ -112,6 +112,8 @@ export class LoginPage {
 
       //Change page
       this.navCtrl.push(FAppListPage);
+    }else {
+      alert("Mauvais mot de passe ou username");
     }
   }
 

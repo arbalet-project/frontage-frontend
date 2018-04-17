@@ -81,7 +81,7 @@
     "GET_OUT":"Il est temps de laisser quelqu'un d'autre jouer :)",
     "GAME_OVER":"Game Over :)",
     "EXPIRE_SOON":"Votre tour est bientôt fini",
-    "EXPIRE":"Votre tour est fini. Vous pouvez encore jouer jusqu'à ce que quelqu'un lance une application",
+    "EXPIRE":"Votre tour est fini.",
     "UNKNOWN_MESSAGE":"Un message inconnu est reçu du serveur. Message : ",
     "GAME_OVER_TITLE":"Game Over",
     "CLOSE_APP_TITLE":"Application terminée",

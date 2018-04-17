@@ -48,8 +48,9 @@ export class WebsocketMessageHandlerProvider {
     } else if (data.code == this.CODE_CLOSE_APP) {
       this.showPopUp("CLOSE_APP_TITLE", "GET_OUT", navCtrl);
     } else if (data.code == this.CODE_EXPIRE) {
-      this.showToast("EXPIRE");
+      this.showPopUp("CLOSE_APP_TITLE", "EXPIRE", navCtrl);
     } else if (data.code == this.CODE_EXPIRE_SOON) {
+      this.showToast("EXPIRE_SOON");
       // page.expireSoon = true;
       // alert("expire soon");
     } else {
