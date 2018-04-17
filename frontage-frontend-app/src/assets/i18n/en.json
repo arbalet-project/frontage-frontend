@@ -86,6 +86,7 @@
     "QUEUED":"You are queued at position: ",
     "STARTING":"The applicaiton is starting.",
     "STOP_APP":"Leave queue",
+    "WAITING_KICK_FROM_QUEUE": "You have been kicked from the queue.",
 
     "LANGUAGE_COMPONENT_FR":"FR",
     "LANGUAGE_COMPONENT_EN":"EN",

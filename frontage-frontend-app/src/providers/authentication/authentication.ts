@@ -31,7 +31,6 @@ export class AuthenticationProvider {
   }
 
   public adminAuth(userName: string, password: string): Observable<boolean> {
-    console.log("admin")
     let body;
     //If the user wishes to log as and admin send the password
     if (password) {
@@ -44,7 +43,6 @@ export class AuthenticationProvider {
   }
 
   public normalAuth(userName: string): Observable<boolean> {
-    console.log("normal")
     let body;
     body = { "username": userName };
 

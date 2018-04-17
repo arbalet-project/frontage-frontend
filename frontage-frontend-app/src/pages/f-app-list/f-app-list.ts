@@ -26,13 +26,16 @@ export class FAppListPage {
   constructor(public navCtrl: NavController,
     public fAppsData: DataFAppsProvider,
     public localStorageProvider: LocalStorageProvider,
-    public adminProvider: AdminProvider) {
+    public adminProvider: AdminProvider,
+    public dataFAppsProvider : DataFAppsProvider) {
     //Check if the connected user is admin
     this.isAdmin = this.localStorageProvider.isAdmin();
 
     //Get the f-app list
     fAppsData.getList()
       .subscribe(fAppList => this.fAppList = fAppList);
+
+    this.dataFAppsProvider.getCurrentApp().subscribe(e => console.log(e));
   }
 
   showOptions(fApp: FApp) {

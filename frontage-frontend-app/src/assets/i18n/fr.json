@@ -95,6 +95,7 @@
     "QUEUED":"Vous êtes dans la file d'attente à la position : ",
     "STARTING":"L'application est en train de se lancer !",
     "STOP_APP":"Quitter",
+    "WAITING_KICK_FROM_QUEUE": "Vous avez été éjecté de la file d'attente.",
     
     "LANGUAGE_COMPONENT_FR":"FR",
     "LANGUAGE_COMPONENT_EN":"EN",

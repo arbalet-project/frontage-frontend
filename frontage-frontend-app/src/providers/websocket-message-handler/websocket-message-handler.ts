@@ -5,12 +5,6 @@ import { AlertController } from 'ionic-angular';
 import { ToastController } from 'ionic-angular';
 import { Injectable } from '@angular/core';
 
-/*
-  Generated class for the WebsocketMessageHandlerProvider provider.
-
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
 @Injectable()
 export class WebsocketMessageHandlerProvider {
   CODE_CLOSE_APP = "1"
@@ -20,7 +14,7 @@ export class WebsocketMessageHandlerProvider {
 
   socket: WebSocket;
 
-  constructor(private alertCtrl: AlertController, public vibration: Vibration, public tranlation: TranslateService, public toastCtrl:ToastController) {
+  constructor(private alertCtrl: AlertController, public vibration: Vibration, public translation: TranslateService, public toastCtrl:ToastController) {
   }
 
   initSocket(navCtrl, page) {
@@ -104,7 +98,7 @@ export class WebsocketMessageHandlerProvider {
 
   getTranslation(key){
     let content = "";
-    this.tranlation.get(key).subscribe(t => {
+    this.translation.get(key).subscribe(t => {
       content = t;
     });
 
