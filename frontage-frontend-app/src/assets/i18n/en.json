@@ -97,6 +97,7 @@
     "SETTINGS_PAGE_CLEAR_QUEUE_BUTTON":"Clear queue",
     "SETTINGS_PAGE_SHUTDOWN_FRONTAGE_BUTTON":"Frontage up",
     "SETTINGS_PAGE_BACK_BUTTON":"Back to list",
+    "SETTINGS_PAGE_UNFORCE_BUTTON":"Unforce FApp",
 
     "ERROR_PAGE_TITLE": "Well this is embarrassing ...",
     "ERROR_PAGE_DETAIL": "Error detail",

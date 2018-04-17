@@ -41,9 +41,6 @@ export class OptionsPageButtonComponent {
     public dataFAppsProvider: DataFAppsProvider,
     public localStorageProvider: LocalStorageProvider,
     public adminProvider: AdminProvider) {
-      console.log(this.iconKey);
-      this.mdIcon = "md-" + this.iconKey;
-      this.iosIcon = "ios-" + this.iconKey;
   }
 
   /**

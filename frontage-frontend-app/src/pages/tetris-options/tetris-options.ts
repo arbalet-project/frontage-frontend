@@ -13,9 +13,10 @@ import { NavController } from 'ionic-angular';
 })
 export class TetrisOptionsPage {
 
-  fAppOptions: FormGroup;
+  fAppOptions: any;
   fAppPosition: number;
   isAdmin: boolean = false;
+  joystickPage: any = TetrisJoystickPage;
 
   constructor(public navCtrl: NavController,
     public dataFAppsProvider: DataFAppsProvider,
@@ -25,28 +26,10 @@ export class TetrisOptionsPage {
       
     //Check if the connected user is admin
     this.isAdmin = this.localStorageProvider.isAdmin();
-  }
 
-  launchApp() {
-
-    let options = {
-      name: "Tetris",
+    //Init the tetris options to send to the back
+    this.fAppOptions = {
+      name: "Tetris"
     }
-
-    this.dataFAppsProvider.launchFApp(options)
-      .subscribe(response => this.goToNextPage(response));
-  }
-
-  goToNextPage(response) {
-    this.navCtrl.pop();
-    this.navCtrl.push(WaitingPage, { info: response, joystick: TetrisJoystickPage });
-  }
-
-  forceFapp() {
-    let options = {
-      name: "Tetris",
-    };
-    this.adminProvider.launchForcedFApp(options)
-      .subscribe(response => response);
   }
 }

@@ -117,6 +117,9 @@ export class LoginPage {
 
   displayPwd() {
     this.isPwdDisplayed = !this.isPwdDisplayed;
+    if(!this.isPwdDisplayed){
+      this.password ='';
+    }
   }
 
   /**

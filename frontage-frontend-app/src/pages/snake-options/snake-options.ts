@@ -13,9 +13,10 @@ import { NavController } from 'ionic-angular';
 })
 export class SnakeOptionsPage {
 
-  fAppOptions: FormGroup;
   fAppPosition: number;
+  joystickPage: any = SnakeJoystickPage
   isAdmin: boolean = false;
+  fAppOptions: any;
 
   constructor(public navCtrl: NavController,
     public dataFAppsProvider: DataFAppsProvider,
@@ -26,31 +27,9 @@ export class SnakeOptionsPage {
     //Check if the connected user is admin
     this.isAdmin = this.localStorageProvider.isAdmin();
 
-    this.fAppOptions = formBuilder.group({
-      fAppColor: ""
-    });
-  }
-
-  launchApp() {
-
-    let options = {
-      name: "Snake",
+    //Init the snake options to send to the back
+    this.fAppOptions = {
+      name: "Snake"
     }
-
-    this.dataFAppsProvider.launchFApp(options)
-      .subscribe(response => this.goToNextPage(response));
-  }
-
-  goToNextPage(response) {
-    this.navCtrl.pop();
-    this.navCtrl.push(WaitingPage, { info: response, joystick: SnakeJoystickPage });
-  }
-
-  forceFapp() {
-    let options = {
-      name: "Snake",
-    };
-    this.adminProvider.launchForcedFApp(options)
-      .subscribe(response => response);
   }
 }
