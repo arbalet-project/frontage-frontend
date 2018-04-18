@@ -29,10 +29,17 @@ export class SweepRandJoystickPage {
     this.websocketMessageHandler.send('{"uapp":"' + this.selectedParameter + '"}');
   }
 
+  isClosedExternaly: Boolean=false;
   ionViewDidLeave() {
-    this.fAppProvider.stopApp();
+    if (!this.isClosedExternaly) {
+      this.fAppProvider.stopApp();
+    }
   }
 
+  ionViewWillEnter(){
+    this.isClosedExternaly = false;
+  }
+  
   stopFApp() {
     this.navCtrl.pop();
   }

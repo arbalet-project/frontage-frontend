@@ -18,6 +18,8 @@ export class SnakeJoystickPage {
   isExpireSoon: Boolean = false;
 
   isGameOver: Boolean = false;
+  isClosedExternaly: Boolean=false;
+  
 
   constructor(public nicknameGeneratorProvider: NicknameGeneratorProvider, public navCtrl: NavController,
     public navParams: NavParams, public screenOrientation: ScreenOrientation,
@@ -53,7 +55,7 @@ export class SnakeJoystickPage {
   }
 
   ionViewDidLeave() {
-    if (!this.isGameOver) {
+    if (!this.isGameOver && !this.isClosedExternaly) {
       this.fAppProvider.stopApp();
     }
     
@@ -66,9 +68,12 @@ export class SnakeJoystickPage {
   ionViewWillEnter() {
     this.isExpireSoon = false;
     this.isGameOver = false;
+    this.isClosedExternaly = false;
   }
 
   stopFApp() {
     this.navCtrl.pop();
   }
+
+  
 }

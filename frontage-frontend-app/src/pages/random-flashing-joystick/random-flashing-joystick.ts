@@ -12,6 +12,7 @@ export class RandomFlashingJoystickPage {
 
   selectedParameter: string;
   parametersList: string[];
+  isClosedExternaly: Boolean=false;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public fAppProvider:DataFAppsProvider,
     public websocketMessageHandler:WebsocketMessageHandlerProvider) {
@@ -29,11 +30,16 @@ export class RandomFlashingJoystickPage {
   }
 
   ionViewDidLeave(){
-    this.fAppProvider.stopApp();
+    if (!this.isClosedExternaly) {
+      this.fAppProvider.stopApp();
+    }
   }
 
+  ionViewWillEnter(){
+    this.isClosedExternaly = false;
+  }
+  
   stopFApp() {
     this.navCtrl.pop();
   }
-  
 }

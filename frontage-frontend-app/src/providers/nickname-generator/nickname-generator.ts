@@ -29,7 +29,7 @@ export class NicknameGeneratorProvider {
   "vengeuse", "vigoureuse", "vivace", "vigilante", "vorace"];
 
   nounsFrM: string[] = ["asticot", "blaireau", "bonobo",  "cachalot", "canard", "castor", "chacal", "chameau", "chaton", "chimpanzé", "crabe", "chevreuil", "coyote", "dindon", 
-    "drommadaire", "écureuil", "étalon", "guépard", "hippopotame", "hérisson", "hypocampe", "kangourou", "kiwi", "koala", "lama", "lapin", "lémurien", "léopard", "loir", 
+    "dromadaire", "écureuil", "étalon", "guépard", "hippopotame", "hérisson", "hypocampe", "kangourou", "kiwi", "koala", "lama", "lapin", "lémurien", "léopard", "loir", 
     "lynx", "manchot", "matou", "morse", "okapi", "ornythorinque", "ouistiti", "panda", "paresseux", "perroquet", "poney", "porc-épic", "poulpe", "poussin", "phasme", "ragondin", "rhinocéros"
     , "souriceau", "taureau", "tétard", "tigre"];
     

@@ -19,6 +19,7 @@ export class TetrisJoystickPage {
   isExpireSoon: Boolean = false;
 
   isGameOver: Boolean = false;
+  isClosedExternaly: Boolean=false;
 
   constructor(public navParams: NavParams,
     public screenOrientation: ScreenOrientation,
@@ -56,7 +57,7 @@ export class TetrisJoystickPage {
   }
 
   ionViewDidLeave() {
-    if (!this.isGameOver) {
+    if (!this.isGameOver && !this.isClosedExternaly) {
       this.fAppProvider.stopApp();
     }
     
@@ -67,6 +68,7 @@ export class TetrisJoystickPage {
   }
 
   ionViewWillEnter() {
+    this.isClosedExternaly = false;
     this.isExpireSoon = false;
     this.isGameOver = false;
   }

@@ -27,6 +27,7 @@ export class SnapJoystickPage {
 
   updateListSubscription: Subscription;
   isWaiting: Boolean = false;
+  isClosedExternaly: Boolean=false;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public fAppProvider: DataFAppsProvider, public http: HttpClient,
     public websocketMessageHandler: WebsocketMessageHandlerProvider) {
@@ -79,12 +80,15 @@ export class SnapJoystickPage {
     }
   }
 
-  ionViewWillAppear() {
+  ionViewWillEnter() {
     this.isWaiting = false;
+    this.isClosedExternaly = false;
   }
 
   ionViewDidLeave() {
-    this.fAppProvider.stopApp();
+    if (!this.isClosedExternaly) {
+      this.fAppProvider.stopApp();
+    }
     if (this.updateListSubscription) {
       this.updateListSubscription.unsubscribe();
 

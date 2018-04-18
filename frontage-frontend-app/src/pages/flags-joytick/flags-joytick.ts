@@ -12,9 +12,10 @@ export class FlagsJoytickPage {
 
   selectedParameter: string;
   parametersList: string[];
+  isClosedExternaly: Boolean=false;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public fAppProvider: DataFAppsProvider,
-    public websocketMessageHandler:WebsocketMessageHandlerProvider) {
+    public websocketMessageHandler: WebsocketMessageHandlerProvider) {
     let joystickParams = navParams.get('joystickParams');
 
     this.parametersList = joystickParams.parametersList;
@@ -22,17 +23,22 @@ export class FlagsJoytickPage {
 
     websocketMessageHandler.initSocket(navCtrl, this);
   }
-  
-  sendOption(){
+
+  sendOption() {
     this.websocketMessageHandler.send('{"flag": "' + this.selectedParameter + '"}');
   }
 
   stopFApp() {
-    this.navCtrl.pop();
+      this.navCtrl.pop();
   }
 
   ionViewDidLeave() {
-    this.fAppProvider.stopApp();
+    if (!this.isClosedExternaly) {
+      this.fAppProvider.stopApp();
+    }
   }
 
+  ionViewWillEnter(){
+    this.isClosedExternaly = false;
+  }
 }

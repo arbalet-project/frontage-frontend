@@ -11,6 +11,7 @@ import { environment } from '../../app/environment';
 export class SweepAsyncJoystickPage {
 
   socket: WebSocket;
+  isClosedExternaly: Boolean=false;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
     public fAppProvider: DataFAppsProvider, public websocketMessageHandler:WebsocketMessageHandlerProvider) {
@@ -18,9 +19,14 @@ export class SweepAsyncJoystickPage {
     websocketMessageHandler.initSocket(navCtrl, this);
   }
 
-
   ionViewDidLeave() {
-    this.fAppProvider.stopApp();
+    if (!this.isClosedExternaly) {
+      this.fAppProvider.stopApp();
+    }
+  }
+
+  ionViewWillEnter(){
+    this.isClosedExternaly = false;
   }
 
   stopFApp() {

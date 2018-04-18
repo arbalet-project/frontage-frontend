@@ -1,3 +1,4 @@
+import { TranslateService } from '@ngx-translate/core';
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { LocalStorageProvider } from './../../providers/local-storage/local-storage';
@@ -22,14 +23,15 @@ export class LoginPage {
   nextTime: Date;
   userName: string;
   password: string = "";
+  isRefused:Boolean=false;
 
   serverUpSubscription: Subscription;
 
   constructor(private navCtrl: NavController, private authentication: AuthenticationProvider, private time: TimeProvider,
-    nicknameGeneratorProvider: NicknameGeneratorProvider, public localStorageProvider: LocalStorageProvider) {
+    nicknameGeneratorProvider: NicknameGeneratorProvider, public localStorageProvider: LocalStorageProvider,
+    public tranlation: TranslateService) {
 
     this.userName = nicknameGeneratorProvider.generateNickname();
-
   }
 
   ionViewWillEnter() {
@@ -77,6 +79,7 @@ export class LoginPage {
   }
 
   start() {
+    
     //Stop checking the server status
     this.serverUpSubscription.unsubscribe();
 
@@ -113,7 +116,7 @@ export class LoginPage {
       //Change page
       this.navCtrl.push(FAppListPage);
     }else {
-      alert("Mauvais mot de passe ou username");
+      this.isRefused=true;
     }
   }
 

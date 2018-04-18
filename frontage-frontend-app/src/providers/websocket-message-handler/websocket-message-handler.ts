@@ -46,6 +46,7 @@ export class WebsocketMessageHandlerProvider {
       this.showPopUp("GAME_OVER_TITLE", "GAME_OVER", navCtrl);
       this.vibration.vibrate([1000, 100, 1000, 100, 1000]);
     } else if (data.code == this.CODE_CLOSE_APP) {
+      page.isClosedExternaly = true;
       this.showPopUp("CLOSE_APP_TITLE", "GET_OUT", navCtrl);
     } else if (data.code == this.CODE_EXPIRE) {
       this.showPopUp("CLOSE_APP_TITLE", "EXPIRE", navCtrl);
