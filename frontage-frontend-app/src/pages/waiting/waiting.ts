@@ -36,7 +36,7 @@ export class WaitingPage {
     //Get the user login
     this.username = this.localStorage.getUserName();
 
-    this.translateService.get("WAITING_KICK_FROM_QUEUE").subscribe(translatedMesssage => {
+    this.translateService.get("WAITING_KICK_FROM_QUEUE_MESSAGE").subscribe(translatedMesssage => {
       this.alertMessage = translatedMesssage;
     });
 
