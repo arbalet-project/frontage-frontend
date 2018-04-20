@@ -33,7 +33,7 @@
 
     "FAPP_PAGE_TITLE":"Frontage app list",
     "FAPP_PAGE_OPTIONS_BUTTON":"Show settings",
-    "FAPP_PAGE_NO_APP_ALERT":"No application available :(",
+    "FAPP_PAGE_NO_APP_ALERT":"No application available. Is the frontage up ?",
     "FAPP_PAGE_ADMIN_BUTTON":"Admin settings",
 
     "FLAGS_OPTIONS_PAGE_LIST":"Available flags: ",
@@ -88,7 +88,7 @@
     "STARTING":"The applicaiton is starting.",
     "STOP_APP":"Leave queue",
     "WAITING_KICK_FROM_QUEUE_TITLE": "Connection problem",
-    "WAITING_KICK_FROM_QUEUE_MESSAGE": "You have been kicked from the queue.",
+    "WAITING_KICK_FROM_QUEUE_MESSAGE": "You have been disconnected from the server.",
 
     "LANGUAGE_COMPONENT_FR":"FR",
     "LANGUAGE_COMPONENT_EN":"EN",
@@ -105,5 +105,9 @@
     "ERROR_PAGE_TITLE": "Well this is embarrassing ...",
     "ERROR_PAGE_DETAIL": "Error detail",
     "ERROR_PAGE_MESSAGE": "An unknown error appeared ! You may try to reconnect by clicking on the button below.",
-    "ERROR_PAGE_BUTTON": "Reconnect"
+    "ERROR_PAGE_BUTTON": "Reconnect",
+
+    "OFF_MESSAGE": "off",
+    "ON_MESSAGE": "on",
+    "SCHEDULER_MESSAGE":"scheduler"
 }
