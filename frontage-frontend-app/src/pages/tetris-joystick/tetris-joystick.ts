@@ -19,7 +19,6 @@ export class TetrisJoystickPage {
   isExpireSoon: Boolean = false;
 
   isGameOver: Boolean = false;
-  isClosedExternaly: Boolean=false;
 
   constructor(public navParams: NavParams,
     public screenOrientation: ScreenOrientation,
@@ -36,7 +35,7 @@ export class TetrisJoystickPage {
     }
     this.nom = localStorageProvider.getUserName();
 
-    websocketMessageHandler.initSocket(navCtrl, this);
+    websocketMessageHandler.initSocket(navCtrl);
   }
 
   onDown() {
@@ -57,7 +56,7 @@ export class TetrisJoystickPage {
   }
 
   ionViewDidLeave() {
-    if (!this.isGameOver && !this.isClosedExternaly) {
+    if (!this.isGameOver && !this.websocketMessageHandler.isExternalyClaused()) {
       this.fAppProvider.stopApp();
     }
     
@@ -68,7 +67,6 @@ export class TetrisJoystickPage {
   }
 
   ionViewWillEnter() {
-    this.isClosedExternaly = false;
     this.isExpireSoon = false;
     this.isGameOver = false;
   }

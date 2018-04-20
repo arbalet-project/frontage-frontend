@@ -37,7 +37,7 @@ export class SnapJoystickPage {
     this.updateListSubscription = Observable.interval(200)
       .subscribe(x => this.updateList(x));
 
-      websocketMessageHandler.initSocket(navCtrl, this);
+      websocketMessageHandler.initSocket(navCtrl);
   }
 
   updateList(x) {
@@ -82,11 +82,10 @@ export class SnapJoystickPage {
 
   ionViewWillEnter() {
     this.isWaiting = false;
-    this.isClosedExternaly = false;
   }
 
   ionViewDidLeave() {
-    if (!this.isClosedExternaly) {
+    if (!this.websocketMessageHandler.isExternalyClaused()) {
       this.fAppProvider.stopApp();
     }
     if (this.updateListSubscription) {

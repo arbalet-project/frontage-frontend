@@ -22,22 +22,17 @@ export class SweepRandJoystickPage {
     this.parametersList = joystickParams.parametersList;
     this.selectedParameter = joystickParams.selectedParameter;
 
-    websocketMessageHandler.initSocket(navCtrl, this);
+    websocketMessageHandler.initSocket(navCtrl);
   }
 
   sendOption(option) {
     this.websocketMessageHandler.send('{"uapp":"' + this.selectedParameter + '"}');
   }
 
-  isClosedExternaly: Boolean=false;
   ionViewDidLeave() {
-    if (!this.isClosedExternaly) {
+    if (!this.websocketMessageHandler.isExternalyClaused()) {
       this.fAppProvider.stopApp();
     }
-  }
-
-  ionViewWillEnter(){
-    this.isClosedExternaly = false;
   }
   
   stopFApp() {

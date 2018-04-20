@@ -18,7 +18,6 @@ export class SnakeJoystickPage {
   isExpireSoon: Boolean = false;
 
   isGameOver: Boolean = false;
-  isClosedExternaly: Boolean=false;
   
 
   constructor(public nicknameGeneratorProvider: NicknameGeneratorProvider, public navCtrl: NavController,
@@ -34,7 +33,7 @@ export class SnakeJoystickPage {
     }
     this.nom = localStorageProvider.getUserName();
 
-    websocketMessageHandler.initSocket(navCtrl, this);
+    websocketMessageHandler.initSocket(navCtrl);
   }
 
   onUp() {
@@ -55,7 +54,7 @@ export class SnakeJoystickPage {
   }
 
   ionViewDidLeave() {
-    if (!this.isGameOver && !this.isClosedExternaly) {
+    if (!this.isGameOver && !this.websocketMessageHandler.isExternalyClaused()) {
       this.fAppProvider.stopApp();
     }
     
@@ -68,7 +67,6 @@ export class SnakeJoystickPage {
   ionViewWillEnter() {
     this.isExpireSoon = false;
     this.isGameOver = false;
-    this.isClosedExternaly = false;
   }
 
   stopFApp() {
