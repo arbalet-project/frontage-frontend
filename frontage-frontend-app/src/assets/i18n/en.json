@@ -105,5 +105,9 @@
     "ERROR_PAGE_TITLE": "Well this is embarrassing ...",
     "ERROR_PAGE_DETAIL": "Error detail",
     "ERROR_PAGE_MESSAGE": "An unknown error appeared ! You may try to reconnect by clicking on the button below.",
-    "ERROR_PAGE_BUTTON": "Reconnect"
+    "ERROR_PAGE_BUTTON": "Reconnect",
+
+    "OFF_MESSAGE": "off",
+    "ON_MESSAGE": "on",
+    "SCHEDULER_MESSAGE":"scheduler"
 }

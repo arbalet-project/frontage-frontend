@@ -1,3 +1,4 @@
+import { TranslateService } from '@ngx-translate/core';
 import { AuthenticationProvider } from './../../providers/authentication/authentication';
 import { AdminHoursSettings } from './../../models/admin-hours-settings';
 import { AdminProvider } from './../../providers/admin/admin';
@@ -13,19 +14,40 @@ export class SettingPage implements OnInit {
   selectedFrontageState: boolean = false;
   openingHourList: String[] = [];
   closingHourList: String[] = [];
-  frontageStateList: String[] = ['on', 'off', 'scheduled'];
+  frontageStateList: any[] = [];
   selectedOpeningHour: String;
   selectedClosingHour: String;
 
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     public adminProvider: AdminProvider,
-    public authentication: AuthenticationProvider) {
+    public authentication: AuthenticationProvider,
+    public translateService: TranslateService) {
 
     this.initHourList("sunset+", this.openingHourList);
     this.initHourList("sunrise-", this.closingHourList);
+    this.translateService.get("ON_MESSAGE").subscribe(res => {
+      let on = {
+        value: "on",
+        label: res
+      };
+      this.frontageStateList.push(on);
+    });
+    this.translateService.get("OFF_MESSAGE").subscribe(res => {
+      let off = {
+        value: "off",
+        label: res
+      };
+      this.frontageStateList.push(off);
+    });
+    this.translateService.get("SCHEDULER_MESSAGE").subscribe(res => {
+      let scheduled = {
+        value: "scheduled",
+        label: res
+      };
+      this.frontageStateList.push(scheduled);
+    });
   }
-
   /**
    * Init data
    */
