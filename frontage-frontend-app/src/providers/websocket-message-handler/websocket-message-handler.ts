@@ -20,13 +20,14 @@ export class WebsocketMessageHandlerProvider {
 
   socket: WebSocket;
 
-  retryCounter=0;
-  externalClause:Boolean;
+  retryCounter = 0;
+  externalClause: Boolean;
 
-  constructor(private alertCtrl: AlertController, public vibration: Vibration, public tranlation: TranslateService, public toastCtrl:ToastController) {
+  constructor(private alertCtrl: AlertController, public vibration: Vibration, public tranlation: TranslateService, public toastCtrl: ToastController) {
   }
 
   initSocket(navCtrl) {
+    console.log("init web socket -> externalClause = false")
     this.externalClause = false;
     this.socket = new WebSocket(`${environment.webSocketAdress}`);
 
@@ -34,11 +35,11 @@ export class WebsocketMessageHandlerProvider {
     this.socket.onmessage = message => self.handleMessage(message, navCtrl);
 
     this.socket.onopen = function () {
-      self.retryCounter=0
+      self.retryCounter = 0
     }
 
     this.socket.onerror = function () {
-      if(self.retryCounter < 3) {
+      if (self.retryCounter < 3) {
         self.retryCounter += 1;
         setTimeout(self.initSocket(navCtrl), 300);
       } else {
@@ -49,12 +50,12 @@ export class WebsocketMessageHandlerProvider {
     return this.socket;
   }
 
-  isExternalyClaused():Boolean {
+  isExternalyClaused(): Boolean {
     return this.externalClause;
   }
 
   handleMessage(message, navCtrl) {
-     
+
     let data = JSON.parse(message.data);
 
     if (data.code == this.CODE_GAME_OVER) {
@@ -93,13 +94,14 @@ export class WebsocketMessageHandlerProvider {
     toast.onDidDismiss(() => {
       console.log('Dismissed toast');
     });
-  
+
     toast.present();
     this.vibration.vibrate([1000]);
   }
 
   showPopUp(titleKey, messageKey, navCtrl) {
     this.socket.close();
+
     this.externalClause = true;
 
     let popUp = this.alertCtrl.create({
@@ -109,7 +111,7 @@ export class WebsocketMessageHandlerProvider {
         text: 'Ok',
         handler: () => {
           popUp.dismiss().then(() => {
-              navCtrl.pop();
+            navCtrl.pop();
           });
           return false;
         }
@@ -119,7 +121,7 @@ export class WebsocketMessageHandlerProvider {
     popUp.present();
   }
 
-  getTranslation(key){
+  getTranslation(key) {
     let content = "";
     this.tranlation.get(key).subscribe(t => {
       content = t;
@@ -128,8 +130,12 @@ export class WebsocketMessageHandlerProvider {
     return content;
   }
 
-  send(message){
+  send(message) {
     this.socket.send(message);
+  }
+
+  closeSocket() {
+    this.socket.close();
   }
 
 }

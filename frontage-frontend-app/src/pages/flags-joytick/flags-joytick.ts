@@ -28,15 +28,17 @@ export class FlagsJoytickPage {
   }
 
   stopFApp() {
-      this.navCtrl.pop();
+    this.navCtrl.pop();
   }
 
   ionViewDidLeave() {
-    if (this.websocketMessageHandler.isExternalyClaused()) {
+
+    if (!this.websocketMessageHandler.isExternalyClaused()) {
       this.fAppProvider.stopApp();
+      this.websocketMessageHandler.closeSocket();
     }
   }
 
-  ionViewWillEnter(){
+  ionViewWillEnter() {
   }
 }
