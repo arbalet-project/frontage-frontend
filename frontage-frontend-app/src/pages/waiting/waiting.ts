@@ -1,3 +1,4 @@
+import { WebsocketMessageHandlerProvider } from './../../providers/websocket-message-handler/websocket-message-handler';
 import { LocalStorageProvider } from './../../providers/local-storage/local-storage';
 import { TranslateService } from '@ngx-translate/core';
 import { DataFAppsProvider } from './../../providers/data-f-apps/data-f-apps';
@@ -29,7 +30,8 @@ export class WaitingPage {
   positionSubscription: Subscription;
 
   constructor(private alertCtrl: AlertController, public navCtrl: NavController, public navParams: NavParams, public dataFAppsProvider: DataFAppsProvider,
-    public tranlation: TranslateService, public localStorage: LocalStorageProvider, public translateService: TranslateService) {
+    public tranlation: TranslateService, public localStorage: LocalStorageProvider, public translateService: TranslateService,
+    public websocketHandler: WebsocketMessageHandlerProvider) {
 
     //Get the user login
     this.username = this.localStorage.getUserName();

@@ -5,6 +5,12 @@ import { AlertController } from 'ionic-angular';
 import { ToastController } from 'ionic-angular';
 import { Injectable } from '@angular/core';
 
+/*
+  Generated class for the WebsocketMessageHandlerProvider provider.
+
+  See https://angular.io/guide/dependency-injection for more info on providers
+  and Angular DI.
+*/
 @Injectable()
 export class WebsocketMessageHandlerProvider {
   CODE_CLOSE_APP = "1"
@@ -14,7 +20,9 @@ export class WebsocketMessageHandlerProvider {
 
   socket: WebSocket;
 
-  constructor(private alertCtrl: AlertController, public vibration: Vibration, public translation: TranslateService, public toastCtrl:ToastController) {
+  retryCounter=0;
+
+  constructor(private alertCtrl: AlertController, public vibration: Vibration, public tranlation: TranslateService, public toastCtrl:ToastController) {
   }
 
   initSocket(navCtrl, page) {
@@ -25,11 +33,19 @@ export class WebsocketMessageHandlerProvider {
     this.socket.onmessage = message => self.handleMessage(message, navCtrl, page);
 
     this.socket.onopen = function () {
-    };
+      self.retryCounter=0
+    }
 
     this.socket.onerror = function () {
-      throw "Erreur, la connexion websocket a échouée."
+      if(self.retryCounter < 3) {
+        self.retryCounter += 1;
+        setTimeout(self.initSocket(navCtrl, page), 300);
+      } else {
+        throw "Erreur, la connexion websocket a échouée."
+      }
     }
+
+    return this.socket;
   }
 
   handleMessage(message, navCtrl, page) {
@@ -80,6 +96,8 @@ export class WebsocketMessageHandlerProvider {
 
   showPopUp(titleKey, messageKey, navCtrl) {
 
+    this.socket.close();
+
     let popUp = this.alertCtrl.create({
       title: this.getTranslation(titleKey),
       message: this.getTranslation(messageKey),
@@ -99,7 +117,7 @@ export class WebsocketMessageHandlerProvider {
 
   getTranslation(key){
     let content = "";
-    this.translation.get(key).subscribe(t => {
+    this.tranlation.get(key).subscribe(t => {
       content = t;
     });
 
