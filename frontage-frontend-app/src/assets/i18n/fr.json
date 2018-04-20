@@ -34,7 +34,7 @@
 
     "FAPP_PAGE_TITLE":"Sélectionnez une application",
     "FAPP_PAGE_OPTIONS_BUTTON":"Afficher les options",
-    "FAPP_PAGE_NO_APP_ALERT":"Aucune application disponible",
+    "FAPP_PAGE_NO_APP_ALERT":"Aucune application disponible. La façade est-elle allumée ?",
     "FAPP_PAGE_ADMIN_BUTTON":"Paramètres",
 
     "FLAGS_OPTIONS_PAGE_LIST":"Drapeaux disponibles",
@@ -97,7 +97,7 @@
     "STARTING":"L'application est en train de se lancer !",
     "STOP_APP":"Quitter",
     "WAITING_KICK_FROM_QUEUE_TITLE": "Problème de connexion",
-    "WAITING_KICK_FROM_QUEUE_MESSAGE": "Vous avez été éjecté de la file d'attente.",
+    "WAITING_KICK_FROM_QUEUE_MESSAGE": "Vous avez été déconnecté du serveur.",
     
     "LANGUAGE_COMPONENT_FR":"FR",
     "LANGUAGE_COMPONENT_EN":"EN",
