@@ -3,4 +3,11 @@ page-waiting {
     #text{
         color: white;
     }
+    
+    .scroll-content {
+        align-content: center;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+    }
 }

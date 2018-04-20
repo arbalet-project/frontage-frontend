@@ -1,3 +1,4 @@
+import { AuthenticationProvider } from './../../providers/authentication/authentication';
 import { AdminProvider } from './../../providers/admin/admin';
 import { SnapOptionsPage } from './../snap-options/snap-options';
 import { TetrisOptionsPage } from './../tetris-options/tetris-options';
@@ -22,12 +23,14 @@ export class FAppListPage {
   fAppList: FApp[];
   fAppPosition: number;
   isAdmin: boolean = false;
+  isFacadeUp: boolean = false;
 
   constructor(public navCtrl: NavController,
     public fAppsData: DataFAppsProvider,
     public localStorageProvider: LocalStorageProvider,
     public adminProvider: AdminProvider,
-    public dataFAppsProvider : DataFAppsProvider) {
+    public dataFAppsProvider: DataFAppsProvider,
+    public authentication: AuthenticationProvider) {
     //Check if the connected user is admin
     this.isAdmin = this.localStorageProvider.isAdmin();
 
@@ -36,6 +39,12 @@ export class FAppListPage {
       .subscribe(fAppList => this.fAppList = fAppList);
 
     this.dataFAppsProvider.getCurrentApp().subscribe(e => console.log(e));
+
+  }
+
+  ionViewDidEnter() {
+    this.authentication.isFacadeUp()
+      .subscribe(res => this.isFacadeUp = res.is_usable);
   }
 
   showOptions(fApp: FApp) {
@@ -69,7 +78,7 @@ export class FAppListPage {
       }
       case "Tetris": {
         return TetrisOptionsPage;
-      } 
+      }
       case "Snap": {
         return SnapOptionsPage
       }

@@ -3,7 +3,7 @@
 </ion-header>
 
 <ion-content padding class="bg">
-  <div *ngIf="fAppList; else elseBlock;">
+  <div *ngIf="fAppList && isFacadeUp; else elseBlock;">
     <ion-list *ngFor="let fApp of fAppList">
       <ion-grid>
         <ion-row>
@@ -25,7 +25,9 @@
   </div>
 
   <ng-template #elseBlock>
-    <h2>{{"FAPP_PAGE_NO_APP_ALERT" | translate}} </h2>
+    <ion-card>
+      <ion-header id="text">{{"FAPP_PAGE_NO_APP_ALERT" | translate}} </ion-header>
+    </ion-card>
   </ng-template>
 </ion-content>
 

@@ -15,4 +15,15 @@ page-f-app-list {
     a, p, ion-item.item{
         color: #fff;
     }
+    
+    #text{
+        color: white;
+    }
+
+    .scroll-content {
+        align-content: center;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+    }
 }
