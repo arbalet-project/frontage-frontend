@@ -54,8 +54,15 @@ export class SettingPage implements OnInit {
   ngOnInit() {
     this.adminProvider.getCurrentSunsetAndSunDown()
       .subscribe((hoursSettings: AdminHoursSettings) => {
-        this.selectedOpeningHour = this.initHoursFormat(hoursSettings.on);
-        this.selectedClosingHour = this.initHoursFormat(hoursSettings.off);
+        if(hoursSettings.on) 
+            this.selectedOpeningHour = this.initHoursFormat(hoursSettings.on);
+        else
+            this.selectedOpeningHour = "sunset+" + hoursSettings.on_offset;
+
+        if(hoursSettings.off)
+            this.selectedClosingHour = this.initHoursFormat(hoursSettings.off);
+        else
+            this.selectedClosingHour = "sunrise" + hoursSettings.off_offset; // Minus sign is already there
       });
 
     this.authentication.isFacadeUp()

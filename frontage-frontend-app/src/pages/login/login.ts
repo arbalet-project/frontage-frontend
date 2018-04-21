@@ -60,20 +60,20 @@ export class LoginPage {
     if (response) {
       this.isFacadeUp = true;
     } else {
-      this.time.getNextTimeUp().subscribe(response => console.log("Heure : " + JSON.stringify(response)));
       this.time.getNextTimeUp().subscribe(response => this.handleHour(response));
-
       this.isFacadeUp = false;
     }
   }
 
   handleHour(time: string) {
+    let splitted_time: string[] = time.split("T");
 
-    let splitted: string[] = time.split(":");
+    let splitted: string[] = splitted_time[1].split(":");
     let date: Date = new Date();
 
-    date.setUTCHours(parseInt(splitted[0]));
-    date.setUTCMinutes(parseInt(splitted[1]));
+
+    date.setHours(parseInt(splitted[0]));
+    date.setMinutes(parseInt(splitted[1]));
 
     this.nextTime = date;
   }

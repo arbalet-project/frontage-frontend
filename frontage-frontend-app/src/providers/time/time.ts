@@ -13,8 +13,8 @@ export class TimeProvider {
   constructor(public http: HttpClient, public authentication: AuthenticationProvider) {}
 
   getNextTimeUp() :Observable<string>{
-    return this.http.get<any>(this.baseUrl+"/b/admin/cal")
-                    .map(response => response.on);
+    return this.http.get<any>(this.baseUrl+"/frontage/status")
+                    .map(response => response.next_on_time);
   }
 
 }
