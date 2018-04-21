@@ -18,6 +18,8 @@ export class SettingPage implements OnInit {
   selectedOpeningHour: String;
   selectedClosingHour: String;
 
+  lifetime: number;
+
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     public adminProvider: AdminProvider,
@@ -69,6 +71,10 @@ export class SettingPage implements OnInit {
       .subscribe(res => {
         this.selectedFrontageState = res.state
       });
+    this.adminProvider.getLifetime()
+      .subscribe(res => {
+        this.lifetime = res;
+      });
   }
 
   private initHoursFormat(hoursFromBack: String): String {
@@ -106,6 +112,10 @@ export class SettingPage implements OnInit {
 
   updateFrontageState() {
     this.adminProvider.updateFrontageState(this.selectedFrontageState).subscribe();
+  }
+
+  updateLifetime() {
+    this.adminProvider.updateLifetime(this.lifetime).subscribe();
   }
 
   setOpeningHour() {

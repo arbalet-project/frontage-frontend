@@ -101,6 +101,7 @@
     "SETTINGS_PAGE_SHUTDOWN_FRONTAGE_BUTTON":"Frontage up",
     "SETTINGS_PAGE_BACK_BUTTON":"Back to list",
     "SETTINGS_PAGE_UNFORCE_BUTTON":"Unforce FApp",
+    "SETTINGS_PAGE_DEFAULT_LIFETIME": "Lifetime of default applications",
 
     "ERROR_PAGE_TITLE": "Well this is embarrassing ...",
     "ERROR_PAGE_DETAIL": "Error detail",

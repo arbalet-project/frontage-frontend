@@ -70,6 +70,20 @@ export class AdminProvider {
       .catch(error => Observable.of(error));
   }
 
+  public updateLifetime(lifetime: number) {
+    let body = {
+      default_lifetime: lifetime
+    }
+    return this.http
+      .post(this.baseUrl + "/b/admin/settings", body)
+      .catch(error => Observable.of(error));
+  }
+
+  public getLifetime(): Observable<any> {
+    return this.http.get<any>(this.baseUrl + "/b/admin/settings")
+      .map(response => response.default_lifetime);
+  }
+
   /**
    * FApp launching
    */
