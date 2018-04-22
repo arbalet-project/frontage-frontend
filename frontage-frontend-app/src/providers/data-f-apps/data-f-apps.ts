@@ -29,8 +29,7 @@ export class DataFAppsProvider {
   public launchFApp(fAppOptions): Observable<any> {
     let body = fAppOptions;
     return this.http
-      .post<any>(this.baseUrl + "/b/apps/running", body)
-      .catch(error => Observable.of(error));
+      .post<any>(this.baseUrl + "/b/apps/running", body);
   }
 
   public getCurrentApp(): Observable<any> {

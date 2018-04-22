@@ -24,8 +24,8 @@ export class ErrorPage {
     this.navCtrl.popToRoot();
     this.navCtrl.push(LoginPage);
   }
-
-  backButtonAction() {
-    this.goToLoginPage();
+  
+  ionViewDidLeave(){
+   this.goToLoginPage();
   }
 }
