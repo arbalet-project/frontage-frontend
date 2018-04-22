@@ -1,8 +1,7 @@
 import { LocalStorageProvider } from './../../providers/local-storage/local-storage';
 import { AdminProvider } from './../../providers/admin/admin';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder } from '@angular/forms';
 import { TetrisJoystickPage } from './../tetris-joystick/tetris-joystick';
-import { WaitingPage } from './../waiting/waiting';
 import { DataFAppsProvider } from './../../providers/data-f-apps/data-f-apps';
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';

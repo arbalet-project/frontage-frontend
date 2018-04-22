@@ -17,9 +17,11 @@ export class WaitingPage {
   STARTING: string = "";
 
   alertMessage: string = "";
+  alertTitle: string = "";
 
   position: number;
   message: string;
+  
   isLaunched: boolean = false;
   isWaitingServer: boolean = false;
   username: string;
@@ -38,6 +40,9 @@ export class WaitingPage {
 
     this.translateService.get("WAITING_KICK_FROM_QUEUE_MESSAGE").subscribe(translatedMesssage => {
       this.alertMessage = translatedMesssage;
+    });
+    this.translateService.get("WAITING_KICK_FROM_QUEUE_TITLE").subscribe(translatedMesssage => {
+      this.alertTitle = translatedMesssage;
     });
 
     tranlation.get("WAITING_SERVER").subscribe(t => {
@@ -121,7 +126,7 @@ export class WaitingPage {
   }
 
   startApp() {
-    let currentApp: any = this.dataFAppsProvider.getCurrentApp().subscribe(res => {
+    this.dataFAppsProvider.getCurrentApp().subscribe(res => {
       //Check if the user is the owner of the current app
       if (this.username == res.username) {
         this.message = this.STARTING;
@@ -130,7 +135,7 @@ export class WaitingPage {
         });
       } else {
         let popup = this.alertCtrl.create({
-          title: this.alertMessage,
+          title: this.alertTitle,
           message: this.alertMessage,
           buttons: [{
             text: 'Ok',

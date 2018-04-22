@@ -2,7 +2,6 @@ import { WebsocketMessageHandlerProvider } from './../../providers/websocket-mes
 import { DataFAppsProvider } from './../../providers/data-f-apps/data-f-apps';
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { environment } from '../../app/environment';
 
 @Component({
   selector: 'page-random-flashing-joystick',

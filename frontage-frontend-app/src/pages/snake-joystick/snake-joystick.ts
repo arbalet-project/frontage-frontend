@@ -4,7 +4,6 @@ import { DataFAppsProvider } from './../../providers/data-f-apps/data-f-apps';
 import { NicknameGeneratorProvider } from './../../providers/nickname-generator/nickname-generator';
 import { Component } from '@angular/core';
 import { NavParams, NavController, Platform } from 'ionic-angular';
-import { environment } from '../../app/environment';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
 import { LocalStorageProvider } from './../../providers/local-storage/local-storage';
 

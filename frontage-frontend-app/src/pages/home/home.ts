@@ -1,5 +1,3 @@
-import { Subscription } from 'rxjs/Rx';
-import { DataFAppsProvider } from './../../providers/data-f-apps/data-f-apps';
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { NavParams } from 'ionic-angular/navigation/nav-params';

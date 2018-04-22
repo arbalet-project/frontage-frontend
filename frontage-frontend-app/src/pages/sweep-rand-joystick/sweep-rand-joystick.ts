@@ -1,5 +1,4 @@
 import { WebsocketMessageHandlerProvider } from './../../providers/websocket-message-handler/websocket-message-handler';
-import { environment } from './../../app/environment';
 import { DataFAppsProvider } from './../../providers/data-f-apps/data-f-apps';
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
