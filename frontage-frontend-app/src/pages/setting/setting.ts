@@ -142,4 +142,8 @@ export class SettingPage implements OnInit {
       this.adminProvider.setFrontageClosingHour(this.selectedClosingHour).subscribe();
     }
   }
+
+  unForceFApp() {
+    this.adminProvider.unForceFApp().subscribe();
+  }
 }

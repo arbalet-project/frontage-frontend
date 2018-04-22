@@ -32,7 +32,7 @@
     <ion-input type="number" [(ngModel)]="lifetime" min="30" max="1800" (ionChange)="updateLifetime()"></ion-input>
   </ion-item>
   <ion-item>
-    <button ion-button full icon-end color="danger" class="tr">
+    <button ion-button full icon-end color="danger" class="tr" (click)="unForceFApp()">
       {{"SETTINGS_PAGE_UNFORCE_BUTTON" |translate}}
       <ion-icon color="danger" ios="ios-close-circle" md="md-close-circle"></ion-icon>
     </button>

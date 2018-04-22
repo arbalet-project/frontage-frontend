@@ -84,6 +84,12 @@ export class AdminProvider {
       .map(response => response.default_lifetime);
   }
 
+  public unForceFApp(): Observable<any> {
+    return this.http
+      .delete(this.baseUrl + "/b/apps/admin/running")
+      .catch(error => Observable.of(error));
+  }
+
   /**
    * FApp launching
    */
