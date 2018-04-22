@@ -18,6 +18,7 @@ export class ScrollHideDirective {
   }
 
   ngAfterViewInit() {
+    // this.header = document.getElementsByTagName("ion-header")[0];
     this.header = document.getElementsByClassName("shrink")[0];
     this.headerHeight = this.header.clientHeight;
   }

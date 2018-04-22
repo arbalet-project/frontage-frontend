@@ -47,6 +47,7 @@ export class OptionsPageButtonComponent {
    * Button actions
    */
   startFapp() {
+    console.log("startFapp");
     this.dataFAppsProvider.launchFApp(this.fAppOptions)
       .subscribe(response => this.goToNextPage(response));
   }
@@ -65,6 +66,7 @@ export class OptionsPageButtonComponent {
    * Navigation
    */
   goToNextPage(response) {
+    console.log("gotOnexstspqds");
     this.navCtrl.push(WaitingPage, {
       info: response,
       joystick: this.joystickPage,

@@ -35,6 +35,8 @@ export class WaitingPage {
     public tranlation: TranslateService, public localStorage: LocalStorageProvider, public translateService: TranslateService,
     public websocketHandler: WebsocketMessageHandlerProvider) {
 
+    console.log("Waiting in");
+
     //Get the user login
     this.username = this.localStorage.getUserName();
 
