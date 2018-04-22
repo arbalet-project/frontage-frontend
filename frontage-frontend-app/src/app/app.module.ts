@@ -1,3 +1,4 @@
+import { ScrollHideDirective } from './../directives/scroll-hide/scroll-hide';
 import { OptionsPageButtonComponent } from './../components/options-page-button/options-page-button';
 import { Dialogs } from '@ionic-native/dialogs';
 import { SnapOptionsPage } from './../pages/snap-options/snap-options';
@@ -79,7 +80,10 @@ let components:any[] = [
 ];
 
 @NgModule({
-  declarations: components,
+  declarations: [
+    components,
+    ScrollHideDirective
+  ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
