@@ -5,4 +5,10 @@ page-setting {
         border-radius: 5px;
         color: #fff;
     }
+
+    ion-input {
+        input {
+            text-align: right;
+       }   
+    }
 }
