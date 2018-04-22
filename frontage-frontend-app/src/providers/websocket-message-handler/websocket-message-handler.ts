@@ -1,3 +1,4 @@
+import { LocalStorageProvider } from './../local-storage/local-storage';
 import { environment } from './../../app/environment';
 import { TranslateService } from '@ngx-translate/core'
 import { Vibration } from '@ionic-native/vibration';
@@ -23,7 +24,8 @@ export class WebsocketMessageHandlerProvider {
   retryCounter = 0;
   externalClause: Boolean;
 
-  constructor(private alertCtrl: AlertController, public vibration: Vibration, public tranlation: TranslateService, public toastCtrl: ToastController) {
+  constructor(private alertCtrl: AlertController, public vibration: Vibration, public tranlation: TranslateService, 
+    public toastCtrl: ToastController, public localStorage: LocalStorageProvider) {
   }
 
   initSocket(navCtrl) {
@@ -58,25 +60,20 @@ export class WebsocketMessageHandlerProvider {
 
     let data = JSON.parse(message.data);
 
-    if (data.code == this.CODE_GAME_OVER) {
-      this.showPopUp("GAME_OVER_TITLE", "GAME_OVER", navCtrl);
-      this.vibration.vibrate([1000, 100, 1000, 100, 1000]);
-    } else if (data.code == this.CODE_CLOSE_APP) {
-      this.showPopUp("CLOSE_APP_TITLE", "GET_OUT", navCtrl);
-    } else if (data.code == this.CODE_EXPIRE) {
-      this.showPopUp("CLOSE_APP_TITLE", "EXPIRE", navCtrl);
-    } else if (data.code == this.CODE_EXPIRE_SOON) {
-      this.showToast("EXPIRE_SOON");
-      // page.expireSoon = true;
-      // alert("expire soon");
-    } else {
-      // alert("Les data : " + message);
-      console.log("data :");
-      console.log(data);
-      console.log(message.data);
-      // alert("L'erreur :" + erreur);
-      // alert("L'erreur message : " + message.message);
-      // this.showPopUp("UNKNOWN_CODE_TITLE", "UNKNOWN_MESSAGE", navCtrl);
+    if (data.username == this.localStorage.getUserName()) {
+
+      if (data.code == this.CODE_GAME_OVER) {
+        this.showPopUp("GAME_OVER_TITLE", "GAME_OVER", navCtrl);
+        this.vibration.vibrate([1000, 100, 1000, 100, 1000]);
+      } else if (data.code == this.CODE_CLOSE_APP) {
+        this.showPopUp("CLOSE_APP_TITLE", "GET_OUT", navCtrl);
+      } else if (data.code == this.CODE_EXPIRE) {
+        this.showPopUp("CLOSE_APP_TITLE", "EXPIRE", navCtrl);
+      } else if (data.code == this.CODE_EXPIRE_SOON) {
+        this.showToast("EXPIRE_SOON");
+      } else {
+        this.showPopUp("UNKNOWN_CODE_TITLE", "UNKNOWN_MESSAGE", navCtrl);
+      }
     }
   }
 
@@ -107,6 +104,7 @@ export class WebsocketMessageHandlerProvider {
     let popUp = this.alertCtrl.create({
       title: this.getTranslation(titleKey),
       message: this.getTranslation(messageKey),
+      enableBackdropDismiss: false,
       buttons: [{
         text: 'Ok',
         handler: () => {

@@ -1,6 +1,5 @@
 import { LocalStorageProvider } from './../../providers/local-storage/local-storage';
 import { AdminProvider } from './../../providers/admin/admin';
-import { WaitingPage } from './../waiting/waiting';
 import { DataFAppsProvider } from './../../providers/data-f-apps/data-f-apps';
 
 import { Component } from '@angular/core';

@@ -105,15 +105,18 @@ export class WaitingPage {
   }
 
   backButtonClick() {
-    this.backButtonAction();
+    this.navCtrl.pop();
   }
 
   backButtonAction() {
-    this.dataFAppsProvider.quitQueue();
     this.navCtrl.pop();
   }
 
   ionViewWillLeave() {
+    if(!this.isLaunched){
+      this.dataFAppsProvider.quitQueue();
+    }
+
     if (this.positionSubscription) {
       this.positionSubscription.unsubscribe();
       this.positionSubscription = undefined;
@@ -137,6 +140,7 @@ export class WaitingPage {
         let popup = this.alertCtrl.create({
           title: this.alertTitle,
           message: this.alertMessage,
+          enableBackdropDismiss: false,
           buttons: [{
             text: 'Ok',
             handler: () => {
