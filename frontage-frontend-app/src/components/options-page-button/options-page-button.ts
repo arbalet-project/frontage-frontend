@@ -58,7 +58,7 @@ export class OptionsPageButtonComponent {
 
   sendScheduledFappOptions() {
     this.adminProvider.sendScheduledFAppOptions(this.fAppOptions)
-      .subscribe(response => this.goToNextPage(response));
+      .subscribe(response => response);
   }
 
   /**
