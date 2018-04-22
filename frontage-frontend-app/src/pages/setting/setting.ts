@@ -64,7 +64,8 @@ export class SettingPage implements OnInit {
         if(hoursSettings.off)
             this.selectedClosingHour = this.initHoursFormat(hoursSettings.off);
         else
-            this.selectedClosingHour = "sunrise" + hoursSettings.off_offset; // Minus sign is already there
+            // Minus sign is already there
+            this.selectedClosingHour = "sunrise-" + Math.abs(Number(hoursSettings.off_offset)); 
       });
 
     this.authentication.isFacadeUp()
