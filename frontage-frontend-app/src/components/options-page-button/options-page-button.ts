@@ -66,7 +66,6 @@ export class OptionsPageButtonComponent {
    * Navigation
    */
   goToNextPage(response) {
-    console.log("gotOnexstspqds");
     this.navCtrl.push(WaitingPage, {
       info: response,
       joystick: this.joystickPage,
