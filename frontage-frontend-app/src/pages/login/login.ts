@@ -1,3 +1,5 @@
+import { VersionObsoletePage } from './../version-obsolete/version-obsolete';
+import { environment } from './../../app/environment';
 import { TranslateService } from '@ngx-translate/core';
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
@@ -23,7 +25,7 @@ export class LoginPage {
   nextTime: Date;
   userName: string;
   password: string = "";
-  isRefused:Boolean=false;
+  isRefused: Boolean = false;
 
   serverUpSubscription: Subscription;
 
@@ -36,7 +38,7 @@ export class LoginPage {
 
   ionViewWillEnter() {
     this.authentication.isServerUp()
-      .subscribe(isServerUp => this.checkFacade(isServerUp), e => e);
+      .subscribe(response => this.checkFacade(response), e => e);
 
     //If the server is not up check periodicaly his status
     if (!this.isServerUp) {
@@ -47,11 +49,18 @@ export class LoginPage {
     }
   }
 
-  checkFacade(isServerUp: boolean) {
-    if (isServerUp) {
-      this.isServerUp = isServerUp;
-      this.authentication.isFacadeUp()
-        .subscribe(response => this.handleFacadeStatus(response.is_usable));
+  checkFacade(response: any) {
+    let protocolVersion: Number = response.protocol_version;
+    let isServerUp: boolean = response.is_up;
+
+    if (protocolVersion === environment.protocol_version) {
+      if (isServerUp) {
+        this.isServerUp = isServerUp;
+        this.authentication.isFacadeUp()
+          .subscribe(response => this.handleFacadeStatus(response.is_usable));
+      }
+    } else {
+      this.navCtrl.push(VersionObsoletePage);
     }
   }
 
@@ -79,9 +88,6 @@ export class LoginPage {
   }
 
   start() {
-    
-    //Stop checking the server status
-    this.serverUpSubscription.unsubscribe();
 
     //FIXME : Remove for PROD§§§§§
     if (this.password
@@ -91,16 +97,16 @@ export class LoginPage {
     }
 
     //Ask for an authentication token
-    if(this.isPwdDisplayed){
+    if (this.isPwdDisplayed) {
       this.authentication
-      .adminAuth(this.userName, this.password)
-      .subscribe(isAuthenticated =>
-        this.pushPage(isAuthenticated));
-    }else {
+        .adminAuth(this.userName, this.password)
+        .subscribe(isAuthenticated =>
+          this.pushPage(isAuthenticated));
+    } else {
       this.authentication
-      .normalAuth(this.userName)
-      .subscribe(isAuthenticated =>
-        this.pushPage(isAuthenticated));
+        .normalAuth(this.userName)
+        .subscribe(isAuthenticated =>
+          this.pushPage(isAuthenticated));
     }
   }
 
@@ -115,15 +121,15 @@ export class LoginPage {
 
       //Change page
       this.navCtrl.push(FAppListPage);
-    }else {
-      this.isRefused=true;
+    } else {
+      this.isRefused = true;
     }
   }
 
   displayPwd() {
     this.isPwdDisplayed = !this.isPwdDisplayed;
-    if(!this.isPwdDisplayed){
-      this.password ='';
+    if (!this.isPwdDisplayed) {
+      this.password = '';
     }
   }
 
@@ -138,5 +144,10 @@ export class LoginPage {
     if (this.nbHeaderTapped > 0) {
       this.displayPwd();
     }
+  }
+
+  ionViewWillLeave() {
+    //Stop checking the server status
+    this.serverUpSubscription.unsubscribe();
   }
 }

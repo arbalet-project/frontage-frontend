@@ -108,6 +108,9 @@
     "ERROR_PAGE_MESSAGE": "An unknown error appeared ! You may try to reconnect by clicking on the button below.",
     "ERROR_PAGE_BUTTON": "Reconnect",
 
+    "VERSION_OBSOLETE_TITLE": "Updrade Needed",
+    "VERSION_OBSOLETE_MESSAGE":"Sorry, the version of your application is outdated. Please update it from your app store and retry.",
+
     "OFF_MESSAGE": "off",
     "ON_MESSAGE": "on",
     "SCHEDULER_MESSAGE":"scheduler"

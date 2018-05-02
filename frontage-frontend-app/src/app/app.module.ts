@@ -1,3 +1,4 @@
+import { VersionObsoletePage } from './../pages/version-obsolete/version-obsolete';
 import { ScrollHideDirective } from './../directives/scroll-hide/scroll-hide';
 import { OptionsPageButtonComponent } from './../components/options-page-button/options-page-button';
 import { Dialogs } from '@ionic-native/dialogs';
@@ -76,7 +77,8 @@ let components:any[] = [
     SnapJoystickPage,
     SnapOptionsPage,
     SettingPage,
-    OptionsPageButtonComponent
+    OptionsPageButtonComponent,
+    VersionObsoletePage
 ];
 
 @NgModule({

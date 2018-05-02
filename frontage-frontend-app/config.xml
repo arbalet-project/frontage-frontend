@@ -86,5 +86,5 @@
     <plugin name="cordova-plugin-vibration" spec="^3.0.1" />
     <plugin name="cordova-plugin-dialogs" spec="^2.0.1" />
     <engine name="android" spec="6.3.0" />
-    <engine name="ios" spec="~4.5.4" />
+    <engine name="ios" spec="4.5.4" />
 </widget>

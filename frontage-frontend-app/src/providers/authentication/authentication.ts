@@ -20,9 +20,8 @@ export class AuthenticationProvider {
     this.adminAuthEndpoint = "/b/adminlogin";
   }
 
-  public isServerUp(): Observable<boolean> {
-    return this.http.get<any>(this.baseUrl + "/status/is_up")
-      .map(response => response.is_up);
+  public isServerUp(): Observable<any> {
+    return this.http.get<any>(this.baseUrl + "/status/is_up");
   }
 
   public isFacadeUp(): Observable<any> {

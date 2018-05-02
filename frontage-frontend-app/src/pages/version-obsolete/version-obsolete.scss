@@ -1,0 +1,26 @@
+page-version-obsolete {
+
+    // #text {
+    //     color: #fff;
+    //     text-align: center;
+    //     position: relative;
+    //     top: 35%;
+    // }
+
+    ion-card.card{
+        box-shadow: none;
+        background: rgba(0,0,0,0.5);
+        border-radius: 5px;
+        position: relative;
+        top: 30%;
+    }
+
+    ion-card-header.card-header {
+        color: #fff;
+        font-weight: bold;
+    }
+    
+    ion-card-content.card-content {
+        color: #fff;
+    }
+}
