@@ -89,7 +89,7 @@
     "CODE_EXPIRE_TITLE":"Temps écoulé",
     "UNKNOWN_CODE_TITLE":"Erreur inconnue",
 
-    "WAITING":"En attente",
+    "WAITING":"Chargement ...",
     "WAITING_SERVER":"Chargement ...",
     "ALREADY_QUEUED":"Vous ne pouvez lancer qu'une seule application à la fois. Vous êtes déjà dans la file d'attente.",
     "QUEUED":"Vous êtes dans la file d'attente à la position : ",
