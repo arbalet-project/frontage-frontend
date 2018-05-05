@@ -91,9 +91,10 @@ export class SnapJoystickPage {
     }
     if (this.updateListSubscription) {
       this.updateListSubscription.unsubscribe();
-
       this.updateListSubscription = undefined;
     }
+
+    this.websocketMessageHandler.stopKeepAliveSender();
   }
 
   stopFApp() {

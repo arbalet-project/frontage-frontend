@@ -55,4 +55,11 @@ export class DataFAppsProvider {
       response => console.log("ok")
     );
   }
+
+  public sendKeepAlive() {
+    
+    this.http.post(this.baseUrl + "/b/apps/iamalive", "pouet").subscribe(
+      response => console.log("ok")
+    );
+  }
 }

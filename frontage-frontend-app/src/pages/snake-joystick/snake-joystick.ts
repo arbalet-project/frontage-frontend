@@ -61,6 +61,7 @@ export class SnakeJoystickPage {
       this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
       this.screenOrientation.unlock();
     }
+    this.websocketMessageHandler.stopKeepAliveSender();
   }
 
   ionViewWillEnter() {

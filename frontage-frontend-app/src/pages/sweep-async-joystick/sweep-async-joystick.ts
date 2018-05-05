@@ -22,6 +22,7 @@ export class SweepAsyncJoystickPage {
       this.fAppProvider.stopApp();
       this.websocketMessageHandler.closeSocket();
     }
+    this.websocketMessageHandler.stopKeepAliveSender();
   }
 
   stopFApp() {

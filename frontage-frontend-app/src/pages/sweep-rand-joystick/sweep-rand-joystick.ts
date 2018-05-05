@@ -33,6 +33,7 @@ export class SweepRandJoystickPage {
       this.fAppProvider.stopApp();
       this.websocketMessageHandler.closeSocket();
     }
+    this.websocketMessageHandler.stopKeepAliveSender();
   }
   
   stopFApp() {

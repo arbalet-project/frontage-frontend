@@ -36,6 +36,7 @@ export class FlagsJoytickPage {
       this.fAppProvider.stopApp();
       this.websocketMessageHandler.closeSocket();
     }
+    this.websocketMessageHandler.stopKeepAliveSender();
   }
 
   ionViewWillEnter() {

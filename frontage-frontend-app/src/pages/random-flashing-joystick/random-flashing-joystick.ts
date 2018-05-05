@@ -32,6 +32,7 @@ export class RandomFlashingJoystickPage {
       this.fAppProvider.stopApp();
       this.websocketMessageHandler.closeSocket();
     }
+    this.websocketMessageHandler.stopKeepAliveSender();
   }
   
   stopFApp() {

@@ -1,5 +1,4 @@
-import { Directive, SimpleChanges, ElementRef, Input, Renderer } from '@angular/core';
-import { Content } from 'ionic-angular';
+import { Directive, ElementRef, Renderer } from '@angular/core';
 
 @Directive({
   selector: '[scroll-hide]',

@@ -1,3 +1,4 @@
+import { DataFAppsProvider } from './../data-f-apps/data-f-apps';
 import { LocalStorageProvider } from './../local-storage/local-storage';
 import { environment } from './../../app/environment';
 import { TranslateService } from '@ngx-translate/core'
@@ -5,6 +6,7 @@ import { Vibration } from '@ionic-native/vibration';
 import { AlertController } from 'ionic-angular';
 import { ToastController } from 'ionic-angular';
 import { Injectable } from '@angular/core';
+import { Observable, Subscription } from 'rxjs/Rx';
 
 /*
   Generated class for the WebsocketMessageHandlerProvider provider.
@@ -24,8 +26,10 @@ export class WebsocketMessageHandlerProvider {
   retryCounter = 0;
   externalClause: Boolean;
 
-  constructor(private alertCtrl: AlertController, public vibration: Vibration, public tranlation: TranslateService, 
-    public toastCtrl: ToastController, public localStorage: LocalStorageProvider) {
+  keepAliveSender: Subscription;
+
+  constructor(private alertCtrl: AlertController, public vibration: Vibration, public tranlation: TranslateService,
+    public toastCtrl: ToastController, public localStorage: LocalStorageProvider, public appProvider: DataFAppsProvider) {
   }
 
   initSocket(navCtrl) {
@@ -43,12 +47,13 @@ export class WebsocketMessageHandlerProvider {
     this.socket.onerror = function () {
       if (self.retryCounter < 3) {
         self.retryCounter += 1;
-        setTimeout(self.initSocket(navCtrl), 300);
+        setTimeout(() => self.initSocket(navCtrl), 300);
       } else {
         throw "Erreur, la connexion websocket a échouée."
       }
     }
 
+    this.keepAliveSender = Observable.interval(5000).subscribe(() => this.sendKeepAlive())
     return this.socket;
   }
 
@@ -136,4 +141,15 @@ export class WebsocketMessageHandlerProvider {
     this.socket.close();
   }
 
+  sendKeepAlive() {
+    this.appProvider.sendKeepAlive();
+    return true;
+  }
+
+  stopKeepAliveSender() {
+    if (this.keepAliveSender) {
+      this.keepAliveSender.unsubscribe()
+      this.keepAliveSender = undefined;
+    }
+  }
 }
