@@ -21,7 +21,7 @@ export class WaitingPage {
 
   position: number;
   message: string;
-  
+
   isLaunched: boolean = false;
   isWaitingServer: boolean = false;
   username: string;
@@ -34,8 +34,6 @@ export class WaitingPage {
   constructor(private alertCtrl: AlertController, public navCtrl: NavController, public navParams: NavParams, public dataFAppsProvider: DataFAppsProvider,
     public tranlation: TranslateService, public localStorage: LocalStorageProvider, public translateService: TranslateService,
     public websocketHandler: WebsocketMessageHandlerProvider) {
-
-    console.log("Waiting in");
 
     //Get the user login
     this.username = this.localStorage.getUserName();
@@ -107,15 +105,19 @@ export class WaitingPage {
   }
 
   backButtonClick() {
-    this.navCtrl.pop();
+    if (this.message !== this.WAITING_SERVER) {
+      this.navCtrl.pop();
+    }
   }
 
   backButtonAction() {
-    this.navCtrl.pop();
+    if (this.message !== this.WAITING_SERVER) {
+      this.navCtrl.pop();
+    }
   }
 
   ionViewWillLeave() {
-    if(!this.isLaunched){
+    if (!this.isLaunched && this.message !== this.WAITING_SERVER) {
       this.dataFAppsProvider.quitQueue();
     }
 
