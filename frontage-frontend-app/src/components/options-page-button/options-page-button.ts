@@ -1,3 +1,4 @@
+import { Vibration } from '@ionic-native/vibration';
 import { WaitingPage } from './../../pages/waiting/waiting';
 import { NavController } from 'ionic-angular';
 import { AdminProvider } from './../../providers/admin/admin';
@@ -40,24 +41,27 @@ export class OptionsPageButtonComponent {
   constructor(public navCtrl: NavController,
     public dataFAppsProvider: DataFAppsProvider,
     public localStorageProvider: LocalStorageProvider,
-    public adminProvider: AdminProvider) {
+    public adminProvider: AdminProvider,
+    public vibration: Vibration) {
   }
 
   /**
    * Button actions
    */
   startFapp() {
-    console.log("startFapp");
+    this.vibration.vibrate(50);
     this.dataFAppsProvider.launchFApp(this.fAppOptions)
       .subscribe(response => this.goToNextPage(response));
   }
 
   forceFapp() {
+    this.vibration.vibrate(50);
     this.adminProvider.launchForcedFApp(this.fAppOptions)
       .subscribe(response => response);
   }
 
   sendScheduledFappOptions() {
+    this.vibration.vibrate(50);
     this.adminProvider.sendScheduledFAppOptions(this.fAppOptions)
       .subscribe(response => response);
   }

@@ -125,9 +125,12 @@ export class WaitingPage {
       this.positionSubscription.unsubscribe();
       this.positionSubscription = undefined;
     }
+
+    this.navCtrl.swipeBackEnabled = true;
   }
 
   ionViewWillAppear() {
+    this.navCtrl.swipeBackEnabled = false;
     this.isLaunched = false;
     this.isWaitingServer = false;
   }

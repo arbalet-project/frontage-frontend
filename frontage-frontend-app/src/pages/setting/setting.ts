@@ -1,3 +1,4 @@
+import { Vibration } from '@ionic-native/vibration';
 import { TranslateService } from '@ngx-translate/core';
 import { AuthenticationProvider } from './../../providers/authentication/authentication';
 import { AdminHoursSettings } from './../../models/admin-hours-settings';
@@ -24,7 +25,8 @@ export class SettingPage implements OnInit {
     public navParams: NavParams,
     public adminProvider: AdminProvider,
     public authentication: AuthenticationProvider,
-    public translateService: TranslateService) {
+    public translateService: TranslateService,
+    public vibration: Vibration) {
 
     this.initHourList("sunset+", this.openingHourList);
     this.initHourList("sunrise-", this.closingHourList);
@@ -144,6 +146,7 @@ export class SettingPage implements OnInit {
   }
 
   unForceFApp() {
+    this.vibration.vibrate(50)
     this.adminProvider.unForceFApp().subscribe();
   }
 }
