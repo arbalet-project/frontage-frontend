@@ -26,6 +26,7 @@
     "LOGIN_PAGE_USER_LABEL":"Mon sobriquet",
     "LOGIN_PAGE_PWD_LABEL":"Mot de passe",
     "LOGIN_PAGE_START_BUTTON":"Valider",
+    "LOGIN_PAGE_FRONTAGE_NOT_AVAILABLE": "L'administrateur a temporairement désactivé l'accès à Arbalet Frontage. Revenez plus tard",
     "LOGIN_PAGE_FRONTAGE_DOWN_ALERT": "La façade n'est pas active. Elle sera allumée à",
     "LOGIN_PAGE_SERVER_DOWN_ALERT":"Nous ne trouvons pas Arbalet Frontage. Veuillez vous connecter au wifi ARBALET_FRONTAGE puis revenir ici.",
     "LOGIN_PAGE_FOOTER_MESSAGE":"Arbalet Project",
@@ -53,6 +54,9 @@
     "SNAKE_OPTIONS_PAGE_TITLE":"Choisissez vos options",
     "TETRIS_OPTIONS_PAGE_TITLE":"Choisissez vos options",
 
+    "SNAKE_OPTIONS_PAGE_RULE":"Regle du jeu Snake",
+    "TETRIS_OPTIONS_PAGE_RULES":"Regle du jeu Tetris",
+    "SWEEP_ASYNC_OPTIONS_PAGE_RULES":"Regle du jeu => Yoan ajoute texte",
     "OPTIONS_PAGE_NO_OPTIONS": "Cette application ne nécessite pas de paramètre ",
     "OPTIONS_PAGE_START_BUTTON":"Lancer l'application",
 

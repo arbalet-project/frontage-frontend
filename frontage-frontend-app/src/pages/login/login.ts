@@ -18,6 +18,7 @@ export class LoginPage {
 
   isServerUp: boolean = false;
   isFacadeUp: boolean = false;
+  isStateOff:Boolean=false;
   isPwdDisplayed: boolean = false;
   nbHeaderTapped: number = 0;
 
@@ -64,9 +65,12 @@ export class LoginPage {
     }
   }
 
-  handleFacadeStatus(response: boolean) {
+  handleFacadeStatus(response: any) {
 
     if (response) {
+      if(response.state == "off") {
+        this.isStateOff = true;
+      }
       this.isFacadeUp = true;
     } else {
       this.time.getNextTimeUp().subscribe(response => this.handleHour(response));

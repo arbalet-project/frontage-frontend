@@ -25,6 +25,7 @@
     "LOGIN_PAGE_USER_LABEL":"Nickname",
     "LOGIN_PAGE_PWD_LABEL":"Password",
     "LOGIN_PAGE_START_BUTTON":"Confirm",
+    "LOGIN_PAGE_FRONTAGE_NOT_AVAILABLE": "The adminitrator has temporarely disabled access to Arbalet Frontage. Come back later",
     "LOGIN_PAGE_FRONTAGE_DOWN_ALERT": "Arbalet Frontage is not active. It will be available at ",
     "LOGIN_PAGE_SERVER_DOWN_ALERT":"Server is not reachable. Are you nearby the frontage?",
     "LOGIN_PAGE_FOOTER_MESSAGE":"All rights reserved",
@@ -53,6 +54,9 @@
     "SNAKE_OPTIONS_PAGE_TITLE":"Settings",
     "TETRIS_OPTIONS_PAGE_TITLE":"Settings",
 
+    "SNAKE_OPTIONS_PAGE_RULE":"Rules of the game",
+    "TETRIS_OPTIONS_PAGE_RULES":"Rules of the game",
+    "SWEEP_ASYNC_OPTIONS_PAGE_RULES":"Rules of the game",
     "OPTIONS_PAGE_NO_OPTIONS": "No option needed for this app, you can start it now.",
     "OPTIONS_PAGE_START_BUTTON":"Start application",
 

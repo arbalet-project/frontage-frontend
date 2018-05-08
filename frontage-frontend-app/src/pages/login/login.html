@@ -14,18 +14,23 @@
         </ion-item>
         <ion-item *ngIf="isPwdDisplayed">
           <ion-input placeholder="{{'LOGIN_PAGE_PWD_LABEL' | translate}}" [(ngModel)]="password" type="password" clearInput></ion-input>
-        </ion-item>      
+        </ion-item>
         <ion-label *ngIf="isRefused && isPwdDisplayed" color="danger">{{"LOGIN_PAGE_ACCESS_ERROR" | translate}}</ion-label>
       </ion-list>
       <div *ngIf="isFacadeUp || (isPwdDisplayed && isServerUp); else elseBlock;">
         <button ion-button block outline color="light" (click)="start()">{{"LOGIN_PAGE_START_BUTTON" | translate}}</button>
       </div>
       <ng-template #elseBlock>
-        <div *ngIf="isServerUp; else else2Block;">
-          <h2>{{"LOGIN_PAGE_FRONTAGE_DOWN_ALERT" | translate}} {{nextTime | date:"HH'h'mm"}}</h2>
+        <div *ngIf="isStateOff; else else2Block;">
+          <h2>{{"LOGIN_PAGE_FRONTAGE_NOT_AVAILABLE" | translate}}</h2>
         </div>
         <ng-template #else2Block>
-          <h2>{{"LOGIN_PAGE_SERVER_DOWN_ALERT" | translate}}</h2>
+          <div *ngIf="isServerUp; else else3Block;">
+            <h2>{{"LOGIN_PAGE_FRONTAGE_DOWN_ALERT" | translate}} {{nextTime | date:"HH'h'mm"}}</h2>
+          </div>
+          <ng-template #else3Block>
+            <h2>{{"LOGIN_PAGE_SERVER_DOWN_ALERT" | translate}}</h2>
+          </ng-template>
         </ng-template>
       </ng-template>
     </ion-card-content>
