@@ -63,6 +63,8 @@
     "SNAP_OPTIONS_PAGE_TITLE":"Snap",
     "SNAP_OPTIONS_PAGE_START_BUTTON":"Start Snap",
 
+    "SNAKE_JOYSTICK_TITLE":"Snake",
+    "TETRIS_JOYSTICK_TITLE":"Tetris",
     "SNAP_JOYSTICK_PAGE_TITLE":"Snap clients",
 
     "FLAGS_JOYSTICK_PAGE_TITLE":"Flags",

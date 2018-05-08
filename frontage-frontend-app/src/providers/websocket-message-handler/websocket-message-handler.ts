@@ -91,8 +91,6 @@ export class WebsocketMessageHandlerProvider {
       position: 'top'
     });
 
-    toast.setShowCloseButton(true);
-
     toast.onDidDismiss(() => {
       console.log('Dismissed toast');
     });
