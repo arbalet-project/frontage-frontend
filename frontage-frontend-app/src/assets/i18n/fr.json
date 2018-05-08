@@ -54,10 +54,10 @@
     "SNAKE_OPTIONS_PAGE_TITLE":"Choisissez vos options",
     "TETRIS_OPTIONS_PAGE_TITLE":"Choisissez vos options",
 
-    "SNAKE_OPTIONS_PAGE_RULE":"Regle du jeu Snake",
-    "TETRIS_OPTIONS_PAGE_RULES":"Regle du jeu Tetris",
-    "SWEEP_ASYNC_OPTIONS_PAGE_RULES":"Regle du jeu => Yoan ajoute texte",
-    "OPTIONS_PAGE_NO_OPTIONS": "Cette application ne nécessite pas de paramètre ",
+    "SNAKE_OPTIONS_PAGE_RULE":"Incarnez un serpent rouge et mangez les pommes vertes. Vous pouvez traverser les mûrs, dans ce cas vous atterissez de l'autre côté, mais attention à ne pas mordre votre queue ! Les pixels du perron, bien qu'inexistants, font partie du jeu.",
+    "TETRIS_OPTIONS_PAGE_RULES":"Eliminez le plus possible de colonnes. Les tetrominos tombent de gauche à droite, vous pouvez les faire pivoter avec le bouton d'action. Les pixels du perron, bien qu'inexistants, font partie du jeu.",
+    "SWEEP_ASYNC_OPTIONS_PAGE_RULES":"Vous allez voir défiler toute la roue des couleurs, chaque fenêtre à son rythme.",
+    "OPTIONS_PAGE_NO_OPTIONS": "Cette application ne nécessite pas de paramètre.",
     "OPTIONS_PAGE_START_BUTTON":"Lancer l'application",
 
     "SNAP_OPTIONS_PAGE_TITLE":"Snap",
@@ -67,7 +67,7 @@
 
     "FLAGS_JOYSTICK_PAGE_TITLE":"Drapeaux",
     "SR_JOYSTICK_PAGE_TITLE":"Changer de thème",
-    "SA_JOYSTICK_PAGE_TITLE":"Sweep Async",
+    "SA_JOYSTICK_PAGE_TITLE":"Couleurs duelles",
 
     "COLOR_APP_OPTIONS_PAGE_COLOR_LABEL":"Couleur : ",
     "DARKBLUE":"Bleu Foncé",
