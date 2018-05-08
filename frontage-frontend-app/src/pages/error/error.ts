@@ -1,3 +1,4 @@
+import { HomePage } from './../home/home';
 import { LoginPage } from './../login/login';
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
@@ -19,13 +20,13 @@ export class ErrorPage {
     this.isDisplayed = !this.isDisplayed;
   }
 
-  goToLoginPage(){
-    //Change page
-    this.navCtrl.popToRoot();
-    this.navCtrl.push(LoginPage);
+  quitPage() {
+    this.navCtrl.push(LoginPage).then(() => this.navCtrl.remove(this.navCtrl.getPrevious().index))
   }
   
-  ionViewDidLeave(){
-   this.goToLoginPage();
+  ionViewDidEnter(){
+    while((this.navCtrl.getPrevious() != this.navCtrl.getByIndex(0)) && (this.navCtrl.getActive() !=  this.navCtrl.getByIndex(0))) {
+      this.navCtrl.remove(this.navCtrl.getPrevious().index);
+    }
   }
 }
