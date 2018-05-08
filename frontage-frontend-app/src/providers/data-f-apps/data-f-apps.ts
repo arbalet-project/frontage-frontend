@@ -15,7 +15,7 @@ export class DataFAppsProvider {
 
   baseUrl: string;
 
-  constructor(public http: HttpClient, public authentication: AuthenticationProvider, 
+  constructor(public http: HttpClient, public authentication: AuthenticationProvider,
     public ionicHttp: HTTP, public localStorageProvider: LocalStorageProvider,
     public platform: Platform) {
 
@@ -51,16 +51,29 @@ export class DataFAppsProvider {
   }
 
   public stopApp() {
-    // if (this.platform.is('cordova')) {
+    if (this.platform.is('cordova')) {
       const token = 'Bearer ' + this.localStorageProvider.getAuthToken();
       this.ionicHttp.delete(this.baseUrl + "/b/apps/running", {}, { 'Content-Type': 'application/json', 'Authorization': token })
         .then(response => console.log("ok"))
         .catch(error => this.handleDeleteError(error))
-    // } else {
-    //   this.http.delete(this.baseUrl + "/b/apps/running").subscribe(
-    //       response => console.log("ok")
-    //     );
-    // }
+    } else {
+      this.http.delete(this.baseUrl + "/b/apps/running").subscribe(
+        response => console.log("ok")
+      );
+    }
+  }
+
+  public quitQueue() {
+    if (this.platform.is('cordova')) {
+      const token = 'Bearer ' + this.localStorageProvider.getAuthToken();
+      this.ionicHttp.delete(this.baseUrl + "/b/apps/position", {}, { 'Content-Type': 'application/json', 'Authorization': token })
+        .then(response => console.log("ok"))
+        .catch(error => this.handleDeleteError(error))
+    } else {
+      this.http.delete(this.baseUrl + "/b/apps/position").subscribe(
+        response => console.log("ok")
+      );
+    }
   }
 
   private handleDeleteError(error) {
@@ -71,11 +84,6 @@ export class DataFAppsProvider {
     }
   }
 
-  public quitQueue() {
-    this.http.delete(this.baseUrl + "/b/apps/position").subscribe(
-      response => console.log("ok")
-    );
-  }
 
   public sendKeepAlive() {
 
