@@ -94,11 +94,11 @@ export class LoginPage {
   start() {
 
     //FIXME : Remove for PROD§§§§§
-    if (this.password
-      && this.password.length > 0) {
-      this.password = "frontagepassword";
-      this.userName = "frontageadmin";
-    }
+    // if (this.password
+    //   && this.password.length > 0) {
+    //   this.password = "frontagepassword";
+    //   this.userName = "frontageadmin";
+    // }
 
     //Ask for an authentication token
     if (this.isPwdDisplayed) {
@@ -145,7 +145,7 @@ export class LoginPage {
   headerTapEvent(event) {
     this.nbHeaderTapped++;
 
-    if (this.nbHeaderTapped > 0) {
+    if (this.nbHeaderTapped > 8) {
       this.displayPwd();
     }
   }
