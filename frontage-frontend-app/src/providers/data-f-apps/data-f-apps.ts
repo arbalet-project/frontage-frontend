@@ -54,30 +54,9 @@ export class DataFAppsProvider {
     this.http.get(this.baseUrl + "/b/apps/quit").subscribe(
       response => console.log("ok")
     );
-    
-    // if (this.platform.is('cordova')) {
-    //   const token = 'Bearer ' + this.localStorageProvider.getAuthToken();
-    //   this.ionicHttp.delete(this.baseUrl + "/b/apps/running", {}, { 'Content-Type': 'application/json', 'Authorization': token })
-    //     .then(response => console.log("ok"))
-    //     .catch(error => this.handleDeleteError(error))
-    // } else {
-    //   this.http.get(this.baseUrl + "/b/apps/running").subscribe(
-    //     response => console.log("ok")
-    //   );
-    // }
   }
 
   public quitQueue() {
-    // if (this.platform.is('cordova')) {
-    //   const token = 'Bearer ' + this.localStorageProvider.getAuthToken();
-    //   this.ionicHttp.delete(this.baseUrl + "/b/apps/position", {}, { 'Content-Type': 'application/json', 'Authorization': token })
-    //     .then(response => console.log("ok"))
-    //     .catch(error => this.handleDeleteError(error))
-    // } else {
-    //   this.http.delete(this.baseUrl + "/b/apps/position").subscribe(
-    //     response => console.log("ok")
-    //   );
-    // }
     this.http.delete(this.baseUrl + "/b/queue/quit").subscribe(
       response => console.log("ok")
     );
