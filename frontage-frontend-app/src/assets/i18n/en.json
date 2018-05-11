@@ -26,8 +26,8 @@
     "LOGIN_PAGE_USER_LABEL":"Nickname",
     "LOGIN_PAGE_PWD_LABEL":"Password",
     "LOGIN_PAGE_START_BUTTON":"Confirm",
-    "LOGIN_PAGE_FRONTAGE_NOT_AVAILABLE": "The adminitrator has temporarely disabled access to Arbalet Frontage. Come back later",
-    "LOGIN_PAGE_FRONTAGE_DOWN_ALERT": "Arbalet Frontage is not active. It will be available at ",
+    "LOGIN_PAGE_FRONTAGE_NOT_AVAILABLE": "Adminitrator has disabled Arbalet Frontage. Come back later.",
+    "LOGIN_PAGE_FRONTAGE_DOWN_ALERT": "Arbalet Frontage is not on yet. Come back from ",
     "LOGIN_PAGE_SERVER_DOWN_ALERT":"We can't find Arbalet Frontage. Connect to wifi network ARBALET_FRONTAGE and come back here.",
     "LOGIN_PAGE_FOOTER_MESSAGE":"Arbalet Project",
     "LOGIN_PAGE_FORM_TITLE":"Select your nickname",
@@ -80,7 +80,7 @@
     "SETTINGS_PAGE_OPENING_HOUR":"Opening hour",
     "SETTINGS_PAGE_CLOSING_HOUR":"Closing hour",
     "SETTINGS_PAGE_CLEAR_QUEUE_BUTTON":"Clear user queue",
-    "SETTINGS_PAGE_SHUTDOWN_FRONTAGE_BUTTON":"Frontage up",
+    "SETTINGS_PAGE_SHUTDOWN_FRONTAGE_BUTTON":"ON/OFF",
     "SETTINGS_PAGE_BACK_BUTTON":"Back to list",
     "SETTINGS_PAGE_UNFORCE_BUTTON":"Unforce app",
     "SETTINGS_PAGE_DEFAULT_LIFETIME": "Lifetime of default applications",
@@ -117,5 +117,5 @@
 
     "OFF_MESSAGE": "forced off",
     "ON_MESSAGE": "forced on",
-    "SCHEDULER_MESSAGE":"daily schedule"
+    "SCHEDULER_MESSAGE":"According to daily schedule"
 }

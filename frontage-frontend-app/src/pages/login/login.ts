@@ -58,7 +58,7 @@ export class LoginPage {
       if (isServerUp) {
         this.isServerUp = isServerUp;
         this.authentication.isFacadeUp()
-          .subscribe(response => this.handleFacadeStatus(response.is_usable));
+          .subscribe(response => this.handleFacadeStatus(response));
       }
     } else {
       this.navCtrl.push(VersionObsoletePage);
@@ -66,15 +66,17 @@ export class LoginPage {
   }
 
   handleFacadeStatus(response: any) {
-
     if (response) {
       if(response.state == "off") {
         this.isStateOff = true;
       }
-      this.isFacadeUp = true;
-    } else {
-      this.time.getNextTimeUp().subscribe(response => this.handleHour(response));
-      this.isFacadeUp = false;
+      else if(response.is_usable) {
+        this.isFacadeUp = true;
+      }
+      else {
+        this.time.getNextTimeUp().subscribe(response => this.handleHour(response));
+        this.isFacadeUp = false;
+      }
     }
   }
 
@@ -140,7 +142,7 @@ export class LoginPage {
   /**
    * If the user tap the header more than 7, display the password field
    * If the user keep tapping, the field will hide/show depending on its state.
-   * @param event 
+   * @param event
    */
   headerTapEvent(event) {
     this.nbHeaderTapped++;
