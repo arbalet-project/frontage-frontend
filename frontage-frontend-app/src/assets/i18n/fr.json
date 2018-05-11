@@ -4,7 +4,7 @@
     "HOME_PAGE_MESSAGE_2": "71 pixels colorés s'illuminent le long des fenêtres extérieures du bâtiment en soirée.",
     "HOME_PAGE_MESSAGE_3": "En poursuivant vous pourrez changer les couleurs, jouer à Tetris et Snake, ou même apprendre un langage de programmation lors d'un atelier encadré par un formateur ",
     "HOME_PAGE_HREF_MESSAGE": "consulter la date du prochain atelier",
-   
+
     "FLAGS":"Drapeaux",
     "RANDOMFLASHING": "Étincelles",
     "SWEEPASYNC": "Roue des couleurs",
@@ -18,7 +18,7 @@
     "SWEEPASYNC_DESCRIPTION":"Visualisez toute la roue des couleurs, chaque fenêtre à son rythme.",
     "SWEEPRAND_DESCRIPTION":"Animez Arbalet Frontage de deux couleurs duelles.",
     "SNAKE_DESCRIPTION": "Incarnez un serpent et mangez des pommes.",
-    "SNAP_DESCRIPTION": "Démarrer un atelier de programmation créative.", 
+    "SNAP_DESCRIPTION": "Démarrer un atelier de programmation créative.",
     "TETRIS_DESCRIPTION": "Jouer à l'emblématique Tetris sur une façade géante !",
 
     "HOME_PAGE_START_BUTTON":"C'est parti !",
@@ -35,7 +35,7 @@
 
     "FAPP_PAGE_TITLE":"Sélectionnez une application",
     "FAPP_PAGE_OPTIONS_BUTTON":"Afficher les options",
-    "FAPP_PAGE_NO_APP_ALERT":"Aucune application disponible. La façade est-elle allumée ?",
+    "FAPP_PAGE_NO_APP_ALERT":"Vous ne pouvez lancer aucune application car l'administrateur a verrouillé Arbalet Frontage. Veuillez réessayer plus tard.",
     "FAPP_PAGE_ADMIN_BUTTON":"Paramètres",
 
     "FLAGS_OPTIONS_PAGE_LIST":"Drapeaux disponibles",
@@ -43,16 +43,16 @@
     "GERMANY":"Allemand",
     "SPAIN":"Espagnol",
     "ITALY":"Italien",
-    
+
     "OPTIONS_PAGE_FORCE_START_BUTTON":"Forcer l'application",
     "OPTIONS_PAGE_SEND_SCHEDULER_OPTION_BUTTON":"Envoyer options app ordonnancée",
 
     "FLAGS_OPTIONS_PAGE_TITLE":"Choisissez votre drapeau",
     "RF_OPTIONS_PAGE_TITLE":"Choisissez vos couleurs",
-    "SA_OPTIONS_PAGE_TITLE":"Choisissez vos couleurs",
+    "SA_OPTIONS_PAGE_TITLE":"Roue des couleurs",
     "SR_OPTIONS_PAGE_TITLE":"Choisissez vos couleurs",
-    "SNAKE_OPTIONS_PAGE_TITLE":"Choisissez vos options",
-    "TETRIS_OPTIONS_PAGE_TITLE":"Choisissez vos options",
+    "SNAKE_OPTIONS_PAGE_TITLE":"Règles du jeu",
+    "TETRIS_OPTIONS_PAGE_TITLE":"Règles du jeu",
 
     "SNAKE_OPTIONS_PAGE_RULE":"Incarnez un serpent rouge et mangez les pommes vertes. Vous pouvez traverser les mûrs, dans ce cas vous atterissez de l'autre côté, mais attention à ne pas mordre votre queue ! Les pixels du perron, bien qu'inexistants, font partie du jeu.",
     "TETRIS_OPTIONS_PAGE_RULES":"Eliminez le plus possible de colonnes. Les tetrominos tombent de gauche à droite, vous pouvez les faire pivoter avec le bouton d'action. Les pixels du perron, bien qu'inexistants, font partie du jeu.",
@@ -65,8 +65,8 @@
 
     "SNAKE_JOYSTICK_TITLE":"Snake",
     "TETRIS_JOYSTICK_TITLE":"Tetris",
+    "RF_JOYSTICK_TITLE":"Changer de thème",
     "SNAP_JOYSTICK_PAGE_TITLE":"Sélection des clients",
-
     "FLAGS_JOYSTICK_PAGE_TITLE":"Drapeaux",
     "SR_JOYSTICK_PAGE_TITLE":"Changer de thème",
     "SA_JOYSTICK_PAGE_TITLE":"Roue des couleurs",
@@ -95,17 +95,17 @@
     "CODE_EXPIRE_TITLE":"Temps écoulé",
     "UNKNOWN_CODE_TITLE":"Erreur inconnue",
 
-    "WAITING":"Chargement ...",
-    "WAITING_SERVER":"Chargement ...",
-    "ALREADY_QUEUED":"Vous ne pouvez lancer qu'une seule application à la fois. Vous êtes déjà dans la file d'attente.",
-    "QUEUED":"Vous êtes dans la file d'attente à la position : ",
-    "STARTING":"L'application est en train de se lancer...",
-    "STOP_APP":"Quitter",
-    "WAITING_KICK_FROM_QUEUE_TITLE": "Problème de connexion",
-    "WAITING_KICK_FROM_QUEUE_MESSAGE": "Vous avez été déconnecté du serveur.",
-    
     "LANGUAGE_COMPONENT_FR":"FR",
     "LANGUAGE_COMPONENT_EN":"EN",
+
+    "WAITING":"Chargement ...",
+    "WAITING_SERVER":"Chargement ...",
+    "ALREADY_QUEUED":"Vous ne pouvez lancer qu'une seule application à la fois. Attendez une minute que votre précédente application termine sa fermeture.",
+    "QUEUED":"Vous êtes dans la file d'attente à la position : ",
+    "STARTING":"Démarrage ...",
+    "STOP_APP":"Quitter",
+    "WAITING_KICK_FROM_QUEUE_TITLE": "Accès refusé",
+    "WAITING_KICK_FROM_QUEUE_MESSAGE": "Désolé, vous n'avez plus l'autorisation de jouer.",
 
     "ERROR_PAGE_TITLE": "Oups ! C'est embarrassant ...",
     "ERROR_PAGE_DETAIL": "Détail de l'erreur",
@@ -115,7 +115,7 @@
     "VERSION_OBSOLETE_TITLE": "Mise à jour nécessaire",
     "VERSION_OBSOLETE_MESSAGE":"Désolé, la version de votre application n'est plus à jour avec Arbalet Frontage. Veuillez la mettre à jour depuis le store puis réessayez.",
 
-    "OFF_MESSAGE": "arrêt",
-    "ON_MESSAGE": "marche",
-    "SCHEDULER_MESSAGE":"ordonnancé"
+    "OFF_MESSAGE": "Arrêt forcé",
+    "ON_MESSAGE": "Marche forcée",
+    "SCHEDULER_MESSAGE": "Planning quotidien"
 }

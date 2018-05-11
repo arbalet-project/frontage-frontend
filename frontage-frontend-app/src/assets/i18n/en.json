@@ -1,7 +1,7 @@
 {
     "HOME_PAGE_APP_TITLE": "Arbalet Frontage",
-    "HOME_PAGE_MESSAGE_1": "Welcome! You are connected to the interactive facade of building A1 of Bordeaux University.",
-    "HOME_PAGE_MESSAGE_2": "71 colorful pixels enlight all the building's windows.",
+    "HOME_PAGE_MESSAGE_1": "Welcome! Arbalet Frontage is the interactive facade of building A1 of Bordeaux University.",
+    "HOME_PAGE_MESSAGE_2": "71 colorful pixels en all the building's windows.",
     "HOME_PAGE_MESSAGE_3": "By using this app, you will be able to change colors of the facade, enjoy retrogaming such as Tetris Snake and more, or even learn computer program during special workshops with a trainer  ",
     "HOME_PAGE_HREF_MESSAGE": "check the date of the next workshop",
 
@@ -13,12 +13,13 @@
     "SNAP": "Snap",
     "TETRIS": "Tetris",
 
-    "FLAGS_DESCRIPTION":"Light Arbalet Frontage to the colors of your country!",
+    "FLAGS_DESCRIPTION":"Enlighten Arbalet Frontage to the colors of your country!",
     "RANDOMFLASHING_DESCRIPTION":"Make Arbalet Frontage slowly flashing.",
     "SWEEPASYNC_DESCRIPTION":"Display the full color whell, each window at a different pace.",
     "SWEEPRAND_DESCRIPTION":"Animate Arbalet Frontage with dual colors.",
     "SNAKE_DESCRIPTION": "Play a Snake and eat apples.",
-    "SNAP_DESCRIPTION": "Learning computer programming with a playful and creative approach by creating your own light animation thanks to this visual programming language  ", 
+    "SNAP_DESCRIPTION": "Learning computer programming with a playful and creative approach by creating your own light animation thanks to this visual programming language  ",
+    "TETRIS_DESCRIPTION": "Play this well known arcade game on a giant facade",
 
     "HOME_PAGE_START_BUTTON":"Let's go!",
 
@@ -27,14 +28,14 @@
     "LOGIN_PAGE_START_BUTTON":"Confirm",
     "LOGIN_PAGE_FRONTAGE_NOT_AVAILABLE": "The adminitrator has temporarely disabled access to Arbalet Frontage. Come back later",
     "LOGIN_PAGE_FRONTAGE_DOWN_ALERT": "Arbalet Frontage is not active. It will be available at ",
-    "LOGIN_PAGE_SERVER_DOWN_ALERT":"Server is not reachable. Are you nearby the frontage?",
-    "LOGIN_PAGE_FOOTER_MESSAGE":"All rights reserved",
+    "LOGIN_PAGE_SERVER_DOWN_ALERT":"We can't find Arbalet Frontage. Connect to wifi network ARBALET_FRONTAGE and come back here.",
+    "LOGIN_PAGE_FOOTER_MESSAGE":"Arbalet Project",
     "LOGIN_PAGE_FORM_TITLE":"Select your nickname",
     "LOGIN_PAGE_ACCESS_ERROR":"Your username or password is incorrect",
 
     "FAPP_PAGE_TITLE":"Frontage app list",
     "FAPP_PAGE_OPTIONS_BUTTON":"Show settings",
-    "FAPP_PAGE_NO_APP_ALERT":"No application available. Is the frontage up?",
+    "FAPP_PAGE_NO_APP_ALERT":"You cannot start any app because administrator locked Arbalet Frontage. Please try again later.",
     "FAPP_PAGE_ADMIN_BUTTON":"Admin settings",
 
     "FLAGS_OPTIONS_PAGE_LIST":"Available flags: ",
@@ -42,11 +43,10 @@
     "GERMANY":"German",
     "SPAIN":"Spanish",
     "ITALY":"Italian",
-    "FLAGS_OPTIONS_PAGE_QUEUE_ALERT":"Wait a little, you are queued in position: ",
 
     "OPTIONS_PAGE_FORCE_START_BUTTON":"Force application",
     "OPTIONS_PAGE_SEND_SCHEDULER_OPTION_BUTTON":"Send scheduled app options",
-    
+
     "FLAGS_OPTIONS_PAGE_TITLE":"Settings",
     "RF_OPTIONS_PAGE_TITLE":"Settings",
     "SA_OPTIONS_PAGE_TITLE":"Settings",
@@ -66,47 +66,46 @@
     "SNAKE_JOYSTICK_TITLE":"Snake",
     "TETRIS_JOYSTICK_TITLE":"Tetris",
     "SNAP_JOYSTICK_PAGE_TITLE":"Snap clients",
-
+    "RF_JOYSTICK_TITLE":"Change theme",
     "FLAGS_JOYSTICK_PAGE_TITLE":"Flags",
     "SR_JOYSTICK_PAGE_TITLE":"Change theme",
     "SA_JOYSTICK_PAGE_TITLE":"Color wheel",
-    
+
     "COLOR_APP_OPTIONS_PAGE_COLOR_LABEL":"Color: ",
     "DARKBLUE":"Dark Blue",
     "DEEPPINK":"Pink",
     "COLOR_APP_OPTIONS_PAGE_START_BUTTON":"Start application",
 
+    "SETTINGS_PAGE_TITLE":"Settings",
+    "SETTINGS_PAGE_OPENING_HOUR":"Opening hour",
+    "SETTINGS_PAGE_CLOSING_HOUR":"Closing hour",
+    "SETTINGS_PAGE_CLEAR_QUEUE_BUTTON":"Clear user queue",
+    "SETTINGS_PAGE_SHUTDOWN_FRONTAGE_BUTTON":"Frontage up",
+    "SETTINGS_PAGE_BACK_BUTTON":"Back to list",
+    "SETTINGS_PAGE_UNFORCE_BUTTON":"Unforce app",
+    "SETTINGS_PAGE_DEFAULT_LIFETIME": "Lifetime of default applications",
+
     "GET_OUT":"Your turn is over.",
-    "GAME_OVER":"Game Over :)",
+    "GAME_OVER":"Game Over, you lose :)",
     "EXPIRE_SOON":"Your turn might end soon",
     "EXPIRE":"Your turn is over, it is time to let other people play!",
     "UNKNOWN_MESSAGE":"An unknown error happened: ",
     "GAME_OVER_TITLE":"Game Over",
     "CLOSE_APP_TITLE":"Application finished",
-    "CODE_EXPIRE_TITLE":"Time out",
+    "CODE_EXPIRE_TITLE":"Time is over",
     "UNKNOWN_CODE_TITLE":"Unknown Error",
-
-    "WAITING":"Loading...",
-    "WAITING_SERVER":"Loading...",
-    "ALREADY_QUEUED":"You can start only one application at a time. Wait until the previous app expire.",
-    "QUEUED":"You are queued at position: ",
-    "STARTING":"The applicaiton is starting...",
-    "STOP_APP":"Leave queue",
-    "WAITING_KICK_FROM_QUEUE_TITLE": "Connection problem",
-    "WAITING_KICK_FROM_QUEUE_MESSAGE": "You have been disconnected from the server.",
 
     "LANGUAGE_COMPONENT_FR":"FR",
     "LANGUAGE_COMPONENT_EN":"EN",
 
-    "SETTINGS_PAGE_TITLE":"Settings",
-    "SETTINGS_PAGE_OPENING_HOUR":"Opening hour",
-    "SETTINGS_PAGE_CLOSING_HOUR":"Closing hour",
-    "SETTINGS_PAGE_CLEAR_QUEUE_LABEL":"Empty player queue",
-    "SETTINGS_PAGE_CLEAR_QUEUE_BUTTON":"Clear queue",
-    "SETTINGS_PAGE_SHUTDOWN_FRONTAGE_BUTTON":"Frontage up",
-    "SETTINGS_PAGE_BACK_BUTTON":"Back to list",
-    "SETTINGS_PAGE_UNFORCE_BUTTON":"Unforce app",
-    "SETTINGS_PAGE_DEFAULT_LIFETIME": "Lifetime of default applications",
+    "WAITING":"Loading...",
+    "WAITING_SERVER":"Loading...",
+    "ALREADY_QUEUED":"You can start only one application at a time. Please wait a little while your previous app is closing.",
+    "QUEUED":"You are queued at position: ",
+    "STARTING":"Starting...",
+    "STOP_APP":"Leave queue",
+    "WAITING_KICK_FROM_QUEUE_TITLE": "Access denied",
+    "WAITING_KICK_FROM_QUEUE_MESSAGE": "Sorry, you can no longer play.",
 
     "ERROR_PAGE_TITLE": "Well, this is embarrassing...",
     "ERROR_PAGE_DETAIL": "Error detail",
@@ -116,7 +115,7 @@
     "VERSION_OBSOLETE_TITLE": "Upgrade Needed",
     "VERSION_OBSOLETE_MESSAGE":"Sorry, the version of your application is outdated. Please update it from your app store and retry.",
 
-    "OFF_MESSAGE": "off",
-    "ON_MESSAGE": "on",
-    "SCHEDULER_MESSAGE":"scheduler"
+    "OFF_MESSAGE": "forced off",
+    "ON_MESSAGE": "forced on",
+    "SCHEDULER_MESSAGE":"daily schedule"
 }
