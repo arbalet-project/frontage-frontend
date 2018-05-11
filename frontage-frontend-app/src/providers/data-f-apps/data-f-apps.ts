@@ -50,21 +50,15 @@ export class DataFAppsProvider {
   }
 
   public stopApp() {
-    this.http.get(this.baseUrl + "/b/apps/quit").subscribe(
-      response => console.log("ok")
-    );
+    this.http.get(this.baseUrl + "/b/apps/quit").subscribe();
   }
 
   public quitQueue() {
-    this.http.delete(this.baseUrl + "/b/queue/quit").subscribe(
-      response => console.log("ok")
-    );
+    this.http.get(this.baseUrl + "/b/queue/quit").subscribe();
   }
 
   public sendKeepAlive() {
 
-    this.http.post(this.baseUrl + "/b/apps/iamalive", "pouet").subscribe(
-      response => console.log("ok")
-    );
+    this.http.post(this.baseUrl + "/b/apps/iamalive", "pouet").subscribe();
   }
 }
