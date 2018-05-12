@@ -57,7 +57,7 @@ export class AdminProvider {
    */
   public clearUserQueue(): Observable<any> {
     return this.http
-      .delete(this.baseUrl + "/b/apps/queue")
+      .get(this.baseUrl + "/b/apps/queue/clear")
       .catch(error => Observable.of(error));
   }
 
@@ -86,7 +86,7 @@ export class AdminProvider {
 
   public unForceFApp(): Observable<any> {
     return this.http
-      .delete(this.baseUrl + "/b/apps/admin/running")
+      .get(this.baseUrl + "/b/apps/admin/quit")
       .catch(error => Observable.of(error));
   }
 
