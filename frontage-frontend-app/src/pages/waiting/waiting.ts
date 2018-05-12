@@ -65,7 +65,7 @@ export class WaitingPage {
 
     let serverResponse: any = navParams.get('info');
 
-    //If queued then periodically check the position in the queue 
+    //If queued then periodically check the position in the queue
     if (serverResponse.status === 400) {
       this.startApp();
     }
@@ -138,7 +138,7 @@ export class WaitingPage {
   startApp() {
     this.dataFAppsProvider.getCurrentApp().subscribe(res => {
       //Check if the user is the owner of the current app
-      if (this.username == res.username) {
+      if (this.username == res.username || res.is_forced) {
         this.message = this.STARTING;
         this.navCtrl.push(this.joystickPage, { joystickParams: this.joystickParams }).then(() => {
           this.navCtrl.remove(this.navCtrl.getPrevious().index);

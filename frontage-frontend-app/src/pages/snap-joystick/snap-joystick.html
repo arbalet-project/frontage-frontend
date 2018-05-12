@@ -13,7 +13,10 @@
 </ion-header>
 
 <ion-content padding class="bg">
-  
+  <ion-item text-wrap>
+    {{"SNAP_JOYSTICK_INFO" | translate}}
+  </ion-item>
+
   <div *ngIf="selectedClient && clientsList; else elseBlock;">
     <ion-list *ngFor="let client of clientsList" radio-group [(ngModel)]="selectedClient">
       <ion-item text-wrap >
@@ -25,8 +28,8 @@
 </ion-content>
 
 <ion-footer>
-  <button ion-button icon-end full color="secondary" class="tr" (click)="stopFApp()">
-    {{"STOP_APP" | translate}}
-    <ion-icon color="secondary" ios="ios-flag" md="md-flag"></ion-icon>
+  <button ion-button icon-end full color="danger" class="tr" (click)="stopFApp()">
+    {{"SETTINGS_PAGE_UNFORCE_BUTTON" | translate}}
+    <ion-icon color="danger" ios="ios-close-circle" md="md-close-circle"></ion-icon>
   </button>
 </ion-footer>

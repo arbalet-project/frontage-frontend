@@ -54,9 +54,10 @@
     "SNAKE_OPTIONS_PAGE_TITLE":"Settings",
     "TETRIS_OPTIONS_PAGE_TITLE":"Settings",
 
-    "SNAKE_OPTIONS_PAGE_RULE":"You will be a red snake eating green apples. You can cross walls, in that case you' be spawned at the other side, but do not eat your tail! Although door steps of the building are invisible, their pixels are part of the game.",
+    "SNAKE_OPTIONS_PAGE_RULES":"You will be a red snake eating green apples. You can cross walls, in that case you' be spawned at the other side, but do not eat your tail! Although door steps of the building are invisible, their pixels are part of the game.",
     "TETRIS_OPTIONS_PAGE_RULES":"Eliminate as much columns as you can. Tetrominos drop from left to right. Use the action button to rotate them. Although door steps of the building are invisible, their pixels are part of the game.",
     "SWEEP_ASYNC_OPTIONS_PAGE_RULES":"You will see the full color wheel, each window at a different pace.",
+    "SNAP_OPTIONS_PAGE_RULES":"Every participant has a laptop or tablet (called a client). He connects to Wifi network ARBALET_FRONTAGE and loads address \"arbalet.frontage\" in a Web browser. Finally, he selects \"Switch to WORKSHOP mode\" so that Arbalet Frontage gives him a nickname that must display on screen above simulation ; if it doesn't check the client's wifi connection. Administrator sees the list of all conected clients, when he clics a nickname he authorizes the latter to code live on Arbalet Frontage.",
     "OPTIONS_PAGE_NO_OPTIONS": "No option needed for this app, you can start it now.",
     "OPTIONS_PAGE_START_BUTTON":"Start application",
 
@@ -70,6 +71,7 @@
     "FLAGS_JOYSTICK_PAGE_TITLE":"Flags",
     "SR_JOYSTICK_PAGE_TITLE":"Change theme",
     "SA_JOYSTICK_PAGE_TITLE":"Color wheel",
+    "SNAP_JOYSTICK_INFO": "This application is forced, do not forget to release it when the workshop ends. Choose the nickname who controls Arbalet Frontage:",
 
     "COLOR_APP_OPTIONS_PAGE_COLOR_LABEL":"Color: ",
     "DARKBLUE":"Dark Blue",

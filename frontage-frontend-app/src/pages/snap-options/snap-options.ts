@@ -11,28 +11,30 @@ import { SnapJoystickPage } from '../snap-joystick/snap-joystick';
   selector: 'page-snap-options',
   templateUrl: 'snap-options.html',
 })
+
 export class SnapOptionsPage {
 
   isAdmin: boolean = false;
+  fAppOptions: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public dataFAppsProvider: DataFAppsProvider, public localStorageProvider: LocalStorageProvider,
     public adminProvider: AdminProvider) {
 
     //Check if the connected user is admin
     this.isAdmin = this.localStorageProvider.isAdmin();
+
+    this.fAppOptions = {
+      name: "Snap"
+    }
   }
 
-  startFapp() {
-    let options = {
-      name: "Snap",
-    };
-
-    this.dataFAppsProvider.launchFApp(options)
+  forceAndStartFapp() {
+    // This is for Snap only, force the FApp and also display the client list
+    this.adminProvider.launchForcedFApp(this.fAppOptions)
       .subscribe(response => this.goToNextPage(response));
   }
 
   goToNextPage(response) {
-
     this.navCtrl.pop();
     this.navCtrl.push(WaitingPage, { info: response, joystick: SnapJoystickPage })
   }

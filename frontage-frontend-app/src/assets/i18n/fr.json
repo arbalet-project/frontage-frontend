@@ -54,14 +54,15 @@
     "SNAKE_OPTIONS_PAGE_TITLE":"Règles du jeu",
     "TETRIS_OPTIONS_PAGE_TITLE":"Règles du jeu",
 
-    "SNAKE_OPTIONS_PAGE_RULE":"Incarnez un serpent rouge et mangez les pommes vertes. Vous pouvez traverser les mûrs, dans ce cas vous atterissez de l'autre côté, mais attention à ne pas mordre votre queue ! Les pixels du perron, bien qu'inexistants, font partie du jeu.",
+    "SNAKE_OPTIONS_PAGE_RULES":"Incarnez un serpent rouge et mangez les pommes vertes. Vous pouvez traverser les mûrs, dans ce cas vous atterissez de l'autre côté, mais attention à ne pas mordre votre queue ! Les pixels du perron, bien qu'inexistants, font partie du jeu.",
     "TETRIS_OPTIONS_PAGE_RULES":"Eliminez le plus possible de colonnes. Les tetrominos tombent de gauche à droite, vous pouvez les faire pivoter avec le bouton d'action. Les pixels du perron, bien qu'inexistants, font partie du jeu.",
     "SWEEP_ASYNC_OPTIONS_PAGE_RULES":"Vous allez voir défiler toute la roue des couleurs, chaque fenêtre à son rythme.",
+    "SNAP_OPTIONS_PAGE_RULES":"Chaque participant dispose d'un ordinateur ou d'une tablette (nommé client). Il se connecte au réseau Wifi ARBALET_FRONTAGE et ouvre l'adresse \"arbalet.frontage\" dans un navigateur Web. Enfin, le client clique sur \"Passer en mode ATELIER\" afin qu'Arbalet Frontage lui attribue un pseudonyme qui doit s'afficher à l'écran au dessus de la simulation ; dans le cas contraire vérifier la connexion Wifi du client. L'administrateur voit la liste de tous les clients connectés, lorsqu'il clique sur un pseudonyme il autorise celui-ci à prendre le contrôle d'Arbalet Frontage en live.",
     "OPTIONS_PAGE_NO_OPTIONS": "Cette application ne nécessite pas de paramètre.",
     "OPTIONS_PAGE_START_BUTTON":"Lancer l'application",
 
-    "SNAP_OPTIONS_PAGE_TITLE":"Snap",
-    "SNAP_OPTIONS_PAGE_START_BUTTON":"Lancer Snap",
+    "SNAP_OPTIONS_PAGE_TITLE":"Atelier de programmation",
+    "SNAP_OPTIONS_PAGE_START_BUTTON":"Démarrer l'atelier",
 
     "SNAKE_JOYSTICK_TITLE":"Snake",
     "TETRIS_JOYSTICK_TITLE":"Tetris",
@@ -70,6 +71,7 @@
     "FLAGS_JOYSTICK_PAGE_TITLE":"Drapeaux",
     "SR_JOYSTICK_PAGE_TITLE":"Changer de thème",
     "SA_JOYSTICK_PAGE_TITLE":"Roue des couleurs",
+    "SNAP_JOYSTICK_INFO": "L'application est forcée, pensez à la relâcher à la fin de l'atelier. Choisissez le pseudonyme du client qui contrôle Arbalet Frontage en live :",
 
     "COLOR_APP_OPTIONS_PAGE_COLOR_LABEL":"Couleur : ",
     "DARKBLUE":"Bleu Foncé",
