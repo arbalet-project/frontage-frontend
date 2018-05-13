@@ -4,7 +4,12 @@
 		"name": "Flags",
 		"params": null,
 		"params_list": {
-			"uapp": ["french", "germany", "spain", "italy"]
+			"uapp": ["french", "italy", "spain", "germany", "algeria", "saudi", "argentina", "armenia", "australia", "austria",
+				"belgium", "brazil", "burkina", "cameroon", "canada", "chile", "china", "colombia", "ivory", "denmark", "emirates",
+				"usa", "finland", "greece", "india", "indonesia", "ireland", "iceland", "japan", "latvia", "lebanon", "libya",
+				"liechtenstein", "lituania", "luxembourg", "mali", "malta", "morocco", "mexico", "monaco", "nigeria", "norway",
+				"newzealand", "netherlands", "pakistan", "paraguay", "peru", "poland", "portugal", "qatar", "romania", "uk",
+				"russia", "sweden", "swiss", "syria", "czech", "tunisia", "turkey", "ukraine", "uruguay", "venezuela", "vietnam", "yemen"]
 		},
 		"playable": false,
 		"user": null
