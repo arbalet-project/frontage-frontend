@@ -67,11 +67,6 @@
     "SA_JOYSTICK_PAGE_TITLE":"Color wheel",
     "SNAP_JOYSTICK_INFO": "This application is forced, do not forget to release it when the workshop ends. Choose the nickname who controls Arbalet Frontage:",
 
-    "COLOR_APP_OPTIONS_PAGE_COLOR_LABEL":"Color: ",
-    "DARKBLUE":"Dark Blue",
-    "DEEPPINK":"Pink",
-    "COLOR_APP_OPTIONS_PAGE_START_BUTTON":"Start application",
-
     "SETTINGS_PAGE_TITLE":"Settings",
     "SETTINGS_PAGE_OPENING_HOUR":"Opening hour",
     "SETTINGS_PAGE_CLOSING_HOUR":"Closing hour",
@@ -114,6 +109,17 @@
     "OFF_MESSAGE": "forced off",
     "ON_MESSAGE": "forced on",
     "SCHEDULER_MESSAGE":"According to daily schedule",
+
+    "COLOR_APP_OPTIONS_PAGE_COLOR_LABEL":"Color: ",
+    "DARKBLUE": "Dark blue",
+    "DEEPPINK": "Pink",
+    "CHARTREUSE": "Chartreuse green",
+    "GOLD": "Yellow",
+    "PURPLE": "Purple",
+    "SKYBLUE": "Sky blue",
+    "MEDIUMTURQUOISE": "Turquoise",
+    "DARKORANGE": "Orange",
+    "BORDEAUX": "Bordeaux",
 
     "FLAGS_OPTIONS_PAGE_LIST":"Available flags: ",
     "FRENCH": "France",

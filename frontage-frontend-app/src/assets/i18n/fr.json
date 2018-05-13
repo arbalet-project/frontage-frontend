@@ -67,11 +67,6 @@
     "SA_JOYSTICK_PAGE_TITLE":"Roue des couleurs",
     "SNAP_JOYSTICK_INFO": "L'application est forcée, pensez à la relâcher à la fin de l'atelier. Choisissez le pseudonyme du client qui contrôle Arbalet Frontage en live :",
 
-    "COLOR_APP_OPTIONS_PAGE_COLOR_LABEL":"Couleur : ",
-    "DARKBLUE":"Bleu Foncé",
-    "DEEPPINK":"Rose",
-    "COLOR_APP_OPTIONS_PAGE_START_BUTTON":"Lancer l'application",
-
     "SETTINGS_PAGE_TITLE":"Paramètres",
     "SETTINGS_PAGE_OPENING_HOUR":"Horaire de démarrage",
     "SETTINGS_PAGE_CLOSING_HOUR":"Horaire d'arrêt",
@@ -114,6 +109,17 @@
     "OFF_MESSAGE": "Arrêt forcé",
     "ON_MESSAGE": "Marche forcée",
     "SCHEDULER_MESSAGE": "Selon le planning quotidien",
+
+    "COLOR_APP_OPTIONS_PAGE_COLOR_LABEL":"Couleur : ",
+    "DARKBLUE": "Bleu foncé",
+    "DEEPPINK": "Rose",
+    "CHARTREUSE": "Vert Chartreuse",
+    "GOLD": "Jaune Or",
+    "PURPLE": "Pourpre",
+    "SKYBLUE": "Bleu ciel",
+    "MEDIUMTURQUOISE": "Turquoise",
+    "DARKORANGE": "Orange",
+    "BORDEAUX": "Bordeaux",
 
     "FLAGS_OPTIONS_PAGE_LIST":"Drapeaux disponibles",
     "FRENCH": "France",
