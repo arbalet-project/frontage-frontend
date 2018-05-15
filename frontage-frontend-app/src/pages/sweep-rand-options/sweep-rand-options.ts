@@ -13,10 +13,10 @@ import { SweepRandJoystickPage } from '../sweep-rand-joystick/sweep-rand-joystic
 })
 export class SweepRandOptionsPage {
   fAppPosition: number;
-  parametersList: string[] = ["african", "gender", "teddy", "warm"];
+  parametersList: string[] = ["road", "gender", "cold", "warm"];
 
   isAdmin: boolean = false;
-  
+
   joystickPage: any = SweepRandJoystickPage;
   fAppOptions: any;
 
@@ -30,7 +30,7 @@ export class SweepRandOptionsPage {
     this.fAppOptions = {
       name: "SweepRand",
       params: {
-        uapp: "african"
+        uapp: "gender"
       }
     }
   }
