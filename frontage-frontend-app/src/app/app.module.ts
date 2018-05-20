@@ -25,6 +25,7 @@ import { FAppListPage } from '../pages/f-app-list/f-app-list';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { Insomnia } from '@ionic-native/insomnia';
 import { DataFAppsProvider } from '../providers/data-f-apps/data-f-apps';
 import { AuthenticationProvider } from '../providers/authentication/authentication';
 import { TimeProvider } from '../providers/time/time';
@@ -117,7 +118,8 @@ let components:any[] = [
     Vibration,
     AdminProvider,
     Dialogs,
-    WebsocketMessageHandlerProvider
+    WebsocketMessageHandlerProvider,
+    Insomnia
   ]
 })
 export class AppModule {}

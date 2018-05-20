@@ -27,7 +27,12 @@ export class SentryErrorHandler extends IonicErrorHandler {
                 errorToSend = error;
             }
             //As the navCtrller cannot be injected in a provider, it has to be got from the App
-            this.app.getActiveNav().push(ErrorPage, { errorMessage: errorToSend });
+            let nav = this.app.getActiveNav();
+            if(nav != null) {
+                nav.push(ErrorPage, { errorMessage: errorToSend });
+            }else {
+                alert(errorToSend);
+            }
         }
         catch (e) {
             alert("erreur en plus : " + e);

@@ -2,8 +2,12 @@ import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform, ViewController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { Insomnia } from '@ionic-native/insomnia';
+
+import { Observable } from 'rxjs/Rx';
 
 import { HomePage } from '../pages/home/home';
+
 
 @Component({
   templateUrl: 'app.html'
@@ -15,7 +19,9 @@ export class MyApp {
 
   pages: Array<{title: string, component: any}>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
+  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, 
+    private insomnia: Insomnia) {
+
     this.initializeApp();
 
     // used for an example of ngFor and navigation
@@ -26,12 +32,10 @@ export class MyApp {
   }
 
   initializeApp() {
-    this.platform.ready().then(() => {
-      // Okay, so the platform is ready and our plugins are available.
-      // Here you can do any higher level native things you might need.
-      this.statusBar.styleDefault();
-      this.splashScreen.hide();
+    
 
+      //desactivate automatic sleeping mode
+      this.keepAppAwake();
 
       this.platform.registerBackButtonAction(() => {
         
@@ -49,9 +53,16 @@ export class MyApp {
           }
         }
       });
-    });
-
+  }
     
+
+  keepAppAwake() {
+    Observable.interval(2000).subscribe(() => { 
+      this.insomnia.keepAwake()
+        .then(
+          () => console.log('success'),
+          () => console.log('error')
+        )});
   }
 
   openPage(page) {
@@ -59,6 +70,5 @@ export class MyApp {
     // we wouldn't want the back button to show in this scenario
     this.nav.setRoot(page.component);
   }
-
   
 }
