@@ -17,7 +17,7 @@ export class MyApp {
 
   rootPage: any = HomePage;
 
-  pages: Array<{title: string, component: any}>;
+  pages: Array<{ title: string, component: any }>;
 
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen,
     private insomnia: Insomnia) {
@@ -33,26 +33,27 @@ export class MyApp {
 
   initializeApp() {
 
-
-      //desactivate automatic sleeping mode
+    //desactivate automatic sleeping mode
+    if (this.platform.is('mobile')) {
       this.keepAppAwake();
+    }
 
-      this.platform.registerBackButtonAction(() => {
+    this.platform.registerBackButtonAction(() => {
 
-        let activeView: ViewController = this.nav.getActive();
+      let activeView: ViewController = this.nav.getActive();
 
-        if(activeView != null){
-          if (typeof activeView.instance.backButtonAction === 'function'){
-            activeView.instance.backButtonAction();
-          }
-          else if(this.nav.canGoBack()) {
-            this.nav.pop();
-          }
-          else {
-            this.nav.parent.select(0); // goes to the first tab
-          }
+      if (activeView != null) {
+        if (typeof activeView.instance.backButtonAction === 'function') {
+          activeView.instance.backButtonAction();
         }
-      });
+        else if (this.nav.canGoBack()) {
+          this.nav.pop();
+        }
+        else {
+          this.nav.parent.select(0); // goes to the first tab
+        }
+      }
+    });
   }
 
 

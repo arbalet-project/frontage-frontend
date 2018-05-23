@@ -18,7 +18,7 @@ export class LoginPage {
 
   isServerUp: boolean = false;
   isFacadeUp: boolean = false;
-  isStateOff:Boolean=false;
+  isStateOff: Boolean = false;
   isPwdDisplayed: boolean = false;
   nbHeaderTapped: number = 0;
 
@@ -38,16 +38,18 @@ export class LoginPage {
   }
 
   ionViewWillEnter() {
-    this.authentication.isServerUp()
-      .subscribe(response => this.checkFacade(response), e => e);
-
+    this.checkServerStatus();
     //If the server is not up check periodicaly his status
     if (!this.isServerUp) {
-      this.serverUpSubscription = Observable.interval(5000).subscribe(() => {
-        this.authentication.isServerUp()
-          .subscribe(isServerUp => this.checkFacade(isServerUp), e => e);
+      this.serverUpSubscription = Observable.interval(2500).subscribe(() => {
+        this.checkServerStatus();
       });
     }
+  }
+
+  checkServerStatus() {
+    this.authentication.isServerUp()
+      .subscribe(isServerUp => this.checkFacade(isServerUp), e => e);
   }
 
   checkFacade(response: any) {
@@ -67,10 +69,10 @@ export class LoginPage {
 
   handleFacadeStatus(response: any) {
     if (response) {
-      if(response.state == "off") {
+      if (response.state == "off") {
         this.isStateOff = true;
       }
-      else if(response.is_usable) {
+      else if (response.is_usable) {
         this.isFacadeUp = true;
       }
       else {

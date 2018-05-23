@@ -35,12 +35,12 @@ export class SnapJoystickPage {
     this.baseUrl = `${environment.snapBaseUrl}`;
 
     this.updateListSubscription = Observable.interval(200)
-      .subscribe(x => this.updateList(x));
+      .subscribe(() => this.updateList());
 
       websocketMessageHandler.initSocket(navCtrl);
   }
 
-  updateList(x) {
+  updateList() {
     if (!this.isWaiting) {
       this.isWaiting = true;
       this.getClientsInfo();

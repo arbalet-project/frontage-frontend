@@ -66,29 +66,36 @@ export class WaitingPage {
 
     let serverResponse: any = navParams.get('info');
 
-    this.positionSubscription = Observable.interval(1000)
-        .subscribe(x => this.positionSubscriptionStart(x));
-  }
+    //If queued then periodically check the position in the queue
+    if (serverResponse.status === 400) {
+      this.startApp();
+    }
 
-  positionSubscriptionStart(x) {
-    if (!this.isWaitingServer) {
-      this.isWaitingServer = true;
-      this.dataFAppsProvider.checkPosition()
-        .subscribe(response => this.checkPosition(response));
+    if (serverResponse.queued) {
+      this.positionSubscriptionStart();
+    } else if (serverResponse.status === 403) {
+      this.message = this.ALREADY_QUEUED;
+    } else if (serverResponse.status === 200) {
+      this.startApp();
+    } else {
+      throw "WaitingPage : erreur la reponse HTTP du serveur est [" + serverResponse.status + "]";
     }
   }
 
-  checkPosition(response: any) {
-    this.position = response.position;
+  positionSubscriptionStart() {
+    this.dataFAppsProvider.checkPosition()
+      .subscribe(response => this.analyzePosition(response));
+  }
 
+  analyzePosition(response: any) {
+    this.position = response.position;
     this.message = this.QUEUED + this.position;
 
-    this.isWaitingServer = false;
     if (this.position === -1) {
-      if (!this.isLaunched) {
         this.isLaunched = true;
         this.startApp();
-      }
+    } else {
+      setTimeout(() => this.positionSubscriptionStart(), 1000);
     }
   }
 
