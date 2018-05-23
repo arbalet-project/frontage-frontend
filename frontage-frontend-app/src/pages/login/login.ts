@@ -149,6 +149,7 @@ export class LoginPage {
 
     if (this.nbHeaderTapped > 8) {
       this.displayPwd();
+      this.userName = '';
     }
   }
 
