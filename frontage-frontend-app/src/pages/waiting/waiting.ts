@@ -12,7 +12,6 @@ import { NavController, NavParams, AlertController } from 'ionic-angular';
 })
 export class WaitingPage {
   WAITING_SERVER: string = "";
-  ALREADY_QUEUED: string = "";
   QUEUED: string = "";
   STARTING: string = "";
 
@@ -53,9 +52,6 @@ export class WaitingPage {
     tranlation.get("WAITING_SERVER").subscribe(t => {
       this.WAITING_SERVER = t;
     });
-    tranlation.get("ALREADY_QUEUED").subscribe(t => {
-      this.ALREADY_QUEUED = t;
-    });
     tranlation.get("QUEUED").subscribe(t => {
       this.QUEUED = t;
     });
@@ -70,21 +66,8 @@ export class WaitingPage {
 
     let serverResponse: any = navParams.get('info');
 
-    //If queued then periodically check the position in the queue
-    if (serverResponse.status === 400) {
-      this.startApp();
-    }
-
-    if (serverResponse.queued) {
-      this.positionSubscription = Observable.interval(1000)
+    this.positionSubscription = Observable.interval(1000)
         .subscribe(x => this.positionSubscriptionStart(x));
-    } else if (serverResponse.status === 403) {
-      this.message = this.ALREADY_QUEUED;
-    } else if (serverResponse.status === 200) {
-      this.startApp();
-    } else {
-      throw "WaitingPage : erreur la reponse HTTP du serveur est [" + serverResponse.status + "]";
-    }
   }
 
   positionSubscriptionStart(x) {
