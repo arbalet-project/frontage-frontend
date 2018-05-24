@@ -27,8 +27,7 @@ export class DataFAppsProvider {
       .get<any>(this.baseUrl + "/b/apps")
       .map((data: any) => data as FApp[])
       .map((fAppList: FApp[]) => _.chain(fAppList)
-        .orderBy("name", "asc")
-        .value());
+      .value());
   }
 
   public launchFApp(fAppOptions): Observable<any> {
