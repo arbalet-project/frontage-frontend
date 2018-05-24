@@ -19,7 +19,7 @@ export class MyApp {
 
   pages: Array<{title: string, component: any}>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, 
+  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen,
     private insomnia: Insomnia) {
 
     this.initializeApp();
@@ -32,15 +32,15 @@ export class MyApp {
   }
 
   initializeApp() {
-    
+
 
       //desactivate automatic sleeping mode
       this.keepAppAwake();
 
       this.platform.registerBackButtonAction(() => {
-        
+
         let activeView: ViewController = this.nav.getActive();
-    
+
         if(activeView != null){
           if (typeof activeView.instance.backButtonAction === 'function'){
             activeView.instance.backButtonAction();
@@ -54,14 +54,14 @@ export class MyApp {
         }
       });
   }
-    
+
 
   keepAppAwake() {
-    Observable.interval(2000).subscribe(() => { 
+    Observable.interval(2000).subscribe(() => {
       this.insomnia.keepAwake()
         .then(
-          () => console.log('success'),
-          () => console.log('error')
+          () => console.log('Keep awake success'),
+          () => console.log('Keep awake error')
         )});
   }
 
@@ -70,5 +70,5 @@ export class MyApp {
     // we wouldn't want the back button to show in this scenario
     this.nav.setRoot(page.component);
   }
-  
+
 }

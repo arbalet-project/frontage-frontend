@@ -12,12 +12,9 @@ import { LocalStorageProvider } from './../../providers/local-storage/local-stor
   templateUrl: 'snake-joystick.html',
 })
 export class SnakeJoystickPage {
-
-  nom: string = "";
   isExpireSoon: Boolean = false;
-
   isGameOver: Boolean = false;
-  
+
 
   constructor(public nicknameGeneratorProvider: NicknameGeneratorProvider, public navCtrl: NavController,
     public navParams: NavParams, public screenOrientation: ScreenOrientation,
@@ -30,8 +27,6 @@ export class SnakeJoystickPage {
     if (this.platform.is('mobile')) {
       this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
     }
-    this.nom = localStorageProvider.getUserName();
-
     websocketMessageHandler.initSocket(navCtrl);
   }
 
@@ -56,7 +51,7 @@ export class SnakeJoystickPage {
     if (!this.isGameOver && !this.websocketMessageHandler.isExternalyClaused()) {
       this.fAppProvider.stopApp();
     }
-    
+
     if (this.platform.is('mobile')) {
       this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
       this.screenOrientation.unlock();
@@ -73,5 +68,5 @@ export class SnakeJoystickPage {
     this.navCtrl.pop();
   }
 
-  
+
 }

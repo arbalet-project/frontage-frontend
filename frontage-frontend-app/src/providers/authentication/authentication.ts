@@ -57,7 +57,7 @@ export class AuthenticationProvider {
 
   /**
    * Convert the token in a readable state
-   * @param token 
+   * @param token
    */
   private parseJwt(token): any {
     var base64Url = token.split('.')[1];
@@ -71,16 +71,20 @@ export class AuthenticationProvider {
 
   /**
    * Save the token and check if the user is an admin
-   * @param response 
+   * @param response
    */
   private finalizeLogin(response): boolean {
     console.log("Response : " + JSON.stringify(response))
 
     let token = response.token;
+
     if (token) {
       this.localStorageProvider.setAuthToken(token);
+
       let parsedToken = this.parseJwt(token);
       this.localStorageProvider.setAdmin("false");
+      this.localStorageProvider.setUserId(parsedToken.userid);
+
       if (this.isAdmin(parsedToken)) {
         this.localStorageProvider.setAdmin("true");
       }

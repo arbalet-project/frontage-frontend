@@ -14,10 +14,9 @@ import { NavParams, NavController, Platform } from 'ionic-angular';
   templateUrl: 'tetris-joystick.html',
 })
 export class TetrisJoystickPage {
-  nom: string = "";
   isExpireSoon: Boolean = false;
-
   isGameOver: Boolean = false;
+
 
   constructor(public navParams: NavParams,
     public screenOrientation: ScreenOrientation,
@@ -32,8 +31,6 @@ export class TetrisJoystickPage {
     if (this.platform.is('mobile')) {
       this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
     }
-    this.nom = localStorageProvider.getUserName();
-
     websocketMessageHandler.initSocket(navCtrl);
   }
 
@@ -58,7 +55,7 @@ export class TetrisJoystickPage {
     if (!this.isGameOver && !this.websocketMessageHandler.isExternalyClaused()) {
       this.fAppProvider.stopApp();
     }
-    
+
     if (this.platform.is('mobile')) {
       this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
       this.screenOrientation.unlock();

@@ -22,9 +22,12 @@ export class WaitingPage {
   position: number;
   message: string;
 
+  isAdmin: boolean = false;
   isLaunched: boolean = false;
   isWaitingServer: boolean = false;
   username: string;
+  userid: string;
+  token: string;
 
   joystickPage: any;
   joystickParams: any;
@@ -37,6 +40,8 @@ export class WaitingPage {
 
     //Get the user login
     this.username = this.localStorage.getUserName();
+    this.userid = this.localStorage.getUserId();
+    this.isAdmin = this.localStorage.isAdmin();
 
     this.translateService.get("WAITING_KICK_FROM_QUEUE_MESSAGE").subscribe(translatedMesssage => {
       this.alertMessage = translatedMesssage;
@@ -138,7 +143,7 @@ export class WaitingPage {
   startApp() {
     this.dataFAppsProvider.getCurrentApp().subscribe(res => {
       //Check if the user is the owner of the current app
-      if (this.username == res.username || res.is_forced) {
+      if (this.userid == res.userid || res.is_forced && this.isAdmin) {
         this.message = this.STARTING;
         this.navCtrl.push(this.joystickPage, { joystickParams: this.joystickParams }).then(() => {
           this.navCtrl.remove(this.navCtrl.getPrevious().index);

@@ -65,7 +65,7 @@ export class WebsocketMessageHandlerProvider {
 
     let data = JSON.parse(message.data);
 
-    if (data.username == this.localStorage.getUserName()) {
+    if (data.userid == this.localStorage.getUserId()) {
 
       if (data.code == this.CODE_GAME_OVER) {
         this.showPopUp("GAME_OVER_TITLE", "GAME_OVER", navCtrl);
