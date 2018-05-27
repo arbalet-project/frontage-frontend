@@ -61,7 +61,7 @@ export class MyApp {
     Observable.interval(2000).subscribe(() => {
       this.insomnia.keepAwake()
         .then(
-          () => console.log('Keep awake success'),
+          () => 1,
           () => console.log('Keep awake error')
         )});
   }
