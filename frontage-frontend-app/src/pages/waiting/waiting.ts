@@ -66,20 +66,7 @@ export class WaitingPage {
 
     let serverResponse: any = navParams.get('info');
 
-    //If queued then periodically check the position in the queue
-    if (serverResponse.status === 400) {
-      this.startApp();
-    }
-
-    if (serverResponse.queued) {
-      this.positionSubscriptionStart();
-    } else if (serverResponse.status === 403) {
-      this.message = this.ALREADY_QUEUED;
-    } else if (serverResponse.status === 200) {
-      this.startApp();
-    } else {
-      throw "WaitingPage : erreur la reponse HTTP du serveur est [" + serverResponse.status + "]";
-    }
+    this.positionSubscriptionStart();
   }
 
   positionSubscriptionStart() {
@@ -92,8 +79,8 @@ export class WaitingPage {
     this.message = this.QUEUED + this.position;
 
     if (this.position === -1) {
-        this.isLaunched = true;
-        this.startApp();
+      this.isLaunched = true;
+      this.startApp();
     } else {
       setTimeout(() => this.positionSubscriptionStart(), 1000);
     }
