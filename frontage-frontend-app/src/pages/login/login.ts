@@ -43,13 +43,13 @@ export class LoginPage {
     if (!this.isServerUp) {
       this.serverUpSubscription = Observable.interval(2500).subscribe(() => {
         this.checkServerStatus();
-      });
+      }, err => console.log(err));
     }
   }
 
   checkServerStatus() {
     this.authentication.isServerUp()
-      .subscribe(isServerUp => this.checkFacade(isServerUp), e => e);
+      .subscribe(isServerUp => this.checkFacade(isServerUp), err => console.log(err));
   }
 
   checkFacade(response: any) {
@@ -60,7 +60,7 @@ export class LoginPage {
       if (isServerUp) {
         this.isServerUp = isServerUp;
         this.authentication.isFacadeUp()
-          .subscribe(response => this.handleFacadeStatus(response));
+          .subscribe(response => this.handleFacadeStatus(response), err => console.log(err));
       }
     } else {
       this.navCtrl.push(VersionObsoletePage);
@@ -76,7 +76,7 @@ export class LoginPage {
         this.isFacadeUp = true;
       }
       else {
-        this.time.getNextTimeUp().subscribe(response => this.handleHour(response));
+        this.time.getNextTimeUp().subscribe(response => this.handleHour(response), err => console.log(err));
         this.isFacadeUp = false;
       }
     }
@@ -109,7 +109,7 @@ export class LoginPage {
       this.authentication
         .adminAuth(this.userName, this.password)
         .subscribe(isAuthenticated =>
-          this.pushPage(isAuthenticated));
+          this.pushPage(isAuthenticated), err => console.log(err));
     } else {
       this.authentication
         .normalAuth(this.userName)

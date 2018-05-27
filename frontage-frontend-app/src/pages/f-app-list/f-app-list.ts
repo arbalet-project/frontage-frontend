@@ -36,15 +36,15 @@ export class FAppListPage {
 
     //Get the f-app list
     fAppsData.getList()
-      .subscribe(fAppList => this.fAppList = fAppList);
+      .subscribe(fAppList => this.fAppList = fAppList, err => console.log(err));
 
-    this.dataFAppsProvider.getCurrentApp().subscribe(e => console.log(e));
+    this.dataFAppsProvider.getCurrentApp().subscribe(err => console.log(err));
 
   }
 
   ionViewDidEnter() {
     this.authentication.isFacadeUp()
-      .subscribe(res => this.isFacadeUp = res.is_usable);
+      .subscribe(res => this.isFacadeUp = res.is_usable, err => console.log(err));
   }
 
   showOptions(fApp: FApp) {
@@ -52,7 +52,7 @@ export class FAppListPage {
   }
 
   updateScheduledApp(fApp: FApp) {
-    this.adminProvider.setScheduledFApp(fApp).subscribe();
+    this.adminProvider.setScheduledFApp(fApp).subscribe(err => console.log(err));
   }
 
   goToSettings() {

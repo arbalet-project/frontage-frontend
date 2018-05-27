@@ -51,19 +51,19 @@ export class OptionsPageButtonComponent {
   startFapp() {
     this.vibration.vibrate(50);
     this.dataFAppsProvider.launchFApp(this.fAppOptions)
-      .subscribe(response => this.goToNextPage(response));
+      .subscribe(response => this.goToNextPage(response), err => console.log(err));
   }
 
   forceFapp() {
     this.vibration.vibrate(50);
     this.adminProvider.launchForcedFApp(this.fAppOptions)
-      .subscribe(response => response);
+      .subscribe(response => response, err => console.log(err));
   }
 
   sendScheduledFappOptions() {
     this.vibration.vibrate(50);
     this.adminProvider.sendScheduledFAppOptions(this.fAppOptions)
-      .subscribe(response => response);
+      .subscribe(response => response, err => console.log(err));
   }
 
   /**
