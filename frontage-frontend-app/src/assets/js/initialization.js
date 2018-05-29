@@ -36,10 +36,6 @@ function initialize(a) {
 	window.textOpacity = 0;
 	window.prevGameState = undefined;
 	window.op = 0;
-	window.saveState = localStorage.getItem("saveState") || "{}";
-	if (saveState !== "{}") {
-		op = 1;
-	}
 
 	window.textShown = false;
 	window.requestAnimFrame = (function() {
@@ -109,16 +105,6 @@ function initialize(a) {
 	window.score = 0;
 	window.scoreAdditionCoeff = 1;
 	window.prevScore = 0;
-	window.numHighScores = 3;
-
-	highscores = [];
-	if (localStorage.getItem('highscores')) {
-		try {
-			highscores = JSON.parse(localStorage.getItem('highscores'));
-		} catch (e) {
-			highscores = [];
-		}
-	}
 	window.blocks = [];
 	window.MainHex;
 	window.gdx = 0;
@@ -152,24 +138,9 @@ function initialize(a) {
 		}, false);
 		$(window).resize(scaleCanvas);
 		$(window).unload(function() {
-
-			if (gameState == 1 || gameState == -1 || gameState === 0) localStorage.setItem("saveState", exportSaveState());
-			else localStorage.setItem("saveState", "{}");
 		});
 
 		addKeyListeners();
-		(function(i, s, o, g, r, a, m) {
-			i['GoogleAnalyticsObject'] = r;
-			i[r] = i[r] || function() {
-				(i[r].q = i[r].q || []).push(arguments)
-			}, i[r].l = 1 * new Date();
-			a = s.createElement(o), m = s.getElementsByTagName(o)[0];
-			a.async = 1;
-			a.src = g;
-			m.parentNode.insertBefore(a, m)
-		})(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
-		ga('create', 'UA-51272720-1', 'teamsnowman.github.io');
-		ga('send', 'pageview');
 
 		document.addEventListener("pause", handlePause, false);
 		document.addEventListener("backbutton", handlePause, false);

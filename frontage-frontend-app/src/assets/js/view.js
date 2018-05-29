@@ -147,26 +147,12 @@ function gameOverDisplay() {
 	Cookies.set("visited",true);
 	var c = document.getElementById("canvas");
 	c.className = "blur";
-	updateHighScores();
-	if (highscores.length === 0 ){
-		$("#currentHighScore").text(0);
-	}
-	else {
-		$("#currentHighScore").text(highscores[0])
-	}
 	$("#gameoverscreen").fadeIn();
 	$("#buttonCont").fadeIn();
 	$("#container").fadeIn();
 	$("#socialShare").fadeIn();
 	$("#restart").fadeIn();
     set_score_pos();
-}
-
-function updateHighScores (){
-    $("#cScore").text(score);
-    $("#1place").text(highscores[0]);
-    $("#2place").text(highscores[1]);
-    $("#3place").text(highscores[2]);
 }
 
 var pausable = true;
@@ -176,7 +162,6 @@ function pause(o) {
     }
 
 	pausable = false;
-	writeHighScores();
 	var message;
 	if (o) {
 		message = '';
