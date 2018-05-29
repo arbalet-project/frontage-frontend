@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+// import { initialize } from 'initialization.js';
+declare var initialize
 
 /**
  * Generated class for the OfflineTetrisPage page.
@@ -15,10 +17,12 @@ import { NavController, NavParams } from 'ionic-angular';
 export class OfflineTetrisPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad OfflineTetrisPage');
+    initialize()
   }
 
 }

@@ -1,6 +1,6 @@
-$(document).ready(function() {
-	initialize();
-});
+// $(document).ready(function() {
+// 	initialize();
+// });
 function initialize(a) {
 	console.log("Démarrage")
 	window.rush = 1;
