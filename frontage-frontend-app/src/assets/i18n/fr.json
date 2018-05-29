@@ -32,6 +32,7 @@
     "LOGIN_PAGE_FOOTER_MESSAGE":"Arbalet Project",
     "LOGIN_PAGE_FORM_TITLE":"Sélectionnez votre sobriquet",
     "LOGIN_PAGE_ACCESS_ERROR":"Votre nom d'utilisateur ou mot de passe est incorrect.",
+    "TETRIS_BLOCK":"Jouer à Tetris Blocs",
 
     "FAPP_PAGE_TITLE":"Sélectionnez une application",
     "FAPP_PAGE_OPTIONS_BUTTON":"Afficher les options",

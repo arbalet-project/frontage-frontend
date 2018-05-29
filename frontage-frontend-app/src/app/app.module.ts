@@ -1,3 +1,4 @@
+import { OfflineTetrisPage } from './../pages/offline-tetris/offline-tetris';
 import { VersionObsoletePage } from './../pages/version-obsolete/version-obsolete';
 import { ScrollHideDirective } from './../directives/scroll-hide/scroll-hide';
 import { OptionsPageButtonComponent } from './../components/options-page-button/options-page-button';
@@ -79,7 +80,8 @@ let components:any[] = [
     SnapOptionsPage,
     SettingPage,
     OptionsPageButtonComponent,
-    VersionObsoletePage
+    VersionObsoletePage,
+    OfflineTetrisPage
 ];
 
 @NgModule({
