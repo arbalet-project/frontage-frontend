@@ -32,7 +32,8 @@
     "LOGIN_PAGE_FOOTER_MESSAGE":"Arbalet Project",
     "LOGIN_PAGE_FORM_TITLE":"Select your nickname",
     "LOGIN_PAGE_ACCESS_ERROR":"Your username or password is incorrect",
-    "TETRIS_BLOCK":"Play to Tetris Blocks",
+    "LOGIN_PAGE_TETRIS_INVITATION":"Otherwise, because we're good guys, we prepared this offline game for you while you're waiting Arbalet Frontage to be available:",
+    "TETRIS_BLOCK":"Play Tetris Blocks (offline)",
 
     "FAPP_PAGE_TITLE":"Frontage app list",
     "FAPP_PAGE_OPTIONS_BUTTON":"Show settings",

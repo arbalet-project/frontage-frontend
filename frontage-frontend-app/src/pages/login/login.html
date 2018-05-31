@@ -37,7 +37,15 @@
   </ion-card>
 </ion-content>
 
-<ion-footer>
+<ion-footer class="bg">
 
-    <button ion-button block outline color="light" (click)="startTetrisBlock()">{{"TETRIS_BLOCK" | translate}}</button>
+  <ion-card *ngIf="!isServerUp">
+    <ion-card-header>
+      {{"LOGIN_PAGE_TETRIS_INVITATION" | translate}}
+    </ion-card-header>
+    <ion-card-content>
+    </ion-card-content>
+  </ion-card>
+
+  <button *ngIf="!isServerUp" ion-button block outline color="light" (click)="startTetrisBlock()">{{"TETRIS_BLOCK" | translate}}</button>
 </ion-footer>

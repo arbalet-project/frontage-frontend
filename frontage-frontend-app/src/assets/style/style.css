@@ -16,7 +16,6 @@
 	overflow:visible;
 	margin-left:-175px;
 	font-family:Exo;
-
 }
 #container {
 	color:#232323;
@@ -383,7 +382,7 @@ body {
 	right:0;
 	height:100%;
 	width:100%;
-	background-color:#ecf0f1;
+	background-color:#1c3f56;
 	z-index:0;
 }
 #title {
@@ -403,7 +402,7 @@ body {
 	padding:0;
 	bottom:15px;
 	position:absolute;
-	left:calc(50% - 124px);
+	left:calc(50% - 35px);
 	transform:translate(-50%, 0%);
 	-webkit-transform:translate(-50%, 0%);
 	-moz-transform:translate(-50%, 0%);

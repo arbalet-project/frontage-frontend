@@ -32,7 +32,8 @@
     "LOGIN_PAGE_FOOTER_MESSAGE":"Arbalet Project",
     "LOGIN_PAGE_FORM_TITLE":"Sélectionnez votre sobriquet",
     "LOGIN_PAGE_ACCESS_ERROR":"Votre nom d'utilisateur ou mot de passe est incorrect.",
-    "TETRIS_BLOCK":"Jouer à Tetris Blocs",
+    "LOGIN_PAGE_TETRIS_INVITATION":"Sinon, comme on est sympa, on vous a préparé un jeu hors-ligne ci-dessous en attendant qu'Arbalet Frontage soit disponible :",
+    "TETRIS_BLOCK":"Jouer à Tetris Blocks (hors-ligne)",
 
     "FAPP_PAGE_TITLE":"Sélectionnez une application",
     "FAPP_PAGE_OPTIONS_BUTTON":"Afficher les options",
