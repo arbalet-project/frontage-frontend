@@ -142,7 +142,6 @@ function hideText() {
 }
 
 function gameOverDisplay() {
-	window.AppRateManager.gameOver();
 	settings.ending_block=false;
 	Cookies.set("visited",true);
 	var c = document.getElementById("canvas");
