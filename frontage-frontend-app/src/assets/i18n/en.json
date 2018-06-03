@@ -1,7 +1,7 @@
 {
     "HOME_PAGE_APP_TITLE": "Arbalet Frontage",
     "HOME_PAGE_MESSAGE_1": "Welcome! Arbalet Frontage is the interactive facade of building A1 of Bordeaux University.",
-    "HOME_PAGE_MESSAGE_2": "71 colorful pixels en all the building's windows.",
+    "HOME_PAGE_MESSAGE_2": "71 colorful pixels light any window of the building.",
     "HOME_PAGE_MESSAGE_3": "By using this app, you will be able to change colors of the facade, enjoy retrogaming such as Tetris Snake and more, or even learn computer program during special workshops with a trainer  ",
     "HOME_PAGE_HREF_MESSAGE": "check the date of the next workshop",
 
@@ -13,9 +13,9 @@
     "SNAP": "Snap",
     "TETRIS": "Tetris",
 
-    "FLAGS_DESCRIPTION":"Enlighten Arbalet Frontage to the colors of your country!",
+    "FLAGS_DESCRIPTION":"Light Arbalet Frontage to the colors of your country!",
     "RANDOMFLASHING_DESCRIPTION":"Make Arbalet Frontage slowly flashing.",
-    "SWEEPASYNC_DESCRIPTION":"Display the full color whell, each window at a different pace.",
+    "SWEEPASYNC_DESCRIPTION":"Display the full color wheel, each window at a different pace.",
     "SWEEPRAND_DESCRIPTION":"Animate Arbalet Frontage with dual colors.",
     "SNAKE_DESCRIPTION": "Play a Snake and eat apples.",
     "SNAP_DESCRIPTION": "Learning computer programming with a playful and creative approach by creating your own light animation thanks to this visual programming language  ",
@@ -26,7 +26,7 @@
     "LOGIN_PAGE_USER_LABEL":"Nickname",
     "LOGIN_PAGE_PWD_LABEL":"Password",
     "LOGIN_PAGE_START_BUTTON":"Confirm",
-    "LOGIN_PAGE_FRONTAGE_NOT_AVAILABLE": "Adminitrator has disabled Arbalet Frontage. Come back later.",
+    "LOGIN_PAGE_FRONTAGE_NOT_AVAILABLE": "Administrator has disabled Arbalet Frontage. Come back later.",
     "LOGIN_PAGE_FRONTAGE_DOWN_ALERT": "Arbalet Frontage is not on yet. Come back from ",
     "LOGIN_PAGE_SERVER_DOWN_ALERT":"We can't find Arbalet Frontage. Connect to wifi network ARBALET_FRONTAGE and come back here.",
     "LOGIN_PAGE_FOOTER_MESSAGE":"Arbalet Project",
@@ -41,12 +41,12 @@
     "OPTIONS_PAGE_FORCE_START_BUTTON":"Force application",
     "OPTIONS_PAGE_SEND_SCHEDULER_OPTION_BUTTON":"Send scheduled app options",
 
-    "FLAGS_OPTIONS_PAGE_TITLE":"Settings",
-    "RF_OPTIONS_PAGE_TITLE":"Settings",
-    "SA_OPTIONS_PAGE_TITLE":"Settings",
-    "SR_OPTIONS_PAGE_TITLE":"Settings",
-    "SNAKE_OPTIONS_PAGE_TITLE":"Settings",
-    "TETRIS_OPTIONS_PAGE_TITLE":"Settings",
+    "FLAGS_OPTIONS_PAGE_TITLE":"Select your flag",
+    "RF_OPTIONS_PAGE_TITLE":"Select your colors",
+    "SA_OPTIONS_PAGE_TITLE":"Select your colors",
+    "SR_OPTIONS_PAGE_TITLE":"Select your colors",
+    "SNAKE_OPTIONS_PAGE_TITLE":"Rules of the game",
+    "TETRIS_OPTIONS_PAGE_TITLE":"Rules of the game",
 
     "SNAKE_OPTIONS_PAGE_RULES":"You will be a red snake eating green apples. You can cross walls, in that case you' be spawned at the other side, but do not eat your tail! Although door steps of the building are invisible, their pixels are part of the game.",
     "TETRIS_OPTIONS_PAGE_RULES":"Eliminate as much columns as you can. Tetrominos drop from left to right. Use the action button to rotate them. Although door steps of the building are invisible, their pixels are part of the game.",
@@ -74,7 +74,7 @@
     "SETTINGS_PAGE_SHUTDOWN_FRONTAGE_BUTTON":"ON/OFF",
     "SETTINGS_PAGE_BACK_BUTTON":"Back to list",
     "SETTINGS_PAGE_UNFORCE_BUTTON":"Unforce app",
-    "SETTINGS_PAGE_DEFAULT_LIFETIME": "Lifetime of default applications",
+    "SETTINGS_PAGE_DEFAULT_LIFETIME": "Lifetime of default apps",
 
     "GET_OUT":"Your turn is over.",
     "GAME_OVER":"Game Over, you lose :)",
@@ -94,7 +94,7 @@
     "ALREADY_QUEUED":"You can start only one application at a time. Please wait a little while your previous app is closing.",
     "QUEUED":"You are queued at position: ",
     "STARTING":"Starting...",
-    "STOP_APP":"Leave queue",
+    "STOP_APP":"Stop this app",
     "WAITING_KICK_FROM_QUEUE_TITLE": "Access denied",
     "WAITING_KICK_FROM_QUEUE_MESSAGE": "Sorry, you can no longer play.",
 
