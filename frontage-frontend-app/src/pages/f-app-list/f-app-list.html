@@ -3,9 +3,15 @@
 </ion-header>
 
 <ion-content scroll-hide fullscreen class="bg">
-  <div *ngIf="fAppList && isFacadeUp; else elseBlock;">
+  <div *ngIf="isForced">
+    <ion-card>
+      <ion-card-header text-wrap id="text">{{"FAPP_PAGE_NO_APP_ALERT" | translate}} </ion-card-header>
+    </ion-card>
+  </div>
+
+  <div *ngIf="fAppList">
     <ion-list *ngFor="let fApp of fAppList">
-      <ion-grid>
+      <ion-grid *ngIf="!isForced ||currentApp == fApp.name">
         <ion-row>
           <ion-col>
             <ion-item text-wrap (click)="showOptions(fApp)">
@@ -16,19 +22,13 @@
               {{fApp.name + "_DESCRIPTION" | uppercase | translate}}
             </ion-item>
           </ion-col>
-          <ion-col col-2 *ngIf="isAdmin && fApp.name != 'Snap'" style="display: flex; align-content: center; align-items: center;">
+          <ion-col col-2 *ngIf="isAdmin && fApp.name != 'Snap' && !isForced" style="display: flex; align-content: center; align-items: center;">
             <ion-checkbox [(ngModel)]="fApp.scheduled" (ionChange)="updateScheduledApp(fApp)"></ion-checkbox>
           </ion-col>
         </ion-row>
       </ion-grid>
     </ion-list>
   </div>
-
-  <ng-template #elseBlock>
-    <ion-card>
-      <ion-card-header text-wrap id="text">{{"FAPP_PAGE_NO_APP_ALERT" | translate}} </ion-card-header>
-    </ion-card>
-  </ng-template>
 </ion-content>
 
 <ion-footer>
