@@ -19,6 +19,7 @@ export class LoginPage {
   isServerUp: boolean = false;
   isFacadeUp: boolean = false;
   isStateOff: Boolean = false;
+  isForced: Boolean = false;
   isPwdDisplayed: boolean = false;
   nbHeaderTapped: number = 0;
 
@@ -59,6 +60,7 @@ export class LoginPage {
     if (protocolVersion === environment.protocol_version) {
       if (isServerUp) {
         this.isServerUp = isServerUp;
+
         this.authentication.isFacadeUp()
           .subscribe(response => this.handleFacadeStatus(response), err => console.log(err));
       }
@@ -79,6 +81,7 @@ export class LoginPage {
         this.time.getNextTimeUp().subscribe(response => this.handleHour(response), err => console.log(err));
         this.isFacadeUp = false;
       }
+      this.isForced = response.is_forced;
     }
   }
 

@@ -26,6 +26,7 @@
     "LOGIN_PAGE_USER_LABEL":"Mon sobriquet",
     "LOGIN_PAGE_PWD_LABEL":"Mot de passe",
     "LOGIN_PAGE_START_BUTTON":"Valider",
+    "LOGIN_PAGE_FRONTAGE_FORCED": "L'administrateur a verrouillé Arbalet Frontage. Revenez plus tard.",
     "LOGIN_PAGE_FRONTAGE_NOT_AVAILABLE": "L'administrateur a éteint Arbalet Frontage. Revenez un autre jour.",
     "LOGIN_PAGE_FRONTAGE_DOWN_ALERT": "Arbalet Frontage n'est pas encore active. Revenez à partir de ",
     "LOGIN_PAGE_FOOTER_MESSAGE":"Arbalet Project",
