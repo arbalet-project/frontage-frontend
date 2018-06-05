@@ -13,6 +13,7 @@ import { DataFAppsProvider } from '../../providers/data-f-apps/data-f-apps';
 import { SweepAsyncOptionsPage } from '../sweep-async-options/sweep-async-options';
 import { LocalStorageProvider } from '../../providers/local-storage/local-storage';
 import { SettingPage } from '../setting/setting';
+import { SnapJoystickPage } from '../snap-joystick/snap-joystick';
 
 @Component({
   selector: 'page-f-app-list',
@@ -24,6 +25,8 @@ export class FAppListPage {
   fAppPosition: number;
   isAdmin: boolean = false;
   isFacadeUp: boolean = false;
+  isForced: boolean = false;
+  currentApp: any;
 
   constructor(public navCtrl: NavController,
     public fAppsData: DataFAppsProvider,
@@ -44,11 +47,19 @@ export class FAppListPage {
 
   ionViewDidEnter() {
     this.authentication.isFacadeUp()
-      .subscribe(res => this.isFacadeUp = res.is_usable, err => console.log(err));
+      .subscribe(res => {
+        this.isFacadeUp = res.is_usable;
+        this.isForced = res.is_forced;
+        this.currentApp = res.current_app;
+      });
   }
 
   showOptions(fApp: FApp) {
-    this.navCtrl.push(this.establishNavigationPageName(fApp.name), { selectedFapp: fApp });
+    if (!this.isForced) {
+      this.navCtrl.push(this.establishNavigationPageName(fApp.name), { selectedFapp: fApp });
+    } else if ('Snap == this.currentApp') {
+      this.navCtrl.push(SnapJoystickPage, { joystickParams: "" });
+    }
   }
 
   updateScheduledApp(fApp: FApp) {
