@@ -108,6 +108,8 @@
     "ERROR_PAGE_MESSAGE": "An unknown error occured. You may try to reconnect by clicking on the button below.",
     "ERROR_PAGE_BUTTON": "Reconnect",
 
+    "CONNECTION_LOST":"Connection lost. Come closer to the frontage.",
+
     "VERSION_OBSOLETE_TITLE": "Upgrade Needed",
     "VERSION_OBSOLETE_MESSAGE":"Sorry, the version of your application is outdated. Please update it from your app store and retry.",
 

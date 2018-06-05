@@ -108,6 +108,8 @@
     "ERROR_PAGE_MESSAGE": "Une erreur inconnue s'est produite. Veuillez vous reconnecter en cliquant sur le bouton ci-dessous.",
     "ERROR_PAGE_BUTTON": "Se reconnecter",
 
+    "CONNECTION_LOST":"Perte de connexion. Rapprochez-vous de la façade.",
+
     "VERSION_OBSOLETE_TITLE": "Mise à jour nécessaire",
     "VERSION_OBSOLETE_MESSAGE":"Désolé, la version de votre application n'est plus à jour avec Arbalet Frontage. Veuillez la mettre à jour depuis le store puis réessayez.",
 
