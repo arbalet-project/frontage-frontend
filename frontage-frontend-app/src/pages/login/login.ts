@@ -50,7 +50,7 @@ export class LoginPage {
 
   checkServerStatus() {
     this.authentication.isServerUp()
-      .subscribe(isServerUp => this.checkFacade(isServerUp));
+      .subscribe(isServerUp => this.checkFacade(isServerUp), e => console.log(e));
   }
 
   checkFacade(response: any) {

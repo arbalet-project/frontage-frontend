@@ -75,7 +75,7 @@ export class WaitingPage {
 
   positionSubscriptionStart() {
     this.dataFAppsProvider.checkPosition()
-      .subscribe(response => this.analyzePosition(response));
+      .subscribe(response => this.analyzePosition(response), e => console.log(e));
   }
 
   analyzePosition(response: any) {

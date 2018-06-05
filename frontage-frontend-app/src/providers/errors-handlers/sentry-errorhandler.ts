@@ -13,6 +13,8 @@ Raven
 @Injectable()
 export class SentryErrorHandler extends IonicErrorHandler {
 
+    isToastVisible:Boolean = false;
+
     constructor(private app: App, public vibration: Vibration,
         public tranlation: TranslateService, public toastCtrl: ToastController) {
         super();
@@ -25,7 +27,10 @@ export class SentryErrorHandler extends IonicErrorHandler {
 
             if (errorToSend != undefined && errorToSend.status == 0) {
                 // Status 0 means we lost connection 
-                this.showToast("CONNECTION_LOST");
+                if(!this.isToastVisible) {
+                    this.isToastVisible = true;
+                    this.showToast("CONNECTION_LOST");
+                }
             } else {
                 Raven.captureException(error.originalError || error);
             }
@@ -46,10 +51,12 @@ export class SentryErrorHandler extends IonicErrorHandler {
         });
 
         toast.onDidDismiss(() => {
+            this.isToastVisible = false;
             console.log('Dismissed toast');
         });
 
         toast.present();
+        
         this.vibration.vibrate([1000]);
     }
 
