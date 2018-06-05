@@ -86,7 +86,6 @@ export class SnapJoystickPage {
 
   ionViewDidLeave() {
     if (!this.websocketMessageHandler.isExternalyClaused()) {
-      this.fAppProvider.stopApp();
       this.websocketMessageHandler.closeSocket();
     }
     if (this.updateListSubscription) {
