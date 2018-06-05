@@ -23,6 +23,7 @@ export class WaitingPage {
 
   isAdmin: boolean = false;
   isLaunched: boolean = false;
+  isLeavingQueue: boolean = false;
   isWaitingServer: boolean = false;
   username: string;
   userid: string;
@@ -100,6 +101,7 @@ export class WaitingPage {
 
   ionViewWillLeave() {
     if (!this.isLaunched && this.message !== this.WAITING_SERVER) {
+      this.isLeavingQueue = true;
       this.dataFAppsProvider.quitQueue();
     }
 
@@ -125,7 +127,7 @@ export class WaitingPage {
         this.navCtrl.push(this.joystickPage, { joystickParams: this.joystickParams }).then(() => {
           this.navCtrl.remove(this.navCtrl.getPrevious().index);
         });
-      } else {
+      } else if(!this.isLeavingQueue) {
         let popup = this.alertCtrl.create({
           title: this.alertTitle,
           message: this.alertMessage,
@@ -146,3 +148,4 @@ export class WaitingPage {
     });
   }
 }
+
