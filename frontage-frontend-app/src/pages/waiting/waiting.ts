@@ -67,7 +67,10 @@ export class WaitingPage {
 
     let serverResponse: any = navParams.get('info');
 
-    this.positionSubscriptionStart();
+    this.positionSubscription = Observable.interval(2000).subscribe(() => {
+      this.positionSubscriptionStart()
+    });
+    
   }
 
   positionSubscriptionStart() {
@@ -82,8 +85,6 @@ export class WaitingPage {
     if (this.position === -1) {
       this.isLaunched = true;
       this.startApp();
-    } else {
-      setTimeout(() => this.positionSubscriptionStart(), 1000);
     }
   }
 
@@ -127,7 +128,7 @@ export class WaitingPage {
         this.navCtrl.push(this.joystickPage, { joystickParams: this.joystickParams }).then(() => {
           this.navCtrl.remove(this.navCtrl.getPrevious().index);
         });
-      } else if(!this.isLeavingQueue) {
+      } else if (!this.isLeavingQueue) {
         let popup = this.alertCtrl.create({
           title: this.alertTitle,
           message: this.alertMessage,
