@@ -36,4 +36,8 @@
     {{"FAPP_PAGE_ADMIN_BUTTON" | translate}}
     <ion-icon color="danger" ios="ios-hammer" md="md-hammer"></ion-icon>
   </button>
+  <button ion-button full icon-end color="danger" class="tr" *ngIf="isForced" (click)="unForceFApp()">
+    {{"SETTINGS_PAGE_UNFORCE_BUTTON" |translate}}
+    <ion-icon color="danger" ios="ios-close-circle" md="md-close-circle"></ion-icon>
+  </button>
 </ion-footer>

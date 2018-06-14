@@ -1,3 +1,4 @@
+import { Vibration } from '@ionic-native/vibration';
 import { AuthenticationProvider } from './../../providers/authentication/authentication';
 import { AdminProvider } from './../../providers/admin/admin';
 import { SnapOptionsPage } from './../snap-options/snap-options';
@@ -33,7 +34,8 @@ export class FAppListPage {
     public localStorageProvider: LocalStorageProvider,
     public adminProvider: AdminProvider,
     public dataFAppsProvider: DataFAppsProvider,
-    public authentication: AuthenticationProvider) {
+    public authentication: AuthenticationProvider,
+    public vibration: Vibration) {
     //Check if the connected user is admin
     this.isAdmin = this.localStorageProvider.isAdmin();
 
@@ -45,7 +47,7 @@ export class FAppListPage {
 
   }
 
-  ionViewDidEnter() {
+  ionViewWillEnter() {
     this.authentication.isFacadeUp()
       .subscribe(res => {
         this.isFacadeUp = res.is_usable;
@@ -57,14 +59,36 @@ export class FAppListPage {
   showOptions(fApp: FApp) {
     if (!this.isForced) {
       this.navCtrl.push(this.establishNavigationPageName(fApp.name), { selectedFapp: fApp });
-    } else if ('Snap == this.currentApp') {
+    } else if ('Snap' == this.currentApp) {
       this.navCtrl.push(SnapJoystickPage, { joystickParams: "" });
     }
   }
 
+  /**
+   * Admin Actions
+   */
   updateScheduledApp(fApp: FApp) {
     this.adminProvider.setScheduledFApp(fApp).subscribe(err => console.log(err));
   }
+
+  unForceFApp() {
+    this.vibration.vibrate(50)
+    this.adminProvider.unForceFApp().subscribe(() => {
+      //Refresh the fapp list when an app is unforced
+      setTimeout(() => {
+        this.authentication.isFacadeUp()
+          .subscribe(res => {
+            this.isFacadeUp = res.is_usable;
+            this.isForced = res.is_forced;
+            this.currentApp = res.current_app;
+          });
+      }, 1000);
+    });
+  }
+
+  /** 
+   * Navigation
+  */
 
   goToSettings() {
     this.navCtrl.push(SettingPage);

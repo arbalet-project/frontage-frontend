@@ -57,7 +57,7 @@ export class OptionsPageButtonComponent {
   forceFapp() {
     this.vibration.vibrate(50);
     this.adminProvider.launchForcedFApp(this.fAppOptions)
-      .subscribe(response => response, err => console.log(err));
+      .subscribe(response => setTimeout(() => this.navCtrl.pop(), 1000));
   }
 
   sendScheduledFappOptions() {
@@ -74,10 +74,10 @@ export class OptionsPageButtonComponent {
       info: response,
       joystick: this.joystickPage,
       joystickParams:
-        {
-          parametersList: this.parametersList,
-          selectedParameter: this.selectedParameter
-        }
+      {
+        parametersList: this.parametersList,
+        selectedParameter: this.selectedParameter
+      }
     }).then(() => {
       this.navCtrl.remove(this.navCtrl.getPrevious().index);
     });
