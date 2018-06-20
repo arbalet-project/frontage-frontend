@@ -72,7 +72,7 @@ function renderBeginningText() {
 	var mob, fontSize;
 	if(/mobile|Mobile|iOS|Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
 		mob = true;
-		input_text = 'Tap the screen\'s left and ride'
+		input_text = 'Tap the screen\'s left and right'
 		action_text = 'sides to rotate the hexagon'
 		score_text = 'Match 3+ blocks to score'
 		fontSize = 35
@@ -83,13 +83,14 @@ function renderBeginningText() {
 		score_text = 'Match 3+ blocks to score!'
 		fontSize = 27
 	}
-	renderText((trueCanvas.width)/2 + 2 * settings.scale,upperheight-0*settings.scale, fontSize, '#2c3e50', input_text);
-	renderText((trueCanvas.width)/2 + 2 * settings.scale,upperheight+33*settings.scale, fontSize, '#2c3e50', action_text);
+	//#2c3e50
+	renderText((trueCanvas.width)/2 + 2 * settings.scale,upperheight-0*settings.scale, fontSize, '#c6e2ff', input_text);
+	renderText((trueCanvas.width)/2 + 2 * settings.scale,upperheight+33*settings.scale, fontSize, '#c6e2ff', action_text);
 	if (!mob) {
 		drawKey("",(trueCanvas.width)/2 + 2 * settings.scale-2.5,upperheight+38*settings.scale);
 	}
 
-	renderText((trueCanvas.width)/2 + 2 * settings.scale,lowerheight,fontSize, '#2c3e50', score_text);
+	renderText((trueCanvas.width)/2 + 2 * settings.scale,lowerheight,fontSize, '#c6e2ff', score_text);
 }
 
 function drawKey(key, x, y) {
