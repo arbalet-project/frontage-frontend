@@ -29,23 +29,23 @@ function scaleCanvas() {
 
 		ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
 	}
-    setBottomContainer();
-    set_score_pos();
+	setBottomContainer();
+	set_score_pos();
 }
 
 function setBottomContainer() {
-    var buttonOffset = $("#buttonCont").offset().top;
-    var playOffset = trueCanvas.height / 2 + 100 * settings.scale;
-    var delta = buttonOffset - playOffset - 29;
-    if (delta < 0) {
-        //$("#bottomContainer").css("margin-bottom", "-" + Math.abs(delta) + "px");
-    }
+	var buttonOffset = $("#buttonCont").offset().top;
+	var playOffset = trueCanvas.height / 2 + 100 * settings.scale;
+	var delta = buttonOffset - playOffset - 29;
+	if (delta < 0) {
+		//$("#bottomContainer").css("margin-bottom", "-" + Math.abs(delta) + "px");
+	}
 }
 
 function set_score_pos() {
-    $("#container").css('margin-top', '0');
-    var middle_of_container = ($("#container").height()/2 + $("#container").offset().top);
-    var top_of_bottom_container = $("#buttonCont").offset().top
+	$("#container").css('margin-top', '0');
+	var middle_of_container = ($("#container").height() / 2 + $("#container").offset().top);
+	var top_of_bottom_container = $("#buttonCont").offset().top
 }
 
 function toggleDevTools() {
@@ -59,7 +59,7 @@ function resumeGame() {
 	$('#restartBtn').hide();
 	importing = 0;
 	startTime = Date.now();
-	setTimeout(function() {
+	setTimeout(function () {
 		if ((gameState == 1 || gameState == 2) && !$('#helpScreen').is(':visible')) {
 			$('#openSideBar').fadeOut(150, "linear");
 		}
@@ -83,14 +83,14 @@ function hideUIElements() {
 }
 
 function init(b) {
-	if(settings.ending_block && b == 1){return;}
+	if (settings.ending_block && b == 1) { return; }
 	if (b) {
-		$("#pauseBtn").attr('src',"./assets/images/btn_pause.svg");
+		$("#pauseBtn").attr('src', "./assets/images/btn_pause.svg");
 		if ($('#helpScreen').is(":visible")) {
 			$('#helpScreen').fadeOut(150, "linear");
 		}
 
-		setTimeout(function() {
+		setTimeout(function () {
 			$('#openSideBar').fadeOut(150, "linear");
 			infobuttonfading = false;
 		}, 7000);
@@ -98,7 +98,7 @@ function init(b) {
 	}
 
 	infobuttonfading = true;
-	$("#pauseBtn").attr('src',"./assets/images/btn_pause.svg");
+	$("#pauseBtn").attr('src', "./assets/images/btn_pause.svg");
 	hideUIElements();
 	document.getElementById("canvas").className = "";
 	history = {};
@@ -108,7 +108,7 @@ function init(b) {
 	prevScore = 0;
 	spawnLane = 0;
 	op = 0;
-	tweetblock=false;
+	tweetblock = false;
 	scoreOpacity = 0;
 	gameState = 1;
 	$("#restartBtn").hide();
@@ -135,8 +135,8 @@ function init(b) {
 		}
 	}
 
-	MainHex.blocks.map(function(i) {
-		i.map(function(o) {
+	MainHex.blocks.map(function (i) {
+		i.map(function (o) {
 			if (rgbToHex[o.color]) {
 				o.color = rgbToHex[o.color];
 			}
@@ -180,7 +180,7 @@ function exportHistory() {
 }
 
 function setStartScreen() {
-	$('#startBtn').show();
+	// $('#startBtn').show();
 	init();
 	importing = 1;
 
@@ -196,81 +196,91 @@ var spd = 1;
 
 function animLoop() {
 	switch (gameState) {
-	case 1:
-		requestAnimFrame(animLoop);
-		render();
-		var now = Date.now();
-		var dt = (now - lastTime)/16.666 * rush;
-		if (spd > 1) {
-			dt *= spd;
-		}
-
-		if(gameState == 1 ){
-			if(!MainHex.delay) {
-				update(dt);
-			}
-			else{
-				MainHex.delay--;
-			}
-		}
-
-		lastTime = now;
-
-		if (checkGameOver() && !importing) {
-			gameState = 2;
-
-			setTimeout(function() {
-				enableRestart();
-			}, 150);
-
-			if ($('#helpScreen').is(':visible')) {
-				$('#helpScreen').fadeOut(150, "linear");
+		case 1:
+			console.log("Cas 1")
+			requestAnimFrame(animLoop);
+			render();
+			var now = Date.now();
+			var dt = (now - lastTime) / 16.666 * rush;
+			if (spd > 1) {
+				dt *= spd;
 			}
 
-			if ($('#pauseBtn').is(':visible')) $('#pauseBtn').fadeOut(150, "linear");
-			if ($('#restartBtn').is(':visible')) $('#restartBtn').fadeOut(150, "linear");
-			if ($('#openSideBar').is(':visible')) $('.openSideBar').fadeOut(150, "linear");
+			if (gameState == 1) {
+				if (!MainHex.delay) {
+					update(dt);
+				}
+				else {
+					MainHex.delay--;
+				}
+			}
 
-			canRestart = 0;
-		}
-		break;
+			lastTime = now;
 
-	case 0:
-		requestAnimFrame(animLoop);
-		render();
-		break;
+			if (checkGameOver() && !importing) {
+				gameState = 2;
 
-	case -1:
-		requestAnimFrame(animLoop);
-		render();
-		break;
+				setTimeout(function () {
+					enableRestart();
+				}, 150);
 
-	case 2:
-		var now = Date.now();
-		var dt = (now - lastTime)/16.666 * rush;
-		requestAnimFrame(animLoop);
-		update(dt);
-		render();
-		lastTime = now;
-		break;
+				if ($('#helpScreen').is(':visible')) {
+					$('#helpScreen').fadeOut(150, "linear");
+				}
 
-	case 3:
-		requestAnimFrame(animLoop);
-		fadeOutObjectsOnScreen();
-		render();
-		break;
+				if ($('#pauseBtn').is(':visible')) $('#pauseBtn').fadeOut(150, "linear");
+				if ($('#restartBtn').is(':visible')) $('#restartBtn').fadeOut(150, "linear");
+				if ($('#openSideBar').is(':visible')) $('.openSideBar').fadeOut(150, "linear");
 
-	case 4:
-		setTimeout(function() {
-			initialize(1);
-		}, 1);
-		render();
-		return;
+				canRestart = 0;
+			}
+			break;
 
-	default:
-		initialize();
-		setStartScreen();
-		break;
+		case 0:
+			console.log("Cas 0")
+			requestAnimFrame(animLoop);
+			render();
+			break;
+
+		case -1:
+			console.log("Cas -1")
+			requestAnimFrame(animLoop);
+			render();
+			break;
+
+		case 2:
+			console.log("Cas 2")
+			var now = Date.now();
+			var dt = (now - lastTime) / 16.666 * rush;
+			requestAnimFrame(animLoop);
+			update(dt);
+			render();
+			lastTime = now;
+			break;
+
+		case 3:
+			console.log("Cas 3")
+			requestAnimFrame(animLoop);
+			fadeOutObjectsOnScreen();
+			render();
+			break;
+
+		case 4:
+			console.log("Cas 4")
+			setTimeout(function () {
+				initialize(1);
+			}, 1);
+			render();
+			return;
+		case 5:
+			console.log("Cas 5")
+			console.log("Stop")
+			return;
+		default:
+			console.log("Cas default")
+			initialize();
+			setStartScreen();
+			break;
 	}
 
 	if (!(gameState == 1 || gameState == 2)) {
@@ -324,10 +334,10 @@ function showHelp() {
 		pause();
 	}
 
-	if($("#pauseBtn").attr('src') == "./assets/images/btn_pause.svg" && gameState != 0 && !infobuttonfading) {
+	if ($("#pauseBtn").attr('src') == "./assets/images/btn_pause.svg" && gameState != 0 && !infobuttonfading) {
 		return;
 	}
 
-	$("#openSideBar").fadeIn(150,"linear");
+	$("#openSideBar").fadeIn(150, "linear");
 	$('#helpScreen').fadeToggle(150, "linear");
 }

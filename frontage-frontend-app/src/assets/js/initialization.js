@@ -30,7 +30,7 @@ function initialize(a) {
 
 	window.hexagonBackgroundColor = 'rgb(236, 240, 241)';
 	window.hexagonBackgroundColorClear = 'rgba(236, 240, 241, 0.5)';
-	window.centerBlue = 'rgb(44,62,80)';
+	window.centerBlue = 'rgb(149,236,100)';
 	window.angularVelocityConst = 4;
 	window.scoreOpacity = 0;
 	window.textOpacity = 0;
@@ -178,6 +178,10 @@ function initialize(a) {
 			}
 		}, 1);
 	}
+}
+
+function quitTetris() {
+	window.gameState = 5;
 }
 
 function startBtnHandler() {

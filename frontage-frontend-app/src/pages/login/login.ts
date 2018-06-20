@@ -157,6 +157,7 @@ export class LoginPage {
   }
 
   ionViewWillLeave() {
+    console.log("stop sending request")
     //Stop checking the server status
     this.serverUpSubscription.unsubscribe();
   }
