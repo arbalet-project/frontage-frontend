@@ -38,6 +38,11 @@
     "LOGIN_PAGE_FRONTAGE_NOT_AVAILABLE_EXPLANATION_STEP2": "Démarrez la connexion Wifi de votre smartphone puis sélectionnez le réseau ARBALET_FRONTAGE",
     "LOGIN_PAGE_FRONTAGE_NOT_AVAILABLE_EXPLANATION_STEP3": "Revenez ici, et voilà !",
 
+    "INEXISTING_SNAP_CLIENT": "Désolé, ce client n'est plus connecté, choisissez-en un autre",
+    "INEXISTING_SNAP_CLIENT_TITLE": "Client déconnecté",
+    "SNAP_APP_NOT_RUNNING_TITLE": "Application terminée",
+    "SNAP_APP_NOT_RUNNING": "Désolé, un administrateur a fermé l'atelier de programmation créative",
+
     "FAPP_PAGE_TITLE":"Sélectionnez une application",
     "FAPP_PAGE_OPTIONS_BUTTON":"Afficher les options",
     "FAPP_PAGE_NO_APP_ALERT":"Vous ne pouvez lancer aucune application car l'administrateur a verrouillé Arbalet Frontage. Veuillez réessayer plus tard. L'application forcée est :",

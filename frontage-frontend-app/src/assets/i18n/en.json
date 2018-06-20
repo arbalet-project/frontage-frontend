@@ -38,6 +38,11 @@
     "LOGIN_PAGE_FRONTAGE_NOT_AVAILABLE_EXPLANATION_STEP2": "Start the Wifi connection of your smartphone and select network ARBALET_FRONTAGE",
     "LOGIN_PAGE_FRONTAGE_NOT_AVAILABLE_EXPLANATION_STEP3": "Come back here, et voila!",
 
+    "INEXISTING_SNAP_CLIENT": "Sorry this client is no longer connected, please choose another one",
+    "INEXISTING_SNAP_CLIENT_TITLE": "Client disconnected",
+    "SNAP_APP_NOT_RUNNING_TITLE": "Application is over",
+    "SNAP_APP_NOT_RUNNING": "Sorry, another administrator closed the programming workshop",
+
     "FAPP_PAGE_TITLE":"Frontage app list",
     "FAPP_PAGE_OPTIONS_BUTTON":"Show settings",
     "FAPP_PAGE_NO_APP_ALERT":"You cannot start any app because administrator locked Arbalet Frontage. Please try again later. The forced app is :",

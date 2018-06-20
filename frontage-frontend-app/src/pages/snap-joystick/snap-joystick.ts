@@ -4,7 +4,8 @@ import { HttpClient } from '@angular/common/http';
 import { DataFAppsProvider } from './../../providers/data-f-apps/data-f-apps';
 import { environment } from './../../app/environment';
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, AlertController } from 'ionic-angular';
+import { TranslateService } from '@ngx-translate/core'
 
 /**
  * Generated class for the SnapJoystickPage page.
@@ -29,16 +30,56 @@ export class SnapJoystickPage {
   isWaiting: Boolean = false;
   isClosedExternaly: Boolean=false;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public fAppProvider: DataFAppsProvider, public http: HttpClient,
-    public websocketMessageHandler: WebsocketMessageHandlerProvider) {
+  inexistingClientMessage : string = "";
+  inexistingClientTitle : string = "";
+  snapClosedTitle : string = "";
+  snapClosedMessage: string = "";
 
+  constructor(public navCtrl: NavController, public navParams: NavParams, public dataFAppsProvider: DataFAppsProvider,
+              public translateService: TranslateService, public http: HttpClient, private alertCtrl: AlertController,
+              public websocketMessageHandler: WebsocketMessageHandlerProvider) {
     this.baseUrl = `${environment.snapBaseUrl}`;
 
-    this.updateListSubscription = Observable.interval(200)
+    this.updateListSubscription = Observable.interval(500)
       .subscribe(() => this.updateList());
 
-      websocketMessageHandler.initSocket(navCtrl);
+    this.translateService.get("INEXISTING_SNAP_CLIENT").subscribe(translatedMesssage => {
+      this.inexistingClientMessage = translatedMesssage;
+    });
+
+    this.translateService.get("INEXISTING_SNAP_CLIENT_TITLE").subscribe(translatedMesssage => {
+      this.inexistingClientTitle = translatedMesssage;
+    });
+
+    this.translateService.get("SNAP_APP_NOT_RUNNING_TITLE").subscribe(translatedMesssage => {
+      this.snapClosedTitle = translatedMesssage;
+    });
+
+    this.translateService.get("SNAP_APP_NOT_RUNNING").subscribe(translatedMesssage => {
+      this.snapClosedMessage = translatedMesssage;
+    });
+
+    websocketMessageHandler.initSocket(navCtrl);
   }
+
+  showPopUp(title, message, navCtrl) {
+    let popUp = this.alertCtrl.create({
+      title: title,
+      message: message,
+      enableBackdropDismiss: false,
+      buttons: [{
+        text: 'Ok',
+        handler: () => {
+          popUp.dismiss().then(() => {
+            navCtrl.pop();
+          });
+          return false;
+        }
+      }]
+    });
+
+    popUp.present();
+    }
 
   updateList() {
     if (!this.isWaiting) {
@@ -50,7 +91,8 @@ export class SnapJoystickPage {
   getClientsInfo() {
     this.http.get<any>(this.baseUrl + this.clientsEndpoint)
       .subscribe(
-        response => this.handleResponse(response)
+        response => this.handleResponse(response),
+        err => this.dataFAppsProvider.getCurrentApp().subscribe(response => this.checkSnapIsStillRunning(response))
       );
   }
 
@@ -67,17 +109,28 @@ export class SnapJoystickPage {
 
     this.http.post<any>(this.baseUrl + this.authorizeEndpoint, body)
       .subscribe(
-        response => console.log("ok"),
-        err => this.handleError(err)
+        response => this.handleAuthorizeResponse(response.success)
       );
   }
 
-  handleError(err) {
-    if (err.status) {
-      alert("Désolé, ce client n'est plus connecté.");
-    } else {
-      throw "Le serveur à renvoyé une réponse inattendu : " + JSON.stringify(err)
+  handleAuthorizeResponse(success) {
+    if(!success) {
+        let popUp = this.alertCtrl.create({
+          title: this.inexistingClientTitle,
+          message: this.inexistingClientMessage,
+          buttons: [{
+            text: 'Ok'
+          }]
+        });
+
+        popUp.present();
     }
+  }
+
+  checkSnapIsStillRunning(response) {
+     if(response != "Snap") {
+         this.showPopUp(this.snapClosedTitle, this.snapClosedMessage, this.navCtrl);
+     }
   }
 
   ionViewWillEnter() {
