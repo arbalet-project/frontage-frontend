@@ -194,6 +194,12 @@
     "URUGUAY": "Uruguay",
     "VENEZUELA": "Venezuela",
     "VIETNAM": "Vietnam",
-    "YEMEN": "Yémen"
+    "YEMEN": "Yémen",
 
+    "TETRIS_BLOCKS_PLAY": "Yémen",
+    "TETRIS_BLOCKS_TITLE": "Yémen",
+    "TETRIS_BLOCKS_GAME_OVER": "Yémen",
+    "TETRIS_BLOCKS_FIRST_EXPLANATION": "Yémen",
+    "TETRIS_BLOCKS_SECOND_EXPLANATION": "Yémen",
+    "TETRIS_BLOCKS_HELP_TEXT": "Yémen"
 }
