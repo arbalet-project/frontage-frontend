@@ -22,7 +22,6 @@ export class OfflineTetrisPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad OfflineTetrisPage');
     initialize()
   }
 
