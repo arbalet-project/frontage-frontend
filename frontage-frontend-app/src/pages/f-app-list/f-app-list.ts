@@ -42,9 +42,6 @@ export class FAppListPage {
     //Get the f-app list
     fAppsData.getList()
       .subscribe(fAppList => this.fAppList = fAppList, err => console.log(err));
-
-    this.dataFAppsProvider.getCurrentApp().subscribe(err => console.log(err));
-
   }
 
   ionViewWillEnter() {

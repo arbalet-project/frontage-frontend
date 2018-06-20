@@ -39,7 +39,6 @@ export class DataFAppsProvider {
   public getCurrentApp(): Observable<any> {
     return this.http
       .get<any>(this.baseUrl + "/b/apps/running")
-      .catch(error => Observable.of(error));
   }
 
   public checkPosition(): Observable<any> {
