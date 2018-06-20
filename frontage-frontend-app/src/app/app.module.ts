@@ -44,7 +44,6 @@ import { UserDisplayedComponent } from '../components/user-diplayed/user-display
 import { SnakeOptionsPage } from '../pages/snake-options/snake-options';
 import { AppHeaderComponent } from '../components/app-header/app-header';
 import { TetrisJoystickPage } from '../pages/tetris-joystick/tetris-joystick';
-import { ErrorPage } from '../pages/error/error';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
 import { Vibration } from '@ionic-native/vibration';
 import { SettingPage } from '../pages/setting/setting';
@@ -75,7 +74,6 @@ let components:any[] = [
     LoginPage,
     TetrisOptionsPage,
     TetrisJoystickPage,
-    ErrorPage,
     SnapJoystickPage,
     SnapOptionsPage,
     SettingPage,

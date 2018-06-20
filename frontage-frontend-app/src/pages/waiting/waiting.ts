@@ -23,6 +23,7 @@ export class WaitingPage {
 
   isAdmin: boolean = false;
   isLaunched: boolean = false;
+  isLeavingQueue: boolean = false;
   isWaitingServer: boolean = false;
   username: string;
   userid: string;
@@ -66,12 +67,15 @@ export class WaitingPage {
 
     let serverResponse: any = navParams.get('info');
 
-    this.positionSubscriptionStart();
+    this.positionSubscription = Observable.interval(2000).subscribe(() => {
+      this.positionSubscriptionStart()
+    });
+    
   }
 
   positionSubscriptionStart() {
     this.dataFAppsProvider.checkPosition()
-      .subscribe(response => this.analyzePosition(response));
+      .subscribe(response => this.analyzePosition(response), e => console.log(e));
   }
 
   analyzePosition(response: any) {
@@ -81,8 +85,6 @@ export class WaitingPage {
     if (this.position === -1) {
       this.isLaunched = true;
       this.startApp();
-    } else {
-      setTimeout(() => this.positionSubscriptionStart(), 1000);
     }
   }
 
@@ -100,6 +102,7 @@ export class WaitingPage {
 
   ionViewWillLeave() {
     if (!this.isLaunched && this.message !== this.WAITING_SERVER) {
+      this.isLeavingQueue = true;
       this.dataFAppsProvider.quitQueue();
     }
 
@@ -125,7 +128,7 @@ export class WaitingPage {
         this.navCtrl.push(this.joystickPage, { joystickParams: this.joystickParams }).then(() => {
           this.navCtrl.remove(this.navCtrl.getPrevious().index);
         });
-      } else {
+      } else if (!this.isLeavingQueue) {
         let popup = this.alertCtrl.create({
           title: this.alertTitle,
           message: this.alertMessage,
@@ -146,3 +149,4 @@ export class WaitingPage {
     });
   }
 }
+

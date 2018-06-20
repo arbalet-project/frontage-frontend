@@ -4,36 +4,59 @@
 
 <ion-content class="bg">
   <ion-card>
-    <ion-card-header>
-      {{"LOGIN_PAGE_FORM_TITLE" | translate}}
-    </ion-card-header>
-    <ion-card-content>
-      <ion-list>
-        <ion-item>
-          <ion-input placeholder="{{'LOGIN_PAGE_USER_LABEL' | translate}}" [(ngModel)]="userName" type="text" clearInput></ion-input>
-        </ion-item>
-        <ion-item *ngIf="isPwdDisplayed">
-          <ion-input placeholder="{{'LOGIN_PAGE_PWD_LABEL' | translate}}" [(ngModel)]="password" type="password" clearInput></ion-input>
-        </ion-item>
-        <ion-label *ngIf="isRefused && isPwdDisplayed" color="danger">{{"LOGIN_PAGE_ACCESS_ERROR" | translate}}</ion-label>
-      </ion-list>
-      <div *ngIf="isFacadeUp || (isPwdDisplayed && isServerUp); else elseBlock;">
-        <button ion-button block outline color="light" (click)="start()">{{"LOGIN_PAGE_START_BUTTON" | translate}}</button>
-      </div>
-      <ng-template #elseBlock>
-        <div *ngIf="isStateOff; else else2Block;">
-          <h2>{{"LOGIN_PAGE_FRONTAGE_NOT_AVAILABLE" | translate}}</h2>
-        </div>
-        <ng-template #else2Block>
-          <div *ngIf="isServerUp; else else3Block;">
-            <h2>{{"LOGIN_PAGE_FRONTAGE_DOWN_ALERT" | translate}} {{nextTime | date:"HH'h'mm"}}</h2>
+    <div *ngIf="isServerUp; else serverUnreachableBlock;">
+        <ion-card-header>
+          {{"LOGIN_PAGE_FORM_TITLE" | translate}}
+        </ion-card-header>
+        <ion-card-content>
+          <ion-list>
+            <ion-item>
+              <ion-input placeholder="{{'LOGIN_PAGE_USER_LABEL' | translate}}" [(ngModel)]="userName" type="text" clearInput></ion-input>
+            </ion-item>
+            <ion-item *ngIf="isPwdDisplayed">
+              <ion-input placeholder="{{'LOGIN_PAGE_PWD_LABEL' | translate}}" [(ngModel)]="password" type="password" clearInput></ion-input>
+            </ion-item>
+            <ion-label *ngIf="isRefused && isPwdDisplayed" color="danger">{{"LOGIN_PAGE_ACCESS_ERROR" | translate}}</ion-label>
+          </ion-list>
+
+          <div *ngIf="isFacadeUp || (isPwdDisplayed && isServerUp); else elseBlock;">
+            <button ion-button block outline color="light" (click)="start()">{{"LOGIN_PAGE_START_BUTTON" | translate}}</button>
           </div>
-          <ng-template #else3Block>
-            <h2>{{"LOGIN_PAGE_SERVER_DOWN_ALERT" | translate}}</h2>
+
+          <ng-template #elseBlock>
+            <div *ngIf="isStateOff; else else2Block;">
+              <h2>{{"LOGIN_PAGE_FRONTAGE_NOT_AVAILABLE" | translate}}</h2>
+            </div>
+            <ng-template #else2Block>
+                <div *ngIf="isForced; else else3Block;">
+                  <h2>{{"LOGIN_PAGE_FRONTAGE_FORCED" | translate}}</h2>
+                </div>
+                <ng-template #else3Block>
+                  <div>
+                    <h2>{{"LOGIN_PAGE_FRONTAGE_DOWN_ALERT" | translate}} {{nextTime | date:"HH'h'mm"}}</h2>
+                  </div>
+                </ng-template>
+            </ng-template>
           </ng-template>
-        </ng-template>
-      </ng-template>
-    </ion-card-content>
+        </ion-card-content>
+     </div>
+
+     <ng-template #serverUnreachableBlock>
+        <div>
+        <ion-card-header text-wrap >
+          {{"LOGIN_PAGE_FORM_TITLE_SERVER_UNREACHABLE" | translate}}
+        </ion-card-header>
+
+        <ion-card-content>
+            <ion-list text-wrap>
+              <ion-item><ion-icon name="walk"></ion-icon> 1. {{"LOGIN_PAGE_FRONTAGE_NOT_AVAILABLE_EXPLANATION_STEP1" | translate}}</ion-item>
+              <ion-item><ion-icon name="wifi"></ion-icon> 2. {{"LOGIN_PAGE_FRONTAGE_NOT_AVAILABLE_EXPLANATION_STEP2" | translate}}</ion-item>
+              <ion-item><ion-icon name="game-controller-b"></ion-icon> 3. {{"LOGIN_PAGE_FRONTAGE_NOT_AVAILABLE_EXPLANATION_STEP3" | translate}}</ion-item>
+            </ion-list>
+        </ion-card-content>
+        </div>
+     </ng-template>
+
   </ion-card>
 </ion-content>
 
@@ -41,9 +64,9 @@
 
   <ion-card *ngIf="!isServerUp">
     <ion-card-header>
-      {{"LOGIN_PAGE_TETRIS_INVITATION" | translate}}
     </ion-card-header>
     <ion-card-content>
+        {{"LOGIN_PAGE_TETRIS_INVITATION" | translate}}
     </ion-card-content>
   </ion-card>
 

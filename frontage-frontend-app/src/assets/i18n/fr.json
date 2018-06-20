@@ -26,18 +26,23 @@
     "LOGIN_PAGE_USER_LABEL":"Mon sobriquet",
     "LOGIN_PAGE_PWD_LABEL":"Mot de passe",
     "LOGIN_PAGE_START_BUTTON":"Valider",
+    "LOGIN_PAGE_FRONTAGE_FORCED": "L'administrateur a verrouillé Arbalet Frontage. Revenez plus tard.",
     "LOGIN_PAGE_FRONTAGE_NOT_AVAILABLE": "L'administrateur a éteint Arbalet Frontage. Revenez un autre jour.",
     "LOGIN_PAGE_FRONTAGE_DOWN_ALERT": "Arbalet Frontage n'est pas encore active. Revenez à partir de ",
-    "LOGIN_PAGE_SERVER_DOWN_ALERT":"Nous ne trouvons pas Arbalet Frontage. Veuillez vous connecter au wifi ARBALET_FRONTAGE puis revenir ici.",
     "LOGIN_PAGE_FOOTER_MESSAGE":"Arbalet Project",
     "LOGIN_PAGE_FORM_TITLE":"Sélectionnez votre sobriquet",
+    "LOGIN_PAGE_FORM_TITLE_SERVER_UNREACHABLE":"Connectez-vous en Wifi",
     "LOGIN_PAGE_ACCESS_ERROR":"Votre nom d'utilisateur ou mot de passe est incorrect.",
     "LOGIN_PAGE_TETRIS_INVITATION":"Sinon, comme on est sympa, on vous a préparé un jeu hors-ligne ci-dessous en attendant qu'Arbalet Frontage soit disponible :",
     "TETRIS_BLOCK":"Jouer à Tetris Blocks (hors-ligne)",
 
+    "LOGIN_PAGE_FRONTAGE_NOT_AVAILABLE_EXPLANATION_STEP1": "Approchez-vous du perron du bâtiment A1 de l'Université de Bordeaux",
+    "LOGIN_PAGE_FRONTAGE_NOT_AVAILABLE_EXPLANATION_STEP2": "Démarrez la connexion Wifi de votre smartphone puis sélectionnez le réseau ARBALET_FRONTAGE",
+    "LOGIN_PAGE_FRONTAGE_NOT_AVAILABLE_EXPLANATION_STEP3": "Revenez ici, et voilà !",
+
     "FAPP_PAGE_TITLE":"Sélectionnez une application",
     "FAPP_PAGE_OPTIONS_BUTTON":"Afficher les options",
-    "FAPP_PAGE_NO_APP_ALERT":"Vous ne pouvez lancer aucune application car l'administrateur a verrouillé Arbalet Frontage. Veuillez réessayer plus tard.",
+    "FAPP_PAGE_NO_APP_ALERT":"Vous ne pouvez lancer aucune application car l'administrateur a verrouillé Arbalet Frontage. Veuillez réessayer plus tard. L'application forcée est :",
     "FAPP_PAGE_ADMIN_BUTTON":"Paramètres",
 
     "OPTIONS_PAGE_FORCE_START_BUTTON":"Forcer l'application",
@@ -104,6 +109,8 @@
     "ERROR_PAGE_DETAIL": "Détail de l'erreur",
     "ERROR_PAGE_MESSAGE": "Une erreur inconnue s'est produite. Veuillez vous reconnecter en cliquant sur le bouton ci-dessous.",
     "ERROR_PAGE_BUTTON": "Se reconnecter",
+
+    "CONNECTION_LOST":"Perte de connexion. Rapprochez-vous de la façade.",
 
     "VERSION_OBSOLETE_TITLE": "Mise à jour nécessaire",
     "VERSION_OBSOLETE_MESSAGE":"Désolé, la version de votre application n'est plus à jour avec Arbalet Frontage. Veuillez la mettre à jour depuis le store puis réessayez.",

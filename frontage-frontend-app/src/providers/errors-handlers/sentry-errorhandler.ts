@@ -1,8 +1,9 @@
+import { Vibration } from '@ionic-native/vibration';
+import { TranslateService } from '@ngx-translate/core';
 import { Injectable } from '@angular/core';
-import { IonicErrorHandler } from 'ionic-angular';
+import { IonicErrorHandler, ToastController } from 'ionic-angular';
 import Raven from 'raven-js';
 import { environment } from './../../app/environment';
-import { ErrorPage } from '../../pages/error/error';
 import { App } from 'ionic-angular/components/app/app';
 
 Raven
@@ -12,31 +13,59 @@ Raven
 @Injectable()
 export class SentryErrorHandler extends IonicErrorHandler {
 
-    constructor(private app: App) {
+    isToastVisible:Boolean = false;
+
+    constructor(private app: App, public vibration: Vibration,
+        public tranlation: TranslateService, public toastCtrl: ToastController) {
         super();
     }
 
     handleError(error) {
+        
         try {
-            Raven.captureException(error.originalError || error);
-
             let errorToSend = error;
-            try {
-                errorToSend = JSON.stringify(error);
-            } catch(e) {
-                errorToSend = error;
-            }
-            //As the navCtrller cannot be injected in a provider, it has to be got from the App
-            let nav = this.app.getActiveNav();
-            if(nav != null) {
-                nav.push(ErrorPage, { errorMessage: errorToSend });
-            }else {
-                alert(errorToSend);
+
+            if (errorToSend != undefined && errorToSend.status == 0) {
+                // Status 0 means we lost connection 
+                if(!this.isToastVisible) {
+                    this.isToastVisible = true;
+                    this.showToast("CONNECTION_LOST");
+                }
+            } else {
+                Raven.captureException(error.originalError || error);
             }
         }
         catch (e) {
             alert("erreur en plus : " + e);
             console.error(e);
         }
+    }
+
+    showToast(messageKey) {
+        let content = this.getTranslation(messageKey);
+
+        let toast = this.toastCtrl.create({
+            message: content,
+            duration: 4000,
+            position: 'top'
+        });
+
+        toast.onDidDismiss(() => {
+            this.isToastVisible = false;
+            console.log('Dismissed toast');
+        });
+
+        toast.present();
+        
+        this.vibration.vibrate([1000]);
+    }
+
+    getTranslation(key) {
+        let content = "";
+        this.tranlation.get(key).subscribe(t => {
+            content = t;
+        });
+
+        return content;
     }
 }

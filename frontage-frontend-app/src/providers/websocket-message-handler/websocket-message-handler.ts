@@ -52,7 +52,7 @@ export class WebsocketMessageHandlerProvider {
       }
     }
 
-    this.keepAliveSender = Observable.interval(5000).subscribe(() => this.sendKeepAlive())
+    this.keepAliveSender = Observable.interval(5000).subscribe(() => this.sendKeepAlive(), e => console.log(e))
     return this.socket;
   }
 

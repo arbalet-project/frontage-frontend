@@ -20,6 +20,7 @@ export class LoginPage {
   isServerUp: boolean = false;
   isFacadeUp: boolean = false;
   isStateOff: Boolean = false;
+  isForced: Boolean = false;
   isPwdDisplayed: boolean = false;
   nbHeaderTapped: number = 0;
 
@@ -44,13 +45,13 @@ export class LoginPage {
     if (!this.isServerUp) {
       this.serverUpSubscription = Observable.interval(2500).subscribe(() => {
         this.checkServerStatus();
-      }, err => console.log(err));
+      });
     }
   }
 
   checkServerStatus() {
     this.authentication.isServerUp()
-      .subscribe(isServerUp => this.checkFacade(isServerUp), err => console.log(err));
+      .subscribe(isServerUp => this.checkFacade(isServerUp), e => console.log(e));
   }
 
   checkFacade(response: any) {
@@ -60,8 +61,9 @@ export class LoginPage {
     if (protocolVersion === environment.protocol_version) {
       if (isServerUp) {
         this.isServerUp = isServerUp;
+
         this.authentication.isFacadeUp()
-          .subscribe(response => this.handleFacadeStatus(response), err => console.log(err));
+          .subscribe(response => this.handleFacadeStatus(response));
       }
     } else {
       this.navCtrl.push(VersionObsoletePage);
@@ -77,9 +79,10 @@ export class LoginPage {
         this.isFacadeUp = true;
       }
       else {
-        this.time.getNextTimeUp().subscribe(response => this.handleHour(response), err => console.log(err));
+        this.time.getNextTimeUp().subscribe(response => this.handleHour(response));
         this.isFacadeUp = false;
       }
+      this.isForced = response.is_forced;
     }
   }
 
@@ -97,13 +100,6 @@ export class LoginPage {
   }
 
   start() {
-
-    //FIXME : Remove for PROD§§§§§
-    // if (this.password
-    //   && this.password.length > 0) {
-    //   this.password = "frontagepassword";
-    //   this.userName = "frontageadmin";
-    // }
 
     //Ask for an authentication token
     if (this.isPwdDisplayed) {
