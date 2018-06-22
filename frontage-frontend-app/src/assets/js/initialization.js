@@ -1,7 +1,7 @@
 // $(document).ready(function() {
 // 	initialize();
 // });
-function initialize(a) {
+function initialize(game_state, messages_i18n) {
 	console.log("Démarrage")
 	window.rush = 1;
 	window.lastTime = Date.now();
@@ -27,7 +27,7 @@ function initialize(a) {
 		"rgb(52,152,219)": "rgb(151,201,235)",
 		"rgb(46,204,113)": "rgb(150,227,183)"
 	};
-	
+
 	window.hexagonBackgroundColor = 'rgb(136, 143, 145)';
 	//(199, 203, 204)';
 	// window.hexagonBackgroundColor = 'rgb(236, 240, 241)';
@@ -64,7 +64,8 @@ function initialize(a) {
 			rows: 7,
 			speedModifier: 0.73,
 			creationSpeedModifier: 0.73,
-			comboTime: 310
+			comboTime: 310,
+			messages: messages_i18n
 		};
 	} else {
 		settings = {
@@ -82,7 +83,8 @@ function initialize(a) {
 			rows: 8,
 			speedModifier: 0.65,
 			creationSpeedModifier: 0.65,
-			comboTime: 310
+			comboTime: 310,
+			messages: messages_i18n
 		};
 
 	}
@@ -121,7 +123,8 @@ function initialize(a) {
 	window.startTime = undefined;
 	window.gameState;
 	setStartScreen();
-	if (a != 1) {
+
+	if (game_state != 1) {
 		window.canRestart = 1;
 		window.onblur = function(e) {
 			if (gameState == 1) {

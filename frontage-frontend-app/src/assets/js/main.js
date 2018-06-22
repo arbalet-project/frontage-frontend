@@ -237,19 +237,16 @@ function animLoop() {
 			break;
 
 		case 0:
-			console.log("Cas 0")
 			requestAnimFrame(animLoop);
 			render();
 			break;
 
 		case -1:
-			console.log("Cas -1")
 			requestAnimFrame(animLoop);
 			render();
 			break;
 
 		case 2:
-			console.log("Cas 2")
 			var now = Date.now();
 			var dt = (now - lastTime) / 16.666 * rush;
 			requestAnimFrame(animLoop);
@@ -259,26 +256,21 @@ function animLoop() {
 			break;
 
 		case 3:
-			console.log("Cas 3")
 			requestAnimFrame(animLoop);
 			fadeOutObjectsOnScreen();
 			render();
 			break;
 
 		case 4:
-			console.log("Cas 4")
 			setTimeout(function () {
-				initialize(1);
+				initialize(1, settings.messages);
 			}, 1);
 			render();
 			return;
 		case 5:
-			console.log("Cas 5")
-			console.log("Stop")
 			return;
 		default:
-			console.log("Cas default")
-			initialize();
+			initialize(0, settings.messages);
 			setStartScreen();
 			break;
 	}
@@ -329,7 +321,7 @@ function showHelp() {
 		}
 	}
 
-	$("#inst_main_body").html("<div id = 'instructions_head'>HOW TO PLAY</div><p>The goal of Tetris Blocks is to stop blocks from leaving the inside of the outer gray hexagon.</p><p>" + (settings.platform != 'mobile' ? 'Press the right and left arrow keys' : 'Tap the left and right sides of the screen') + " to rotate the Hexagon</p><p>Clear blocks and get points by making 3 or more blocks of the same color touch.</p><p>Time left before your combo streak disappears is indicated by <span style='color:#f1c40f;'>the</span> <span style='color:#e74c3c'>colored</span> <span style='color:#3498db'>lines</span> <span style='color:#2ecc71'>on</span> the outer hexagon</p>");
+	$("#inst_main_body").html("<div id = 'instructions_head'>" + settings.messages.howto_play_title + "</div><p>" + settings.messages.howto_play_goal + "</p><p>" + (settings.platform != 'mobile' ? settings.messages.howto_play_tap_keyboard : settings.messages.howto_play_tap_screen) + "</p><p>" + settings.messages.howto_play_instructions_1 + "</p><p>" + settings.messages.howto_play_instructions_2 +"</p>");
 	if (gameState == 1) {
 		pause();
 	}

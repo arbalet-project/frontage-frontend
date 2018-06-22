@@ -42,12 +42,12 @@ function drawScoreboard() {
 	if (gameState === 0) {
 		renderText(trueCanvas.width / 2 + gdx + 6 * settings.scale, trueCanvas.height / 2 + gdy, 60, "rgb(236, 240, 241)", String.fromCharCode("0xf04b"), 'px FontAwesome');
 		renderText(trueCanvas.width / 2 + gdx + 6 * settings.scale, trueCanvas.height / 2 + gdy - 155 * settings.scale, 75, "#c6e2ff", "Tetris Blocks");//#2c3e50
-		renderText(trueCanvas.width / 2 + gdx + 5 * settings.scale, h, fontSize, "rgb(198, 226, 255)", 'Play!');
+		renderText(trueCanvas.width / 2 + gdx + 5 * settings.scale, h, fontSize, "rgb(198, 226, 255)", settings.messages.play);
 	} else if (gameState != 0 && textOpacity > 0) {
 		textOpacity -= 0.05;
 		renderText(trueCanvas.width / 2 + gdx + 6 * settings.scale, trueCanvas.height / 2 + gdy, 60, "rgb(236, 240, 241)", String.fromCharCode("0xf04b"), 'px FontAwesome');
 		renderText(trueCanvas.width / 2 + gdx + 6 * settings.scale, trueCanvas.height / 2 + gdy - 155 * settings.scale, 75, "#c6e2ff", "Tetris Blocks");
-		renderText(trueCanvas.width / 2 + gdx + 5 * settings.scale, h, fontSize, "rgb(198, 226, 255)", 'Play!');
+		renderText(trueCanvas.width / 2 + gdx + 5 * settings.scale, h, fontSize, "rgb(198, 226, 255)", settings.messages.play);
 		ctx.globalAlpha = scoreOpacity;
 		renderText(trueCanvas.width / 2 + gdx, trueCanvas.height / 2 + gdy, scoreSize, color, score);
 	} else {
@@ -95,11 +95,11 @@ function toggleClass(element, active) {
 
 function showText(text) {
 	var messages = {
-		'paused': "<div class='centeredHeader unselectable'>Game Paused</div>",
-		'pausedAndroid': "<div class='centeredHeader unselectable'>Game Paused</div>",
-		'pausediOS': "<div class='centeredHeader unselectable'>Game Paused</div>",
-		'pausedOther': "<div class='centeredHeader unselectable'>Game Paused</div>",
-		'start': "<div class='centeredHeader unselectable' style='line-height:80px;'>Press enter to start</div>"
+		'paused': "<div class='centeredHeader unselectable'>" + settings.messages.paused + "</div>",
+		'pausedAndroid': "<div class='centeredHeader unselectable'>" + settings.messages.paused + "</div>",
+		'pausediOS': "<div class='centeredHeader unselectable'>" + settings.messages.paused + "</div>",
+		'pausedOther': "<div class='centeredHeader unselectable'>" + settings.messages.paused + "</div>",
+		'start': "<div class='centeredHeader unselectable' style='line-height:80px;'>" + settings.messages.paused_press_enter + "</div>"
 	};
 
 	if (text == 'paused') {
@@ -150,7 +150,7 @@ function gameOverDisplay() {
 	$("#buttonCont").fadeIn();
 	$("#container").fadeIn();
 	$("#restart").fadeIn();
-    set_score_pos();
+  set_score_pos();
 }
 
 var pausable = true;

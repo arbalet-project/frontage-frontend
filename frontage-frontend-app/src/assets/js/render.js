@@ -5,7 +5,7 @@ function render() {
 		grey = "rgb(44,62,80)";
 			//220, 223, 225)";
 	}
-	
+
 	ctx.clearRect(0, 0, trueCanvas.width, trueCanvas.height);
 	clearGameBoard();
 	if (gameState === 1 || gameState === 2 || gameState === -1 || gameState === 0) {
@@ -74,17 +74,16 @@ function renderBeginningText() {
 	var mob, fontSize;
 	if(/mobile|Mobile|iOS|Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
 		mob = true;
-		input_text = 'Tap the screen\'s left and right'
-		action_text = 'sides to rotate the hexagon'
-		score_text = 'Match 3+ blocks to score'
+		input_text = settings.messages.short_howto_play_1
+		action_text = settings.messages.short_howto_play_2
 		fontSize = 35
 	} else {
 		mob = false
-		input_text = 'Use the right and left arrow keys'
-		action_text = 'to rotate the hexagon'
-		score_text = 'Match 3+ blocks to score!'
+		input_text = settings.messages.short_howto_play_1_keyboard
+		action_text = settings.messages.short_howto_play_2_keyboard
 		fontSize = 27
 	}
+	score_text = settings.messages.short_howto_play_3
 	//#2c3e50
 	renderText((trueCanvas.width)/2 + 2 * settings.scale,upperheight-0*settings.scale, fontSize, '#c6e2ff', input_text);
 	renderText((trueCanvas.width)/2 + 2 * settings.scale,upperheight+33*settings.scale, fontSize, '#c6e2ff', action_text);
@@ -111,7 +110,7 @@ function drawKey(key, x, y) {
 			ctx.scale(settings.scale, settings.scale);
 			ctx.fillText(String.fromCharCode("0xf04b"), 0, 0);
 			break;
-		
+
 		default:
 			drawKey("left", x - 5, y);
 			drawKey("right", x + 5, y);
