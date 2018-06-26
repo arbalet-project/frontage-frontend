@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { TranslateService } from '@ngx-translate/core';
 // import { initialize } from 'initialization.js';
 declare var initialize
 declare var quitTetris
@@ -16,26 +17,18 @@ declare var quitTetris
   templateUrl: 'offline-tetris.html',
 })
 export class OfflineTetrisPage {
-  messages: any;
+  messages: { [key: string]: string };
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-    this.messages = {
-      play: "Play!",
-      howto_play_title: "HOW TO PLAY?",
-      howto_play_goal: "The goal of Tetris Blocks is to stop blocks from leaving the inside of the outer gray hexagon.",
-      howto_play_tap_keyboard: "Press the right and left arrow keys to rotate the hexagon",
-      howto_play_tap_screen: 'Tap the left and right sides of the screen to rotate the hexagon',
-      howto_play_instructions_1: "Clear blocks and get points by making 3 or more blocks of the same color touch.",
-      howto_play_instructions_2: "Time left before your combo streak disappears is indicated by colored lines on the outer hexagon",
-      paused_press_enter: "Press ENTER to start",
-      paused: "Game Paused",
-      short_howto_play_1_keyboard: 'Use the right and left arrow keys',
-      short_howto_play_2_keyboard: 'to rotate the hexagon',
-      short_howto_play_1: "Tap the screen's left and right",
-      short_howto_play_2: 'sides to rotate the hexagon',
-      short_howto_play_3: 'Match 3+ blocks to score',
-
-    };
+  constructor(public navCtrl: NavController, public navParams: NavParams, public translateService: TranslateService) {
+    let short_messages = ["play", "howto_play_title", "howto_play_goal", "howto_play_tap_keyboard", "howto_play_tap_screen",
+                          "howto_play_instructions_1", "howto_play_instructions_2", "paused_press_enter", "paused", "short_howto_play_1_keyboard", 
+                          "short_howto_play_2_keyboard", "short_howto_play_1", "short_howto_play_2", "short_howto_play_3"] 
+    this.messages = {};
+    for (let message of short_messages) {
+      this.translateService.get("TBLOCKS_" + message.toUpperCase()).subscribe(translatedMesssage => {
+          this.messages[message] = translatedMesssage;
+      });
+    }
   }
 
   ionViewDidLoad() {
