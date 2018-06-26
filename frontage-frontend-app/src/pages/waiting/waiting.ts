@@ -35,7 +35,7 @@ export class WaitingPage {
   positionSubscription: Subscription;
 
   constructor(private alertCtrl: AlertController, public navCtrl: NavController, public navParams: NavParams, public dataFAppsProvider: DataFAppsProvider,
-    public tranlation: TranslateService, public localStorage: LocalStorageProvider, public translateService: TranslateService,
+    public localStorage: LocalStorageProvider, public translateService: TranslateService,
     public websocketHandler: WebsocketMessageHandlerProvider) {
 
     //Get the user login
@@ -50,13 +50,13 @@ export class WaitingPage {
       this.alertTitle = translatedMesssage;
     });
 
-    tranlation.get("WAITING_SERVER").subscribe(t => {
+    this.translateService.get("WAITING_SERVER").subscribe(t => {
       this.WAITING_SERVER = t;
     });
-    tranlation.get("QUEUED").subscribe(t => {
+    this.translateService.get("QUEUED").subscribe(t => {
       this.QUEUED = t;
     });
-    tranlation.get("STARTING").subscribe(t => {
+    this.translateService.get("STARTING").subscribe(t => {
       this.STARTING = t;
     });
 
