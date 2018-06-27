@@ -50,6 +50,12 @@
 
     "OPTIONS_PAGE_FORCE_START_BUTTON":"Forcer l'application",
     "OPTIONS_PAGE_SEND_SCHEDULER_OPTION_BUTTON":"Envoyer options app ordonnancée",
+    "OPTIONS_PAGE_ACTION_FAILED_ALERT_TITLE": "Action échouée",
+    "OPTIONS_PAGE_ACTION_FAILED_ALERT": "Arbalet Frontage n'a pas pu prendre en compte votre demande",
+    "OPTIONS_PAGE_APP_FORCED_ALERT_TITLE": "Application forcée avec succès",
+    "OPTIONS_PAGE_APP_FORCED_ALERT": "Cette application va fonctionner indéfiniment jusqu'à ce que vous la relâchiez, quel que soit le planning quotidien.",
+    "OPTIONS_PAGE_OPTIONS_SENT_ALERT_TITLE": "Options enregistrées",
+    "OPTIONS_PAGE_OPTIONS_SENT_ALERT": "Ces options seront désormais utilisées lorsque vient le tour de cette application dans le planning quotidien.",
 
     "FLAGS_OPTIONS_PAGE_TITLE":"Choisissez votre drapeau",
     "RF_OPTIONS_PAGE_TITLE":"Choisissez vos couleurs",

@@ -50,6 +50,12 @@
 
     "OPTIONS_PAGE_FORCE_START_BUTTON":"Force application",
     "OPTIONS_PAGE_SEND_SCHEDULER_OPTION_BUTTON":"Send scheduled app options",
+    "OPTIONS_PAGE_ACTION_FAILED_ALERT_TITLE": "Action failed",
+    "OPTIONS_PAGE_ACTION_FAILED_ALERT": "Arbalet Frontage could not take into account your request",
+    "OPTIONS_PAGE_APP_FORCED_ALERT_TITLE": "Application successfully forced",
+    "OPTIONS_PAGE_APP_FORCED_ALERT": "This application will now run forever until you unforce it, independently from the daily schedule.",
+    "OPTIONS_PAGE_OPTIONS_SENT_ALERT_TITLE": "Options set",
+    "OPTIONS_PAGE_OPTIONS_SENT_ALERT": "These options will now be used when this application's turn comes in the daily schedule",
 
     "FLAGS_OPTIONS_PAGE_TITLE":"Select your flag",
     "RF_OPTIONS_PAGE_TITLE":"Select your colors",
