@@ -1,3 +1,4 @@
+import { OfflineTetrisPage } from './../offline-tetris/offline-tetris';
 import { VersionObsoletePage } from './../version-obsolete/version-obsolete';
 import { environment } from './../../app/environment';
 import { TranslateService } from '@ngx-translate/core';
@@ -152,7 +153,12 @@ export class LoginPage {
   }
 
   ionViewWillLeave() {
+    console.log("stop sending request")
     //Stop checking the server status
     this.serverUpSubscription.unsubscribe();
+  }
+
+  startTetrisBlock() {
+    this.navCtrl.push(OfflineTetrisPage);
   }
 }

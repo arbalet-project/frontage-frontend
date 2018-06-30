@@ -33,7 +33,6 @@ export class WebsocketMessageHandlerProvider {
   }
 
   initSocket(navCtrl) {
-    console.log("init web socket -> externalClause = false")
     this.externalClause = false;
     this.socket = new WebSocket(`${environment.webSocketAdress}`);
 
