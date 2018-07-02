@@ -4,6 +4,8 @@ import { TranslateService } from '@ngx-translate/core';
 // import { initialize } from 'initialization.js';
 declare var initialize
 declare var quitTetris
+declare var getState
+declare var pause
 
 /**
  * Generated class for the OfflineTetrisPage page.
@@ -39,4 +41,15 @@ export class OfflineTetrisPage {
     quitTetris();
   }
 
+  backButtonAction() {
+    let state = getState()
+    // -1 = pause, 0 = start screen, 1 = jeu, 2 = game over, 5 = exited, -, 3 et 4 : rien du tout/jamais setté
+    if( state === 0 || state === 1 || state === 2) {
+      this.navCtrl.pop()
+    } else if( state == -1) {
+      pause()
+    } else {
+      this.navCtrl.pop()
+    }
+  }
 }

@@ -2,7 +2,6 @@
 // 	initialize();
 // });
 function initialize(game_state, messages_i18n) {
-	console.log("Démarrage")
 	window.rush = 1;
 	window.lastTime = Date.now();
 	window.iframHasLoaded = false;
@@ -148,7 +147,7 @@ function initialize(game_state, messages_i18n) {
 		addKeyListeners();
 
 		document.addEventListener("pause", handlePause, false);
-		document.addEventListener("backbutton", handlePause, false);
+		// document.addEventListener("backbutton", handlePause, false);
 		document.addEventListener("menubutton", handlePause, false); //menu button on android
 
 		setTimeout(function() {
@@ -187,6 +186,10 @@ function initialize(game_state, messages_i18n) {
 
 function quitTetris() {
 	window.gameState = 5;
+}
+
+function getState() {
+	return window.gameState;
 }
 
 function startBtnHandler() {

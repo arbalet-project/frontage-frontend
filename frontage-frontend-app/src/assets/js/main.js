@@ -59,11 +59,11 @@ function resumeGame() {
 	$('#restartBtn').hide();
 	importing = 0;
 	startTime = Date.now();
-	setTimeout(function () {
-		if ((gameState == 1 || gameState == 2) && !$('#helpScreen').is(':visible')) {
-			$('#openSideBar').fadeOut(150, "linear");
-		}
-	}, 7000);
+	// setTimeout(function () {
+	// 	if ((gameState == 1 || gameState == 2) && !$('#helpScreen').is(':visible')) {
+	// 		$('#openSideBar').fadeOut(150, "linear");
+	// 	}
+	// }, 7000);
 
 	checkVisualElements();
 }
@@ -197,7 +197,6 @@ var spd = 1;
 function animLoop() {
 	switch (gameState) {
 		case 1:
-			console.log("Cas 1")
 			requestAnimFrame(animLoop);
 			render();
 			var now = Date.now();
@@ -260,13 +259,6 @@ function animLoop() {
 			fadeOutObjectsOnScreen();
 			render();
 			break;
-
-		case 4:
-			setTimeout(function () {
-				initialize(1, settings.messages);
-			}, 1);
-			render();
-			return;
 		case 5:
 			return;
 		default:

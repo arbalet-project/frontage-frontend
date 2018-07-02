@@ -1,71 +1,71 @@
 function addKeyListeners() {
-	// keypress.register_combo({
-	// 	keys: "left",
-	// 	on_keydown: function() {
-	// 		if (MainHex && gameState !== 0) {
-	// 			MainHex.rotate(1);
-	// 		}
-	// 	}
-	// });
+	keypress.register_combo({
+		keys: "left",
+		on_keydown: function() {
+			if (MainHex && gameState !== 0) {
+				MainHex.rotate(1);
+			}
+		}
+	});
 
-	// keypress.register_combo({
-	// 	keys: "right",
-	// 	on_keydown: function() {
-	// 		if (MainHex && gameState !== 0){
-	// 			MainHex.rotate(-1);
-	// 		}
-	// 	}
-	// });
-	// keypress.register_combo({
-	// 	keys: "a",
-	// 	on_keydown: function() {
-	// 		if (MainHex && gameState !== 0) {
-	// 			MainHex.rotate(1);
-	// 		}
-	// 	}
-	// });
+	keypress.register_combo({
+		keys: "right",
+		on_keydown: function() {
+			if (MainHex && gameState !== 0){
+				MainHex.rotate(-1);
+			}
+		}
+	});
+	keypress.register_combo({
+		keys: "a",
+		on_keydown: function() {
+			if (MainHex && gameState !== 0) {
+				MainHex.rotate(1);
+			}
+		}
+	});
 
-	// keypress.register_combo({
-	// 	keys: "d",
-	// 	on_keydown: function() {
-	// 		if (MainHex && gameState !== 0){
-	// 			MainHex.rotate(-1);
-	// 		}
-	// 	}
-	// });
+	keypress.register_combo({
+		keys: "d",
+		on_keydown: function() {
+			if (MainHex && gameState !== 0){
+				MainHex.rotate(-1);
+			}
+		}
+	});
 
-	// keypress.register_combo({
-	// 	keys: "p",
-	// 	on_keydown: function(){pause();}
-	// });
+	keypress.register_combo({
+		keys: "p",
+		on_keydown: function(){pause();}
+	});
 
-	// keypress.register_combo({
-	// 	keys: "space",
-	// 	on_keydown: function(){pause();}
-	// });
+	keypress.register_combo({
+		keys: "space",
+		on_keydown: function(){pause();}
+	});
 
-	// keypress.register_combo({
-	// 	keys: "q",
-	// 	on_keydown: function() {
-	// 		if (devMode) toggleDevTools();
-	// 	}
-	// });
+	keypress.register_combo({
+		keys: "q",
+		on_keydown: function() {
+			if (devMode) toggleDevTools();
+		}
+	});
 
-	// keypress.register_combo({
-	// 	keys: "enter",
-	// 	on_keydown: function() {
-	// 		if (gameState==1 || importing == 1) {
-	// 			init(1);
-	// 		}
-	// 		if (gameState == 2) {
-	// 			init();
-	// 			$("#gameoverscreen").fadeOut();
-	// 		}
-	// 		if (gameState===0) {
-	// 			resumeGame();
-	// 		}
-	// 	}
-	// });
+	keypress.register_combo({
+		keys: "enter",
+		on_keydown: function() {
+			if (gameState==1 || importing == 1) {
+				init(1);
+			}
+			if (gameState == 2) {
+				init();
+				$("#gameoverscreen").fadeOut();
+			}
+			if (gameState===0) {
+				resumeGame();
+			}
+		}
+	});
 
 	$("#pauseBtn").on('touchstart mousedown', function() {
 		if (gameState != 1 && gameState != -1) {

@@ -121,20 +121,6 @@ function showText(text) {
 
 }
 
-function setMainMenu() {
-	gameState = 4;
-	canRestart = false;
-	setTimeout(function() {
-		canRestart = 's';
-	}, 500);
-	$('#restartBtn').hide();
-	if ($("#pauseBtn").replace(/^.*[\\\/]/, '') == "btn_pause.png") {
-		$("#pauseBtn").attr("src","./assets/images/btn_resume.png");
-	} else {
-		$("#pauseBtn").attr("src","./assets/images/btn_pause.png");
-	}
-}
-
 function hideText() {
 	$(".overlay").fadeOut(150, function() {
 		$(".overlay").html("");
