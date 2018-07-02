@@ -87,8 +87,6 @@ button:focus {
 #openSideBar {
 	position:fixed;
 	margin-top:6px;
-	width:72px;
-	height:72px;
 	margin-left:11px;
 	z-index:3003;
 	color:#232323;
@@ -103,8 +101,6 @@ button:focus {
 	display:none;
 	position:fixed;
 	margin-bottom:7px;
-	width:72px;
-	height:72px;
 	margin-right:11px;
 	z-index:3000;
 	color:#232323;
@@ -118,8 +114,6 @@ button:focus {
 	display:none;
 	position:fixed;
 	margin-bottom:7px;
-	width:72px;
-	height:72px;
 	margin-left:11px;
 	z-index:3000;
 	color:#232323;
@@ -244,18 +238,18 @@ button:focus {
 	#instructions_head {
 		padding-left:0%;
 	}
-	#openSideBar{
+	/* #openSideBar{
 		width:60px;
 		height:60px;
-	}
-	#pauseBtn {
+	} */
+	/* #pauseBtn {
 		width:60px;
 		height:60px;
 	}
 	#restartBtn {
 		width:60px;
 		height:60px;
-	}
+	} */
 }
 
 .overlay {
