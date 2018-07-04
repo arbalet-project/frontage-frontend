@@ -283,6 +283,7 @@ function checkGameOver() {
 	for (var i = 0; i < MainHex.sides; i++) {
 		if (isInfringing(MainHex)) {
 			gameOverDisplay();
+            gameState = 2;
 			return true;
 		}
 	}
