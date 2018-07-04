@@ -119,6 +119,9 @@ function addKeyListeners() {
 		$("#helpBtn").on('touchstart', function() {
 			showHelp();
 		});
+		$("#helpScreen").on('touchstart', function() {
+	        $('#helpScreen').fadeOut(150, "linear");
+		});
 	}
 	else {
 		$("#restart").on('mousedown', function() {
@@ -133,6 +136,9 @@ function addKeyListeners() {
 		});
 		$("#helpBtn").on('mousedown', function() {
 			showHelp();
+		});
+		$("#helpScreen").on('mousedown', function() {
+	        $('#helpScreen').fadeOut(150, "linear");
 		});
 	}
 }
