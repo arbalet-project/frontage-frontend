@@ -56,11 +56,6 @@ function render() {
 		ctx.globalAlpha = 1;
 	}
 
-	if (gameState == -1) {
-		ctx.globalAlpha = 0.6;
-		ctx.fillRect(0, 0, trueCanvas.width, trueCanvas.height);
-	}
-
 	settings.prevScale = settings.scale;
 	settings.hexWidth = settings.baseHexWidth * settings.scale;
 	settings.blockHeight = settings.baseBlockHeight * settings.scale;

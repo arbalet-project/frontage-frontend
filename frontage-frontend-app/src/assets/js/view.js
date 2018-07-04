@@ -41,13 +41,13 @@ function drawScoreboard() {
     var h = trueCanvas.height / 2 + gdy + 100 * settings.scale;
 	if (gameState === 0) {
 		renderText(trueCanvas.width / 2 + gdx + 6 * settings.scale, trueCanvas.height / 2 + gdy, 60, "rgb(236, 240, 241)", String.fromCharCode("0xf04b"), 'px FontAwesome');
-		renderText(trueCanvas.width / 2 + gdx + 6 * settings.scale, trueCanvas.height / 2 + gdy - 155 * settings.scale, 75, "#c6e2ff", "Tetris Blocks");//#2c3e50
-		renderText(trueCanvas.width / 2 + gdx + 5 * settings.scale, h, fontSize, "rgb(198, 226, 255)", settings.messages.play);
+		renderText(trueCanvas.width / 2 + gdx + 6 * settings.scale, 35, 75, "#ffffff", "Tetris Blocks");
+		renderText(trueCanvas.width / 2 + gdx + 5 * settings.scale, h, fontSize, "#ffffff", settings.messages.play);
 	} else if (gameState != 0 && textOpacity > 0) {
 		textOpacity -= 0.05;
 		renderText(trueCanvas.width / 2 + gdx + 6 * settings.scale, trueCanvas.height / 2 + gdy, 60, "rgb(236, 240, 241)", String.fromCharCode("0xf04b"), 'px FontAwesome');
-		renderText(trueCanvas.width / 2 + gdx + 6 * settings.scale, trueCanvas.height / 2 + gdy - 155 * settings.scale, 75, "#c6e2ff", "Tetris Blocks");
-		renderText(trueCanvas.width / 2 + gdx + 5 * settings.scale, h, fontSize, "rgb(198, 226, 255)", settings.messages.play);
+		renderText(trueCanvas.width / 2 + gdx + 6 * settings.scale, 35, 75, "#ffffff", "Tetris Blocks");
+		renderText(trueCanvas.width / 2 + gdx + 5 * settings.scale, h, fontSize, "#ffffff", settings.messages.play);
 		ctx.globalAlpha = scoreOpacity;
 		renderText(trueCanvas.width / 2 + gdx, trueCanvas.height / 2 + gdy, scoreSize, color, score);
 	} else {
@@ -57,7 +57,6 @@ function drawScoreboard() {
 
 	ctx.globalAlpha = 1;
 }
-
 function clearGameBoard() {
 	drawPolygon(trueCanvas.width / 2, trueCanvas.height / 2, 6, trueCanvas.width / 2, 30, hexagonBackgroundColor, 0, 'rgba(0,0,0,0)');
 }
@@ -94,48 +93,20 @@ function toggleClass(element, active) {
 }
 
 function showText(text) {
-	var messages = {
-		'paused': "<div class='centeredHeader unselectable'>" + settings.messages.paused + "</div>",
-		'pausedAndroid': "<div class='centeredHeader unselectable'>" + settings.messages.paused + "</div>",
-		'pausediOS': "<div class='centeredHeader unselectable'>" + settings.messages.paused + "</div>",
-		'pausedOther': "<div class='centeredHeader unselectable'>" + settings.messages.paused + "</div>",
-		'start': "<div class='centeredHeader unselectable' style='line-height:80px;'>" + settings.messages.paused_press_enter + "</div>"
-	};
-
-	if (text == 'paused') {
-		if (settings.os == 'android') {
-			text = 'pausedAndroid'
-		} else if (settings.os == 'ios') {
-            text = 'pausediOS'
-        } else if (settings.platform == 'nonmobile') {
-            text = 'pausedOther'
-        }
-	}
-
 	if (text == 'gameover') {
 	   //Clay('client.share.any', {text: 'Think you can beat my score of '+ score + ' in Super Cool Game?'})
 		$("#gameoverscreen").fadeIn();
     	}
-	$(".overlay").html(messages[text]);
-	$(".overlay").fadeIn("1000", "swing");
-
-}
-
-function hideText() {
-	$(".overlay").fadeOut(150, function() {
-		$(".overlay").html("");
-	})
 }
 
 function gameOverDisplay() {
 	settings.ending_block=false;
-	Cookies.set("visited",true);
 	var c = document.getElementById("canvas");
 
 	$("#gameoverscreen").fadeIn();
-	$("#buttonCont").fadeIn();
 	$("#container").fadeIn();
-	$("#restart").fadeIn();
+	$("#restartBtn").fadeIn();
+	$("#helpBtn").fadeIn();
   set_score_pos();
 }
 
@@ -155,35 +126,34 @@ function pause(o) {
 
 	var c = document.getElementById("canvas");
 	if (gameState == -1) {
-		$('#fork-ribbon').fadeOut(300, 'linear');
+        // RESUMING
 		$('#restartBtn').fadeOut(300, "linear");
-		$('#buttonCont').fadeOut(300, "linear");
 		if ($('#helpScreen').is(':visible')) {
 			$('#helpScreen').fadeOut(300, "linear");
 		}
 
 		$("#pauseBtn").attr("src", "./assets/images/btn_pause.png");
 		$('.helpText').fadeOut(300, 'linear');
-		$('#overlay').fadeOut(300, 'linear');
-		hideText();
+
 		setTimeout(function() {
 			gameState = prevGameState;
-			pausable =true;
+			pausable = true;
 		}, 400);
+
 	} else if (gameState != -2 && gameState !== 0 && gameState !== 2) {
+        // PAUSING
 		$('#restartBtn').fadeIn(300, "linear");
-		$('#buttonCont').fadeIn(300, "linear");
 		$('.helpText').fadeIn(300, 'linear');
 		if (message == 'paused') {
 			showText(message);
 		}
-		$('#fork-ribbon').fadeIn(300, 'linear');
 		$("#pauseBtn").attr("src","./assets/images/btn_resume.png");
-		$('#overlay').fadeIn(300, 'linear');
+
 		prevGameState = gameState;
 		setTimeout(function() {
 		    pausable = true;
 		}, 400);
 		gameState = -1;
+        $('#helpScreen').fadeIn(150, "linear");
 	}
 }

@@ -1,6 +1,5 @@
 function scaleCanvas() {
     headerOverhead = document.getElementById("arbaHeader").clientHeight;
-    console.log("HOVERHEAD = " + headerOverhead);
 	canvas.width = $(window).width();
 	canvas.height = $(window).height() - headerOverhead;
 
@@ -31,23 +30,12 @@ function scaleCanvas() {
 
 		ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
 	}
-	setBottomContainer();
 	set_score_pos();
-}
-
-function setBottomContainer() {
-	var buttonOffset = $("#buttonCont").offset().top;
-	var playOffset = trueCanvas.height / 2 + 100 * settings.scale;
-	var delta = buttonOffset - playOffset - 29;
-	if (delta < 0) {
-		//$("#bottomContainer").css("margin-bottom", "-" + Math.abs(delta) + "px");
-	}
 }
 
 function set_score_pos() {
 	$("#container").css('margin-top', '0');
 	var middle_of_container = ($("#container").height() / 2 + $("#container").offset().top);
-	var top_of_bottom_container = $("#buttonCont").offset().top
 }
 
 function toggleDevTools() {
@@ -68,7 +56,6 @@ function checkVisualElements() {
 	if ($('#helpBtn').is(":visible")) $('#helpBtn').fadeOut(150, "linear");
 	if (!$('#pauseBtn').is(':visible')) $('#pauseBtn').fadeIn(150, "linear");
 	if (!$('#restartBtn').is(':visible')) $('#restartBtn').fadeOut(150, "linear");
-	if ($('#buttonCont').is(':visible')) $('#buttonCont').fadeOut(150, "linear");
 }
 
 function hideUIElements() {
@@ -81,9 +68,6 @@ function init(b) {
 	if (settings.ending_block && b == 1) { return; }
 	if (b) {
 		$("#pauseBtn").attr('src', "./assets/images/btn_pause.svg");
-		if ($('#helpScreen').is(":visible")) {
-			$('#helpScreen').fadeOut(150, "linear");
-		}
 		checkVisualElements();
 	}
 
@@ -212,14 +196,8 @@ function animLoop() {
 					enableRestart();
 				}, 150);
 
-				if ($('#helpScreen').is(':visible')) {
-					$('#helpScreen').fadeOut(150, "linear");
-				}
-
-				if ($('#pauseBtn').is(':visible')) $('#pauseBtn').fadeOut(150, "linear");
-				if ($('#restartBtn').is(':visible')) $('#restartBtn').fadeOut(150, "linear");
-				if ($('#helpBtn').is(':visible')) $('.helpBtn').fadeOut(150, "linear");
-
+				$('#helpScreen').fadeOut(150, "linear");
+				$('#pauseBtn').fadeOut(150, "linear");
 				canRestart = 0;
 			}
 			break;

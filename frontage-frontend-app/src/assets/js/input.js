@@ -115,6 +115,7 @@ function addKeyListeners() {
 			init(1);
 			canRestart = false;
 			$("#gameoverscreen").fadeOut();
+            $('#helpScreen').fadeOut();
 		});
 		$("#helpBtn").on('touchstart', function() {
 			showHelp();
@@ -133,6 +134,7 @@ function addKeyListeners() {
 			init(1);
 			canRestart = false;
 			$("#gameoverscreen").fadeOut();
+            $('#helpScreen').fadeOut();
 		});
 		$("#helpBtn").on('mousedown', function() {
 			showHelp();
