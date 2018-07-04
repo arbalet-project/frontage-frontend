@@ -33,7 +33,7 @@
     "LOGIN_PAGE_FORM_TITLE":"Sélectionnez votre sobriquet",
     "LOGIN_PAGE_FORM_TITLE_SERVER_UNREACHABLE":"Connectez-vous en Wifi",
     "LOGIN_PAGE_ACCESS_ERROR":"Votre nom d'utilisateur ou mot de passe est incorrect.",
-    "LOGIN_PAGE_TETRIS_INVITATION":"Sinon, comme on est sympa, on vous a préparé un jeu hors-ligne ci-dessous en attendant qu'Arbalet Frontage soit disponible :",
+    "LOGIN_PAGE_TETRIS_INVITATION":"Sinon, en attendant qu'Arbalet Frontage soit disponible, essayez notre jeu hors-ligne :",
     "TETRIS_BLOCK":"Jouer à Tetris Blocks (hors-ligne)",
 
     "LOGIN_PAGE_FRONTAGE_NOT_AVAILABLE_EXPLANATION_STEP1": "Approchez-vous du perron du bâtiment A1 de l'Université de Bordeaux",

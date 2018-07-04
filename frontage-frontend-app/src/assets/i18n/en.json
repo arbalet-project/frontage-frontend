@@ -33,7 +33,7 @@
     "LOGIN_PAGE_FORM_TITLE":"Select your nickname",
     "LOGIN_PAGE_FORM_TITLE_SERVER_UNREACHABLE":"Connect using Wifi",
     "LOGIN_PAGE_ACCESS_ERROR":"Your username or password is incorrect",
-    "LOGIN_PAGE_TETRIS_INVITATION":"Otherwise, because we're good guys, we prepared this offline game for you while you're waiting Arbalet Frontage to be available:",
+    "LOGIN_PAGE_TETRIS_INVITATION":"Otherwise, while you're waiting Arbalet Frontage to be available, try our offline game:",
     "TETRIS_BLOCK":"Play Tetris Blocks (offline)",
  
     "LOGIN_PAGE_FRONTAGE_NOT_AVAILABLE_EXPLANATION_STEP1": "Approach the entrance of A1 building of Bordeaux University",
