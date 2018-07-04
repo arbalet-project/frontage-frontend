@@ -7,6 +7,7 @@ function render() {
 	}
 
 	ctx.clearRect(0, 0, trueCanvas.width, trueCanvas.height);
+    ctx.fillStyle = 'rgb(0,0,0)';
 	clearGameBoard();
 	if (gameState === 1 || gameState === 2 || gameState === -1 || gameState === 0) {
 		if (op < 1) {
@@ -56,10 +57,8 @@ function render() {
 	}
 
 	if (gameState == -1) {
-		ctx.globalAlpha = 0.9;
-		ctx.fillStyle = 'rgb(236,240,241)';
+		ctx.globalAlpha = 0.6;
 		ctx.fillRect(0, 0, trueCanvas.width, trueCanvas.height);
-		ctx.globalAlpha = 1;
 	}
 
 	settings.prevScale = settings.scale;

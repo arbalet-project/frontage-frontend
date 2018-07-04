@@ -106,12 +106,19 @@ function addKeyListeners() {
 
 
 	if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-			$("#restart").on('touchstart', function() {
+		$("#restart").on('touchstart', function() {
 			init();
 			canRestart = false;
 			$("#gameoverscreen").fadeOut();
 		});
-
+		$("#restartBtn").on('touchstart', function() {
+			init(1);
+			canRestart = false;
+			$("#gameoverscreen").fadeOut();
+		});
+		$("#helpBtn").on('touchstart', function() {
+			showHelp();
+		});
 	}
 	else {
 		$("#restart").on('mousedown', function() {
@@ -119,26 +126,15 @@ function addKeyListeners() {
 			canRestart = false;
 			$("#gameoverscreen").fadeOut();
 		});
-
-	}
-	if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-			$("#restartBtn").on('touchstart', function() {
-			init(1);
-			canRestart = false;
-			$("#gameoverscreen").fadeOut();
-		});
-
-	}
-	else {
 		$("#restartBtn").on('mousedown', function() {
 			init(1);
 			canRestart = false;
 			$("#gameoverscreen").fadeOut();
 		});
-
-
+		$("#helpBtn").on('mousedown', function() {
+			showHelp();
+		});
 	}
-
 }
 function inside (point, vs) {
 	// ray-casting algorithm based on
@@ -160,10 +156,6 @@ function inside (point, vs) {
 };
 
 function handleClickTap(x,y) {
-	if (x < 120 && y < 83 && $('.helpText').is(':visible')) {
-		showHelp();
-		return;
-	}
 	var radius = settings.hexWidth ;
 	var halfRadius = radius/2;
 	var triHeight = radius *(Math.sqrt(3)/2);

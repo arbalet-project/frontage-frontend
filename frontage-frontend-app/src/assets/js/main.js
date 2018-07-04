@@ -1,6 +1,8 @@
 function scaleCanvas() {
+    headerOverhead = document.getElementById("arbaHeader").clientHeight;
+    console.log("HOVERHEAD = " + headerOverhead);
 	canvas.width = $(window).width();
-	canvas.height = $(window).height();
+	canvas.height = $(window).height() - headerOverhead;
 
 	if (canvas.height > canvas.width) {
 		settings.scale = (canvas.width / 800) * settings.baseScale;
@@ -59,19 +61,12 @@ function resumeGame() {
 	$('#restartBtn').hide();
 	importing = 0;
 	startTime = Date.now();
-	// setTimeout(function () {
-	// 	if ((gameState == 1 || gameState == 2) && !$('#helpScreen').is(':visible')) {
-	// 		$('#openSideBar').fadeOut(150, "linear");
-	// 	}
-	// }, 7000);
-
 	checkVisualElements();
 }
 
 function checkVisualElements() {
-	if ($('#openSideBar').is(":visible")) $('#openSideBar').fadeOut(150, "linear");
+	if ($('#helpBtn').is(":visible")) $('#helpBtn').fadeOut(150, "linear");
 	if (!$('#pauseBtn').is(':visible')) $('#pauseBtn').fadeIn(150, "linear");
-	$('#fork-ribbon').fadeOut(150);
 	if (!$('#restartBtn').is(':visible')) $('#restartBtn').fadeOut(150, "linear");
 	if ($('#buttonCont').is(':visible')) $('#buttonCont').fadeOut(150, "linear");
 }
@@ -89,11 +84,6 @@ function init(b) {
 		if ($('#helpScreen').is(":visible")) {
 			$('#helpScreen').fadeOut(150, "linear");
 		}
-
-		setTimeout(function () {
-			$('#openSideBar').fadeOut(150, "linear");
-			infobuttonfading = false;
-		}, 7000);
 		checkVisualElements();
 	}
 
@@ -150,7 +140,6 @@ function init(b) {
 
 	MainHex.texts = []; //clear texts
 	MainHex.delay = 15;
-	hideText();
 }
 
 function addNewBlock(blocklane, color, iter, distFromHex, settled) { //last two are optional parameters
@@ -229,7 +218,7 @@ function animLoop() {
 
 				if ($('#pauseBtn').is(':visible')) $('#pauseBtn').fadeOut(150, "linear");
 				if ($('#restartBtn').is(':visible')) $('#restartBtn').fadeOut(150, "linear");
-				if ($('#openSideBar').is(':visible')) $('.openSideBar').fadeOut(150, "linear");
+				if ($('#helpBtn').is(':visible')) $('.helpBtn').fadeOut(150, "linear");
 
 				canRestart = 0;
 			}
@@ -300,28 +289,10 @@ function checkGameOver() {
 	return false;
 }
 
-function showHelp() {
-	if ($('#openSideBar').attr('src') == './assets/images/btn_back.svg') {
-		$('#openSideBar').attr('src', './assets/images/btn_help.svg');
-		if (gameState != 0 && gameState != -1 && gameState != 2) {
-			$('#fork-ribbon').fadeOut(150, 'linear');
-		}
-	} else {
-		$('#openSideBar').attr('src', './assets/images/btn_back.svg');
-		if (gameState == 0 && gameState == -1 && gameState == 2) {
-			$('#fork-ribbon').fadeIn(150, 'linear');
-		}
-	}
-
+function showHelp() { 
 	$("#inst_main_body").html("<div id = 'instructions_head'>" + settings.messages.howto_play_title + "</div><p>" + settings.messages.howto_play_goal + "</p><p>" + (settings.platform != 'mobile' ? settings.messages.howto_play_tap_keyboard : settings.messages.howto_play_tap_screen) + "</p><p>" + settings.messages.howto_play_instructions_1 + "</p><p>" + settings.messages.howto_play_instructions_2 +"</p>");
 	if (gameState == 1) {
 		pause();
 	}
-
-	if ($("#pauseBtn").attr('src') == "./assets/images/btn_pause.svg" && gameState != 0 && !infobuttonfading) {
-		return;
-	}
-
-	$("#openSideBar").fadeIn(150, "linear");
-	$('#helpScreen').fadeToggle(150, "linear");
+	$('#helpScreen').fadeIn(150, "linear");
 }

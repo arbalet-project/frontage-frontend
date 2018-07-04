@@ -21,10 +21,11 @@
 	color:#232323;
 	position:absolute;
 	left:50%;
-	top:calc(30%);
+	top:calc(10%);
 	text-align:center;
 	transform:translate(-50%, -50%);
 	font-family:Exo;
+    color:#ffffff;
 	-webkit-transform:translate(-50%, -50%);
 	-moz-transform:translate(-50%, -50%);
 	-ms-transform:translate(-50%, -50%);
@@ -84,25 +85,22 @@ button:focus {
 	outline:0;
 }
 
-#openSideBar {
+#helpBtn {
 	position:fixed;
-	margin-top:6px;
-	margin-left:11px;
-	z-index:3003;
+	margin-bottom:7px;
+	margin-right:calc(50% - 37.5px);
 	color:#232323;
 	cursor:pointer;
-	top:0;
-	left:0;
-
+	right:0;
+	bottom:0;
+	z-index:99;
 }
-
 
 #pauseBtn {
 	display:none;
 	position:fixed;
 	margin-bottom:7px;
 	margin-right:11px;
-	z-index:3000;
 	color:#232323;
 	cursor:pointer;
 	right:0;
@@ -115,12 +113,12 @@ button:focus {
 	position:fixed;
 	margin-bottom:7px;
 	margin-left:11px;
-	z-index:3000;
 	color:#232323;
 	cursor:pointer;
 	bottom:0;
 	z-index:99;
 }
+
 #startBtn {
 	position:absolute;
 	left:40%;
@@ -141,8 +139,8 @@ button:focus {
 	font-size:15px;
 	text-align:center;
 	display:none;
-	color:#232323;
-	background-color:rgba(236,240,241,1);
+	color:#ffffff;
+	background-color:rgba(0,0,0,0.85);
 }
 
 #colorBlindBtn {
@@ -238,7 +236,7 @@ button:focus {
 	#instructions_head {
 		padding-left:0%;
 	}
-	/* #openSideBar{
+	/* #helpBtn{
 		width:60px;
 		height:60px;
 	} */
@@ -349,9 +347,6 @@ button:focus {
 			/*bottom:119px;*/
 		}
 	}
-}
-.blur {
-	opacity:0.1;
 }
 
 * {

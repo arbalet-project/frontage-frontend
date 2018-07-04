@@ -153,32 +153,16 @@ function initialize(game_state, messages_i18n) {
 		setTimeout(function() {
 			if (settings.platform == "mobile") {
 				try {
-					document.body.removeEventListener('touchstart', handleTapBefore, false);
-				} catch (e) {
-
-				}
-
-				try {
 					document.body.removeEventListener('touchstart', handleTap, false);
 				} catch (e) {
 
 				}
-
-				document.body.addEventListener('touchstart', handleTapBefore, false);
 			} else {
-				try {
-					document.body.removeEventListener('mousedown', handleClickBefore, false);
-				} catch (e) {
-
-				}
-
 				try {
 					document.body.removeEventListener('mousedown', handleClick, false);
 				} catch (e) {
 
 				}
-
-				document.body.addEventListener('mousedown', handleClickBefore, false);
 			}
 		}, 1);
 	}
@@ -227,10 +211,6 @@ function startBtnHandler() {
 
 	if (!canRestart) return false;
 
-	if ($('#openSideBar').is(':visible')) {
-		$('#openSideBar').fadeOut(150, "linear");
-	}
-
 	if (importing == 1) {
 		init(1);
 		checkVisualElements();
@@ -251,24 +231,4 @@ function handleTap(e) {
 
 function handleClick(e) {
 	handleClickTap(e.clientX, e.clientY);
-}
-
-function handleTapBefore(e) {
-	var x = e.changedTouches[0].clientX;
-	var y = e.changedTouches[0].clientY;
-
-	if (x < 120 && y < 83 && $('.helpText').is(':visible')) {
-		showHelp();
-		return;
-	}
-}
-
-function handleClickBefore(e) {
-	var x = e.clientX;
-	var y = e.clientY;
-
-	if (x < 120 && y < 83 && $('.helpText').is(':visible')) {
-		showHelp();
-		return;
-	}
 }
