@@ -70,11 +70,13 @@ export class WebsocketMessageHandlerProvider {
 
       if (data.code == this.CODE_GAME_OVER) {
         this.showPopUp("GAME_OVER_TITLE", "GAME_OVER", navCtrl);
-        this.vibration.vibrate([1000, 100, 1000, 100, 1000]);
+        this.vibration.vibrate([100, 100, 100, 100, 1500]);
       } else if (data.code == this.CODE_CLOSE_APP) {
         this.showPopUp("CLOSE_APP_TITLE", "GET_OUT", navCtrl);
+        this.vibration.vibrate([100, 100, 100, 100, 600]);
       } else if (data.code == this.CODE_EXPIRE) {
         this.showPopUp("CLOSE_APP_TITLE", "EXPIRE", navCtrl);
+        this.vibration.vibrate([100, 100, 100, 100, 1500]);
       } else if (data.code == this.CODE_EXPIRE_SOON) {
         this.showToast("EXPIRE_SOON");
       } else if (data.code == this.CODE_TETRIS_CLEARED_ROW) {
@@ -101,7 +103,7 @@ export class WebsocketMessageHandlerProvider {
     });
 
     toast.present();
-    this.vibration.vibrate([1000]);
+    this.vibration.vibrate([100, 100, 100, 100, 600]);
   }
 
   showPopUp(titleKey, messageKey, navCtrl) {

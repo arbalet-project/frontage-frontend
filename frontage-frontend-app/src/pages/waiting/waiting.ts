@@ -4,6 +4,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { DataFAppsProvider } from './../../providers/data-f-apps/data-f-apps';
 import { Subscription, Observable } from 'rxjs/Rx';
 import { Component } from '@angular/core';
+import { Vibration } from '@ionic-native/vibration';
 import { NavController, NavParams, AlertController } from 'ionic-angular';
 
 @Component({
@@ -36,6 +37,7 @@ export class WaitingPage {
 
   constructor(private alertCtrl: AlertController, public navCtrl: NavController, public navParams: NavParams, public dataFAppsProvider: DataFAppsProvider,
     public localStorage: LocalStorageProvider, public translateService: TranslateService,
+    public vibration: Vibration,
     public websocketHandler: WebsocketMessageHandlerProvider) {
 
     //Get the user login
@@ -127,6 +129,9 @@ export class WaitingPage {
         this.message = this.STARTING;
         this.navCtrl.push(this.joystickPage, { joystickParams: this.joystickParams }).then(() => {
           this.navCtrl.remove(this.navCtrl.getPrevious().index);
+          if(!(res.is_forced)) {
+              this.vibration.vibrate([100, 100, 100, 100, 600]);
+          }
         });
       } else if (!this.isLeavingQueue) {
         let popup = this.alertCtrl.create({
