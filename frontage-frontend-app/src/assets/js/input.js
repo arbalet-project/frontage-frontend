@@ -106,16 +106,12 @@ function addKeyListeners() {
 
 
 	if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-		$("#restart").on('touchstart', function() {
-			init();
-			canRestart = false;
-			$("#gameoverscreen").fadeOut();
-		});
 		$("#restartBtn").on('touchstart', function() {
 			init(1);
 			canRestart = false;
 			$("#gameoverscreen").fadeOut();
             $('#helpScreen').fadeOut();
+            $('#pauseScreen').fadeOut();
 		});
 		$("#helpBtn").on('touchstart', function() {
 			showHelp();
@@ -125,16 +121,12 @@ function addKeyListeners() {
 		});
 	}
 	else {
-		$("#restart").on('mousedown', function() {
-			init();
-			canRestart = false;
-			$("#gameoverscreen").fadeOut();
-		});
 		$("#restartBtn").on('mousedown', function() {
 			init(1);
 			canRestart = false;
 			$("#gameoverscreen").fadeOut();
             $('#helpScreen').fadeOut();
+            $('#pauseScreen').fadeOut();
 		});
 		$("#helpBtn").on('mousedown', function() {
 			showHelp();

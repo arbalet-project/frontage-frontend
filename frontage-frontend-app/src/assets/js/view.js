@@ -110,6 +110,11 @@ function gameOverDisplay() {
   set_score_pos();
 }
 
+function showPause() { 
+	$("#pause_main_body").html("<div id = 'instructions_head'>" + settings.messages.paused + "</div>");
+    $('#pauseScreen').fadeIn(150, "linear");
+}
+
 var pausable = true;
 function pause(o) {
     if (gameState == 0 || gameState == 2 || !pausable) {
@@ -128,9 +133,8 @@ function pause(o) {
 	if (gameState == -1) {
         // RESUMING
 		$('#restartBtn').fadeOut(300, "linear");
-		if ($('#helpScreen').is(':visible')) {
-			$('#helpScreen').fadeOut(300, "linear");
-		}
+		$('#helpScreen').fadeOut(300, "linear");
+		$('#pauseScreen').fadeOut(300, "linear");
 
 		$("#pauseBtn").attr("src", "./assets/images/btn_pause.png");
 		$('.helpText').fadeOut(300, 'linear');
@@ -154,6 +158,6 @@ function pause(o) {
 		    pausable = true;
 		}, 400);
 		gameState = -1;
-        $('#helpScreen').fadeIn(150, "linear");
+        showPause();
 	}
 }
