@@ -20,6 +20,8 @@ export class WebsocketMessageHandlerProvider {
   CODE_GAME_OVER = "2"
   CODE_EXPIRE = "3"
   CODE_EXPIRE_SOON = "4"
+  CODE_TETRIS_CLEARED_ROW = "10"
+  CODE_SNAKE_ATE_APPLE = "11"
 
   socket: WebSocket;
 
@@ -75,6 +77,10 @@ export class WebsocketMessageHandlerProvider {
         this.showPopUp("CLOSE_APP_TITLE", "EXPIRE", navCtrl);
       } else if (data.code == this.CODE_EXPIRE_SOON) {
         this.showToast("EXPIRE_SOON");
+      } else if (data.code == this.CODE_TETRIS_CLEARED_ROW) {
+        this.vibration.vibrate([500, 100, 200]);
+      } else if (data.code == this.CODE_SNAKE_ATE_APPLE) {
+        this.vibration.vibrate([100, 5]);
       } else {
         this.showPopUp("UNKNOWN_CODE_TITLE", "UNKNOWN_MESSAGE", navCtrl);
       }

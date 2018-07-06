@@ -98,11 +98,11 @@
     "GAME_OVER":"Vous avez perdu :)",
     "EXPIRE_SOON":"Votre tour pourrait bientôt se terminer",
     "EXPIRE":"Votre temps d'utilisation est écoulé, il est temps de laisser quelqu'un d'autre jouer !",
-    "UNKNOWN_MESSAGE":"Une erreur est survenue : ",
+    "UNKNOWN_MESSAGE":"Nous avons reçu un message inattendu, veuillez mettre à jour votre application depuis le store",
     "GAME_OVER_TITLE":"Game Over",
     "CLOSE_APP_TITLE":"Application terminée",
     "CODE_EXPIRE_TITLE":"Temps écoulé",
-    "UNKNOWN_CODE_TITLE":"Erreur inconnue",
+    "UNKNOWN_CODE_TITLE":"Message inattendu",
 
     "LANGUAGE_COMPONENT_FR":"FR",
     "LANGUAGE_COMPONENT_EN":"EN",

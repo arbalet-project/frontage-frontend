@@ -98,11 +98,11 @@
     "GAME_OVER":"Game Over, you lose :)",
     "EXPIRE_SOON":"Your turn might end soon",
     "EXPIRE":"Your turn is over, it is time to let other people play!",
-    "UNKNOWN_MESSAGE":"An unknown error happened: ",
+    "UNKNOWN_MESSAGE":"We received an unexpected message, please update your app from the store",
     "GAME_OVER_TITLE":"Game Over",
     "CLOSE_APP_TITLE":"Application finished",
     "CODE_EXPIRE_TITLE":"Time is over",
-    "UNKNOWN_CODE_TITLE":"Unknown Error",
+    "UNKNOWN_CODE_TITLE":"Unexpected message",
 
     "LANGUAGE_COMPONENT_FR":"FR",
     "LANGUAGE_COMPONENT_EN":"EN",
