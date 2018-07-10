@@ -1,4 +1,3 @@
-
 page-login {
     .scroll-content {
         align-content: center;
@@ -14,7 +13,7 @@ page-login {
     }
 
     a, p, ion-card-header.card-header {
-        color: #fff;
+        color: #fff !important;
     }
 
     h2 {
@@ -29,7 +28,7 @@ page-login {
         border: medium none;
     }
 
-    .item {
+    .item-login {
         margin-bottom: 10px;
         background: rgba(255,255,255,0.5);
         border: medium none;
@@ -41,6 +40,10 @@ page-login {
         input::-moz-placeholder{
             color: #fff!important;
         }
+    }
+
+    .item {
+        color: #fff!important;
     }
 }
 
