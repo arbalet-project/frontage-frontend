@@ -6,8 +6,6 @@ page-offline-tetris {
 	-moz-user-select:none;
 	-ms-user-select:none;
 	user-select:none;
-	padding:0;
-	margin:0;
 	-webkit-tap-highlight-color:rgba(0,0,0,0);
 }
 
@@ -180,11 +178,6 @@ button:focus {
 
 .helpText {
 	z-index:3001;
-}
-
-* {
-	padding:0;
-	margin:0;
 }
 
 body {
