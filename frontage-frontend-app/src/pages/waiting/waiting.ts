@@ -67,8 +67,6 @@ export class WaitingPage {
     this.joystickPage = navParams.get('joystick');
     this.joystickParams = navParams.get('joystickParams')
 
-    let serverResponse: any = navParams.get('info');
-
     this.positionSubscription = Observable.interval(500).subscribe(() => {
       this.positionSubscriptionStart();
     });

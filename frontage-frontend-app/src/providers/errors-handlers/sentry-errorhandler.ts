@@ -4,7 +4,6 @@ import { Injectable } from '@angular/core';
 import { IonicErrorHandler, ToastController } from 'ionic-angular';
 import Raven from 'raven-js';
 import { environment } from './../../app/environment';
-import { App } from 'ionic-angular/components/app/app';
 
 Raven
     .config(`${environment.sentryUri}`)
@@ -15,7 +14,7 @@ export class SentryErrorHandler extends IonicErrorHandler {
 
     isToastVisible:Boolean = false;
 
-    constructor(private app: App, public vibration: Vibration,
+    constructor(public vibration: Vibration,
         public tranlation: TranslateService, public toastCtrl: ToastController) {
         super();
     }
