@@ -39,12 +39,13 @@ export class FAppListPage {
     //Check if the connected user is admin
     this.isAdmin = this.localStorageProvider.isAdmin();
 
-    //Get the f-app list
-    fAppsData.getList()
-      .subscribe(fAppList => this.fAppList = fAppList, err => console.log(err));
   }
 
   ionViewWillEnter() {
+    //Get the f-app list
+    this.fAppsData.getList()
+      .subscribe(fAppList => this.fAppList = fAppList, err => console.log(err));
+
     this.authentication.isFacadeUp()
       .subscribe(res => {
         this.isFacadeUp = res.is_usable;

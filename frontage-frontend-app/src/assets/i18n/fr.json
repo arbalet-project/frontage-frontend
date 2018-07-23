@@ -47,7 +47,8 @@
 
     "FAPP_PAGE_TITLE":"Sélectionnez une application",
     "FAPP_PAGE_OPTIONS_BUTTON":"Afficher les options",
-    "FAPP_PAGE_NO_APP_ALERT":"Vous ne pouvez lancer aucune application car l'administrateur a verrouillé Arbalet Frontage sur l'application ci-dessous. Veuillez réessayer plus tard.",
+    "FAPP_PAGE_NO_APP_ALERT":"Vous ne pouvez lancer aucune application car l'administrateur a désactivé Arbalet Frontage. Veuillez réessayer plus tard.",
+    "FAPP_PAGE_APP_FORCED_ALERT":"Vous ne pouvez lancer aucune application car l'administrateur a verrouillé Arbalet Frontage sur l'application ci-dessous. Veuillez réessayer plus tard.",
     "FAPP_PAGE_ADMIN_BUTTON":"Paramètres",
 
     "OPTIONS_PAGE_FORCE_START_BUTTON":"Forcer l'application",

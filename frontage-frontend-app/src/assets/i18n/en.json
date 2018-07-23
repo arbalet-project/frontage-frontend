@@ -47,7 +47,8 @@
 
     "FAPP_PAGE_TITLE":"Frontage app list",
     "FAPP_PAGE_OPTIONS_BUTTON":"Show settings",
-    "FAPP_PAGE_NO_APP_ALERT":"You cannot start any app because administrator locked Arbalet Frontage on the app hereunder. Please try again later.",
+    "FAPP_PAGE_APP_FORCED_ALERT":"You cannot start any app because administrator locked Arbalet Frontage on the app hereunder. Please try again later.",
+    "FAPP_PAGE_NO_APP_ALERT":"You cannot start any app because administrator disabled Arbalet Frontage. Please try again later.",
     "FAPP_PAGE_ADMIN_BUTTON":"Admin settings",
 
     "OPTIONS_PAGE_FORCE_START_BUTTON":"Force application",
