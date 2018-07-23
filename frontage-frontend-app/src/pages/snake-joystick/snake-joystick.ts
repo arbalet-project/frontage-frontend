@@ -33,18 +33,22 @@ export class SnakeJoystickPage {
   onUp() {
     this.websocketMessageHandler.send("^");
     this.vibration.vibrate(40);
+    $('#upArrow').hide({duration:0, done: function() {$('#upArrow').fadeIn(200);}});
   }
   onDown() {
     this.websocketMessageHandler.send("v");
     this.vibration.vibrate(40);
+    $('#downArrow').hide({duration:0, done: function() {$('#downArrow').fadeIn(200);}});
   }
   onLeft() {
     this.websocketMessageHandler.send("<");
     this.vibration.vibrate(40);
+    $('#leftArrow').hide({duration:0, done: function() {$('#leftArrow').fadeIn(200);}});
   }
   onRight() {
     this.websocketMessageHandler.send(">");
     this.vibration.vibrate(40);
+    $('#rightArrow').hide({duration:0, done: function() {$('#rightArrow').fadeIn(200);}});
   }
 
   ionViewDidLeave() {
