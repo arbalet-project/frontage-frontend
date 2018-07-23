@@ -24,6 +24,7 @@ export class WebsocketMessageHandlerProvider {
   CODE_SNAKE_ATE_APPLE = "11"
 
   socket: WebSocket;
+  interruptedApp: Boolean = false;
 
   retryCounter = 0;
   externalClause: Boolean;
@@ -62,8 +63,15 @@ export class WebsocketMessageHandlerProvider {
     return this.externalClause;
   }
 
-  handleMessage(message, navCtrl) {
+  isInterruptedApp(): Boolean {
+    return this.interruptedApp;
+  }
 
+  resetFlags() {
+    this.interruptedApp = false;
+  }
+
+  handleMessage(message, navCtrl) {
     let data = JSON.parse(message.data);
 
     if (data.userid == this.localStorage.getUserId()) {
@@ -74,6 +82,7 @@ export class WebsocketMessageHandlerProvider {
       } else if (data.code == this.CODE_CLOSE_APP) {
         this.showPopUp("CLOSE_APP_TITLE", "GET_OUT", navCtrl);
         this.vibration.vibrate([100, 100, 100, 100, 600]);
+        this.interruptedApp = true;
       } else if (data.code == this.CODE_EXPIRE) {
         this.showPopUp("CODE_EXPIRE_TITLE", "EXPIRE", navCtrl);
         this.vibration.vibrate([100, 100, 100, 100, 1500]);

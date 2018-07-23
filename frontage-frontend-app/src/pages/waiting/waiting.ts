@@ -69,24 +69,38 @@ export class WaitingPage {
 
     let serverResponse: any = navParams.get('info');
 
-    this.positionSubscription = Observable.interval(2000).subscribe(() => {
-      this.positionSubscriptionStart()
+    this.positionSubscription = Observable.interval(500).subscribe(() => {
+      this.positionSubscriptionStart();
     });
     
   }
 
   positionSubscriptionStart() {
-    this.dataFAppsProvider.checkPosition()
-      .subscribe(response => this.analyzePosition(response), e => console.log(e));
+    if(this.websocketHandler.isInterruptedApp()) {
+        this.positionSubscriptionStop();
+    } else {
+      this.dataFAppsProvider.checkPosition()
+        .subscribe(response => this.analyzePosition(response), e => console.log(e));
+    }
+  }
+
+  positionSubscriptionStop() {
+    if (this.positionSubscription) {
+      this.positionSubscription.unsubscribe();
+      this.positionSubscription = undefined;
+    }
   }
 
   analyzePosition(response: any) {
     this.position = response.position;
-    this.message = this.QUEUED + this.position;
 
     if (this.position === -1) {
       this.isLaunched = true;
       this.startApp();
+      this.message = this.STARTING;
+    }
+    else {
+      this.message = this.QUEUED + this.position;
     }
   }
 
@@ -107,12 +121,7 @@ export class WaitingPage {
       this.isLeavingQueue = true;
       this.dataFAppsProvider.quitQueue();
     }
-
-    if (this.positionSubscription) {
-      this.positionSubscription.unsubscribe();
-      this.positionSubscription = undefined;
-    }
-
+    this.positionSubscriptionStop();
     this.navCtrl.swipeBackEnabled = true;
   }
 
@@ -126,7 +135,6 @@ export class WaitingPage {
     this.dataFAppsProvider.getCurrentApp().subscribe(res => {
       //Check if the user is the owner of the current app
       if (this.userid == res.userid || res.is_forced && this.isAdmin) {
-        this.message = this.STARTING;
         this.navCtrl.push(this.joystickPage, { joystickParams: this.joystickParams }).then(() => {
           this.navCtrl.remove(this.navCtrl.getPrevious().index);
           if(!(res.is_forced)) {
@@ -134,6 +142,8 @@ export class WaitingPage {
           }
         });
       } else if (!this.isLeavingQueue) {
+        this.positionSubscriptionStop();
+
         let popup = this.alertCtrl.create({
           title: this.alertTitle,
           message: this.alertMessage,
