@@ -3,13 +3,19 @@
 </ion-header>
 
 <ion-content scroll-hide fullscreen class="bg">
-  <div *ngIf="isForced">
+  <div *ngIf="!isFacadeUp && !isForced">
     <ion-card>
       <ion-card-header text-wrap id="text">{{"FAPP_PAGE_NO_APP_ALERT" | translate}} </ion-card-header>
     </ion-card>
   </div>
 
-  <div *ngIf="fAppList">
+  <div *ngIf="isForced">
+    <ion-card>
+      <ion-card-header text-wrap id="text">{{"FAPP_PAGE_APP_FORCED_ALERT" | translate}} </ion-card-header>
+    </ion-card>
+  </div>
+
+  <div *ngIf="fAppList && isFacadeUp">
     <ion-list *ngFor="let fApp of fAppList">
       <ion-grid *ngIf="!isForced ||currentApp == fApp.name">
         <ion-row>
@@ -36,7 +42,7 @@
     {{"FAPP_PAGE_ADMIN_BUTTON" | translate}}
     <ion-icon color="danger" ios="ios-hammer" md="md-hammer"></ion-icon>
   </button>
-  <button ion-button full icon-end color="danger" class="tr" *ngIf="isForced" (click)="unForceFApp()">
+  <button ion-button full icon-end color="danger" class="tr" *ngIf="isForced && isAdmin" (click)="unForceFApp()">
     {{"SETTINGS_PAGE_UNFORCE_BUTTON" |translate}}
     <ion-icon color="danger" ios="ios-close-circle" md="md-close-circle"></ion-icon>
   </button>

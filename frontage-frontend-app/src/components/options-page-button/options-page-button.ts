@@ -1,3 +1,4 @@
+import { WebsocketMessageHandlerProvider } from './../../providers/websocket-message-handler/websocket-message-handler';
 import { Vibration } from '@ionic-native/vibration';
 import { WaitingPage } from './../../pages/waiting/waiting';
 import { NavController, AlertController } from 'ionic-angular';
@@ -46,6 +47,7 @@ export class OptionsPageButtonComponent {
   optionsSentMessage: String;
 
   constructor(public navCtrl: NavController,
+    public websocketMessageHandlerProvider: WebsocketMessageHandlerProvider,
     public dataFAppsProvider: DataFAppsProvider,
     public localStorageProvider: LocalStorageProvider,
     public adminProvider: AdminProvider,
@@ -105,12 +107,14 @@ export class OptionsPageButtonComponent {
    */
   startFapp() {
     this.vibration.vibrate(50);
+    this.websocketMessageHandlerProvider.resetFlags();
     this.dataFAppsProvider.launchFApp(this.fAppOptions)
       .subscribe(response => this.goToNextPage(response), err => console.log(err));
   }
 
   forceFapp() {
     this.vibration.vibrate(20);
+    this.websocketMessageHandlerProvider.resetFlags();
     this.adminProvider.launchForcedFApp(this.fAppOptions)
       .subscribe(response => this.validateActionSucceeded(response.forced, this.forcedTitle, this.forcedMessage, true),
                  err => console.log(err));

@@ -37,18 +37,23 @@ export class TetrisJoystickPage {
   onDown() {
     this.websocketMessageHandler.send("<");
     this.vibration.vibrate(40);
+    $('#downArrow').hide({duration:0, done: function() {$('#downArrow').fadeIn(200);}});
   }
   onUp() {
     this.websocketMessageHandler.send(">");
     this.vibration.vibrate(40);
+    $('#upArrow').hide({duration:0, done: function() {$('#upArrow').fadeIn(200);}});
   }
   onRight() {
     this.websocketMessageHandler.send("v");
     this.vibration.vibrate(40);
+    $('#rightArrow').hide({duration:0, done: function() {$('#rightArrow').fadeIn(200);}});
   }
   turn() {
     this.websocketMessageHandler.send("^");
     this.vibration.vibrate(40);
+    $('#rotateArrow').hide({duration:0, done: function() {$('#rotateArrow').fadeIn(200);}});
+    $('#rotateArrowEnd').hide({duration:0, done: function() {$('#rotateArrowEnd').fadeIn(200);}});
   }
 
   ionViewDidLeave() {

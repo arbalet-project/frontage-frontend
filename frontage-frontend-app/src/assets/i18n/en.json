@@ -47,7 +47,8 @@
 
     "FAPP_PAGE_TITLE":"Frontage app list",
     "FAPP_PAGE_OPTIONS_BUTTON":"Show settings",
-    "FAPP_PAGE_NO_APP_ALERT":"You cannot start any app because administrator locked Arbalet Frontage on the app hereunder. Please try again later.",
+    "FAPP_PAGE_APP_FORCED_ALERT":"You cannot start any app because administrator locked Arbalet Frontage on the app hereunder. Please try again later.",
+    "FAPP_PAGE_NO_APP_ALERT":"You cannot start any app because administrator disabled Arbalet Frontage. Please try again later.",
     "FAPP_PAGE_ADMIN_BUTTON":"Admin settings",
 
     "OPTIONS_PAGE_FORCE_START_BUTTON":"Force application",
@@ -94,13 +95,13 @@
     "SETTINGS_PAGE_UNFORCE_BUTTON":"Unforce app",
     "SETTINGS_PAGE_DEFAULT_LIFETIME": "Lifetime of default apps",
 
-    "GET_OUT":"Your turn is over.",
+    "GET_OUT":"Sorry, you can no longer play.",
     "GAME_OVER":"Game Over, you lose :)",
     "EXPIRE_SOON":"Your turn might end soon",
     "EXPIRE":"Your turn is over, it is time to let other people play!",
     "UNKNOWN_MESSAGE":"We received an unexpected message, please update your app from the store",
     "GAME_OVER_TITLE":"Game Over",
-    "CLOSE_APP_TITLE":"Application finished",
+    "CLOSE_APP_TITLE":"Access denied",
     "CODE_EXPIRE_TITLE":"Time is over",
     "UNKNOWN_CODE_TITLE":"Unexpected message",
 

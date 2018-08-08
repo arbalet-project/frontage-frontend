@@ -47,7 +47,8 @@
 
     "FAPP_PAGE_TITLE":"Sélectionnez une application",
     "FAPP_PAGE_OPTIONS_BUTTON":"Afficher les options",
-    "FAPP_PAGE_NO_APP_ALERT":"Vous ne pouvez lancer aucune application car l'administrateur a verrouillé Arbalet Frontage sur l'application ci-dessous. Veuillez réessayer plus tard.",
+    "FAPP_PAGE_NO_APP_ALERT":"Vous ne pouvez lancer aucune application car l'administrateur a désactivé Arbalet Frontage. Veuillez réessayer plus tard.",
+    "FAPP_PAGE_APP_FORCED_ALERT":"Vous ne pouvez lancer aucune application car l'administrateur a verrouillé Arbalet Frontage sur l'application ci-dessous. Veuillez réessayer plus tard.",
     "FAPP_PAGE_ADMIN_BUTTON":"Paramètres",
 
     "OPTIONS_PAGE_FORCE_START_BUTTON":"Forcer l'application",
@@ -94,13 +95,13 @@
     "SETTINGS_PAGE_UNFORCE_BUTTON":"Relâcher l'application forcée",
     "SETTINGS_PAGE_DEFAULT_LIFETIME": "Durée des applications",
 
-    "GET_OUT":"Votre tour est terminé !",
+    "GET_OUT":"Désolé, vous n'avez plus l'autorisation de jouer.",
     "GAME_OVER":"Vous avez perdu :)",
     "EXPIRE_SOON":"Votre tour pourrait bientôt se terminer",
     "EXPIRE":"Votre temps d'utilisation est écoulé, il est temps de laisser quelqu'un d'autre jouer !",
     "UNKNOWN_MESSAGE":"Nous avons reçu un message inattendu, veuillez mettre à jour votre application depuis le store",
     "GAME_OVER_TITLE":"Game Over",
-    "CLOSE_APP_TITLE":"Application terminée",
+    "CLOSE_APP_TITLE":"Accès refusé",
     "CODE_EXPIRE_TITLE":"Temps écoulé",
     "UNKNOWN_CODE_TITLE":"Message inattendu",
 
