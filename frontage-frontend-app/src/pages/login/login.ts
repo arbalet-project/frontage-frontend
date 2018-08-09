@@ -40,6 +40,7 @@ export class LoginPage {
   }
 
   ionViewWillEnter() {
+    this.isServerUp=false;
     this.checkServerStatus();
     //If the server is not up check periodicaly his status
     if (!this.isServerUp) {
