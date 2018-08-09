@@ -6,6 +6,7 @@ import { Component } from '@angular/core';
 import { NavParams, NavController, Platform } from 'ionic-angular';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
 import { LocalStorageProvider } from './../../providers/local-storage/local-storage';
+import * as $ from 'jquery'
 
 @Component({
   selector: 'page-snake-joystick',
