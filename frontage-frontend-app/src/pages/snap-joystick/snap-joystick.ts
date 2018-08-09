@@ -6,7 +6,7 @@ import { environment } from './../../app/environment';
 import { Component } from '@angular/core';
 import { NavController, NavParams, AlertController } from 'ionic-angular';
 import { TranslateService } from '@ngx-translate/core'
-import * as $ from 'jquery'
+
 
 /**
  * Generated class for the SnapJoystickPage page.
