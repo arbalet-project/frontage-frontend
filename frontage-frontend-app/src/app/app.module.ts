@@ -1,3 +1,5 @@
+import { DrawingJoystickPage } from './../pages/drawing-joystick/drawing-joystick';
+import { DrawingOptionsPage } from './../pages/drawing-options/drawing-options';
 import { OfflineTetrisPage } from './../pages/offline-tetris/offline-tetris';
 import { VersionObsoletePage } from './../pages/version-obsolete/version-obsolete';
 import { ScrollHideDirective } from './../directives/scroll-hide/scroll-hide';
@@ -79,7 +81,9 @@ let components:any[] = [
     SettingPage,
     OptionsPageButtonComponent,
     VersionObsoletePage,
-    OfflineTetrisPage
+    OfflineTetrisPage,
+    DrawingOptionsPage,
+    DrawingJoystickPage
 ];
 
 @NgModule({
