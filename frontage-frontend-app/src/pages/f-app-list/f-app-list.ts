@@ -1,3 +1,4 @@
+import { DrawingOptionsPage } from './../drawing-options/drawing-options';
 import { Vibration } from '@ionic-native/vibration';
 import { AuthenticationProvider } from './../../providers/authentication/authentication';
 import { AdminProvider } from './../../providers/admin/admin';
@@ -114,6 +115,9 @@ export class FAppListPage {
       }
       case "Snap": {
         return SnapOptionsPage
+      }
+      case "Drawing": {
+        return DrawingOptionsPage;
       }
       default: {
         return FlagsOptionsPage;
