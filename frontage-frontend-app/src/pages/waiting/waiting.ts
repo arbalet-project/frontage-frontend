@@ -92,7 +92,7 @@ export class WaitingPage {
   analyzePosition(response: any) {
     this.position = response.position;
 
-    if (this.position === -1) {
+    if (!this.isLaunched && this.position === -1) {
       this.isLaunched = true;
       this.startApp();
       this.message = this.STARTING;
