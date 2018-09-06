@@ -22,7 +22,7 @@ import { SnapJoystickPage } from '../snap-joystick/snap-joystick';
 })
 export class FAppListPage {
 
-  fAppList: FApp[];
+  fAppList: FApp[] = [];
   fAppPosition: number;
   isAdmin: boolean = false;
   isFacadeUp: boolean = false;
@@ -44,7 +44,17 @@ export class FAppListPage {
   ionViewWillEnter() {
     //Get the f-app list
     this.fAppsData.getList()
-      .subscribe(fAppList => this.fAppList = fAppList, err => console.log(err));
+      .subscribe(fAppList => {
+        this.fAppList = [];
+        fAppList.forEach(fApp => {
+          // if option page == undefined this app is unknown to the frontend, ignore it
+          if(this.establishNavigationPageName(fApp.name)) {
+            this.fAppList.push(fApp);
+          } else {
+            console.log("This app '" + fApp.name + "' is not know to the frontend, skipping");
+          }
+        });
+      }, err => console.log(err));
 
     this.authentication.isFacadeUp()
       .subscribe(res => {
@@ -56,7 +66,13 @@ export class FAppListPage {
 
   showOptions(fApp: FApp) {
     if (!this.isForced) {
-      this.navCtrl.push(this.establishNavigationPageName(fApp.name), { selectedFapp: fApp });
+      let optionsPage = this.establishNavigationPageName(fApp.name);
+      if(optionsPage) {
+        this.navCtrl.push(this.establishNavigationPageName(fApp.name), { selectedFapp: fApp });
+      }
+      else {
+        console.log("This app '" + fApp.name + "' is not know to the frontend, skipping");
+      }
     } else if ('Snap' == this.currentApp) {
       this.navCtrl.push(SnapJoystickPage, { joystickParams: "" });
     }
@@ -113,10 +129,10 @@ export class FAppListPage {
         return TetrisOptionsPage;
       }
       case "Snap": {
-        return SnapOptionsPage
+        return SnapOptionsPage;
       }
       default: {
-        return FlagsOptionsPage;
+        return undefined;
       }
     }
   }

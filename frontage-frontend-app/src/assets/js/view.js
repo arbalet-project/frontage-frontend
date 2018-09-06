@@ -5,11 +5,12 @@ function easeOutCubic(t, b, c, d) {
 
 function renderText(x, y, fontSize, color, text, font) {
 	ctx.save();
+	fontSize = parseFloat(fontSize*settings.scale).toFixed(2);
+
 	if (!font) {
 		var font = '20px Roboto';
 	}
 
-	fontSize *= settings.scale;
 	ctx.font = fontSize + font;
 	ctx.textAlign = 'center';
 	ctx.fillStyle = color;

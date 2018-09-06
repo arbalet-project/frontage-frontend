@@ -1,8 +1,8 @@
 {
   "name": "frontage-frontend-app",
-  "version": "1.1.0",
-  "author": "Ionic Framework",
-  "homepage": "http://ionicframework.com/",
+  "version": "1.1.1",
+  "author": "Arbalet Project",
+  "homepage": "http://arbalet-project.org/",
   "private": true,
   "scripts": {
     "clean": "ionic-app-scripts clean",
@@ -70,7 +70,7 @@
     "ionic": "3.20.0",
     "typescript": "2.3.4"
   },
-  "description": "An Ionic project",
+  "description": "Take control of the building facade of Bordeaux University",
   "cordova": {
     "plugins": {
       "ionic-plugin-keyboard": {},
