@@ -15,9 +15,9 @@
     </ion-card>
   </div>
 
-  <div *ngIf="fAppList && isFacadeUp">
+  <div *ngIf="fAppList">
     <ion-list *ngFor="let fApp of fAppList">
-      <ion-grid *ngIf="!isForced ||currentApp == fApp.name">
+      <ion-grid *ngIf="isFacadeUp && !isForced || isForced && currentApp == fApp.name">
         <ion-row>
           <ion-col>
             <ion-item text-wrap (click)="showOptions(fApp)">
