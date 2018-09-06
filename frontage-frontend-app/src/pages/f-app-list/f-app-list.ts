@@ -46,6 +46,7 @@ export class FAppListPage {
     //Get the f-app list
     this.fAppsData.getList()
       .subscribe(fAppList => {
+        this.fAppList = [];
         fAppList.forEach(fApp => {
           // if option page == undefined this app is unknown to the frontend, ignore it
           if(this.establishNavigationPageName(fApp.name)) {
@@ -129,7 +130,7 @@ export class FAppListPage {
         return TetrisOptionsPage;
       }
       case "Snap": {
-        return SnapOptionsPage
+        return SnapOptionsPage;
       }
       case "Drawing": {
         return DrawingOptionsPage;
