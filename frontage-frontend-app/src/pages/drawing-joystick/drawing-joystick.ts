@@ -1,8 +1,9 @@
+import { ScreenOrientation } from '@ionic-native/screen-orientation';
 import { DomSanitizer, SafeStyle } from '@angular/platform-browser';
 import { DataFAppsProvider } from './../../providers/data-f-apps/data-f-apps';
 import { WebsocketMessageHandlerProvider } from './../../providers/websocket-message-handler/websocket-message-handler';
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, Platform } from 'ionic-angular';
 
 @Component({
   selector: 'page-drawing-joystick',
@@ -30,7 +31,12 @@ export class DrawingJoystickPage {
   test:SafeStyle;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,  public fAppProvider: DataFAppsProvider,
-    public websocketMessageHandler: WebsocketMessageHandlerProvider, public sanitizer: DomSanitizer) {
+    public websocketMessageHandler: WebsocketMessageHandlerProvider, public sanitizer: DomSanitizer,
+    public platform: Platform, public screenOrientation: ScreenOrientation) {
+
+    if (this.platform.is('mobile')) {
+      this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
+    }
 
     this.currentColorHexa=this.white;
     this.pixelMatrix = new Array<Array<SafeStyle>>();
@@ -82,7 +88,11 @@ export class DrawingJoystickPage {
   }
 
   ionViewDidLeave() {
-    console.log("ion did leave")
+    if (this.platform.is('mobile')) {
+      this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
+      this.screenOrientation.unlock();
+    }
+
     if (!this.websocketMessageHandler.isExternalyClaused()) {
       this.fAppProvider.stopApp();
       this.websocketMessageHandler.closeSocket();
