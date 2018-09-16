@@ -9,4 +9,17 @@ page-drawing-joystick {
         color: #fff;
     }
 
+    .DrawingJoystick {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
+
+    #ColourPalette {
+        max-width: 100%;
+    }
+
+    #DrawingMatrix {
+        max-height: 100%;
+    }
 }
