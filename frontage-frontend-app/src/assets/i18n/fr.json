@@ -81,14 +81,11 @@
     "SNAP_OPTIONS_PAGE_TITLE":"Atelier de programmation",
     "SNAP_OPTIONS_PAGE_START_BUTTON":"Démarrer l'atelier",
 
-    "SNAKE_JOYSTICK_TITLE":"Snake",
-    "TETRIS_JOYSTICK_TITLE":"Tetris",
     "RF_JOYSTICK_TITLE":"Changer de thème",
     "SNAP_JOYSTICK_PAGE_TITLE":"Sélection des clients",
     "FLAGS_JOYSTICK_PAGE_TITLE":"Drapeaux",
     "SR_JOYSTICK_PAGE_TITLE":"Changer de thème",
     "SA_JOYSTICK_PAGE_TITLE":"Roue des couleurs",
-    "DRAWING_JOYSTICK_PAGE_TITLE": "Dessin libre",
     "SNAP_JOYSTICK_INFO": "L'application est forcée, pensez à la relâcher à la fin de l'atelier. Choisissez le pseudonyme du client qui contrôle Arbalet Frontage en live :",
 
     "SETTINGS_PAGE_TITLE":"Paramètres",
