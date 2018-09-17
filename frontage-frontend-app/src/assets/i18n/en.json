@@ -81,14 +81,11 @@
     "SNAP_OPTIONS_PAGE_TITLE":"Snap",
     "SNAP_OPTIONS_PAGE_START_BUTTON":"Start Snap",
 
-    "SNAKE_JOYSTICK_TITLE":"Snake",
-    "TETRIS_JOYSTICK_TITLE":"Tetris",
     "SNAP_JOYSTICK_PAGE_TITLE":"Snap clients",
     "RF_JOYSTICK_TITLE":"Change theme",
     "FLAGS_JOYSTICK_PAGE_TITLE":"Flags",
     "SR_JOYSTICK_PAGE_TITLE":"Change theme",
     "SA_JOYSTICK_PAGE_TITLE":"Color wheel",
-    "DRAWING_JOYSTICK_PAGE_TITLE": "Free drawing",
     "SNAP_JOYSTICK_INFO": "This application is forced, do not forget to unforce it when the workshop ends. Choose the nickname who controls Arbalet Frontage:",
 
     "SETTINGS_PAGE_TITLE":"Settings",

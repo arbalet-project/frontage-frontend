@@ -37,6 +37,10 @@ export class DrawingJoystickPage {
     if (this.platform.is('mobile')) {
       this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
     }
+
+    if (this.platform.is('mobile')) {
+      this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
+    }
     
     this.currentColorHexa=this.white;
     this.pixelMatrix = new Array<Array<SafeStyle>>();
@@ -88,7 +92,11 @@ export class DrawingJoystickPage {
   }
 
   ionViewDidLeave() {
-    console.log("ion did leave")
+    if (this.platform.is('mobile')) {
+      this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
+      this.screenOrientation.unlock();
+    }
+
     if (!this.websocketMessageHandler.isExternalyClaused()) {
       this.fAppProvider.stopApp();
       this.websocketMessageHandler.closeSocket();
