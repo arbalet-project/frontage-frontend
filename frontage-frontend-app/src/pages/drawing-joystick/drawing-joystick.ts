@@ -80,7 +80,7 @@ export class DrawingJoystickPage {
     console.log("sendColor : x=" + x + ", y=" + y)
 
     let pixel = {x:x, y:y}
-    let color = {red:this.currentColorHexa[1][0], blue:this.currentColorHexa[1][1], green:this.currentColorHexa[1][2]}
+    let color = {red:this.currentColorHexa[1][0], green:this.currentColorHexa[1][1], blue:this.currentColorHexa[1][2]}
 
     console.log("Send : " + JSON.stringify({pixel:pixel, color:color}))
     this.websocketMessageHandler.send(JSON.stringify({pixel:pixel, color:color}))
