@@ -1,8 +1,9 @@
+import { ScreenOrientation } from '@ionic-native/screen-orientation';
 import { DomSanitizer, SafeStyle } from '@angular/platform-browser';
 import { DataFAppsProvider } from './../../providers/data-f-apps/data-f-apps';
 import { WebsocketMessageHandlerProvider } from './../../providers/websocket-message-handler/websocket-message-handler';
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, Platform } from 'ionic-angular';
 
 @Component({
   selector: 'page-drawing-joystick',
@@ -30,8 +31,13 @@ export class DrawingJoystickPage {
   test:SafeStyle;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,  public fAppProvider: DataFAppsProvider,
-    public websocketMessageHandler: WebsocketMessageHandlerProvider, public sanitizer: DomSanitizer) {
+    public websocketMessageHandler: WebsocketMessageHandlerProvider, public sanitizer: DomSanitizer,
+    public screenOrientation: ScreenOrientation, public platform: Platform) {
 
+    if (this.platform.is('mobile')) {
+      this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
+    }
+    
     this.currentColorHexa=this.white;
     this.pixelMatrix = new Array<Array<SafeStyle>>();
 
@@ -60,14 +66,14 @@ export class DrawingJoystickPage {
 
   changeColor(x, y){
     console.log("changeColor : " + this.baseCss+"fill:" + this.currentColorHexa[0])
-    this.test = this.sanitizer.bypassSecurityTrustStyle(this.baseCss+"fill:" + this.currentColorHexa[0])
+    this.pixelMatrix[x][y] = this.sanitizer.bypassSecurityTrustStyle(this.baseCss+"fill:" + this.currentColorHexa[0])
     
     this.sendColor(x, y);
   }
 
   sendColor(x, y) {
 
-    console.log("sendColor")
+    console.log("sendColor : x=" + x + ", y=" + y)
 
     let pixel = {x:x, y:y}
     let color = {red:this.currentColorHexa[1][0], blue:this.currentColorHexa[1][1], green:this.currentColorHexa[1][2]}
@@ -88,6 +94,11 @@ export class DrawingJoystickPage {
       this.websocketMessageHandler.closeSocket();
     }
     this.websocketMessageHandler.stopKeepAliveSender();
+    
+    if (this.platform.is('mobile')) {
+      this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
+      this.screenOrientation.unlock();
+    }
   }
 
 
