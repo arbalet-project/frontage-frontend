@@ -94,6 +94,10 @@
     "SETTINGS_PAGE_BACK_BUTTON":"Retour à la liste",
     "SETTINGS_PAGE_UNFORCE_BUTTON":"Relâcher l'application forcée",
     "SETTINGS_PAGE_DEFAULT_LIFETIME": "Durée des applications",
+    "SETTINGS_RESTART_BUTTON": "Redémarrer le service",
+    "SETTINGS_RESTART_MESSAGE": "Veuillez patienter 45 secondes pendant le redémarrage du service ... Vous pourrez ensuite vous reconnecter.",
+    "SETTINGS_CANNOT_RESTART_MESSAGE": "Impossible de redémarrer automatiquement le service. Débranchez puis rebranchez physiquement le serveur.",
+    "SETTINGS_CANNOT_RESTART_TITLE": "Redémarrage impossible",
 
     "GET_OUT":"Désolé, vous n'avez plus l'autorisation de jouer.",
     "GAME_OVER":"Vous avez perdu :)",

@@ -4,7 +4,7 @@ import { AuthenticationProvider } from './../../providers/authentication/authent
 import { AdminHoursSettings } from './../../models/admin-hours-settings';
 import { AdminProvider } from './../../providers/admin/admin';
 import { Component, OnInit } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, LoadingController, AlertController } from 'ionic-angular';
 
 @Component({
   selector: 'page-setting',
@@ -18,6 +18,9 @@ export class SettingPage implements OnInit {
   frontageStateList: any[] = [];
   selectedOpeningHour: String;
   selectedClosingHour: String;
+  restartMessage: string;
+  cannotRestartMessage: string;
+  cannotRestartTitle: string;
 
   lifetime: number;
 
@@ -26,7 +29,9 @@ export class SettingPage implements OnInit {
     public adminProvider: AdminProvider,
     public authentication: AuthenticationProvider,
     public translateService: TranslateService,
-    public vibration: Vibration) {
+    public vibration: Vibration,
+    private loadingController: LoadingController,
+    private alertController: AlertController) {
 
     this.initHourList("sunset+", this.openingHourList);
     this.initHourList("sunrise-", this.closingHourList);
@@ -50,6 +55,15 @@ export class SettingPage implements OnInit {
         label: res
       };
       this.frontageStateList.push(scheduled);
+    });
+    this.translateService.get("SETTINGS_RESTART_MESSAGE").subscribe(res => {
+      this.restartMessage = res;
+    });
+    this.translateService.get("SETTINGS_CANNOT_RESTART_MESSAGE").subscribe(res => {
+      this.cannotRestartMessage = res;
+    });
+    this.translateService.get("SETTINGS_CANNOT_RESTART_TITLE").subscribe(res => {
+      this.cannotRestartTitle = res;
     });
   }
   /**
@@ -148,5 +162,38 @@ export class SettingPage implements OnInit {
   unForceFApp() {
     this.vibration.vibrate(50)
     this.adminProvider.unForceFApp().subscribe();
+  }
+
+  presentRestartLoading() {
+    let loading = this.loadingController.create({
+      content: this.restartMessage
+    });
+  
+    loading.present();
+  
+    setTimeout(() => {
+      loading.dismiss();
+      this.navCtrl.goToRoot({});
+    }, 40000);
+  }
+
+  presentRestartFailureAlert() {
+    let alert = this.alertController.create({
+      title: this.cannotRestartTitle,
+      subTitle: this.cannotRestartMessage
+    });
+    alert.present();
+  }
+
+  restartService() {
+    this.adminProvider.restartService().subscribe(answer => {
+      console.log(answer);
+      if(answer.done == true) {
+        this.presentRestartLoading();
+      }
+      else {
+        this.presentRestartFailureAlert();
+      }
+    });
   }
 }

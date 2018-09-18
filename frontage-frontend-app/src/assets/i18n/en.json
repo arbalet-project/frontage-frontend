@@ -94,6 +94,11 @@
     "SETTINGS_PAGE_BACK_BUTTON":"Back to list",
     "SETTINGS_PAGE_UNFORCE_BUTTON":"Unforce app",
     "SETTINGS_PAGE_DEFAULT_LIFETIME": "Lifetime of default apps",
+    "SETTINGS_RESTART_BUTTON": "Restart service",
+    "SETTINGS_RESTART_MESSAGE": "Please wait 45 seconds while the service is restarting... You will then be able to reconnect.",
+    "SETTINGS_CANNOT_RESTART_MESSAGE": "Unable to restart the service automatically. Unplug and replug the server physically.",
+    "SETTINGS_CANNOT_RESTART_TITLE": "Restart failure",
+
 
     "GET_OUT":"Sorry, you can no longer play.",
     "GAME_OVER":"Game Over, you lose :)",

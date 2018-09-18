@@ -90,6 +90,12 @@ export class AdminProvider {
       .catch(error => Observable.of(error));
   }
 
+  public restartService(): Observable<any> {
+    return this.http
+      .post(this.baseUrl + "/b/restart", {})
+      .catch(error => Observable.of(error));
+  }
+
   /**
    * FApp launching
    */
