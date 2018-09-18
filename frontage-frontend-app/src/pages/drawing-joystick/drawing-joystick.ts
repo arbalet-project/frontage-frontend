@@ -78,12 +78,10 @@ export class DrawingJoystickPage {
 
     let colorHexa = "#"+redHexa+greenHexa+blueHexa;
 
-    console.log("Set color palette to : " + JSON.stringify(colorHexa));
     this.currentColorHexa = [colorHexa, [red, green, blue]];
   }
 
   changeColor(x, y){
-    console.log("changeColor : " + this.baseCss+"fill:" + this.currentColorHexa[0])
     this.pixelMatrix[x][y] = this.sanitizer.bypassSecurityTrustStyle(this.baseCss+"fill:" + this.currentColorHexa[0])
     
     this.sendColor(x, y);
@@ -91,17 +89,14 @@ export class DrawingJoystickPage {
 
   sendColor(x, y) {
 
-    console.log("sendColor : x=" + x + ", y=" + y)
 
     let pixel = {x:x, y:y}
     let color = {red:this.currentColorHexa[1][0], green:this.currentColorHexa[1][1], blue:this.currentColorHexa[1][2]}
 
-    console.log("Send : " + JSON.stringify({pixel:pixel, color:color}))
     this.websocketMessageHandler.send(JSON.stringify({pixel:pixel, color:color}))
   }
 
   stopFApp() {
-    console.log("stop f app")
     this.navCtrl.pop();
   }
 
