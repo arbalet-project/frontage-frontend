@@ -14,11 +14,6 @@ export class DrawingJoystickPage {
   selectedParameter: string[];
 
   baseCss:string = "opacity:1;fill-opacity:1;stroke:none;stroke-width:0.26499999;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;";
-  black=["#000000", [0,0,0]];
-  white=["#ffffff", [255,255,255]];
-  red=["#ff0000", [255,0,0]];
-  green=["#00ff00", [0,255,0]];
-  blue=["#0000ff", [0,0,255]];
 
   frontageHeight:Number = 4;
   frontageLength:Number = 19;
@@ -42,7 +37,8 @@ export class DrawingJoystickPage {
       this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
     }
     
-    this.currentColorHexa=this.white;
+    this.currentColorHexa=["#ffffff", [255,255,255]];
+
     this.pixelMatrix = new Array<Array<SafeStyle>>();
 
     for(let i=0; i<this.frontageHeight; i++){
@@ -51,7 +47,7 @@ export class DrawingJoystickPage {
 
     for (let i=0; i<this.frontageHeight; i++){
       for (let j=0; j<this.frontageLength; j++){
-        this.pixelMatrix[i][j] = sanitizer.bypassSecurityTrustStyle(this.baseCss+"fill:" + this.black[0])
+        this.pixelMatrix[i][j] = sanitizer.bypassSecurityTrustStyle(this.baseCss+"fill:#000000")
       }
     }
 
@@ -63,9 +59,27 @@ export class DrawingJoystickPage {
     websocketMessageHandler.initSocket(navCtrl);
   }
 
-  setColor(colorHexa){
-    console.log("Set color palette to : " + JSON.stringify(colorHexa))
-    this.currentColorHexa = colorHexa
+  decimalToHexa(decimalNumber) {
+    let hexa:string = decimalNumber.toString(16)
+    if(hexa.length == 0){
+      hexa="00"
+    }
+    else if(hexa.length == 1) {
+      hexa = "0" + hexa
+    }
+
+    return hexa;
+  }
+
+  setColor(red, green, blue){
+    let redHexa = this.decimalToHexa(red);
+    let greenHexa = this.decimalToHexa(green);
+    let blueHexa = this.decimalToHexa(blue);
+
+    let colorHexa = "#"+redHexa+greenHexa+blueHexa;
+
+    console.log("Set color palette to : " + JSON.stringify(colorHexa));
+    this.currentColorHexa = [colorHexa, [red, green, blue]];
   }
 
   changeColor(x, y){
