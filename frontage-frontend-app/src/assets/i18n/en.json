@@ -1,4 +1,6 @@
 {
+    "DISCONNECT_BUTTON": "Logout",
+
     "HOME_PAGE_APP_TITLE": "Arbalet Frontage",
     "HOME_PAGE_MESSAGE_1": "Welcome! Arbalet Frontage is the interactive facade of building A1 of Bordeaux University.",
     "HOME_PAGE_MESSAGE_2": "71 colorful pixels light any window of the building.",
