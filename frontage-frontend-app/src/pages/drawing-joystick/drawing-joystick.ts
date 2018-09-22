@@ -59,6 +59,34 @@ export class DrawingJoystickPage {
     websocketMessageHandler.initSocket(navCtrl);
   }
 
+  handleStart(ev) {
+    console.log("start")
+    console.log("target : " + JSON.stringify(ev.target.id));
+    console.log("touches : " + JSON.stringify(ev.touches[0].target.id));
+    console.log("changedTouches : " + JSON.stringify(ev.changedTouches[0].target.id));
+    console.log("targetTouches : " + JSON.stringify(ev.targetTouches[0].target.id));
+  }
+
+  handleMove(ev) {
+    console.log("move")
+    // console.log("Move target: " + JSON.stringify(ev.target.id));
+    // console.log("Move coord: x:" + ev.touches[0].pageX + " | y:" + ev.touches[0].pageY);
+    let currentElement = document.elementFromPoint(ev.touches[0].pageX, ev.touches[0].pageY);
+    let id = currentElement.id
+    
+    if (id.startsWith("px-")){
+
+      currentElement.style=this.baseCss+"fill:" + this.currentColorHexa[0];
+
+      let tokens = id.split('-');
+
+      let pixel = {x:tokens[1], y:tokens[2]}
+      let color = {red:this.currentColorHexa[1][0], green:this.currentColorHexa[1][1], blue:this.currentColorHexa[1][2]}
+      console.log("send-message : " + JSON.stringify({pixel:pixel, color:color}))
+      this.websocketMessageHandler.send(JSON.stringify({pixel:pixel, color:color}))
+    }
+  }
+
   decimalToHexa(decimalNumber) {
     let hexa:string = decimalNumber.toString(16)
     if(hexa.length == 0){
@@ -81,20 +109,18 @@ export class DrawingJoystickPage {
     this.currentColorHexa = [colorHexa, [red, green, blue]];
   }
 
-  changeColor(x, y){
-    this.pixelMatrix[x][y] = this.sanitizer.bypassSecurityTrustStyle(this.baseCss+"fill:" + this.currentColorHexa[0])
+  // changeColor(x, y){
+  //   this.pixelMatrix[x][y] = this.sanitizer.bypassSecurityTrustStyle(this.baseCss+"fill:" + this.currentColorHexa[0])
     
-    this.sendColor(x, y);
-  }
+  //   this.sendColor(x, y);
+  // }
 
-  sendColor(x, y) {
+  // sendColor(x, y) {
+  //   let pixel = {x:x, y:y}
+  //   let color = {red:this.currentColorHexa[1][0], green:this.currentColorHexa[1][1], blue:this.currentColorHexa[1][2]}
 
-
-    let pixel = {x:x, y:y}
-    let color = {red:this.currentColorHexa[1][0], green:this.currentColorHexa[1][1], blue:this.currentColorHexa[1][2]}
-
-    this.websocketMessageHandler.send(JSON.stringify({pixel:pixel, color:color}))
-  }
+  //   this.websocketMessageHandler.send(JSON.stringify({pixel:pixel, color:color}))
+  // }
 
   stopFApp() {
     this.navCtrl.pop();
