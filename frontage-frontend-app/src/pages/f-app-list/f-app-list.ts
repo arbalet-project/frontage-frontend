@@ -49,7 +49,7 @@ export class FAppListPage {
         this.fAppList = [];
         fAppList.forEach(fApp => {
           // if option page == undefined this app is unknown to the frontend, ignore it
-          if(this.establishNavigationPageName(fApp.name)) {
+          if (this.establishNavigationPageName(fApp.name)) {
             this.fAppList.push(fApp);
           } else {
             console.log("This app '" + fApp.name + "' is not know to the frontend, skipping");
@@ -68,7 +68,7 @@ export class FAppListPage {
   showOptions(fApp: FApp) {
     if (!this.isForced) {
       let optionsPage = this.establishNavigationPageName(fApp.name);
-      if(optionsPage) {
+      if (optionsPage) {
         this.navCtrl.push(this.establishNavigationPageName(fApp.name), { selectedFapp: fApp });
       }
       else {
@@ -104,6 +104,11 @@ export class FAppListPage {
   /** 
    * Navigation
   */
+  logout() {
+    //TODO : Call back for disconnect
+    this.localStorageProvider.clearData();
+    this.navCtrl.pop();
+  }
 
   goToSettings() {
     this.navCtrl.push(SettingPage);

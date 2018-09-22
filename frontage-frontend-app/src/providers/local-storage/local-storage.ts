@@ -52,4 +52,8 @@ export class LocalStorageProvider {
     return isAdmin;
   }
 
+  public clearData(): void {
+    this.localStorage.clear();
+  }
+
 }
