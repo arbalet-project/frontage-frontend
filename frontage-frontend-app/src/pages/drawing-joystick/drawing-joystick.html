@@ -109,7 +109,7 @@
          version="1.1"
          viewBox="0 0 128.4198 49.307999"
          style="max-width:100%; max-height:100%;"
-         (touchstart)="handleStart($event)"
+         (touchstart)="handleMove($event)"
          (touchmove)="handleMove($event)">
         <g
           transform="translate(-24.379463,-109.90178)"
@@ -120,7 +120,7 @@
             style="opacity:1;fill:#214478;fill-opacity:1;stroke:none;stroke-width:0.26499999;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
         <path
             id="px-0-0"
-            
+            [style]=pixelMatrix[0][0]
             d="m 27.302652,112.11283 h 4 c 0.554,0 1,0.446 1,1 v 7 c 0,0.554 -0.446,1 -1,1 h -4 c -0.554,0 -1,-0.446 -1,-1 v -7 c 0,-0.554 0.446,-1 1,-1 z"
              />
         <path

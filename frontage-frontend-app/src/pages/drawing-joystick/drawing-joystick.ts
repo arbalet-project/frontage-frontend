@@ -76,13 +76,12 @@ export class DrawingJoystickPage {
     
     if (id.startsWith("px-")){
 
-      currentElement.style=this.baseCss+"fill:" + this.currentColorHexa[0];
-
       let tokens = id.split('-');
 
       let pixel = {x:tokens[1], y:tokens[2]}
+      this.pixelMatrix[pixel.x][pixel.y] = this.sanitizer.bypassSecurityTrustStyle(this.baseCss+"fill:" + this.currentColorHexa[0])
+
       let color = {red:this.currentColorHexa[1][0], green:this.currentColorHexa[1][1], blue:this.currentColorHexa[1][2]}
-      console.log("send-message : " + JSON.stringify({pixel:pixel, color:color}))
       this.websocketMessageHandler.send(JSON.stringify({pixel:pixel, color:color}))
     }
   }
