@@ -21,6 +21,8 @@ export class DrawingJoystickPage {
   currentColorHexa:any;
   pixelMatrix: Array<Array<SafeStyle>>;
 
+  lastElementClickedId:string="";
+
   constructor(public navCtrl: NavController, public navParams: NavParams,  public fAppProvider: DataFAppsProvider,
     public websocketMessageHandler: WebsocketMessageHandlerProvider, public sanitizer: DomSanitizer,
     public screenOrientation: ScreenOrientation, public platform: Platform) {
@@ -67,15 +69,18 @@ export class DrawingJoystickPage {
     let currentElement = document.elementFromPoint(ev.touches[0].pageX, ev.touches[0].pageY);
     let id = currentElement.id;
     
-    if (id.startsWith("px-")){
-
-      let tokens = id.split('-');
-
-      let pixel = {x:tokens[1], y:tokens[2]}
-      this.pixelMatrix[pixel.x][pixel.y] = this.sanitizer.bypassSecurityTrustStyle(this.baseCss+"fill:" + this.currentColorHexa[0])
-
-      let color = {red:this.currentColorHexa[1][0], green:this.currentColorHexa[1][1], blue:this.currentColorHexa[1][2]}
-      this.websocketMessageHandler.send(JSON.stringify({pixel:pixel, color:color}))
+    if (id!==this.lastElementClickedId) {
+      this.lastElementClickedId = id;
+      if (id.startsWith("px-")){
+        console.log("Change state : " + id);
+        let tokens = id.split('-');
+  
+        let pixel = {x:tokens[1], y:tokens[2]};
+        this.pixelMatrix[pixel.x][pixel.y] = this.sanitizer.bypassSecurityTrustStyle(this.baseCss+"fill:" + this.currentColorHexa[0]);
+  
+        let color = {red:this.currentColorHexa[1][0], green:this.currentColorHexa[1][1], blue:this.currentColorHexa[1][2]};
+        this.websocketMessageHandler.send(JSON.stringify({pixel:pixel, color:color}));
+      }
     }
   }
 
@@ -100,19 +105,6 @@ export class DrawingJoystickPage {
 
     this.currentColorHexa = [colorHexa, [red, green, blue]];
   }
-
-  // changeColor(x, y){
-  //   this.pixelMatrix[x][y] = this.sanitizer.bypassSecurityTrustStyle(this.baseCss+"fill:" + this.currentColorHexa[0])
-    
-  //   this.sendColor(x, y);
-  // }
-
-  // sendColor(x, y) {
-  //   let pixel = {x:x, y:y}
-  //   let color = {red:this.currentColorHexa[1][0], green:this.currentColorHexa[1][1], blue:this.currentColorHexa[1][2]}
-
-  //   this.websocketMessageHandler.send(JSON.stringify({pixel:pixel, color:color}))
-  // }
 
   stopFApp() {
     this.navCtrl.pop();

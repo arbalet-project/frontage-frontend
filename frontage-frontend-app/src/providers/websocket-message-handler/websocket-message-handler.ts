@@ -152,6 +152,7 @@ export class WebsocketMessageHandlerProvider {
   }
 
   closeSocket() {
+    console.log("CALL CLOOOOOSE !!!!!!!")
     this.socket.close();
   }
 
