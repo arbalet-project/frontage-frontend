@@ -72,7 +72,6 @@ export class DrawingJoystickPage {
     if (id!==this.lastElementClickedId) {
       this.lastElementClickedId = id;
       if (id.startsWith("px-")){
-        console.log("Change state : " + id);
         let tokens = id.split('-');
   
         let pixel = {x:tokens[1], y:tokens[2]};
