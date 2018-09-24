@@ -21,10 +21,6 @@ export class DrawingJoystickPage {
   currentColorHexa:any;
   pixelMatrix: Array<Array<SafeStyle>>;
 
-  // pixelColor00:SafeStyle;
-
-  test:SafeStyle;
-
   constructor(public navCtrl: NavController, public navParams: NavParams,  public fAppProvider: DataFAppsProvider,
     public websocketMessageHandler: WebsocketMessageHandlerProvider, public sanitizer: DomSanitizer,
     public screenOrientation: ScreenOrientation, public platform: Platform) {
@@ -60,19 +56,16 @@ export class DrawingJoystickPage {
   }
 
   handleStart(ev) {
-    console.log("start")
-    console.log("target : " + JSON.stringify(ev.target.id));
-    console.log("touches : " + JSON.stringify(ev.touches[0].target.id));
-    console.log("changedTouches : " + JSON.stringify(ev.changedTouches[0].target.id));
-    console.log("targetTouches : " + JSON.stringify(ev.targetTouches[0].target.id));
+    this.updateColor(ev);
   }
 
   handleMove(ev) {
-    console.log("move")
-    // console.log("Move target: " + JSON.stringify(ev.target.id));
-    // console.log("Move coord: x:" + ev.touches[0].pageX + " | y:" + ev.touches[0].pageY);
+    this.updateColor(ev);
+  }
+
+  updateColor(ev) {
     let currentElement = document.elementFromPoint(ev.touches[0].pageX, ev.touches[0].pageY);
-    let id = currentElement.id
+    let id = currentElement.id;
     
     if (id.startsWith("px-")){
 
