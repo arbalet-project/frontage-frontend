@@ -81,6 +81,7 @@
     "SWEEP_ASYNC_OPTIONS_PAGE_RULES":"You will see the full color wheel, each window at a different pace.",
     "SNAP_OPTIONS_PAGE_RULES":"Every participant has a laptop or tablet (called a client). He connects to Wifi network ARBALET_FRONTAGE and loads address \"arbalet.frontage\" in a Web browser. Finally, he selects \"Switch to WORKSHOP mode\" so that Arbalet Frontage gives him a nickname that must display on screen above simulation ; if it doesn't check the client's wifi connection. Administrator sees the list of all conected clients, when he clics a nickname he authorizes the latter to code live on Arbalet Frontage.",
     "DRAWING_OPTIONS_PAGE_RULES": "You will be able to draw your own patterns on Arbalet Frontage by clicking a color from the palette and swiping your finger on a pixel. Colouring a pixel in black is equivalent to switching it off.",
+    "DRAWING_OPTIONS_PAGE_RULES_ADMIN": "For commemoration having specific visual representations, this app allows the administrator to set a custom pattern in the daily schedule by saving his/her drawing.",
     "OPTIONS_PAGE_NO_OPTIONS": "No option needed for this app, you can start it now.",
     "OPTIONS_PAGE_START_BUTTON":"Start application",
 

@@ -81,6 +81,7 @@
     "SWEEP_ASYNC_OPTIONS_PAGE_RULES":"Vous allez voir défiler toute la roue des couleurs, chaque fenêtre à son rythme.",
     "SNAP_OPTIONS_PAGE_RULES":"Chaque participant dispose d'un ordinateur ou d'une tablette (nommé client). Il se connecte au réseau Wifi ARBALET_FRONTAGE et ouvre l'adresse \"arbalet.frontage\" dans un navigateur Web. Enfin, le client clique sur \"Passer en mode ATELIER\" afin qu'Arbalet Frontage lui attribue un pseudonyme qui doit s'afficher à l'écran au dessus de la simulation ; dans le cas contraire vérifier la connexion Wifi du client. L'administrateur voit la liste de tous les clients connectés, lorsqu'il clique sur un pseudonyme il autorise celui-ci à prendre le contrôle d'Arbalet Frontage en live.",
     "DRAWING_OPTIONS_PAGE_RULES": "Vous pourrez dessiner vos propres motifs sur Arbalet Frontage en sélectionnant une couleur et en glissant votre doigt sur un pixel pour le teinter. Rappelez-vous que teinter un pixel en noir revient à l'éteindre.",
+    "DRAWING_OPTIONS_PAGE_RULES_ADMIN": "Pour les commémorations ayant des représentations visuelles spécifiques, cette application permet également à l'administrateur de définir un motif personnalisé dans le planning quotidien en enregistrant son dessin.",
     "OPTIONS_PAGE_NO_OPTIONS": "Cette application ne nécessite pas de paramètre.",
     "OPTIONS_PAGE_START_BUTTON":"Lancer l'application",
 
