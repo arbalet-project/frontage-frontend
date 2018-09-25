@@ -35,7 +35,7 @@ export class DrawingJoystickPage {
       this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
     }
     
-    this.currentColorHexa=["#ffffff", [255,255,255]];
+    this.currentColorHexa=["#ff0000", [255,0,0]];
 
     this.pixelMatrix = new Array<Array<SafeStyle>>();
 
@@ -95,7 +95,16 @@ export class DrawingJoystickPage {
     return hexa;
   }
 
+  switchCSSVisibility(elementId, visibility) {
+    let element = document.getElementById(elementId);
+    let style = element.style;
+    style["visibility"] = visibility;
+    element.setAttribute("style", style.cssText);
+  }
+
   setColor(red, green, blue){
+    let previousColorRGB  = "c-" + this.currentColorHexa[1][0] + "-" + this.currentColorHexa[1][1] + "-" + this.currentColorHexa[1][2];
+
     let redHexa = this.decimalToHexa(red);
     let greenHexa = this.decimalToHexa(green);
     let blueHexa = this.decimalToHexa(blue);
@@ -103,10 +112,18 @@ export class DrawingJoystickPage {
     let colorHexa = "#"+redHexa+greenHexa+blueHexa;
 
     this.currentColorHexa = [colorHexa, [red, green, blue]];
+
+    this.switchCSSVisibility("c-" + red + "-" + green + "-" + blue + "-select", "visible");
+    this.switchCSSVisibility(previousColorRGB + "-select", "hidden");
   }
 
   stopFApp() {
     this.navCtrl.pop();
+  }
+
+  ionViewWillEnter() {
+    let initialColorRGB  = "c-" + this.currentColorHexa[1][0] + "-" + this.currentColorHexa[1][1] + "-" + this.currentColorHexa[1][2];
+    this.switchCSSVisibility(initialColorRGB + "-select", "visible");
   }
 
   ionViewDidLeave() {
