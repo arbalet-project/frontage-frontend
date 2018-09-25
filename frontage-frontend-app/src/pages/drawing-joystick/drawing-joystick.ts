@@ -1,31 +1,45 @@
+import { LocalStorageProvider } from './../../providers/local-storage/local-storage';
+import { TranslateService } from '@ngx-translate/core';
+import { AdminProvider } from './../../providers/admin/admin';
+import { Vibration } from '@ionic-native/vibration';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
 import { DomSanitizer, SafeStyle } from '@angular/platform-browser';
 import { DataFAppsProvider } from './../../providers/data-f-apps/data-f-apps';
 import { WebsocketMessageHandlerProvider } from './../../providers/websocket-message-handler/websocket-message-handler';
-import { Component } from '@angular/core';
-import { NavController, NavParams, Platform } from 'ionic-angular';
+import { Component, Input } from '@angular/core';
+import { NavController, NavParams, Platform, AlertController } from 'ionic-angular';
 
 @Component({
   selector: 'page-drawing-joystick',
   templateUrl: 'drawing-joystick.html',
 })
 export class DrawingJoystickPage {
+  @Input()
+  isAdmin: boolean;
+
   parametersList: string;
   selectedParameter: string[];
 
   baseCss:string = "opacity:1;fill-opacity:1;stroke:none;stroke-width:0.26499999;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;";
 
   frontageHeight:Number = 4;
-  frontageLength:Number = 19;
+  frontageWidth:Number = 19;
 
   currentColorHexa:any;
   pixelMatrix: Array<Array<SafeStyle>>;
 
   lastElementClickedId:string="";
 
+  optionsSentTitle: String;
+  optionsSentMessage: String;
+
   constructor(public navCtrl: NavController, public navParams: NavParams,  public fAppProvider: DataFAppsProvider,
     public websocketMessageHandler: WebsocketMessageHandlerProvider, public sanitizer: DomSanitizer,
-    public screenOrientation: ScreenOrientation, public platform: Platform) {
+    public screenOrientation: ScreenOrientation, public platform: Platform, public vibration: Vibration,
+    public adminProvider: AdminProvider, public alertCtrl: AlertController, public translateService: TranslateService,
+    public localStorageProvider: LocalStorageProvider) {
+
+    this.isAdmin = this.localStorageProvider.isAdmin();
 
     if (this.platform.is('mobile')) {
       this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
@@ -40,11 +54,11 @@ export class DrawingJoystickPage {
     this.pixelMatrix = new Array<Array<SafeStyle>>();
 
     for(let i=0; i<this.frontageHeight; i++){
-      this.pixelMatrix.push(new Array<SafeStyle>(this.frontageLength))
+      this.pixelMatrix.push(new Array<SafeStyle>(this.frontageWidth))
     }
 
     for (let i=0; i<this.frontageHeight; i++){
-      for (let j=0; j<this.frontageLength; j++){
+      for (let j=0; j<this.frontageWidth; j++){
         this.pixelMatrix[i][j] = sanitizer.bypassSecurityTrustStyle(this.baseCss+"fill:#000000")
       }
     }
@@ -55,6 +69,14 @@ export class DrawingJoystickPage {
     this.selectedParameter = joystickParams.selectedParameter;
 
     websocketMessageHandler.initSocket(navCtrl);
+
+    this.translateService.get("DRAWING_SENT_ALERT_TITLE").subscribe(translatedMesssage => {
+      this.optionsSentTitle = translatedMesssage;
+    });
+
+    this.translateService.get("DRAWING_SENT_ALERT").subscribe(translatedMesssage => {
+      this.optionsSentMessage = translatedMesssage;
+    });
   }
 
   handleStart(ev) {
@@ -144,6 +166,33 @@ export class DrawingJoystickPage {
     }
   }
 
+  validateActionSucceeded(success, title, message, navigateBack) {
+    if(success) {
+        this.vibration.vibrate(50);
+        let popUp = this.alertCtrl.create({
+          title: title,
+          message: message,
+          buttons: [{
+            text: 'OK',
+            handler: () => {
+              if(navigateBack) {
+                  popUp.dismiss().then(() => {
+                    this.navCtrl.pop();
+                  });
+                  return false;
+              }
+            }
+          }]
+        });
+        popUp.present();
+    }
+  }
 
+  sendScheduledDrawing() {
+    this.vibration.vibrate(20);
+    this.adminProvider.sendScheduledDrawing()
+      .subscribe(response => this.validateActionSucceeded(response.done, this.optionsSentTitle, this.optionsSentMessage, false),
+                 err => console.log(err));
+  }
   
 }

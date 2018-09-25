@@ -537,6 +537,10 @@
   </ion-content>
 
 <ion-footer>
+  <button *ngIf="isAdmin" ion-button icon-end full color="secondary" class="tr" (click)="sendScheduledDrawing()">
+    {{"SEND_SCHEDULER_DRAWING_BUTTON" | translate}}
+  <ion-icon color="danger" ios="ios-alarm" md="md-alarm"></ion-icon>
+</button>
   <button ion-button icon-end full color="secondary" class="tr" (click)="stopFApp()">
     {{"STOP_APP" | translate}}
     <ion-icon color="secondary" ios="ios-flag" md="md-flag"></ion-icon>

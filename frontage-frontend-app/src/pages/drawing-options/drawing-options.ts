@@ -19,6 +19,7 @@ export class DrawingOptionsPage {
     this.fAppOptions = {
       name: "Drawing",
       params: {
+        "model": ""  // Empty string for model tells backend to start real-time drawing instead of replaying the saved one
       }
     }
   }
