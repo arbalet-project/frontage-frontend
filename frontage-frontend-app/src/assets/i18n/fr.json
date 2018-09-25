@@ -64,6 +64,10 @@
     "OPTIONS_PAGE_OPTIONS_SENT_ALERT_TITLE": "Options enregistrées",
     "OPTIONS_PAGE_OPTIONS_SENT_ALERT": "Ces options seront désormais utilisées lorsque vient le tour de cette application dans le planning quotidien.",
 
+    "SEND_SCHEDULER_DRAWING_BUTTON": "Enregistrer ce dessin pour le planning quotidien",
+    "DRAWING_SENT_ALERT_TITLE": "Dessin enregistré",
+    "DRAWING_SENT_ALERT": "Si vous souhaitez qu'il s'affiche dans le planning quotidien dès maintenant, quittez l'application puis vérifiez que <b>Dessin libre</b> est cochée dans le planning.",
+
     "FLAGS_OPTIONS_PAGE_TITLE":"Choisissez votre drapeau",
     "RF_OPTIONS_PAGE_TITLE":"Choisissez vos couleurs",
     "SA_OPTIONS_PAGE_TITLE":"Roue des couleurs",

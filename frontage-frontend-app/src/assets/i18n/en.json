@@ -64,6 +64,10 @@
     "OPTIONS_PAGE_OPTIONS_SENT_ALERT_TITLE": "Options set",
     "OPTIONS_PAGE_OPTIONS_SENT_ALERT": "These options will now be used when this application's turn comes in the daily schedule",
 
+    "SEND_SCHEDULER_DRAWING_BUTTON": "Save this drawing in the daily schedule",
+    "DRAWING_SENT_ALERT_TITLE": "Drawing saved",
+    "DRAWING_SENT_ALERT": "If you want it to be displayed in the daily schedule from now, stop this app and check <b>Free Drawing</b> in the schedule.",
+
     "FLAGS_OPTIONS_PAGE_TITLE":"Select your flag",
     "RF_OPTIONS_PAGE_TITLE":"Select your colors",
     "SA_OPTIONS_PAGE_TITLE":"Select your colors",
