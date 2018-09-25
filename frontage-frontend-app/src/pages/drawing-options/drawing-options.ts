@@ -18,6 +18,7 @@ export class DrawingOptionsPage {
 
     this.fAppOptions = {
       name: "Drawing",
+      hideParams: true,  // Send params to the backend but do not let the user changing them
       params: {
         "model": ""  // Empty string for model tells backend to start real-time drawing instead of replaying the saved one
       }
