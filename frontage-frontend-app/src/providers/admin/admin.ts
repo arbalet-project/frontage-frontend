@@ -116,4 +116,10 @@ export class AdminProvider {
       .post(this.baseUrl + "/b/apps/default/" + fAppOptions.name, body)
       .catch(error => Observable.of(error));
   }
+
+  public sendScheduledDrawing(): Observable<any> {
+    return this.http
+      .post(this.baseUrl + "/b/apps/drawing/default" , {})
+      .catch(error => Observable.of(error));
+  }
 }

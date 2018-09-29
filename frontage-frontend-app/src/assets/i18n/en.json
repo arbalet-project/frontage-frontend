@@ -1,4 +1,6 @@
 {
+    "DISCONNECT_BUTTON": "Logout",
+
     "HOME_PAGE_APP_TITLE": "Arbalet Frontage",
     "HOME_PAGE_MESSAGE_1": "Welcome! Arbalet Frontage is the interactive facade of building A1 of Bordeaux University.",
     "HOME_PAGE_MESSAGE_2": "71 colorful pixels light any window of the building.",
@@ -12,6 +14,7 @@
     "SNAKE": "Snake",
     "SNAP": "Snap",
     "TETRIS": "Tetris",
+    "DRAWING": "Freehand Draw",
 
     "FLAGS_DESCRIPTION":"Light Arbalet Frontage to the colors of your country!",
     "RANDOMFLASHING_DESCRIPTION":"Make Arbalet Frontage slowly flashing.",
@@ -20,6 +23,7 @@
     "SNAKE_DESCRIPTION": "Play a Snake and eat apples.",
     "SNAP_DESCRIPTION": "Learning computer programming with a playful and creative approach by creating your own light animation thanks to this visual programming language  ",
     "TETRIS_DESCRIPTION": "Play this well known arcade game on a giant facade",
+    "DRAWING_DESCRIPTION": "Draw on Arbalet Frontage with a colour palette.",
 
     "HOME_PAGE_START_BUTTON":"Let's go!",
 
@@ -60,25 +64,30 @@
     "OPTIONS_PAGE_OPTIONS_SENT_ALERT_TITLE": "Options set",
     "OPTIONS_PAGE_OPTIONS_SENT_ALERT": "These options will now be used when this application's turn comes in the daily schedule",
 
+    "SEND_SCHEDULER_DRAWING_BUTTON": "Save this drawing in the daily schedule",
+    "DRAWING_SENT_ALERT_TITLE": "Drawing saved",
+    "DRAWING_SENT_ALERT": "If you want it to be displayed in the daily schedule from now, stop this app and check <b>Free Drawing</b> in the schedule.",
+
     "FLAGS_OPTIONS_PAGE_TITLE":"Select your flag",
     "RF_OPTIONS_PAGE_TITLE":"Select your colors",
     "SA_OPTIONS_PAGE_TITLE":"Select your colors",
     "SR_OPTIONS_PAGE_TITLE":"Select your colors",
     "SNAKE_OPTIONS_PAGE_TITLE":"Rules of the game",
     "TETRIS_OPTIONS_PAGE_TITLE":"Rules of the game",
+    "DRAWING_OPTIONS_PAGE_TITLE": "How to draw?",
 
     "SNAKE_OPTIONS_PAGE_RULES":"You will be a red snake eating green apples. You can cross walls, in that case you' be spawned at the other side, but do not eat your tail! Although door steps of the building are invisible, their pixels are part of the game.",
     "TETRIS_OPTIONS_PAGE_RULES":"Eliminate as much columns as you can. Tetrominos drop from left to right. Use the action button to rotate them. Although door steps of the building are invisible, their pixels are part of the game.",
     "SWEEP_ASYNC_OPTIONS_PAGE_RULES":"You will see the full color wheel, each window at a different pace.",
     "SNAP_OPTIONS_PAGE_RULES":"Every participant has a laptop or tablet (called a client). He connects to Wifi network ARBALET_FRONTAGE and loads address \"arbalet.frontage\" in a Web browser. Finally, he selects \"Switch to WORKSHOP mode\" so that Arbalet Frontage gives him a nickname that must display on screen above simulation ; if it doesn't check the client's wifi connection. Administrator sees the list of all conected clients, when he clics a nickname he authorizes the latter to code live on Arbalet Frontage.",
+    "DRAWING_OPTIONS_PAGE_RULES": "You will be able to draw your own patterns on Arbalet Frontage by clicking a color from the palette and swiping your finger on a pixel. Colouring a pixel in black is equivalent to switching it off.",
+    "DRAWING_OPTIONS_PAGE_RULES_ADMIN": "For commemoration having specific visual representations, this app allows the administrator to set a custom pattern in the daily schedule by saving his/her drawing.",
     "OPTIONS_PAGE_NO_OPTIONS": "No option needed for this app, you can start it now.",
     "OPTIONS_PAGE_START_BUTTON":"Start application",
 
     "SNAP_OPTIONS_PAGE_TITLE":"Snap",
     "SNAP_OPTIONS_PAGE_START_BUTTON":"Start Snap",
 
-    "SNAKE_JOYSTICK_TITLE":"Snake",
-    "TETRIS_JOYSTICK_TITLE":"Tetris",
     "SNAP_JOYSTICK_PAGE_TITLE":"Snap clients",
     "RF_JOYSTICK_TITLE":"Change theme",
     "FLAGS_JOYSTICK_PAGE_TITLE":"Flags",

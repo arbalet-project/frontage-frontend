@@ -1,3 +1,4 @@
+import { DrawingOptionsPage } from './../drawing-options/drawing-options';
 import { Vibration } from '@ionic-native/vibration';
 import { AuthenticationProvider } from './../../providers/authentication/authentication';
 import { AdminProvider } from './../../providers/admin/admin';
@@ -67,7 +68,7 @@ export class FAppListPage {
   showOptions(fApp: FApp) {
     if (!this.isForced) {
       let optionsPage = this.establishNavigationPageName(fApp.name);
-      if(optionsPage) {
+      if (optionsPage) {
         this.navCtrl.push(this.establishNavigationPageName(fApp.name), { selectedFapp: fApp });
       }
       else {
@@ -103,6 +104,11 @@ export class FAppListPage {
   /** 
    * Navigation
   */
+  logout() {
+    //TODO : Call back for disconnect
+    this.localStorageProvider.clearData();
+    this.navCtrl.pop();
+  }
 
   goToSettings() {
     this.navCtrl.push(SettingPage);
@@ -130,6 +136,9 @@ export class FAppListPage {
       }
       case "Snap": {
         return SnapOptionsPage;
+      }
+      case "Drawing": {
+        return DrawingOptionsPage;
       }
       default: {
         return undefined;

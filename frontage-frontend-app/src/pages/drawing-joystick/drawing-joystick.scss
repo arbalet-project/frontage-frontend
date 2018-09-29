@@ -1,0 +1,27 @@
+page-drawing-joystick {
+    ion-item.item, ion-list-header.list-header {
+        box-shadow: none;
+        background: rgba(0,0,0,0.5);
+        border-radius: 5px;
+    }
+
+    a, p, ion-item.item{
+        color: #fff;
+    }
+
+    .DrawingJoystick {
+        display: flex;
+        flex-direction: column;
+        height: calc(100% + 40px);
+        margin-top: -20px;
+        margin-bottom: -20px;
+    }
+
+    #ColourPalette {
+        max-width: 100%;
+    }
+
+    #DrawingMatrix {
+        max-height: 100%;
+    }
+}
