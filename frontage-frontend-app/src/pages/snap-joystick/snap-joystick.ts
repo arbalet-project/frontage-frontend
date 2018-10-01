@@ -36,6 +36,9 @@ export class SnapJoystickPage {
   snapClosedTitle : string = "";
   snapClosedMessage: string = "";
 
+  offNickname: string = "";
+  offCode: string = "turnoff";
+
   constructor(public navCtrl: NavController, public navParams: NavParams, public dataFAppsProvider: DataFAppsProvider,
               public translateService: TranslateService, public http: HttpClient, private alertCtrl: AlertController,
               public websocketMessageHandler: WebsocketMessageHandlerProvider) {
@@ -58,6 +61,10 @@ export class SnapJoystickPage {
 
     this.translateService.get("SNAP_APP_NOT_RUNNING").subscribe(translatedMesssage => {
       this.snapClosedMessage = translatedMesssage;
+    });
+
+    this.translateService.get("SNAP_OFF_NICKNAME").subscribe(translatedMesssage => {
+      this.offNickname = translatedMesssage;
     });
 
     websocketMessageHandler.initSocket(navCtrl);
@@ -92,20 +99,20 @@ export class SnapJoystickPage {
   getClientsInfo() {
     this.http.get<any>(this.baseUrl + this.clientsEndpoint)
       .subscribe(
-        response => this.handleResponse(response),
+        response => this.handleGetClientsInfoResponse(response),
         err => this.dataFAppsProvider.getCurrentApp().subscribe(response => this.checkSnapIsStillRunning(response))
       );
   }
 
-  handleResponse(response) {
-    this.selectedClient = response.selected_client;
-    this.clientsList = response.list_clients;
+  handleGetClientsInfoResponse(response) {
+    this.selectedClient = response.selected_client == this.offCode? this.offNickname : response.selected_client;
+    this.clientsList = [this.offNickname].concat(response.list_clients);
     this.isWaiting = false;
   }
 
   authorize() {
     let body = {
-      selected_client: this.selectedClient
+      selected_client: this.selectedClient == this.offNickname? this.offCode : this.selectedClient
     };
 
     this.http.post<any>(this.baseUrl + this.authorizeEndpoint, body)
@@ -120,7 +127,7 @@ export class SnapJoystickPage {
           title: this.inexistingClientTitle,
           message: this.inexistingClientMessage,
           buttons: [{
-            text: 'Ok'
+            text: 'OK'
           }]
         });
 
