@@ -24,7 +24,11 @@ page-drawing-joystick {
     #DrawingMatrix {
         max-height: 100%;
     }
-    
+
+    .noPixel {
+      opacity: 0;
+    }
+
     ion-grid {
         align-items: center;
     }

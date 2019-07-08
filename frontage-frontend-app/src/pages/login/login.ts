@@ -105,7 +105,7 @@ export class LoginPage {
     //Ask for an authentication token
     if (this.isPwdDisplayed) {
       this.authentication
-        .adminAuth(this.userName, this.password)
+        .adminAuth(this.userName.trim(), this.password.trim())
         .subscribe(isAuthenticated =>
           this.pushPage(isAuthenticated), err => console.log(err));
     } else {
@@ -154,7 +154,6 @@ export class LoginPage {
   }
 
   ionViewWillLeave() {
-    console.log("stop sending request")
     //Stop checking the server status
     this.serverUpSubscription.unsubscribe();
   }

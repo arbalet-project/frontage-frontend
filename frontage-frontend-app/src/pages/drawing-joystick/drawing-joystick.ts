@@ -58,11 +58,13 @@ export class DrawingJoystickPage {
     this.pixelMatrix = new Array<Array<SafeStyle>>();
 
     this.adminProvider.getBuildingDimensions().subscribe(resp => {
+      console.log(resp);
       if (resp['height'] > 0)
         this.frontageHeight = resp['height'];
       if (resp['width'] > 0)
         this.frontageWidth = resp['width'];
-
+      if (resp['disabled'] != [])
+        this.disabled = resp['disabled'];
       this.createGrid();
     });
 
@@ -227,7 +229,6 @@ export class DrawingJoystickPage {
   }
 
 isDisabled(row, col) {
-  this.disabled = [[1,1], [2,2], [0,0]];
   for (let pix of this.disabled){
     if (pix[0] == row && pix[1] == col){
       return true;

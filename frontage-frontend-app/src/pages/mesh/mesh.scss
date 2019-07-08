@@ -1,0 +1,52 @@
+page-mesh {
+    ion-item.item {
+        box-shadow: none;
+        background: rgba(0,0,0,0.5);
+        border-radius: 5px;
+        color: #fff;
+    }
+
+    ion-input {
+        input {
+            text-align: right;
+       }
+    }
+
+    ion-grid {
+        align-items: center;
+    }
+
+
+    ion-card.card {
+        box-shadow: none;
+        background: rgba(0,0,0,0.5);
+        border-radius: 5px;
+        text-align: center;
+        color: white;
+
+    }
+
+    ion-card.label {
+        color: white;
+    }
+
+    .loader {
+      top:40%;
+      left:45%;
+      border: 16px solid #f3f3f3; /* Light grey */
+      border-top: 16px solid #3498db; /* Blue */
+      border-radius: 50%;
+      width: 120px;
+      height: 120px;
+      animation: spin 800ms linear infinite;
+      position: absolute;
+      visibility: hidden;
+      z-index: 10;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+}

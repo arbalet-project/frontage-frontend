@@ -10,15 +10,15 @@
     </button>
   </ion-item>
   <ion-item>
-    <ion-label>{{"SETTINGS_PAGE_OPENING_HOUR" | translate}}</ion-label>
-    <ion-select *ngIf="openingHourList" [(ngModel)]="selectedOpeningHour" (ionChange)="setOpeningHour()">
-      <ion-option *ngFor="let openingHour of openingHourList">{{openingHour}}</ion-option>
+    <ion-label>{{"SETTINGS_PAGE_START_TIME" | translate}}</ion-label>
+    <ion-select *ngIf="timeOnList" [(ngModel)]="selectedTimeOn" (ionChange)="setTimeOn()">
+      <ion-option *ngFor="let timeOn of timeOnList">{{timeOn}}</ion-option>
     </ion-select>
   </ion-item>
   <ion-item>
-    <ion-label>{{"SETTINGS_PAGE_CLOSING_HOUR" |translate}}</ion-label>
-    <ion-select *ngIf="closingHourList" [(ngModel)]="selectedClosingHour" (ionChange)="setClosingHour()">
-      <ion-option *ngFor="let closingHour of closingHourList">{{closingHour}}</ion-option>
+    <ion-label>{{"SETTINGS_PAGE_STOP_TIME" |translate}}</ion-label>
+    <ion-select *ngIf="timeOffList" [(ngModel)]="selectedTimeOff" (ionChange)="setTimeOff()">
+      <ion-option *ngFor="let timeOff of timeOffList">{{timeOff}}</ion-option>
     </ion-select>
   </ion-item>
   <ion-item>
@@ -31,6 +31,14 @@
     <ion-label>{{"SETTINGS_PAGE_DEFAULT_LIFETIME" | translate}}</ion-label>
     <ion-input type="number" [(ngModel)]="lifetime" min="30" max="1800" (ionChange)="updateLifetime()"></ion-input>
   </ion-item>
+
+
+<ion-item>
+  <button ion-button icon-end full color="secondary" class="tr" (click)="goToMeshPage()">
+    {{"MESH_PAGE_TITLE" | translate}}
+    <ion-icon color="secondary" ios="ios-log-in" md="md-log-in"></ion-icon>
+  </button>
+</ion-item>
 </ion-content>
 
 <ion-footer>

@@ -19,38 +19,28 @@ export class AdminProvider {
   /**
    * Hours setup
    */
-  public getCurrentSunsetAndSunDown(): Observable<AdminHoursSettings> {
+  public getCurrentSunsetAndSunSet(): Observable<AdminHoursSettings> {
     return this.http
       .get<AdminHoursSettings>(this.baseUrl + "/b/admin/cal");
   }
 
-  public setFrontageOpeningHour(openingHour: String): Observable<any> {
+  public setFrontageTimeOn(timeOn: String, offsetTimeOn: number): Observable<any> {
     let body = {
-      sundown: openingHour
+      time_on: timeOn,
+      offset_time_on: offsetTimeOn
     }
     return this.http.patch(this.baseUrl + '/b/admin/state', body);
   }
 
-  public setFrontageClosingHour(closingHour: String): Observable<any> {
+
+  public setFrontageTimeOff(timeOff: String, offsetTimeOff: number): Observable<any> {
     let body = {
-      sunrise: closingHour
+      time_off: timeOff,
+      offset_time_off: offsetTimeOff
     }
     return this.http.patch(this.baseUrl + '/b/admin/state', body);
   }
 
-  public setFrontageOpeningOffset(openingOffset: String): Observable<any> {
-    let body = {
-      sundown_offset: openingOffset
-    }
-    return this.http.patch(this.baseUrl + '/b/admin/state', body);
-  }
-
-  public setFrontageClosingOffset(closingOffset: String): Observable<any> {
-    let body = {
-      sunrise_offset: closingOffset
-    }
-    return this.http.patch(this.baseUrl + '/b/admin/state', body);
-  }
 
   /**
    * Settings part
@@ -122,4 +112,50 @@ export class AdminProvider {
       .post(this.baseUrl + "/b/apps/drawing/default" , {})
       .catch(error => Observable.of(error));
   }
+
+
+// arbalet mesh additions
+  public setBuildingDimensions(body): Observable<any> {
+    return this.http
+      .post(this.baseUrl + "/b/admin/settings/mesh/dimensions", body)
+      .catch(error => Observable.of(error));
+  }
+
+  public getBuildingDimensions(): Observable<any> {
+    return this.http
+      .get(this.baseUrl + "/b/admin/settings/mesh/dimensions")
+      .catch(error => Observable.of(error));
+  }
+
+  public setPixelPosition(body): Observable<any> {
+    return this.http
+      .post(this.baseUrl + "/b/admin/settings/mesh/pixel/set", body)
+      .catch(error => Observable.of(error));
+  }
+
+  public resetPixelPosition(): Observable<any> {
+    return this.http
+      .post(this.baseUrl + "/b/admin/settings/mesh/pixel/reset", {})
+      .catch(error => Observable.of(error));
+  }
+
+  public confirmPixelsPosition(): Observable<any> {
+    return this.http
+      .post(this.baseUrl + "/b/admin/settings/mesh/pixel/confirm", {})
+      .catch(error => Observable.of(error));
+
+  }
+
+  public setInitialised(body): Observable<any> {
+    return this.http
+      .post(this.baseUrl + "/b/admin/settings/mesh/initialised", body)
+      .catch(error => Observable.of(error));
+  }
+
+  public getInitialised(): Observable<any> {
+    return this.http
+      .get(this.baseUrl + "/b/admin/settings/mesh/initialised")
+      .catch(error => Observable.of(error));
+  }
+
 }

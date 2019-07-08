@@ -25,6 +25,11 @@ import { SentryErrorHandler } from './../providers/errors-handlers/sentry-errorh
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { FAppListPage } from '../pages/f-app-list/f-app-list';
+import { MeshPage } from '../pages/mesh/mesh';
+import { GridPage } from '../pages/grid/grid';
+import { RacPage } from '../pages/rac/rac';
+
+
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -60,6 +65,9 @@ let components:any[] = [
     MyApp,
     HomePage,
     FAppListPage,
+    MeshPage,
+    GridPage,
+    RacPage,
     WaitingPage,
     FlagsOptionsPage,
     FlagsJoytickPage,

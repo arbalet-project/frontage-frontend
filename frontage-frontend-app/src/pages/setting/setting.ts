@@ -5,6 +5,9 @@ import { AdminHoursSettings } from './../../models/admin-hours-settings';
 import { AdminProvider } from './../../providers/admin/admin';
 import { Component, OnInit } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { DataFAppsProvider } from '../../providers/data-f-apps/data-f-apps';
+import { WebsocketMessageHandlerProvider } from './../../providers/websocket-message-handler/websocket-message-handler';
+import { MeshPage } from '../mesh/mesh';
 
 @Component({
   selector: 'page-setting',
@@ -13,23 +16,31 @@ import { NavController, NavParams } from 'ionic-angular';
 export class SettingPage implements OnInit {
 
   selectedFrontageState: boolean = false;
-  openingHourList: String[] = [];
-  closingHourList: String[] = [];
+  timeOnList: string[] = [];
+  timeOffList: string[] = [];
   frontageStateList: any[] = [];
-  selectedOpeningHour: String;
-  selectedClosingHour: String;
+  selectedTimeOn: string;
+  selectedTimeOff: string;
+  offsetTimeOptions: Map<string, [string, number]>;
 
   lifetime: number;
 
+  buildingWidth: number;
+  buildingHeight: number;
+  totalAmount: number;
+  badDimensions: boolean = false;
+  dimensionsAccepted: boolean = false;
+
+
   constructor(public navCtrl: NavController,
+    public websocketMessageHandlerProvider: WebsocketMessageHandlerProvider,
     public navParams: NavParams,
     public adminProvider: AdminProvider,
     public authentication: AuthenticationProvider,
     public translateService: TranslateService,
+    public dataFAppsProvider: DataFAppsProvider,
     public vibration: Vibration) {
 
-    this.initHourList("sunset+", this.openingHourList);
-    this.initHourList("sunrise-", this.closingHourList);
     this.translateService.get("ON_MESSAGE").subscribe(res => {
       let on = {
         value: "on",
@@ -51,24 +62,52 @@ export class SettingPage implements OnInit {
       };
       this.frontageStateList.push(scheduled);
     });
+
+    this.initTimeLists();
   }
+
   /**
    * Init data
    */
   ngOnInit() {
-    this.adminProvider.getCurrentSunsetAndSunDown()
+    this.adminProvider.getCurrentSunsetAndSunSet()
       .subscribe((hoursSettings: AdminHoursSettings) => {
-        if(hoursSettings.on) 
-            this.selectedOpeningHour = this.initHoursFormat(hoursSettings.on);
-        else
-            this.selectedOpeningHour = "sunset+" + hoursSettings.on_offset;
+        if(hoursSettings.time_on == "sunset" || hoursSettings.time_on == "sunrise") {
+          for(let sunIcon in this.offsetTimeOptions) {
+            let type : string = this.offsetTimeOptions[sunIcon][0];
+            let value : number = this.offsetTimeOptions[sunIcon][1];
+            if(hoursSettings.time_on == type && hoursSettings.offset_time_on == value) {
+              this.selectedTimeOn = sunIcon;
+              break;
+            }
+          }
+        }
+        else {
+          this.selectedTimeOn = this.initHoursFormat(hoursSettings.time_on);
+        }
+      if(hoursSettings.time_off == "sunset" || hoursSettings.time_off == "sunrise") {
+        for(let sunIcon in this.offsetTimeOptions) {
+          let type : string = this.offsetTimeOptions[sunIcon][0];
+          let value : number = this.offsetTimeOptions[sunIcon][1];
+          if(hoursSettings.time_off == type && hoursSettings.offset_time_off == value) {
+            this.selectedTimeOff = sunIcon;
+            break;
+          }
+        }
+      }
+      else {
+        this.selectedTimeOff = this.initHoursFormat(hoursSettings.time_off);
+      }
+    });
 
-        if(hoursSettings.off)
-            this.selectedClosingHour = this.initHoursFormat(hoursSettings.off);
-        else
-            // Minus sign is already there
-            this.selectedClosingHour = "sunrise-" + Math.abs(Number(hoursSettings.off_offset)); 
-      });
+      this.adminProvider.getBuildingDimensions().subscribe(resp => {
+          if (resp['height'] > 0)
+            this.buildingHeight = resp['height'];
+          if (resp['width'] > 0)
+            this.buildingWidth = resp['width'];
+          if (resp['amount'] > 0)
+            this.totalAmount = resp['amount'];
+        });
 
     this.authentication.isFacadeUp()
       .subscribe(res => {
@@ -80,22 +119,52 @@ export class SettingPage implements OnInit {
       });
   }
 
-  private initHoursFormat(hoursFromBack: String): String {
+  private initHoursFormat(hoursFromBack: string) {
     return hoursFromBack.substring(0, 2) + ':00';
   }
 
-  private initHourList(sunValue: String, listToInit: String[]) {
-    let j: number;
-    for (j = 0; j <= 5; j++) {
-      listToInit.push(sunValue + j.toString());
+  private initTimeLists() {
+    let sunset_label: string, sunrise_label: string;
+    this.translateService.get("SUNSET_LABEL").subscribe(res => {
+      sunset_label = "🌇 " + res;
+    });
+    this.translateService.get("SUNRISE_LABEL").subscribe(res => {
+      sunrise_label = "🌅 " + res;
+    });
+
+    this.offsetTimeOptions = new Map<string, [string, number]>();
+    this.offsetTimeOptions[sunset_label] = ["sunset", 0];
+    this.offsetTimeOptions[sunrise_label] = ["sunrise", 0];
+    this.offsetTimeOptions["🌇 - 2hr"] = ["sunset", -7200];
+    this.offsetTimeOptions["🌇 - 1hr"] = ["sunset", -3600];
+    this.offsetTimeOptions["🌇 - 30mn"] = ["sunset", -1800];
+    this.offsetTimeOptions["🌇 - 15mn"] = ["sunset", -900];
+    this.offsetTimeOptions["🌇 + 15mn"] = ["sunset", 900];
+    this.offsetTimeOptions["🌇 + 30mn"] = ["sunset", 1800];
+    this.offsetTimeOptions["🌇 + 1hr"] = ["sunset", 3600];
+    this.offsetTimeOptions["🌇 + 2hr"] = ["sunset", 7200];
+    this.offsetTimeOptions["🌅 - 2hr"] = ["sunrise", -7200];
+    this.offsetTimeOptions["🌅 - 1hr"] = ["sunrise", -3600];
+    this.offsetTimeOptions["🌅 - 30mn"] = ["sunrise", -1800];
+    this.offsetTimeOptions["🌅 - 15mn"] = ["sunrise", -900];
+    this.offsetTimeOptions["🌅 + 15mn"] = ["sunrise", 900];
+    this.offsetTimeOptions["🌅 + 30mn"] = ["sunrise", 1800];
+    this.offsetTimeOptions["🌅 + 1hr"] = ["sunrise", 3600];
+    this.offsetTimeOptions["🌅 + 2hr"] = ["sunrise", 7200];
+
+    for(let sunIcon in this.offsetTimeOptions) {
+      this.timeOnList.push(sunIcon);
+      this.timeOffList.push(sunIcon);
     }
+
     let i: number
-    for (i = 0; i <= 23; i++) {
-      let hourToPush: String = i + ":00";
+    for (i = 0; i < 24; ++i) {
+      let hourToPush: string = i + ":00";
       if (i < 10) {
         hourToPush = "0" + hourToPush;
       }
-      listToInit.push(hourToPush);
+      this.timeOnList.push(hourToPush);
+      this.timeOffList.push(hourToPush);
     }
   }
 
@@ -104,6 +173,30 @@ export class SettingPage implements OnInit {
    */
   goToFappList() {
     this.navCtrl.pop();
+  }
+
+  goToMeshPage() {
+    this.navCtrl.push(MeshPage);
+    }
+
+  validateDimensions() {
+      if (this.buildingHeight > 0 && this.buildingWidth > 0 && this.totalAmount > 0
+      && this.totalAmount <= this.buildingHeight * this.buildingWidth) {
+
+          let dimensions = {
+              width: this.buildingWidth,
+              height: this.buildingHeight,
+              amount: this.totalAmount
+          }
+
+          this.adminProvider.setBuildingDimensions(dimensions).subscribe(resp => {
+              this.badDimensions = false;
+              this.dimensionsAccepted = true;
+          });
+      }
+      else {
+          this.badDimensions = true;
+      }
   }
 
   /**
@@ -121,27 +214,33 @@ export class SettingPage implements OnInit {
     this.adminProvider.updateLifetime(this.lifetime).subscribe();
   }
 
-  setOpeningHour() {
-    //Check if the admin choosed an offset or an hour
-    if (this.selectedOpeningHour
-      && this.selectedOpeningHour.length > 7
-      && this.selectedOpeningHour.substring(0, 7) == 'sunset+') {
-      let offset: String = this.selectedOpeningHour.substring(7);
-      this.adminProvider.setFrontageOpeningOffset(offset).subscribe();
-    } else {
-      this.adminProvider.setFrontageOpeningHour(this.selectedOpeningHour).subscribe();
+  setTimeOn() {
+    // For some reason .has() does not work
+    let hasTime: boolean = false;
+    for(let time in this.offsetTimeOptions) {
+      if(time == this.selectedTimeOn) hasTime = true;
     }
+    if(hasTime) {
+        this.adminProvider.setFrontageTimeOn(this.offsetTimeOptions[this.selectedTimeOn][0],
+          this.offsetTimeOptions[this.selectedTimeOn][1]).subscribe();
+      }
+      else {
+        this.adminProvider.setFrontageTimeOn(this.selectedTimeOn, 0).subscribe();
+      }
   }
 
-  setClosingHour() {
-    //Check if the admin choosed an offset or an hour
-    if (this.selectedClosingHour
-      && this.selectedClosingHour.length > 8
-      && this.selectedClosingHour.substring(0, 8) == 'sunrise-') {
-      let offset: String = this.selectedClosingHour.substring(7, 9);
-      this.adminProvider.setFrontageClosingOffset(offset).subscribe();
-    } else {
-      this.adminProvider.setFrontageClosingHour(this.selectedClosingHour).subscribe();
+  setTimeOff() {
+    // For some reason .has() does not work
+    let hasTime: boolean = false;
+    for(let time in this.offsetTimeOptions) {
+      if(time == this.selectedTimeOff) hasTime = true;
+    }
+    if(hasTime) {
+      this.adminProvider.setFrontageTimeOff(this.offsetTimeOptions[this.selectedTimeOff][0],
+        this.offsetTimeOptions[this.selectedTimeOff][1]).subscribe();
+    }
+    else {
+      this.adminProvider.setFrontageTimeOff(this.selectedTimeOff, 0).subscribe();
     }
   }
 

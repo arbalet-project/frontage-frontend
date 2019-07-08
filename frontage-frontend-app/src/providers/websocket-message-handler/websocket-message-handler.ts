@@ -31,6 +31,9 @@ export class WebsocketMessageHandlerProvider {
 
   keepAliveSender: Subscription;
 
+  pixelsDown: String = "";
+
+
   constructor(private alertCtrl: AlertController, public vibration: Vibration, public tranlation: TranslateService,
     public toastCtrl: ToastController, public localStorage: LocalStorageProvider, public appProvider: DataFAppsProvider) {
   }
@@ -73,6 +76,11 @@ export class WebsocketMessageHandlerProvider {
 
   handleMessage(message, navCtrl) {
     let data = JSON.parse(message.data);
+
+    if (data.message == "Pixel down message") {
+        console.log("mensagem chego");
+        this.pixelsDown = data.code;
+    }
 
     if (data.userid == this.localStorage.getUserId()) {
 
@@ -166,5 +174,25 @@ export class WebsocketMessageHandlerProvider {
       this.keepAliveSender.unsubscribe()
       this.keepAliveSender = undefined;
     }
+  }
+
+
+
+
+
+  // i dont know if it's the right way to do it, but right now i just want it
+  // to work
+  getPixelsDown() {
+      if (this.pixelsDown != "") {
+          let down = this.pixelsDown;
+          this.pixelsDown = "";
+          console.log("From websocket :")
+          console.log(down);
+          console.log(typeof(down));
+          return down;
+      }
+      else {
+          return "-1";
+      }
   }
 }

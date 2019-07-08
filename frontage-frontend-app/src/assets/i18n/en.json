@@ -36,10 +36,10 @@
     "LOGIN_PAGE_FOOTER_MESSAGE":"Arbalet Project",
     "LOGIN_PAGE_FORM_TITLE":"Select your nickname",
     "LOGIN_PAGE_FORM_TITLE_SERVER_UNREACHABLE":"Connect using Wifi",
-    "LOGIN_PAGE_ACCESS_ERROR":"Your username or password is incorrect",
+    "LOGIN_PAGE_ACCESS_ERROR":"Incorrect credentials",
     "LOGIN_PAGE_TETRIS_INVITATION":"Otherwise, while you're waiting Arbalet Frontage to be available, try our offline game:",
     "TETRIS_BLOCK":"Play Tetris Blocks (offline)",
- 
+
     "LOGIN_PAGE_FRONTAGE_NOT_AVAILABLE_EXPLANATION_STEP1": "Approach the entrance of A1 building of Bordeaux University",
     "LOGIN_PAGE_FRONTAGE_NOT_AVAILABLE_EXPLANATION_STEP2": "Start the Wifi connection of your smartphone and select network ARBALET_FRONTAGE",
     "LOGIN_PAGE_FRONTAGE_NOT_AVAILABLE_EXPLANATION_STEP3": "Come back here, et voila!",
@@ -97,13 +97,33 @@
     "SNAP_OFF_NICKNAME": "Turn off",
 
     "SETTINGS_PAGE_TITLE":"Settings",
-    "SETTINGS_PAGE_OPENING_HOUR":"Opening hour",
-    "SETTINGS_PAGE_CLOSING_HOUR":"Closing hour",
+    "SETTINGS_PAGE_START_TIME":"Start time",
+    "SETTINGS_PAGE_STOP_TIME":"Stop time",
     "SETTINGS_PAGE_CLEAR_QUEUE_BUTTON":"Clear user queue",
     "SETTINGS_PAGE_SHUTDOWN_FRONTAGE_BUTTON":"ON/OFF",
     "SETTINGS_PAGE_BACK_BUTTON":"Back to list",
     "SETTINGS_PAGE_UNFORCE_BUTTON":"Unforce app",
     "SETTINGS_PAGE_DEFAULT_LIFETIME": "Lifetime of default apps",
+    "SUNSET_LABEL": "Sunset",
+    "SUNRISE_LABEL": "Sunrise",
+
+    "MESH_CONFIGURATION_BUTTON": "Configure mesh network",
+    "MESH_PAGE_TITLE": "Mesh Network",
+    "MESH_PAGE_AMOUNT_LABEL": "Amount of ESP cards",
+    "MESH_PAGE_HEIGHT_LABEL": "Lines",
+    "MESH_PAGE_WIDTH_LABEL": "Columns",
+    "MESH_VALIDATION_BUTTON": "Validate installation dimensions",
+    "MESH_INSTRUCTIONS": "Select in the matrix the position of the pixel which blinks",
+    "CONFIRM_PIXEL_ATTRIBUTION_BUTTON": "Confirm pixel",
+    "RETURN_PIXEL_ATTRIBUTION_BUTTON": "Undo pixel",
+    "BUILDING_DIMENSIONS_REJECTED": "Please enter valid dimensions",
+    "GRID_PAGE_TITLE": "Manual Addressing",
+    "MESH_PAGE_BACK_BUTTON": "Back to Mesh",
+    "RAC_PAGE_TITLE": "Readdressing",
+    "SKIP_PAGE_TITLE": "Load Stored Addressing",
+    "MESH_ADDRESSING_COMPLETE": "The addressing has been saved",
+    "MESH_LOAD_ADDRESSING": "The previous addressing was loaded from the database. Please don't close this popup until visual confirmation",
+
 
     "GET_OUT":"Sorry, you can no longer play.",
     "GAME_OVER":"Game Over, you lose :)",
@@ -234,4 +254,3 @@
     "VIETNAM": "Vietnam",
     "YEMEN": "Yemen"
 }
-

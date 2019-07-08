@@ -20,12 +20,12 @@ export class SentryErrorHandler extends IonicErrorHandler {
     }
 
     handleError(error) {
-        
+
         try {
             let errorToSend = error;
 
             if (errorToSend != undefined && errorToSend.status == 0) {
-                // Status 0 means we lost connection 
+                // Status 0 means we lost connection
                 if(!this.isToastVisible) {
                     this.isToastVisible = true;
                     this.showToast("CONNECTION_LOST");
@@ -35,8 +35,8 @@ export class SentryErrorHandler extends IonicErrorHandler {
             }
         }
         catch (e) {
-            alert("erreur en plus : " + e);
-            console.error(e);
+           alert("erreur en plus : " + e);
+           console.error(e);
         }
     }
 
@@ -55,7 +55,7 @@ export class SentryErrorHandler extends IonicErrorHandler {
         });
 
         toast.present();
-        
+
         this.vibration.vibrate([1000]);
     }
 

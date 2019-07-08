@@ -1,6 +1,6 @@
 export interface AdminHoursSettings {
-    on: String,
-    off: String,
-    on_offset: String,
-    off_offset: String
+    time_on: string,
+    time_off: string,
+    offset_time_on: number,
+    offset_time_off: number
 }
