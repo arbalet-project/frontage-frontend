@@ -16,14 +16,18 @@ import { NavController, NavParams, Platform, AlertController } from 'ionic-angul
 export class DrawingJoystickPage {
   @Input()
   isAdmin: boolean;
+  grid: Array<Array<number>>; //array of arrays
+  disabled: Array<Array<number>>;
 
   parametersList: string;
   selectedParameter: string[];
 
+  colorHexaSave: string;
+
   baseCss:string = "opacity:1;fill-opacity:1;stroke:none;stroke-width:0.26499999;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;";
 
-  frontageHeight:Number = 4;
-  frontageWidth:Number = 19;
+  frontageHeight:number;
+  frontageWidth:number;
 
   currentColorHexa:any;
   pixelMatrix: Array<Array<SafeStyle>>;
@@ -48,10 +52,19 @@ export class DrawingJoystickPage {
     if (this.platform.is('mobile')) {
       this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
     }
-    
+
     this.currentColorHexa=["#ff0000", [255,0,0]];
 
     this.pixelMatrix = new Array<Array<SafeStyle>>();
+
+    this.adminProvider.getBuildingDimensions().subscribe(resp => {
+      if (resp['height'] > 0)
+        this.frontageHeight = resp['height'];
+      if (resp['width'] > 0)
+        this.frontageWidth = resp['width'];
+
+      this.createGrid();
+    });
 
     for(let i=0; i<this.frontageHeight; i++){
       this.pixelMatrix.push(new Array<SafeStyle>(this.frontageWidth))
@@ -79,29 +92,48 @@ export class DrawingJoystickPage {
     });
   }
 
-  handleStart(ev) {
-    this.updateColor(ev);
+  createGrid() {
+
+    this.grid = new Array(this.frontageHeight);
+
+    for (let i = 0; i < this.frontageHeight; i++) {
+        this.grid[i] = new Array(this.frontageWidth);
+        for (let j = 0; j < this.frontageWidth; j++) {
+            this.grid[i][j] = i*this.frontageWidth+j;
+        }
+    }
+}
+
+  handleStart(ev, rowIndex, colIndex) {
+    this.updateColor(ev, rowIndex, colIndex);
   }
 
-  handleMove(ev) {
-    this.updateColor(ev);
+  handleMove(ev, rowIndex, colIndex) {
+    this.updateColor(ev, rowIndex, colIndex);
   }
 
-  updateColor(ev) {
-    let currentElement = document.elementFromPoint(ev.touches[0].pageX, ev.touches[0].pageY);
+  updateColor(ev, rowIndex, colIndex) {
+
+    console.log(this.colorHexaSave);
+
+    let targetElement : HTMLButtonElement = ev.target as HTMLButtonElement;
+
+
+    let currentElement = document.elementFromPoint(ev.pageX, ev.pageY);
+    console.log(currentElement);
     let id = currentElement.id;
-    
-    if (id!==this.lastElementClickedId) {
+
+
+    targetElement.style.background = this.colorHexaSave;
+
+
+    if (id!==this.lastElementClickedId || id=="") {
       this.lastElementClickedId = id;
-      if (id.startsWith("px-")){
-        let tokens = id.split('-');
-  
-        let pixel = {x:tokens[1], y:tokens[2]};
-        this.pixelMatrix[pixel.x][pixel.y] = this.sanitizer.bypassSecurityTrustStyle(this.baseCss+"fill:" + this.currentColorHexa[0]);
-  
-        let color = {red:this.currentColorHexa[1][0], green:this.currentColorHexa[1][1], blue:this.currentColorHexa[1][2]};
-        this.websocketMessageHandler.send(JSON.stringify({pixel:pixel, color:color}));
-      }
+      let pixel ={x:rowIndex, y:colIndex};
+      // this.pixelMatrix[pixel.x][pixel.y] = this.sanitizer.bypassSecurityTrustStyle(this.baseCss+"fill:" + this.colorHexaSave);
+      let color = {red:this.currentColorHexa[1][0], green:this.currentColorHexa[1][1], blue:this.currentColorHexa[1][2]};
+      this.websocketMessageHandler.send(JSON.stringify({pixel:pixel, color:color}));
+
     }
   }
 
@@ -131,12 +163,18 @@ export class DrawingJoystickPage {
     let greenHexa = this.decimalToHexa(green);
     let blueHexa = this.decimalToHexa(blue);
 
+    this.colorHexaSave = "#"+redHexa+greenHexa+blueHexa;
+
+
     let colorHexa = "#"+redHexa+greenHexa+blueHexa;
 
     this.currentColorHexa = [colorHexa, [red, green, blue]];
 
     this.switchCSSVisibility("c-" + red + "-" + green + "-" + blue + "-select", "visible");
     this.switchCSSVisibility(previousColorRGB + "-select", "hidden");
+
+    console.log(this.colorHexaSave);
+
   }
 
   stopFApp() {
@@ -159,7 +197,7 @@ export class DrawingJoystickPage {
       this.websocketMessageHandler.closeSocket();
     }
     this.websocketMessageHandler.stopKeepAliveSender();
-    
+
     if (this.platform.is('mobile')) {
       this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
       this.screenOrientation.unlock();
@@ -188,11 +226,21 @@ export class DrawingJoystickPage {
     }
   }
 
+isDisabled(row, col) {
+  this.disabled = [[1,1], [2,2], [0,0]];
+  for (let pix of this.disabled){
+    if (pix[0] == row && pix[1] == col){
+      return true;
+    }
+  }
+  return false;
+}
+
   sendScheduledDrawing() {
     this.vibration.vibrate(20);
     this.adminProvider.sendScheduledDrawing()
       .subscribe(response => this.validateActionSucceeded(response.done, this.optionsSentTitle, this.optionsSentMessage, false),
                  err => console.log(err));
   }
-  
+
 }
