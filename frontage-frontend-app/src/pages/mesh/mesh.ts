@@ -8,7 +8,7 @@ import { NavController, NavParams, AlertController } from 'ionic-angular';
 import { DataFAppsProvider } from './../../providers/data-f-apps/data-f-apps';
 import { WebsocketMessageHandlerProvider } from './../../providers/websocket-message-handler/websocket-message-handler';
 import { GridPage } from '../grid/grid';
-import { RacPage } from '../rac/rac';
+// import { RacPage } from '../rac/rac';
 
 
 @Component({
@@ -79,14 +79,14 @@ export class MeshPage {
       this.adminProvider.launchForcedFApp(this.fAppOptions)
           .subscribe(response => this.navCtrl.push(GridPage), err => console.log(err));
       }
-
+    /*
     goToRacPage() {
         this.fAppOptions.params.mode = "rac";
         console.log(this.fAppOptions);
         this.adminProvider.launchForcedFApp(this.fAppOptions)
             .subscribe(response => this.navCtrl.push(RacPage), err => console.log(err));
     }
-
+    */
     skip() {
         this.fAppOptions.params.mode = "skip";
         this.adminProvider.launchForcedFApp(this.fAppOptions)
