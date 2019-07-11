@@ -22,13 +22,16 @@ page-drawing-joystick {
     }
 
     #DrawingMatrix {
+      margin-top: 20%;
         max-height: 100%;
     }
 
     .noPixel {
       opacity: 0;
     }
-
+    ion-button.Pixel {
+      background: #000000;
+    }
     ion-grid {
         align-items: center;
     }

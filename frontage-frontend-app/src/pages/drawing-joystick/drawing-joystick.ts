@@ -58,7 +58,6 @@ export class DrawingJoystickPage {
     this.pixelMatrix = new Array<Array<SafeStyle>>();
 
     this.adminProvider.getBuildingDimensions().subscribe(resp => {
-      console.log(resp);
       if (resp['height'] > 0)
         this.frontageHeight = resp['height'];
       if (resp['width'] > 0)
@@ -74,7 +73,7 @@ export class DrawingJoystickPage {
 
     for (let i=0; i<this.frontageHeight; i++){
       for (let j=0; j<this.frontageWidth; j++){
-        this.pixelMatrix[i][j] = sanitizer.bypassSecurityTrustStyle(this.baseCss+"fill:#000000")
+        this.pixelMatrix[i][j] = sanitizer.bypassSecurityTrustStyle(this.baseCss+"background:#000000")
       }
     }
 

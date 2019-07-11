@@ -214,11 +214,11 @@
 
     <!--------------------------------------------------- DRAWING MATRIX (BUILDING) ------------------------------------------------------------------------------------------------------>
 
-    <ion-grid>
-        <ion-row class="row" no-padding no-margin *ngFor="let row of grid; let rowIndex=index">
-            <ion-col class="col" padding-0 *ngFor="let element of row; let colIndex=index">
-                <button *ngIf="!(isDisabled(rowIndex, colIndex))" no-margin ion-button color="dark" (touchstart)="handleStart($event, rowIndex, colIndex)" (click)="handleMove($event, rowIndex, colIndex)" (touchmove)="handleMove($event, rowIndex, colIndex)"></button>
-                <button *ngIf="(isDisabled(rowIndex, colIndex))" class="noPixel" ion-button no-margin style="opacity:0;" disabled></button>
+    <ion-grid id="DrawingMatrix" style="vertical-align: center;">
+        <ion-row class="row" size="auto" no-padding no-margin *ngFor="let row of grid; let rowIndex=index">
+            <ion-col class="col" size="auto" padding-0 *ngFor="let element of row; let colIndex=index">
+                <button *ngIf="!(isDisabled(rowIndex, colIndex))" class='Pixel' no-margin style="background:#000000;" ion-button (touchstart)="handleStart($event, rowIndex, colIndex)" (click)="handleMove($event, rowIndex, colIndex)" (touchmove)="handleMove($event, rowIndex, colIndex)"></button>
+                <button *ngIf="(isDisabled(rowIndex, colIndex))" class='noPixel' ion-button no-margin style="opacity:0;" disabled></button>
             </ion-col>
         </ion-row>
     </ion-grid>
