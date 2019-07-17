@@ -10,9 +10,49 @@ export class LocalStorageProvider {
   private userStorageKey: string = 'YyDarJEPEWtG3pe4UuVPQGf3';
   private isAdminStorageKey: string = 'PSL8A53FHqfCcKEnMPYJRyAN';
   private userIdStorageKey: string = 'PttliykXHLVRmIaQBsJayAx0';
+  private width:string = '4';
+  private height:string = '19';
+  private disabled:string = '[]';
+  private amount:string ='76';
 
   constructor() {
     this.localStorage = window.localStorage;
+  }
+
+  public getWidth(): number {
+    return JSON.parse(this.localStorage.getItem(this.width));
+  }
+
+  public setWidth(w: number): void {
+    return this.localStorage.setItem(this.width, JSON.stringify(w));
+  }
+
+  public getHeight(): number {
+    return JSON.parse(this.localStorage.getItem(this.height));
+  }
+
+  public setHeight(h: number): void {
+    return this.localStorage.setItem(this.height, JSON.stringify(h));
+  }
+
+  public getAmount(): number {
+    return JSON.parse(this.localStorage.getItem(this.amount));
+  }
+
+  public setAmount(a: number): void {
+    return this.localStorage.setItem(this.amount, JSON.stringify(a));
+  }
+
+  public getDisabled(): Array<Array<number>> {
+    return JSON.parse(this.localStorage.getItem(this.disabled));
+  }
+
+  public setDisabled(d: Array<Array<number>>): void {
+    return this.localStorage.setItem(this.disabled, JSON.stringify(d));
+  }
+
+  public getMatrixBuilding() : string {
+    return `{"widht": ${this.getWidth()}, "height":${this.getHeight()}, "disabled":${this.getDisabled()}}`;
   }
 
   public getAuthToken(): string {

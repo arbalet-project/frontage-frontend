@@ -100,18 +100,16 @@ export class SettingPage implements OnInit {
       }
     });
 
-      this.adminProvider.getBuildingDimensions().subscribe(resp => {
-          if (resp['height'] > 0)
-            this.buildingHeight = resp['height'];
-          if (resp['width'] > 0)
-            this.buildingWidth = resp['width'];
-          if (resp['amount'] > 0)
-            this.totalAmount = resp['amount'];
-        });
-
     this.authentication.isFacadeUp()
       .subscribe(res => {
-        this.selectedFrontageState = res.state
+        console.log(res);
+        this.selectedFrontageState = res.state;
+        if (res['height'] > 0)
+          this.buildingHeight = res['height'];
+        if (res['width'] > 0)
+          this.buildingWidth = res['width'];
+        if (res['amount'] > 0)
+          this.totalAmount = res['amount'];
       });
     this.adminProvider.getLifetime()
       .subscribe(res => {

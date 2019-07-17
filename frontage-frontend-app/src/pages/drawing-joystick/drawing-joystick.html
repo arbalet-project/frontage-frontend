@@ -1,5 +1,5 @@
 <ion-content padding class="bg">
-    <div class="DrawingJoystick">
+  <div class="DrawingJoystick">
     <!--------------------------------------------------- COLOUR PALETTE ----------------------------------------------------------------------------------------------------------------->
     <?xml version="1.0" encoding="UTF-8" standalone="no"?>
     <svg
@@ -214,17 +214,10 @@
 
     <!--------------------------------------------------- DRAWING MATRIX (BUILDING) ------------------------------------------------------------------------------------------------------>
 
-    <ion-grid id="DrawingMatrix" style="vertical-align: center;">
-        <ion-row class="row" size="auto" no-padding no-margin *ngFor="let row of grid; let rowIndex=index">
-            <ion-col class="col" size="auto" padding-0 *ngFor="let element of row; let colIndex=index">
-                <button *ngIf="!(isDisabled(rowIndex, colIndex))" class='Pixel' no-margin style="background:#000000;" ion-button (touchstart)="handleStart($event, rowIndex, colIndex)" (click)="handleMove($event, rowIndex, colIndex)" (touchmove)="handleMove($event, rowIndex, colIndex)"></button>
-                <button *ngIf="(isDisabled(rowIndex, colIndex))" class='noPixel' ion-button no-margin style="opacity:0;" disabled></button>
-            </ion-col>
-        </ion-row>
-    </ion-grid>
-
+    <ion-card id="drawdraw" style="horizontal-align: center;" (pan)="handleStart($event)" (click)="handleStart($event)">
+    </ion-card>
     </div>
-  </ion-content>
+</ion-content>
 
 <ion-footer>
   <button *ngIf="isAdmin" ion-button icon-end full color="secondary" class="tr" (click)="sendScheduledDrawing()">

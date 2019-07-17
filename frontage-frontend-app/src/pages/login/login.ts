@@ -83,6 +83,10 @@ export class LoginPage {
         this.time.getNextTimeUp().subscribe(response => this.handleHour(response));
         this.isFacadeUp = false;
       }
+      this.localStorageProvider.setWidth(response.width);
+      this.localStorageProvider.setHeight(response.height);
+      this.localStorageProvider.setDisabled(response.disabled);
+      this.localStorageProvider.setAmount(response.amount);
       this.isForced = response.is_forced;
     }
   }

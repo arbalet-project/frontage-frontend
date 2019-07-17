@@ -3,6 +3,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { AuthenticationProvider } from './../../providers/authentication/authentication';
 import { AdminProvider } from './../../providers/admin/admin';
 import { Component } from '@angular/core';
+import { LocalStorageProvider } from './../../providers/local-storage/local-storage';
 import { NavController, NavParams, AlertController } from 'ionic-angular';
 
 import { DataFAppsProvider } from './../../providers/data-f-apps/data-f-apps';
@@ -37,7 +38,8 @@ export class MeshPage {
       public authentication: AuthenticationProvider,
       public translateService: TranslateService,
       public dataFAppsProvider: DataFAppsProvider,
-      private alertCtrl: AlertController) {
+      private alertCtrl: AlertController,
+      public localStorageProvider : LocalStorageProvider) {
 
       this.fAppOptions = {
         name: "Ama",
@@ -141,6 +143,9 @@ export class MeshPage {
                 this.badDimensions = false;
                 this.dimensionsAccepted = true;
             });
+            this.localStorageProvider.setHeight(this.buildingHeight);
+            this.localStorageProvider.setWidth(this.buildingWidth);
+            this.localStorageProvider.setAmount(this.totalAmount);
         }
         else {
             this.badDimensions = true;

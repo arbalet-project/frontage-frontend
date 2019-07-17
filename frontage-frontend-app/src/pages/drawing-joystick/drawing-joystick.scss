@@ -17,19 +17,21 @@ page-drawing-joystick {
         margin-bottom: -20px;
     }
 
+    .card-md {
+      background: none !important;
+      box-shadow: none !important;
+    }
+
     #ColourPalette {
-        max-width: 100%;
+      z-index: 5000;
+      max-width: 100%;
     }
 
     #DrawingMatrix {
-      margin-top: 20%;
-        max-height: 100%;
+      max-height: 100%;
     }
 
-    .noPixel {
-      opacity: 0;
-    }
-    ion-button.Pixel {
+    ion-button {
       background: #000000;
     }
     ion-grid {
