@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { DataFAppsProvider } from './../../providers/data-f-apps/data-f-apps';
 import { environment } from './../../app/environment';
 import { Component } from '@angular/core';
+import { AdminProvider } from './../../providers/admin/admin';
 import { NavController, NavParams, AlertController } from 'ionic-angular';
 import { TranslateService } from '@ngx-translate/core'
 
@@ -20,12 +21,8 @@ import { TranslateService } from '@ngx-translate/core'
   templateUrl: 'snap-joystick.html',
 })
 export class SnapJoystickPage {
-  selectedClient: string;
-  clientsList: string[];
-
-  baseUrl: string;
-  authorizeEndpoint: string = "/authorize";
-  clientsEndpoint: string = "/clients";
+  selectedClient: any;
+  clientsList: any[];
 
   updateListSubscription: Subscription;
   isWaiting: Boolean = false;
@@ -40,7 +37,7 @@ export class SnapJoystickPage {
   offCode: string = "turnoff";
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public dataFAppsProvider: DataFAppsProvider,
-              public translateService: TranslateService, public http: HttpClient, private alertCtrl: AlertController,
+              public translateService: TranslateService, public adminProvider: AdminProvider, public http: HttpClient, private alertCtrl: AlertController,
               public websocketMessageHandler: WebsocketMessageHandlerProvider) {
     this.baseUrl = `${environment.snapBaseUrl}`;
 
@@ -97,16 +94,19 @@ export class SnapJoystickPage {
   }
 
   getClientsInfo() {
-    this.http.get<any>(this.baseUrl + this.clientsEndpoint)
-      .subscribe(
+    this.adminProvider.getSnapUsers().subscribe(
         response => this.handleGetClientsInfoResponse(response),
         err => this.dataFAppsProvider.getCurrentApp().subscribe(response => this.checkSnapIsStillRunning(response))
       );
   }
 
   handleGetClientsInfoResponse(response) {
-    this.selectedClient = response.selected_client == this.offCode? this.offNickname : response.selected_client;
-    this.clientsList = [this.offNickname].concat(response.list_clients);
+    console.log(response);
+    // response {'selectedClient' : {'id': string, 'login': string}, 'clientsList': [{'id': string, 'login': string},...]}
+    this.selectedClient = response.selected_client;
+    this.clientsList = [{'id': this.offNickname, 'login':this.offNickname}].concat(response.list_clients)
+    console.log("selectedClient: ", this.selectedClient);
+    console.log("clients: ", this.clientsList);
     this.isWaiting = false;
   }
 
@@ -115,7 +115,7 @@ export class SnapJoystickPage {
       selected_client: this.selectedClient == this.offNickname? this.offCode : this.selectedClient
     };
 
-    this.http.post<any>(this.baseUrl + this.authorizeEndpoint, body)
+    this.adminProvider.setGrantedUser(body)
       .subscribe(
         response => this.handleAuthorizeResponse(response.success)
       );

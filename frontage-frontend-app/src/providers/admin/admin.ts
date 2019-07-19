@@ -32,6 +32,15 @@ export class AdminProvider {
     return this.http.patch(this.baseUrl + '/b/admin/state', body);
   }
 
+  public getSnapUsers(): Observable<any> {
+    return this.http
+       .get(this.baseUrl + "/b/admin/snap/users");
+  }
+
+  public setGrantedUser(body: any): Observable<any> {
+    return this.http
+        .post(this.baseUrl + "/b/admin/snap/guser", body);
+  }
 
   public setFrontageTimeOff(timeOff: String, offsetTimeOff: number): Observable<any> {
     let body = {
