@@ -2,7 +2,6 @@ import { WebsocketMessageHandlerProvider } from './../../providers/websocket-mes
 import { Observable, Subscription } from 'rxjs/Rx';
 import { HttpClient } from '@angular/common/http';
 import { DataFAppsProvider } from './../../providers/data-f-apps/data-f-apps';
-import { environment } from './../../app/environment';
 import { Component } from '@angular/core';
 import { AdminProvider } from './../../providers/admin/admin';
 import { NavController, NavParams, AlertController } from 'ionic-angular';
@@ -33,15 +32,14 @@ export class SnapJoystickPage {
   snapClosedTitle : string = "";
   snapClosedMessage: string = "";
 
-  offNickname: string = "";
+  offNickname: string = "turnoff";
   offCode: string = "turnoff";
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public dataFAppsProvider: DataFAppsProvider,
               public translateService: TranslateService, public adminProvider: AdminProvider, public http: HttpClient, private alertCtrl: AlertController,
               public websocketMessageHandler: WebsocketMessageHandlerProvider) {
-    this.baseUrl = `${environment.snapBaseUrl}`;
 
-    this.updateListSubscription = Observable.interval(500)
+    this.updateListSubscription = Observable.interval(1000)
       .subscribe(() => this.updateList());
 
     this.translateService.get("INEXISTING_SNAP_CLIENT").subscribe(translatedMesssage => {
@@ -101,12 +99,9 @@ export class SnapJoystickPage {
   }
 
   handleGetClientsInfoResponse(response) {
-    console.log(response);
-    // response {'selectedClient' : {'id': string, 'login': string}, 'clientsList': [{'id': string, 'login': string},...]}
-    this.selectedClient = response.selected_client;
-    this.clientsList = [{'id': this.offNickname, 'login':this.offNickname}].concat(response.list_clients)
-    console.log("selectedClient: ", this.selectedClient);
-    console.log("clients: ", this.clientsList);
+    // response {'selectedClient' : {'id': string, 'username': string}, 'clientsList': [{'id': string, 'username': string},...]}
+    this.selectedClient = response.selected_client.id;
+    this.clientsList = [{'id':"turnoff", 'username':this.offNickname}].concat(response.list_clients)
     this.isWaiting = false;
   }
 

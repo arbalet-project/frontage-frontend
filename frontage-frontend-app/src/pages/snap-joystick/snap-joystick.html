@@ -19,9 +19,9 @@
 
   <div *ngIf="selectedClient && clientsList; else elseBlock;">
     <ion-list *ngFor="let client of clientsList" radio-group [(ngModel)]="selectedClient">
-      <ion-item text-wrap >
-        <ion-label >{{client.login}}</ion-label>
-        <ion-radio (ionSelect)="authorize()" value="{{client.id}}"></ion-radio>
+      <ion-item  text-wrap >
+        <ion-label >{{client.username}}</ion-label>
+        <ion-radio (ionSelect)="authorize()" value="{{client.id}}" ></ion-radio>
       </ion-item>
     </ion-list>
   </div>

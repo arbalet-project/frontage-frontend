@@ -39,7 +39,8 @@ export class AdminProvider {
 
   public setGrantedUser(body: any): Observable<any> {
     return this.http
-        .post(this.baseUrl + "/b/admin/snap/guser", body);
+        .post(this.baseUrl + "/b/admin/snap/guser", body)
+        .catch(error => Observable.of(error));
   }
 
   public setFrontageTimeOff(timeOff: String, offsetTimeOff: number): Observable<any> {
