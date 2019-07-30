@@ -84,7 +84,7 @@ export class SnapJoystickPage {
     }
 
   updateList() {
-     this.dataFAppsProvider.getCurrentApp().subscribe(response => this.checkSnapIsStillRunning(response.name);
+     this.dataFAppsProvider.getCurrentApp().subscribe(response => this.checkSnapIsStillRunning(response.name));
     if (!this.isWaiting) {
       this.isWaiting = true;
       this.getClientsInfo();
@@ -145,6 +145,7 @@ export class SnapJoystickPage {
       this.updateListSubscription.unsubscribe();
       this.updateListSubscription = undefined;
     }
+  }
 
 
   stopFApp() {
