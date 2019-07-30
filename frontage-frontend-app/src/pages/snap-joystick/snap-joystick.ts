@@ -1,4 +1,3 @@
-import { WebsocketMessageHandlerProvider } from './../../providers/websocket-message-handler/websocket-message-handler';
 import { Observable, Subscription } from 'rxjs/Rx';
 import { HttpClient } from '@angular/common/http';
 import { DataFAppsProvider } from './../../providers/data-f-apps/data-f-apps';
@@ -35,9 +34,10 @@ export class SnapJoystickPage {
   offNickname: string = "turnoff";
   offCode: string = "turnoff";
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public dataFAppsProvider: DataFAppsProvider,
-              public translateService: TranslateService, public adminProvider: AdminProvider, public http: HttpClient, private alertCtrl: AlertController,
-              public websocketMessageHandler: WebsocketMessageHandlerProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+              public dataFAppsProvider: DataFAppsProvider,public translateService: TranslateService,
+              public adminProvider: AdminProvider, public http: HttpClient,
+              private alertCtrl: AlertController ) {
 
     this.updateListSubscription = Observable.interval(1000)
       .subscribe(() => this.updateList());
@@ -62,7 +62,6 @@ export class SnapJoystickPage {
       this.offNickname = translatedMesssage;
     });
 
-    websocketMessageHandler.initSocket(navCtrl);
   }
 
   showPopUp(title, message, navCtrl) {
@@ -142,16 +141,11 @@ export class SnapJoystickPage {
   }
 
   ionViewDidLeave() {
-    if (!this.websocketMessageHandler.isExternalyClaused()) {
-      this.websocketMessageHandler.closeSocket();
-    }
     if (this.updateListSubscription) {
       this.updateListSubscription.unsubscribe();
       this.updateListSubscription = undefined;
     }
 
-    this.websocketMessageHandler.stopKeepAliveSender();
-  }
 
   stopFApp() {
     this.navCtrl.pop();
