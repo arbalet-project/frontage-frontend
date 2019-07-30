@@ -85,6 +85,7 @@ export class SnapJoystickPage {
     }
 
   updateList() {
+     this.dataFAppsProvider.getCurrentApp().subscribe(response => this.checkSnapIsStillRunning(response.name);
     if (!this.isWaiting) {
       this.isWaiting = true;
       this.getClientsInfo();
@@ -94,7 +95,7 @@ export class SnapJoystickPage {
   getClientsInfo() {
     this.adminProvider.getSnapUsers().subscribe(
         response => this.handleGetClientsInfoResponse(response),
-        err => this.dataFAppsProvider.getCurrentApp().subscribe(response => this.checkSnapIsStillRunning(response))
+        err => this.dataFAppsProvider.getCurrentApp().subscribe(response => this.checkSnapIsStillRunning(response.name))
       );
   }
 
