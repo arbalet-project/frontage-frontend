@@ -2,10 +2,10 @@
     "DISCONNECT_BUTTON": "Se déconnecter",
 
     "HOME_PAGE_APP_TITLE": "Arbalet Frontage",
-    "HOME_PAGE_MESSAGE_1": "Bienvenue ! Arbalet Frontage est la façade pixelisée interactive du bâtiment A1 de l'Université de Bordeaux.",
-    "HOME_PAGE_MESSAGE_2": "71 pixels colorés s'illuminent le long des fenêtres extérieures du bâtiment en soirée.",
+    "HOME_PAGE_MESSAGE_1": "Arbalet Frontage est une mise en lumière éphémère de votre bâtiment. Ses fenêtres se parent de couleurs quotidiennement au crépuscule.",
+    "HOME_PAGE_MESSAGE_2": "Elle vous invite à porter un regard nouveau sur votre environnement, et vous donne l'occasion d'interagir et d'apprendre avec lui.",
     "HOME_PAGE_MESSAGE_3": "En poursuivant vous pourrez changer les couleurs, jouer à Tetris et Snake, ou même apprendre un langage de programmation lors d'un atelier encadré par un formateur ",
-    "HOME_PAGE_HREF_MESSAGE": "consulter la date du prochain atelier",
+    "HOME_PAGE_HREF_MESSAGE": "consultez les dates en ligne",
 
     "FLAGS":"Drapeaux",
     "RANDOMFLASHING": "Étincelles",
@@ -40,7 +40,7 @@
     "LOGIN_PAGE_TETRIS_INVITATION":"Sinon, en attendant qu'Arbalet Frontage soit disponible, essayez notre jeu hors-ligne :",
     "TETRIS_BLOCK":"Jouer à Tetris Blocks (hors-ligne)",
 
-    "LOGIN_PAGE_FRONTAGE_NOT_AVAILABLE_EXPLANATION_STEP1": "Approchez-vous du perron du bâtiment A1 de l'Université de Bordeaux",
+    "LOGIN_PAGE_FRONTAGE_NOT_AVAILABLE_EXPLANATION_STEP1": "Approchez-vous de l'entrée principale de la façade illuminée",
     "LOGIN_PAGE_FRONTAGE_NOT_AVAILABLE_EXPLANATION_STEP2": "Démarrez la connexion Wifi de votre smartphone puis sélectionnez le réseau ARBALET_FRONTAGE",
     "LOGIN_PAGE_FRONTAGE_NOT_AVAILABLE_EXPLANATION_STEP3": "Revenez ici, et voilà !",
 
@@ -112,13 +112,13 @@
     "MESH_PAGE_AMOUNT_LABEL": "Nombre de cartes ESP",
     "MESH_PAGE_HEIGHT_LABEL": "Nombre de lignes",
     "MESH_PAGE_WIDTH_LABEL": "Nombre de colonnes",
-    "MESH_PAGE_INSTRUCTION": "Appuyez sur les fenêtre qui correspondent à laquelle qui clignote",
-    "MESH_VALIDATION_BUTTON": "Valider les dimensions de l'installation",
+    "MESH_PAGE_INSTRUCTION": "Appuyez sur la fenêtre correspondant à celle qui clignote",
+    "MESH_VALIDATION_BUTTON": "Valider la géométrie de l'installation",
     "MESH_INSTRUCTIONS": "Appuyez sur la matrice sur les pixels qui clignotent",
     "MESH_PAGE_INSTRUCTION": "Cliquer sur la matrice la position de la led qui est allumée",
     "CONFIRM_PIXEL_ATTRIBUTION_BUTTON": "Confirmer pixel",
     "RETURN_PIXEL_ATTRIBUTION_BUTTON": "Annuler pixel",
-    "BUILDING_DIMENSIONS_REJECTED": "Veuillez inserer les bonnes valeurs",
+    "BUILDING_DIMENSIONS_REJECTED": "Veuillez insérer les bonnes valeurs",
     "GRID_PAGE_TITLE": "Adressage manuel",
     "MESH_PAGE_BACK_BUTTON": "Retour à Mesh",
     "RAC_PAGE_TITLE": "Readressage à chaud",
@@ -129,7 +129,7 @@
 
 
     "GET_OUT":"Désolé, vous n'avez plus l'autorisation de jouer.",
-    "GAME_OVER":"Vous avez perdu :)",
+    "GAME_OVER":"Vous avez perdu 😉",
     "EXPIRE_SOON":"Votre tour pourrait bientôt se terminer",
     "EXPIRE":"Votre temps d'utilisation est écoulé, il est temps de laisser quelqu'un d'autre jouer !",
     "UNKNOWN_MESSAGE":"Nous avons reçu un message inattendu, veuillez mettre à jour votre application depuis le store",
@@ -155,7 +155,7 @@
     "ERROR_PAGE_MESSAGE": "Une erreur inconnue s'est produite. Veuillez vous reconnecter en cliquant sur le bouton ci-dessous.",
     "ERROR_PAGE_BUTTON": "Se reconnecter",
 
-    "CONNECTION_LOST":"Perte de connexion. Rapprochez-vous de la façade.",
+    "CONNECTION_LOST":"Perte de connexion. Rapprochez-vous de l'entrée.",
 
     "VERSION_OBSOLETE_TITLE": "Mise à jour nécessaire",
     "VERSION_OBSOLETE_MESSAGE":"Désolé, la version de votre application n'est plus à jour avec Arbalet Frontage. Veuillez la mettre à jour depuis le store puis réessayez.",

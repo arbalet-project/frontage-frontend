@@ -2,10 +2,10 @@
     "DISCONNECT_BUTTON": "Logout",
 
     "HOME_PAGE_APP_TITLE": "Arbalet Frontage",
-    "HOME_PAGE_MESSAGE_1": "Welcome! Arbalet Frontage is the interactive facade of building A1 of Bordeaux University.",
-    "HOME_PAGE_MESSAGE_2": "71 colorful pixels light any window of the building.",
-    "HOME_PAGE_MESSAGE_3": "By using this app, you will be able to change colors of the facade, enjoy retrogaming such as Tetris Snake and more, or even learn computer program during special workshops with a trainer  ",
-    "HOME_PAGE_HREF_MESSAGE": "check the date of the next workshop",
+    "HOME_PAGE_MESSAGE_1": "Arbalet Frontage is an architectural lighting of your building. Daily at dusk,, its window light up in colors.",
+    "HOME_PAGE_MESSAGE_2": "They invite you to observe your environment through fresh eyes, and gives you the opportunity to interact and learn with it.",
+    "HOME_PAGE_MESSAGE_3": "By connecting, you will be able to change colors of the facade, enjoy retrogaming such as Tetris Snake, or even learn computer programming during workshops with a trainer  ",
+    "HOME_PAGE_HREF_MESSAGE": "checkout the online schedule",
 
     "FLAGS":"Flags",
     "RANDOMFLASHING":"Sparks",
@@ -32,16 +32,16 @@
     "LOGIN_PAGE_START_BUTTON":"Confirm",
     "LOGIN_PAGE_FRONTAGE_FORCED": "Administrator has locked Arbalet Frontage. Come back later.",
     "LOGIN_PAGE_FRONTAGE_NOT_AVAILABLE": "Adminitrator has disabled Arbalet Frontage. Come back later.",
-    "LOGIN_PAGE_FRONTAGE_DOWN_ALERT": "Arbalet Frontage is not on yet. Come back from ",
+    "LOGIN_PAGE_FRONTAGE_DOWN_ALERT": "Arbalet Frontage is not up yet. Come back from ",
     "LOGIN_PAGE_FOOTER_MESSAGE":"Arbalet Project",
-    "LOGIN_PAGE_FORM_TITLE":"Select your nickname",
+    "LOGIN_PAGE_FORM_TITLE":"Pick a nickname",
     "LOGIN_PAGE_FORM_TITLE_SERVER_UNREACHABLE":"Connect using Wifi",
     "LOGIN_PAGE_ACCESS_ERROR":"Incorrect credentials",
     "LOGIN_PAGE_TETRIS_INVITATION":"Otherwise, while you're waiting Arbalet Frontage to be available, try our offline game:",
     "TETRIS_BLOCK":"Play Tetris Blocks (offline)",
 
-    "LOGIN_PAGE_FRONTAGE_NOT_AVAILABLE_EXPLANATION_STEP1": "Approach the entrance of A1 building of Bordeaux University",
-    "LOGIN_PAGE_FRONTAGE_NOT_AVAILABLE_EXPLANATION_STEP2": "Start the Wifi connection of your smartphone and select network ARBALET_FRONTAGE",
+    "LOGIN_PAGE_FRONTAGE_NOT_AVAILABLE_EXPLANATION_STEP1": "Approach the main entrance of your building",
+    "LOGIN_PAGE_FRONTAGE_NOT_AVAILABLE_EXPLANATION_STEP2": "Switch on the Wifi connection of your smartphone and select network ARBALET_FRONTAGE",
     "LOGIN_PAGE_FRONTAGE_NOT_AVAILABLE_EXPLANATION_STEP3": "Come back here, et voila!",
 
     "INEXISTING_SNAP_CLIENT": "Sorry this client is no longer connected, please choose another one",
@@ -126,7 +126,7 @@
 
 
     "GET_OUT":"Sorry, you can no longer play.",
-    "GAME_OVER":"Game Over, you lose :)",
+    "GAME_OVER":"Game Over, you lose 😉",
     "EXPIRE_SOON":"Your turn might end soon",
     "EXPIRE":"Your turn is over, it is time to let other people play!",
     "UNKNOWN_MESSAGE":"We received an unexpected message, please update your app from the store",
@@ -152,7 +152,7 @@
     "ERROR_PAGE_MESSAGE": "An unknown error occured. You may try to reconnect by clicking on the button below.",
     "ERROR_PAGE_BUTTON": "Reconnect",
 
-    "CONNECTION_LOST":"Connection lost. Come closer to the frontage.",
+    "CONNECTION_LOST":"Connection lost. Come closer to the entrance.",
 
     "VERSION_OBSOLETE_TITLE": "Upgrade Needed",
     "VERSION_OBSOLETE_MESSAGE":"Sorry, the version of your application is outdated. Please update it from your app store and retry.",

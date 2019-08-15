@@ -1,5 +1,5 @@
 # Arbalet Frontage frontend
-This is the mobile frontend of Arbalet Frontage, the [pixelated building facade of Bordeaux University](https://vimeo.com/arbalet/frontage).
+This is the mobile frontend of Arbalet Frontage, the [pixelated building facade](https://vimeo.com/arbalet/frontage).
 
 ## Compile and deploy
 

@@ -70,7 +70,7 @@
     "ionic": "3.20.0",
     "typescript": "2.3.4"
   },
-  "description": "Take control of the building facade of Bordeaux University",
+  "description": "Take control over a building facade",
   "cordova": {
     "plugins": {
       "ionic-plugin-keyboard": {},
