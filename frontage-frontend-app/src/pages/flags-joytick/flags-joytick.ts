@@ -2,6 +2,7 @@ import { WebsocketMessageHandlerProvider } from './../../providers/websocket-mes
 import { DataFAppsProvider } from './../../providers/data-f-apps/data-f-apps';
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { TrackingProvider } from '../../providers/tracking/tracking';
 
 @Component({
   selector: 'page-flags-joytick',
@@ -13,9 +14,10 @@ export class FlagsJoytickPage {
   parametersList: string[];
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public fAppProvider: DataFAppsProvider,
-    public websocketMessageHandler: WebsocketMessageHandlerProvider) {
+    public websocketMessageHandler: WebsocketMessageHandlerProvider,
+    public tracker: TrackingProvider) {
     let joystickParams = navParams.get('joystickParams');
-
+    this.tracker.playEvent("Flags");
     this.parametersList = joystickParams.parametersList;
     this.selectedParameter = joystickParams.selectedParameter;
 

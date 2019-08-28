@@ -2,7 +2,7 @@ import { LocalStorageProvider } from './../../providers/local-storage/local-stor
 import { DrawingJoystickPage } from './../drawing-joystick/drawing-joystick';
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-
+import { TrackingProvider } from '../../providers/tracking/tracking';
 @Component({
   selector: 'page-drawing-options',
   templateUrl: 'drawing-options.html',
@@ -13,9 +13,10 @@ export class DrawingOptionsPage {
   fAppOptions: any;
   joystickPage: any = DrawingJoystickPage;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public localStorageProvider: LocalStorageProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+              public localStorageProvider: LocalStorageProvider, public tracker: TrackingProvider) {
     this.isAdmin = this.localStorageProvider.isAdmin();
-
+    this.tracker.selectEvent("Drawing");
     this.fAppOptions = {
       name: "Drawing",
       hideParams: true,  // Send params to the backend but do not let the user changing them
@@ -26,7 +27,7 @@ export class DrawingOptionsPage {
   }
 
   ionViewDidLoad() {
-    
+
   }
 
 }

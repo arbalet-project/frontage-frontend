@@ -4,7 +4,8 @@ import { DataFAppsProvider } from './../../providers/data-f-apps/data-f-apps';
 import { Component } from '@angular/core';
 import { AdminProvider } from './../../providers/admin/admin';
 import { NavController, NavParams, AlertController } from 'ionic-angular';
-import { TranslateService } from '@ngx-translate/core'
+import { TrackingProvider } from '../../providers/tracking/tracking';
+import { TranslateService } from '@ngx-translate/core';
 
 
 /**
@@ -37,8 +38,10 @@ export class SnapJoystickPage {
   constructor(public navCtrl: NavController, public navParams: NavParams,
               public dataFAppsProvider: DataFAppsProvider,public translateService: TranslateService,
               public adminProvider: AdminProvider, public http: HttpClient,
-              private alertCtrl: AlertController ) {
+              private alertCtrl: AlertController ,
+              public tracker: TrackingProvider) {
 
+    this.tracker.playEvent("Live");
     this.updateListSubscription = Observable.interval(1000)
       .subscribe(() => this.updateList());
 

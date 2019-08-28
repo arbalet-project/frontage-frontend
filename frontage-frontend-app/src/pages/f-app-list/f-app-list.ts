@@ -16,6 +16,7 @@ import { SweepAsyncOptionsPage } from '../sweep-async-options/sweep-async-option
 import { LocalStorageProvider } from '../../providers/local-storage/local-storage';
 import { SettingPage } from '../setting/setting';
 import { SnapJoystickPage } from '../snap-joystick/snap-joystick';
+import { TrackingProvider } from '../../providers/tracking/tracking';
 
 @Component({
   selector: 'page-f-app-list',
@@ -36,10 +37,10 @@ export class FAppListPage {
     public adminProvider: AdminProvider,
     public dataFAppsProvider: DataFAppsProvider,
     public authentication: AuthenticationProvider,
-    public vibration: Vibration) {
+    public vibration: Vibration, public tracker: TrackingProvider) {
     //Check if the connected user is admin
     this.isAdmin = this.localStorageProvider.isAdmin();
-
+    this.tracker.connection();
   }
 
   ionViewWillEnter() {
@@ -101,7 +102,7 @@ export class FAppListPage {
     });
   }
 
-  /** 
+  /**
    * Navigation
   */
   logout() {

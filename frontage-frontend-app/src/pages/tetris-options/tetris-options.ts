@@ -5,6 +5,7 @@ import { TetrisJoystickPage } from './../tetris-joystick/tetris-joystick';
 import { DataFAppsProvider } from './../../providers/data-f-apps/data-f-apps';
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { TrackingProvider } from '../../providers/tracking/tracking';
 
 @Component({
   selector: 'page-tetris-options',
@@ -21,11 +22,12 @@ export class TetrisOptionsPage {
     public dataFAppsProvider: DataFAppsProvider,
     public formBuilder: FormBuilder,
     public adminProvider: AdminProvider,
-    public localStorageProvider: LocalStorageProvider) {
-      
+    public localStorageProvider: LocalStorageProvider,
+    public tracker: TrackingProvider) {
+
     //Check if the connected user is admin
     this.isAdmin = this.localStorageProvider.isAdmin();
-
+    this.tracker.selectEvent("Tetris");
     //Init the tetris options to send to the back
     this.fAppOptions = {
       name: "Tetris"

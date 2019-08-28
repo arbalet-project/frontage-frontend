@@ -265,6 +265,7 @@ import { DataFAppsProvider } from './../../providers/data-f-apps/data-f-apps';
 import { WebsocketMessageHandlerProvider } from './../../providers/websocket-message-handler/websocket-message-handler';
 import { Component, Input } from '@angular/core';
 import { NavController, NavParams, Platform, AlertController } from 'ionic-angular';
+import { TrackingProvider } from '../../providers/tracking/tracking';
 
 @Component({
   selector: 'page-drawing-joystick',
@@ -295,9 +296,10 @@ export class DrawingJoystickPage {
     public websocketMessageHandler: WebsocketMessageHandlerProvider, public sanitizer: DomSanitizer,
     public screenOrientation: ScreenOrientation, public platform: Platform, public vibration: Vibration,
     public adminProvider: AdminProvider, public alertCtrl: AlertController, public translateService: TranslateService,
-    public localStorageProvider: LocalStorageProvider) {
+    public localStorageProvider: LocalStorageProvider,
+    public tracker: TrackingProvider) {
     console.log(this.frontageWidth, this.frontageHeight, this.disabled);
-
+    this.tracker.playEvent("Drawing");
     this.isAdmin = this.localStorageProvider.isAdmin();
 
     if (this.platform.is('mobile')) {

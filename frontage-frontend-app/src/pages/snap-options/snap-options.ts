@@ -7,6 +7,7 @@ import { DataFAppsProvider } from './../../providers/data-f-apps/data-f-apps';
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { SnapJoystickPage } from '../snap-joystick/snap-joystick';
+import { TrackingProvider } from '../../providers/tracking/tracking';
 
 @Component({
   selector: 'page-snap-options',
@@ -24,11 +25,12 @@ export class SnapOptionsPage {
     public dataFAppsProvider: DataFAppsProvider,
     public localStorageProvider: LocalStorageProvider,
     public websocketMessageHandlerProvider : WebsocketMessageHandlerProvider,
-    public adminProvider: AdminProvider) {
+    public adminProvider: AdminProvider,
+    public tracker: TrackingProvider) {
 
     //Check if the connected user is admin
     this.isAdmin = this.localStorageProvider.isAdmin();
-
+    this.tracker.selectEvent("Live");
     this.fAppOptions = {
       name: "Snap"
     }

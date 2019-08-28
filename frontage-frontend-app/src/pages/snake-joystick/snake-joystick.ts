@@ -6,6 +6,7 @@ import { Component } from '@angular/core';
 import { NavParams, NavController, Platform } from 'ionic-angular';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
 import { LocalStorageProvider } from './../../providers/local-storage/local-storage';
+import { TrackingProvider } from '../../providers/tracking/tracking';
 import * as $ from 'jquery'
 
 @Component({
@@ -23,8 +24,10 @@ export class SnakeJoystickPage {
     public fAppProvider: DataFAppsProvider,
     public platform: Platform,
     public vibration: Vibration,
-    public websocketMessageHandler: WebsocketMessageHandlerProvider) {
+    public websocketMessageHandler: WebsocketMessageHandlerProvider,
+    public tracker: TrackingProvider) {
 
+    this.tracker.playEvent("Snake");
     if (this.platform.is('mobile')) {
       this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
     }

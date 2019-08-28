@@ -6,6 +6,7 @@ import { LocalStorageProvider } from './../../providers/local-storage/local-stor
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
 import { Component } from '@angular/core';
 import { NavParams, NavController, Platform } from 'ionic-angular';
+import { TrackingProvider } from '../../providers/tracking/tracking';
 import * as $ from 'jquery'
 
 
@@ -27,8 +28,10 @@ export class TetrisJoystickPage {
     public platform: Platform,
     public vibration: Vibration,
     public dialogs: Dialogs,
-    public websocketMessageHandler: WebsocketMessageHandlerProvider) {
+    public websocketMessageHandler: WebsocketMessageHandlerProvider,
+    public tracker: TrackingProvider) {
 
+    this.tracker.playEvent("Tetris");
     if (this.platform.is('mobile')) {
       this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
     }

@@ -56,9 +56,17 @@ import { Vibration } from '@ionic-native/vibration';
 import { SettingPage } from '../pages/setting/setting';
 import { AdminProvider } from '../providers/admin/admin';
 import { WebsocketMessageHandlerProvider } from '../providers/websocket-message-handler/websocket-message-handler';
+import { HammerGestureConfig, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
+import { TrackingProvider } from '../providers/tracking/tracking';
 
 export function createTranslateLoader(http: Http) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
+
+export class CustomHammerConfig extends HammerGestureConfig {
+  overrides = <any>{
+    'pan': { enable: true , velocity: 0.4, threshold: 20} //rotate is disabled by default, so we need to enable it
+  }
 }
 
 let components:any[] = [
@@ -97,7 +105,7 @@ let components:any[] = [
 @NgModule({
   declarations: [
     components,
-    ScrollHideDirective
+    ScrollHideDirective,
   ],
   imports: [
     BrowserModule,
@@ -119,6 +127,7 @@ let components:any[] = [
     SplashScreen,
     {provide: ErrorHandler, useClass: SentryErrorHandler},
     {provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorProvider, multi: true},
+    {provide: HAMMER_GESTURE_CONFIG, useClass: CustomHammerConfig},
     DataFAppsProvider,
     AuthenticationProvider,
     TimeProvider,
@@ -131,7 +140,8 @@ let components:any[] = [
     AdminProvider,
     Dialogs,
     WebsocketMessageHandlerProvider,
-    Insomnia
+    Insomnia,
+    TrackingProvider
   ]
 })
 export class AppModule {}

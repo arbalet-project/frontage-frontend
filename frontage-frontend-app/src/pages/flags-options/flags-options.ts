@@ -6,6 +6,7 @@ import { DataFAppsProvider } from './../../providers/data-f-apps/data-f-apps';
 import { FApp } from './../../models/fapp';
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { TrackingProvider } from '../../providers/tracking/tracking';
 
 @Component({
   selector: 'page-flags-options',
@@ -24,8 +25,9 @@ export class FlagsOptionsPage {
     public navParams: NavParams,
     public dataFAppsProvider: DataFAppsProvider,
     public localStorageProvider: LocalStorageProvider,
-    public adminProvider: AdminProvider) {
-
+    public adminProvider: AdminProvider,
+    public tracker: TrackingProvider) {
+    this.tracker.selectEvent("Flags");
     //Check if the connected user is admin
     this.isAdmin = this.localStorageProvider.isAdmin();
 
