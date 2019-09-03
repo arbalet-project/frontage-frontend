@@ -67,12 +67,12 @@ function hideUIElements() {
 function init(b) {
 	if (settings.ending_block && b == 1) { return; }
 	if (b) {
-		$("#pauseBtn").attr('src', "./assets/images/btn_pause.svg");
+		$("#pauseBtn").attr('src', "./assets/img/offline-tetris/btn_pause.svg");
 		checkVisualElements();
 	}
 
 	infobuttonfading = true;
-	$("#pauseBtn").attr('src', "./assets/images/btn_pause.svg");
+	$("#pauseBtn").attr('src', "./assets/img/offline-tetris/btn_pause.svg");
 	hideUIElements();
 	document.getElementById("canvas").className = "";
 	history = {};

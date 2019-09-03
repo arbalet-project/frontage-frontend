@@ -47,7 +47,6 @@ function initialize(game_state, messages_i18n) {
 	$('#clickToExit').bind('click', toggleDevTools);
 	window.settings;
 	if (/Android|webOS|iPhone|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-        $('.rrssb-email').remove();
 		settings = {
 			os: "other",
 			platform: "mobile",

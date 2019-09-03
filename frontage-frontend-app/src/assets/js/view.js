@@ -137,7 +137,7 @@ function pause(o) {
 		$('#helpScreen').fadeOut(300, "linear");
 		$('#pauseScreen').fadeOut(300, "linear");
 
-		$("#pauseBtn").attr("src", "./assets/images/btn_pause.png");
+		$("#pauseBtn").attr("src", "./assets/img/offline-tetris/btn_pause.png");
 		$('.helpText').fadeOut(300, 'linear');
 
 		setTimeout(function() {
@@ -152,7 +152,7 @@ function pause(o) {
 		if (message == 'paused') {
 			showText(message);
 		}
-		$("#pauseBtn").attr("src","./assets/images/btn_resume.png");
+		$("#pauseBtn").attr("src","./assets/img/offline-tetris/btn_resume.png");
 
 		prevGameState = gameState;
 		setTimeout(function() {
