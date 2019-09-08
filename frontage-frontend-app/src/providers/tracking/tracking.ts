@@ -22,14 +22,14 @@ export class TrackingProvider {
   }
 
   public selectEvent(name:string){
-    this.http.post(this.baseUrl + this.baseTracker + "&e_c="+ name + "&e_a=Select", "").subscribe(response => console.log("ok"));
+    this.http.post(this.baseUrl + this.baseTracker + "&e_c="+ name + "&e_a=Select", "").subscribe(response => console.log("event: Select"));
   }
 
   public playEvent(name: string){
-    this.http.post(this.baseUrl + this.baseTracker + "&e_c="+ name + "&e_a=Play", "").subscribe(response => console.log("ok"));
+    this.http.post(this.baseUrl + this.baseTracker + "&e_c="+ name + "&e_a=Play", "").subscribe(response => console.log("event: Play"));
   }
 
   public connection(){
-    this.http.post(this.baseUrl + this.baseTracker + "&action_name=Connection", "").subscribe(response => console.log("ok"));
+    this.http.post(this.baseUrl + this.baseTracker + "&action_name=Connection", "").subscribe(response => console.log("action: Connection"));
   }
 }

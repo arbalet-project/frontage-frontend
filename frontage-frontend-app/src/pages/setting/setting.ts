@@ -102,7 +102,6 @@ export class SettingPage implements OnInit {
 
     this.authentication.isFacadeUp()
       .subscribe(res => {
-        console.log(res);
         this.selectedFrontageState = res.state;
         if (res['height'] > 0)
           this.buildingHeight = res['height'];

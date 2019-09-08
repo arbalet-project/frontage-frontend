@@ -103,10 +103,8 @@ export class GridPage {
           this.markedPixel = targetElement;
           targetElement.style.background = '#299a29';
 
-          console.log(JSON.stringify({x:column, y:row}))
-          console.log(this.websocketMessageHandler.send(JSON.stringify({x:column, y:row})));
           this.adminProvider.getInitialised().subscribe(resp => {
-              console.log(resp);
+              //console.log(resp);
           });
 
       }
@@ -124,7 +122,7 @@ export class GridPage {
 
             // let initialised = 0;
                     this.adminProvider.getInitialised().subscribe(resp => {
-                        console.log(resp);
+                        //console.log(resp);
                     });
             const alert = this.alertController.create({
                 message: this.popupMessage,
@@ -161,7 +159,6 @@ export class GridPage {
   }
 
   ionViewDidLeave(){
-    console.log("stopping everything");
     this.dataFAppsProvider.stopApp();
     this.websocketMessageHandler.closeSocket();
     this.websocketMessageHandler.stopKeepAliveSender();

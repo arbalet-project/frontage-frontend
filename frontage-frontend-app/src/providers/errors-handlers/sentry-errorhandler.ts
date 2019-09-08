@@ -51,7 +51,6 @@ export class SentryErrorHandler extends IonicErrorHandler {
 
         toast.onDidDismiss(() => {
             this.isToastVisible = false;
-            console.log('Dismissed toast');
         });
 
         toast.present();

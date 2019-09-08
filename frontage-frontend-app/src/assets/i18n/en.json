@@ -112,6 +112,7 @@
     "MESH_PAGE_AMOUNT_LABEL": "Amount of ESP cards",
     "MESH_PAGE_HEIGHT_LABEL": "Lines",
     "MESH_PAGE_WIDTH_LABEL": "Columns",
+    "MESH_PAGE_INSTRUCTION": "Tap the window corresponding to the blinking one",
     "MESH_VALIDATION_BUTTON": "Validate installation dimensions",
     "MESH_INSTRUCTIONS": "Select in the matrix the position of the pixel which blinks",
     "CONFIRM_PIXEL_ATTRIBUTION_BUTTON": "Confirm pixel",

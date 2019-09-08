@@ -78,7 +78,6 @@ export class WebsocketMessageHandlerProvider {
     let data = JSON.parse(message.data);
 
     if (data.message == "Pixel down message") {
-        console.log("mensagem chego");
         this.pixelsDown = data.code;
     }
 
@@ -113,10 +112,6 @@ export class WebsocketMessageHandlerProvider {
       message: content,
       duration: 4000,
       position: 'top'
-    });
-
-    toast.onDidDismiss(() => {
-      console.log('Dismissed toast');
     });
 
     toast.present();
@@ -160,7 +155,6 @@ export class WebsocketMessageHandlerProvider {
   }
 
   closeSocket() {
-    console.log("CALL CLOOOOOSE !!!!!!!")
     this.socket.close();
   }
 
@@ -186,9 +180,6 @@ export class WebsocketMessageHandlerProvider {
       if (this.pixelsDown != "") {
           let down = this.pixelsDown;
           this.pixelsDown = "";
-          console.log("From websocket :")
-          console.log(down);
-          console.log(typeof(down));
           return down;
       }
       else {
