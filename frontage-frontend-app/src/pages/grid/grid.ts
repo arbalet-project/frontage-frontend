@@ -102,7 +102,7 @@ export class GridPage {
 
           this.markedPixel = targetElement;
           targetElement.style.background = '#299a29';
-
+          console.log(this.websocketMessageHandler.send(JSON.stringify({x:column, y:row})));
           this.adminProvider.getInitialised().subscribe(resp => {
               //console.log(resp);
           });

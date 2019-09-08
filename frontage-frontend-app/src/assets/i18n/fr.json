@@ -79,7 +79,7 @@
     "SNAKE_OPTIONS_PAGE_RULES":"Incarnez un serpent rouge et mangez les pommes vertes. Vous pouvez traverser les mûrs, dans ce cas vous atterissez de l'autre côté, mais attention à ne pas mordre votre queue ! Les pixels du perron, bien qu'inexistants, font partie du jeu.",
     "TETRIS_OPTIONS_PAGE_RULES":"Eliminez le plus possible de colonnes. Les tetrominos tombent de gauche à droite, vous pouvez les faire pivoter avec le bouton d'action. Les pixels du perron, bien qu'inexistants, font partie du jeu.",
     "SWEEP_ASYNC_OPTIONS_PAGE_RULES":"Vous allez voir défiler toute la roue des couleurs, chaque fenêtre à son rythme.",
-    "SNAP_OPTIONS_PAGE_RULES":"Chaque participant dispose d'un ordinateur ou d'une tablette (nommé client). Il se connecte au réseau Wifi ARBALET_FRONTAGE et ouvre l'adresse \"arbalet.frontage\" dans un navigateur Web. Enfin, le client clique sur \"Passer en mode ATELIER\" afin qu'Arbalet Frontage lui attribue un pseudonyme qui doit s'afficher à l'écran au dessus de la simulation ; dans le cas contraire vérifier la connexion Wifi du client. L'administrateur voit la liste de tous les clients connectés, lorsqu'il clique sur un pseudonyme il autorise celui-ci à prendre le contrôle d'Arbalet Frontage en live.",
+    "SNAP_OPTIONS_PAGE_RULES":"Chaque participant dispose d'un ordinateur ou tablette. Il se connecte au réseau Wifi ARBALET_FRONTAGE et  charge \"live.arbalet-project.org\" dans un navigateur Web, choisit un sobriquet puis créé son animation colorée. L'administrateur choisit quel sobriquet peut contrôler Arbalet Frontage en live.",
     "DRAWING_OPTIONS_PAGE_RULES": "Vous pourrez dessiner vos propres motifs sur Arbalet Frontage en sélectionnant une couleur et en glissant votre doigt sur un pixel pour le teinter. Rappelez-vous que teinter un pixel en noir revient à l'éteindre.",
     "DRAWING_OPTIONS_PAGE_RULES_ADMIN": "Pour les commémorations ayant des représentations visuelles spécifiques, cette application permet également à l'administrateur de définir un motif personnalisé dans le planning quotidien en enregistrant son dessin.",
     "OPTIONS_PAGE_NO_OPTIONS": "Cette application ne nécessite pas de paramètre.",
@@ -93,7 +93,7 @@
     "FLAGS_JOYSTICK_PAGE_TITLE":"Drapeaux",
     "SR_JOYSTICK_PAGE_TITLE":"Changer de thème",
     "SA_JOYSTICK_PAGE_TITLE":"Roue des couleurs",
-    "SNAP_JOYSTICK_INFO": "L'application est forcée, pensez à la relâcher à la fin de l'atelier. Choisissez le pseudonyme du client qui contrôle Arbalet Frontage en live :",
+    "SNAP_JOYSTICK_INFO": "L'application est forcée, pensez à la relâcher à la fin de l'atelier. Choisissez le sobriquet qui contrôle Arbalet Frontage en live :",
     "SNAP_OFF_NICKNAME": "Tout éteindre",
 
     "SETTINGS_PAGE_TITLE":"Paramètres",
