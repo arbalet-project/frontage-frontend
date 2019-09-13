@@ -97,6 +97,9 @@ export class WaitingPage {
       this.startApp();
       this.message = this.STARTING;
     }
+    else if(this.position == 1 || this.position == 0 || this.position == -1) {
+      this.message = this.STARTING;
+    }
     else {
       this.message = this.QUEUED + this.position;
     }
