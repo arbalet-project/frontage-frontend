@@ -12,7 +12,7 @@
     "SWEEPASYNC":"Color wheel",
     "SWEEPRAND":"Dual colors",
     "SNAKE": "Snake",
-    "SNAP": "Snap",
+    "SNAP": "Live",
     "TETRIS": "Tetris",
     "DRAWING": "Freehand Draw",
 
@@ -44,8 +44,8 @@
     "LOGIN_PAGE_FRONTAGE_NOT_AVAILABLE_EXPLANATION_STEP2": "Switch on the Wifi connection of your smartphone and select network ARBALET_FRONTAGE",
     "LOGIN_PAGE_FRONTAGE_NOT_AVAILABLE_EXPLANATION_STEP3": "Come back here, et voila!",
 
-    "INEXISTING_SNAP_CLIENT": "Sorry this client is no longer connected, please choose another one",
-    "INEXISTING_SNAP_CLIENT_TITLE": "Client disconnected",
+    "INEXISTING_SNAP_CLIENT": "Sorry this participant is no longer connected, please choose another one",
+    "INEXISTING_SNAP_CLIENT_TITLE": "Participant disconnected",
     "SNAP_APP_NOT_RUNNING_TITLE": "Application is over",
     "SNAP_APP_NOT_RUNNING": "Sorry, another administrator closed the programming workshop",
 
@@ -88,7 +88,7 @@
     "SNAP_OPTIONS_PAGE_TITLE":"Snap",
     "SNAP_OPTIONS_PAGE_START_BUTTON":"Start Snap",
 
-    "SNAP_JOYSTICK_PAGE_TITLE":"Snap clients",
+    "SNAP_JOYSTICK_PAGE_TITLE":"Participants",
     "RF_JOYSTICK_TITLE":"Change theme",
     "FLAGS_JOYSTICK_PAGE_TITLE":"Flags",
     "SR_JOYSTICK_PAGE_TITLE":"Change theme",
