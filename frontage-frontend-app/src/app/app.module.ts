@@ -109,7 +109,10 @@ let components:any[] = [
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp),
+    IonicModule.forRoot(MyApp, {
+        tabsPlacement: 'top',
+        backButtonText: ''
+      }),
     HttpModule,
     HttpClientModule,
     TranslateModule.forRoot({
