@@ -232,11 +232,6 @@ export class DrawingJoystickPage {
       this.websocketMessageHandler.closeSocket();
     }
     this.websocketMessageHandler.stopKeepAliveSender();
-
-    if (this.platform.is('mobile')) {
-      this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
-      this.screenOrientation.unlock();
-    }
   }
 
   validateActionSucceeded(success, title, message, navigateBack) {
