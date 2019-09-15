@@ -127,7 +127,7 @@
 
 
 
-    "GET_OUT":"Désolé, vous n'avez plus l'autorisation de jouer.",
+    "GET_OUT":"Désolé, vous n'avez plus l'autorisation de jouer. Réessayez.",
     "GAME_OVER":"Vous avez perdu 😉",
     "EXPIRE_SOON":"Votre tour pourrait bientôt se terminer",
     "EXPIRE":"Votre temps d'utilisation est écoulé, il est temps de laisser quelqu'un d'autre jouer !",
@@ -140,8 +140,8 @@
     "LANGUAGE_COMPONENT_FR":"FR",
     "LANGUAGE_COMPONENT_EN":"EN",
 
-    "WAITING":"Chargement ...",
-    "WAITING_SERVER":"Chargement ...",
+    "WAITING_TITLE":"Chargement ...",
+    "WAITING_SERVER":"En attente ...",
     "ALREADY_QUEUED":"Vous ne pouvez lancer qu'une seule application à la fois. Attendez une minute que votre précédente application termine sa fermeture.",
     "QUEUED":"Vous êtes dans la file d'attente à la position : ",
     "STARTING":"Démarrage ...",

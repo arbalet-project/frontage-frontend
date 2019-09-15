@@ -126,7 +126,7 @@
     "MESH_LOAD_ADDRESSING": "The previous addressing was loaded from the database. Please don't close this popup until visual confirmation",
 
 
-    "GET_OUT":"Sorry, you can no longer play.",
+    "GET_OUT":"Sorry, you can no longer play. Please retry.",
     "GAME_OVER":"Game Over, you lose 😉",
     "EXPIRE_SOON":"Your turn might end soon",
     "EXPIRE":"Your turn is over, it is time to let other people play!",
@@ -139,8 +139,8 @@
     "LANGUAGE_COMPONENT_FR":"FR",
     "LANGUAGE_COMPONENT_EN":"EN",
 
-    "WAITING":"Loading...",
-    "WAITING_SERVER":"Loading...",
+    "WAITING_TITLE":"Loading...",
+    "WAITING_SERVER":"Waiting...",
     "ALREADY_QUEUED":"You can start only one application at a time. Please wait a little while your previous app is closing.",
     "QUEUED":"You are queued at position: ",
     "STARTING":"Starting...",
