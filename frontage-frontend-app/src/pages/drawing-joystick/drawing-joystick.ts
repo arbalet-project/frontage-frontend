@@ -222,6 +222,8 @@ export class DrawingJoystickPage {
   }
 
   ionViewDidLeave() {
+    this.websocketMessageHandler.stopKeepAliveSender();
+
     if (this.platform.is('mobile')) {
       this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
       this.screenOrientation.unlock();
@@ -231,7 +233,6 @@ export class DrawingJoystickPage {
       this.fAppProvider.stopApp();
       this.websocketMessageHandler.closeSocket();
     }
-    this.websocketMessageHandler.stopKeepAliveSender();
   }
 
   validateActionSucceeded(success, title, message, navigateBack) {

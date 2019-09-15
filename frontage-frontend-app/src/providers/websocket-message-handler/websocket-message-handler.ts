@@ -27,8 +27,8 @@ export class WebsocketMessageHandlerProvider {
   interruptedApp: Boolean = false;
 
   retryCounter = 0;
-  externalClose: Boolean;
-
+  externalClose: Boolean = false;
+  popupDisplayed : Boolean = false;
   keepAliveSender: Subscription;
 
   pixelsDown: String = "";
@@ -50,15 +50,25 @@ export class WebsocketMessageHandlerProvider {
     }
 
     this.socket.onerror = function () {
-      if (self.retryCounter < 3) {
+      if (self.retryCounter < 10) {
         self.retryCounter += 1;
         setTimeout(() => self.initSocket(navCtrl), 300);
       } else {
-        throw "Erreur, la connexion websocket a échouée."
+        console.log("Can't establish a websocket connection");
       }
     }
 
-    this.keepAliveSender = Observable.interval(5000).subscribe(() => this.sendKeepAlive(), e => console.log(e))
+    this.keepAliveSender = Observable.interval(5000).subscribe(
+      () => this.mustKeepAlive().subscribe(resp => {
+        this.interruptedApp = !resp["keepAlive"] == true;
+        if(this.interruptedApp && !this.popupDisplayed && this.mustKeepAlive) {
+          this.stopKeepAliveSender();
+          this.showPopUp("CLOSE_APP_TITLE", "GET_OUT", navCtrl);
+          this.vibration.vibrate([100, 100, 100, 100, 600]);
+        }
+      }, e => console.log(e)),
+      e => console.log(e));
+    
     return this.socket;
   }
 
@@ -82,15 +92,14 @@ export class WebsocketMessageHandlerProvider {
     }
 
     if (data.userid == this.localStorage.getUserId()) {
-
-      if (data.code == this.CODE_GAME_OVER) {
+      if (data.code == this.CODE_GAME_OVER && !this.popupDisplayed) {
         this.showPopUp("GAME_OVER_TITLE", "GAME_OVER", navCtrl);
         this.vibration.vibrate([100, 100, 100, 100, 1500]);
-      } else if (data.code == this.CODE_CLOSE_APP) {
+      } else if (data.code == this.CODE_CLOSE_APP && !this.popupDisplayed) {
         this.showPopUp("CLOSE_APP_TITLE", "GET_OUT", navCtrl);
         this.vibration.vibrate([100, 100, 100, 100, 600]);
         this.interruptedApp = true;
-      } else if (data.code == this.CODE_EXPIRE) {
+      } else if (data.code == this.CODE_EXPIRE && !this.popupDisplayed) {
         this.showPopUp("CODE_EXPIRE_TITLE", "EXPIRE", navCtrl);
         this.vibration.vibrate([100, 100, 100, 100, 1500]);
       } else if (data.code == this.CODE_EXPIRE_SOON) {
@@ -99,7 +108,7 @@ export class WebsocketMessageHandlerProvider {
         this.vibration.vibrate([100, 100, 100]);
       } else if (data.code == this.CODE_SNAKE_ATE_APPLE) {
         this.vibration.vibrate(100);
-      } else {
+      } else if(!this.popupDisplayed) {
         this.showPopUp("UNKNOWN_CODE_TITLE", "UNKNOWN_MESSAGE", navCtrl);
       }
     }
@@ -119,19 +128,21 @@ export class WebsocketMessageHandlerProvider {
   }
 
   showPopUp(titleKey, messageKey, navCtrl) {
-    this.socket.close();
-
+    this.closeSocket();
+    this.stopKeepAliveSender();
     this.externalClose = true;
+    this.popupDisplayed = true;
 
     let popUp = this.alertCtrl.create({
       title: this.getTranslation(titleKey),
       message: this.getTranslation(messageKey),
-      enableBackdropDismiss: false,
+      enableBackdropDismiss: true,
       buttons: [{
         text: 'Ok',
         handler: () => {
           popUp.dismiss().then(() => {
             navCtrl.pop();
+            this.popupDisplayed = false;
           });
           return false;
         }
@@ -151,16 +162,20 @@ export class WebsocketMessageHandlerProvider {
   }
 
   send(message) {
-    this.socket.send(message);
+    if (this.socket) {
+      this.socket.send(message);
+    }
   }
 
   closeSocket() {
-    this.socket.close();
+    if (this.socket) {
+      this.socket.close();
+      this.socket = undefined;
+    }
   }
 
-  sendKeepAlive() {
-    this.appProvider.sendKeepAlive();
-    return true;
+  mustKeepAlive() {
+    return this.appProvider.mustKeepAlive();
   }
 
   stopKeepAliveSender() {

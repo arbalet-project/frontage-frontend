@@ -55,8 +55,7 @@ export class DataFAppsProvider {
     this.http.get(this.baseUrl + "/b/queue/quit").subscribe(() => 1, e => console.log(e));
   }
 
-  public sendKeepAlive() {
-
-    this.http.post(this.baseUrl + "/b/apps/iamalive", "pouet").subscribe(() => 1, e => console.log(e));
+  public mustKeepAlive() : Observable<any> {
+    return this.http.post(this.baseUrl + "/b/apps/iamalive", "heartbeat");
   }
 }

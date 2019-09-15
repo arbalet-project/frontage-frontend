@@ -56,6 +56,8 @@ export class SnakeJoystickPage {
   }
 
   ionViewDidLeave() {
+    this.websocketMessageHandler.stopKeepAliveSender();
+
     if (!this.isGameOver && !this.websocketMessageHandler.isExternalyClosed()) {
       this.fAppProvider.stopApp();
     }
@@ -64,7 +66,6 @@ export class SnakeJoystickPage {
       this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
       this.screenOrientation.unlock();
     }
-    this.websocketMessageHandler.stopKeepAliveSender();
   }
 
   ionViewWillEnter() {

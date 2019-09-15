@@ -32,11 +32,11 @@ export class SweepRandJoystickPage {
   }
 
   ionViewDidLeave() {
+    this.websocketMessageHandler.stopKeepAliveSender();
     if (!this.websocketMessageHandler.isExternalyClosed()) {
       this.fAppProvider.stopApp();
       this.websocketMessageHandler.closeSocket();
     }
-    this.websocketMessageHandler.stopKeepAliveSender();
   }
 
   stopFApp() {

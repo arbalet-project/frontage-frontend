@@ -61,6 +61,8 @@ export class TetrisJoystickPage {
   }
 
   ionViewDidLeave() {
+    this.websocketMessageHandler.stopKeepAliveSender();
+
     if (!this.isGameOver && !this.websocketMessageHandler.isExternalyClosed()) {
       this.fAppProvider.stopApp();
     }
@@ -69,7 +71,6 @@ export class TetrisJoystickPage {
       this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
       this.screenOrientation.unlock();
     }
-    this.websocketMessageHandler.stopKeepAliveSender();
   }
 
   ionViewWillEnter() {
