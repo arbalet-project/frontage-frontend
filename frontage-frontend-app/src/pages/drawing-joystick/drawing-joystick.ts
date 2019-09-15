@@ -227,7 +227,7 @@ export class DrawingJoystickPage {
       this.screenOrientation.unlock();
     }
 
-    if (!this.websocketMessageHandler.isExternalyClaused()) {
+    if (!this.websocketMessageHandler.isExternalyClosed()) {
       this.fAppProvider.stopApp();
       this.websocketMessageHandler.closeSocket();
     }

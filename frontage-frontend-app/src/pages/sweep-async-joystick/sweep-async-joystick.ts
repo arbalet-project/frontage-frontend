@@ -21,7 +21,7 @@ export class SweepAsyncJoystickPage {
   }
 
   ionViewDidLeave() {
-    if (!this.websocketMessageHandler.isExternalyClaused()) {
+    if (!this.websocketMessageHandler.isExternalyClosed()) {
       this.fAppProvider.stopApp();
       this.websocketMessageHandler.closeSocket();
     }

@@ -56,7 +56,7 @@ export class SnakeJoystickPage {
   }
 
   ionViewDidLeave() {
-    if (!this.isGameOver && !this.websocketMessageHandler.isExternalyClaused()) {
+    if (!this.isGameOver && !this.websocketMessageHandler.isExternalyClosed()) {
       this.fAppProvider.stopApp();
     }
 

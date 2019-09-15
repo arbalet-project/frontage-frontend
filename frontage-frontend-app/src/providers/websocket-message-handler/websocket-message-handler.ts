@@ -27,7 +27,7 @@ export class WebsocketMessageHandlerProvider {
   interruptedApp: Boolean = false;
 
   retryCounter = 0;
-  externalClause: Boolean;
+  externalClose: Boolean;
 
   keepAliveSender: Subscription;
 
@@ -39,7 +39,7 @@ export class WebsocketMessageHandlerProvider {
   }
 
   initSocket(navCtrl) {
-    this.externalClause = false;
+    this.externalClose = false;
     this.socket = new WebSocket(`${environment.webSocketAdress}`);
 
     let self = this;
@@ -62,8 +62,8 @@ export class WebsocketMessageHandlerProvider {
     return this.socket;
   }
 
-  isExternalyClaused(): Boolean {
-    return this.externalClause;
+  isExternalyClosed(): Boolean {
+    return this.externalClose;
   }
 
   isInterruptedApp(): Boolean {
@@ -121,7 +121,7 @@ export class WebsocketMessageHandlerProvider {
   showPopUp(titleKey, messageKey, navCtrl) {
     this.socket.close();
 
-    this.externalClause = true;
+    this.externalClose = true;
 
     let popUp = this.alertCtrl.create({
       title: this.getTranslation(titleKey),
