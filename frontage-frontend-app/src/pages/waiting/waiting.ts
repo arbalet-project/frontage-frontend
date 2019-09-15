@@ -133,36 +133,37 @@ export class WaitingPage {
   }
 
   startApp() {
-    this.dataFAppsProvider.getCurrentApp().subscribe(res => {
-      //Check if the user is the owner of the current app
-      if (this.userid == res.userid || res.is_forced && this.isAdmin) {
-        this.navCtrl.push(this.joystickPage, { joystickParams: this.joystickParams }).then(() => {
-          this.navCtrl.remove(this.navCtrl.getPrevious().index);
-          if(!(res.is_forced)) {
-              this.vibration.vibrate([100, 100, 100, 100, 600]);
-          }
-        });
-      } else if (!this.isLeavingQueue) {
-        this.positionSubscriptionStop();
-
-        let popup = this.alertCtrl.create({
-          title: this.alertTitle,
-          message: this.alertMessage,
-          enableBackdropDismiss: false,
-          buttons: [{
-            text: 'Ok',
-            handler: () => {
-              popup.dismiss().then(() => {
-                this.navCtrl.pop();
-              });
-              return false;
+    setTimeout(() =>
+      this.dataFAppsProvider.getCurrentApp().subscribe(res => {
+        //Check if the user is the owner of the current app
+        if (this.userid == res.userid || res.is_forced && this.isAdmin) {
+          this.navCtrl.push(this.joystickPage, { joystickParams: this.joystickParams }).then(() => {
+            this.navCtrl.remove(this.navCtrl.getPrevious().index);
+            if(!(res.is_forced)) {
+                this.vibration.vibrate([100, 100, 100, 100, 600]);
             }
-          }]
-        });
+          });
+        } else if (!this.isLeavingQueue) {
+          this.positionSubscriptionStop();
 
-        popup.present();
-      }
-    });
+          let popup = this.alertCtrl.create({
+            title: this.alertTitle,
+            message: this.alertMessage,
+            enableBackdropDismiss: false,
+            buttons: [{
+              text: 'Ok',
+              handler: () => {
+                popup.dismiss().then(() => {
+                  this.navCtrl.pop();
+                });
+                return false;
+              }
+            }]
+          });
+
+          popup.present();
+        }
+      }, e => console.log(e)), 1000);
   }
 }
 
