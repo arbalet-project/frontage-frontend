@@ -29,7 +29,7 @@ export class WebsocketMessageHandlerProvider {
   retryCounter = 0;
   externalClose: Boolean = false;
   popupDisplayed : Boolean = false;
-  keepAliveSender: Subscription;
+  keepAliveSender: Subscription = undefined;
 
   pixelsDown: String = "";
 
@@ -58,9 +58,11 @@ export class WebsocketMessageHandlerProvider {
       }
     }
 
+    this.stopKeepAliveSender()  // Enforce closure before reopening
     this.keepAliveSender = Observable.interval(5000).subscribe(
       () => this.mustKeepAlive().subscribe(resp => {
-        this.interruptedApp = !resp["keepAlive"] == true;
+        this.interruptedApp = resp["keepAlive"] == false;
+        // Testing ==false instead of ==true gives the chance to recover after a temporary network failure
         if(this.interruptedApp && !this.popupDisplayed && this.mustKeepAlive) {
           this.stopKeepAliveSender();
           this.showPopUp("CLOSE_APP_TITLE", "GET_OUT", navCtrl);
