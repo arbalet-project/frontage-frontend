@@ -42,7 +42,7 @@
 
     "LOGIN_PAGE_FRONTAGE_NOT_AVAILABLE_EXPLANATION_STEP1": "Approchez-vous de l'entrée principale de la façade illuminée",
     "LOGIN_PAGE_FRONTAGE_NOT_AVAILABLE_EXPLANATION_STEP2": "Démarrez la connexion Wifi de votre smartphone puis sélectionnez le réseau ARBALET_FRONTAGE",
-    "LOGIN_PAGE_FRONTAGE_NOT_AVAILABLE_EXPLANATION_STEP3": "Revenez ici, et voilà !",
+    "LOGIN_PAGE_FRONTAGE_NOT_AVAILABLE_EXPLANATION_STEP3": "Fermez l'avertissement indiquant que vous n'êtes pas connecté à Internet puis revenez ici pour jouer",
 
     "INEXISTING_SNAP_CLIENT": "Désolé, ce participant n'est plus connecté, choisissez-en un autre",
     "INEXISTING_SNAP_CLIENT_TITLE": "Participant déconnecté",
