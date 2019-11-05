@@ -25,6 +25,7 @@ export class AdminProvider {
   }
 
   public setFrontageTimeOn(timeOn: String, offsetTimeOn: number): Observable<any> {
+    // timeOn here is UTC e.g. "22:00" UTC
     let body = {
       time_on: timeOn,
       offset_time_on: offsetTimeOn
@@ -44,6 +45,7 @@ export class AdminProvider {
   }
 
   public setFrontageTimeOff(timeOff: String, offsetTimeOff: number): Observable<any> {
+    // timeOff here is UTC e.g. "03:00" UTC
     let body = {
       time_off: timeOff,
       offset_time_off: offsetTimeOff

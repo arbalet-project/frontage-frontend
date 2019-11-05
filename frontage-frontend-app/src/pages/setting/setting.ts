@@ -13,7 +13,7 @@ import { WebsocketMessageHandlerProvider } from './../../providers/websocket-mes
   templateUrl: 'setting.html',
 })
 export class SettingPage implements OnInit {
-
+  timeUTCoffset: number;
   selectedFrontageState: boolean = false;
   timeOnList: string[] = [];
   timeOffList: string[] = [];
@@ -105,7 +105,19 @@ export class SettingPage implements OnInit {
     return hoursFromBack.substring(0, 2) + ':00';
   }
 
+  private toUTC(time:string) {
+    // Convert time e.g. "22:00" to UTC e.g. "21:00" according to current locale e.g; UTC+1
+    let times = time.split(":");
+    let hr = parseInt(times[0]);
+    let mn = parseInt(times[1]);
+    let dateConvert = new Date(2000, 1, 1, hr, 0, 0, 0);
+    let hrUTC = dateConvert.getUTCHours();
+    let timeUTC = hrUTC.toString() + ":" + mn.toString();
+    return timeUTC;
+  }
+
   private initTimeLists() {
+    // All times are UTC
     let sunset_label: string, sunrise_label: string;
     this.translateService.get("SUNSET_LABEL").subscribe(res => {
       sunset_label = "🌇 " + res;
@@ -179,11 +191,13 @@ export class SettingPage implements OnInit {
       if(time == this.selectedTimeOn) hasTime = true;
     }
     if(hasTime) {
+        // Based on Sun + offset
         this.adminProvider.setFrontageTimeOn(this.offsetTimeOptions[this.selectedTimeOn][0],
           this.offsetTimeOptions[this.selectedTimeOn][1]).subscribe();
       }
       else {
-        this.adminProvider.setFrontageTimeOn(this.selectedTimeOn, 0).subscribe();
+        // Fixed time
+        this.adminProvider.setFrontageTimeOn(this.toUTC(this.selectedTimeOn), 0).subscribe();
       }
   }
 
@@ -194,11 +208,13 @@ export class SettingPage implements OnInit {
       if(time == this.selectedTimeOff) hasTime = true;
     }
     if(hasTime) {
+      // Based on Sun + offset
       this.adminProvider.setFrontageTimeOff(this.offsetTimeOptions[this.selectedTimeOff][0],
         this.offsetTimeOptions[this.selectedTimeOff][1]).subscribe();
     }
     else {
-      this.adminProvider.setFrontageTimeOff(this.selectedTimeOff, 0).subscribe();
+      // Fixed time
+      this.adminProvider.setFrontageTimeOff(this.toUTC(this.selectedTimeOff), 0).subscribe();
     }
   }
 

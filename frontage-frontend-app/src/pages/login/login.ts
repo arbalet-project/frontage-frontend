@@ -96,9 +96,9 @@ export class LoginPage {
     let splitted: string[] = splitted_time[1].split(":");
     let date: Date = new Date();
 
-
-    date.setHours(parseInt(splitted[0]));
-    date.setMinutes(parseInt(splitted[1]));
+    // Server times are UTC, converting to timezoned times
+    date.setUTCHours(parseInt(splitted[0]));
+    date.setUTCMinutes(parseInt(splitted[1]));
 
     this.nextTime = date;
   }
