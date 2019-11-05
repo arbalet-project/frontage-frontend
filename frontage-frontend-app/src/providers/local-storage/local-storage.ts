@@ -13,7 +13,6 @@ export class LocalStorageProvider {
   private width:string = '4';
   private height:string = '19';
   private disabled:string = '[]';
-  private amount:string ='76';
 
   constructor() {
     this.localStorage = window.localStorage;
@@ -33,14 +32,6 @@ export class LocalStorageProvider {
 
   public setHeight(h: number): void {
     return this.localStorage.setItem(this.height, JSON.stringify(h));
-  }
-
-  public getAmount(): number {
-    return JSON.parse(this.localStorage.getItem(this.amount));
-  }
-
-  public setAmount(a: number): void {
-    return this.localStorage.setItem(this.amount, JSON.stringify(a));
   }
 
   public getDisabled(): Array<Array<number>> {
@@ -95,5 +86,4 @@ export class LocalStorageProvider {
   public clearData(): void {
     this.localStorage.clear();
   }
-
 }

@@ -54,21 +54,17 @@ export class DrawingJoystickPage {
     this.currentColorHexa=["#ff0000", [255,0,0]];
 
     this.pixelMatrix = new Array<Array<SafeStyle>>();
-    this.adminProvider.getBuildingDimensions().subscribe(resp => {
-      this.frontageWidth = this.localStorageProvider.getWidth();
-      this.frontageHeight = this.localStorageProvider.getHeight();
-      this.disabled = this.localStorageProvider.getDisabled();
-      for(let i=0; i<this.frontageHeight; i++){
-        this.pixelMatrix.push(new Array<SafeStyle>(this.frontageWidth));
+    this.frontageWidth = this.localStorageProvider.getWidth();
+    this.frontageHeight = this.localStorageProvider.getHeight();
+    this.disabled = this.localStorageProvider.getDisabled();
+    for(let i=0; i<this.frontageHeight; i++){
+      this.pixelMatrix.push(new Array<SafeStyle>(this.frontageWidth));
+    }
+    for (let i=0; i<this.frontageHeight; i++){
+      for (let j=0; j<this.frontageWidth; j++){
+        this.pixelMatrix[i][j] = this.baseCss+"fill:#000000";
       }
-      for (let i=0; i<this.frontageHeight; i++){
-        for (let j=0; j<this.frontageWidth; j++){
-          this.pixelMatrix[i][j] = sanitizer.bypassSecurityTrustStyle(this.baseCss+"fill:#000000");
-        }
-      }
-      this.createGrid();
-    });
-
+    }
 
     let joystickParams = navParams.get('joystickParams');
 
@@ -86,6 +82,10 @@ export class DrawingJoystickPage {
     });
   }
 
+  ionViewDidLoad() {
+    this.createGrid();
+  }
+
   isDisabled(row, col) {
     for (let pix of this.disabled){
       if (pix[0] == row && pix[1] == col){
@@ -96,14 +96,8 @@ export class DrawingJoystickPage {
   }
 
   createGrid() {
-    let element = document.getElementById("drawdraw");
-    let svgcontent:string = `<svg id="DrawingMatrix"
-      version="1.1"
-      viewBox="0 0 128.4198 49.307999"
-      style="max-width:100%; max-height:100%;"
-      (touchstart)="handleMove($event)"
-      (touchmove)="handleMove($event)">
-      <g
+    let element = document.getElementById("DrawingMatrix");
+    let svgcontent:string = `<g
         transform="translate(-24.379463,-109.90178)"
         id="layer1">
         <path
@@ -137,30 +131,31 @@ export class DrawingJoystickPage {
       for(let j=0; j < this.frontageWidth; j++){
         svgcontent += `<path id="px-${i}-${j}"
         `;
-        svgcontent += `d="m ${x0 + j*(width + wspace)},${y0 + i*(height + hspace)} h ${width} c 0.554,0 1,0.446 1,1 v ${height} c 0,0.554 -0.446,1 -1,1 h -${width} c -0.554,0 -1,-0.446 -1,-1 v -${height} c 0,-0.554 0.446,-1 1,-1 z"`;
+        svgcontent += `d="m ${x0 + j*(width + wspace)},${y0 + i*(height + hspace)} h ${width} c 0.554,0 1,0.446 1,1 v ${height} c 0,0.554 -0.446,1 -1,1 h -${width} c -0.554,0 -1,-0.446 -1,-1 v -${height} c 0,-0.554 0.446,-1 1,-1 z" `;
         if (this.isDisabled(i, j)) {
           svgcontent += `style="opacity:0;" />`;
         } else {
-          svgcontent += `style=${this.pixelMatrix[i][j]} />
+          svgcontent += `style="${this.pixelMatrix[i][j]}" />
           `;
         }
       }
     }
-    svgcontent += `</g></svg>`;
-    element.innerHTML = svgcontent;
-  }
-
-  handleStart(ev) {
-    this.updateColor(ev);
+    svgcontent += `</g>`;
+    if(element) element.innerHTML = svgcontent;
   }
 
   handleMove(ev) {
-    this.updateColor(ev);
+    let currentElement = null;
+    if("clientX" in ev)
+      currentElement = document.elementFromPoint(ev.clientX, ev.clientY);
+    if("changedTouches" in ev)
+      currentElement = document.elementFromPoint(ev.changedTouches[0].clientX, ev.changedTouches[0].clientY);
+    if(currentElement)
+      this.updateColor(currentElement);
   }
 
-  updateColor(ev) {
-    let currentElement = document.elementFromPoint(ev.center.x, ev.center.y);
-    let id = currentElement.id;
+  updateColor(element) {
+    let id = element.id;
 
     if (id!==this.lastElementClickedId) {
       this.lastElementClickedId = id;
@@ -168,11 +163,11 @@ export class DrawingJoystickPage {
         let tokens = id.split('-');
         let pixel = {x:tokens[1], y:tokens[2]};
         if (!this.isDisabled(pixel.x, pixel.y)){
-          this.pixelMatrix[pixel.x][pixel.y] = this.sanitizer.bypassSecurityTrustStyle(this.baseCss+"fill:" + this.currentColorHexa[0]);
+          this.pixelMatrix[pixel.x][pixel.y] = this.baseCss+"fill:" + this.currentColorHexa[0];
 
           let color = {red:this.currentColorHexa[1][0], green:this.currentColorHexa[1][1], blue:this.currentColorHexa[1][2]};
           this.websocketMessageHandler.send(JSON.stringify({pixel:pixel, color:color}));
-          currentElement.setAttribute("style",this.baseCss+"fill:" + this.currentColorHexa[0]);
+          element.setAttribute("style",this.baseCss+"fill:" + this.currentColorHexa[0]);
         }
       }
     }

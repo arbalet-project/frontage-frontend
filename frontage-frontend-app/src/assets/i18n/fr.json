@@ -107,26 +107,6 @@
     "SUNSET_LABEL": "Coucher du soleil",
     "SUNRISE_LABEL": "Lever du soleil",
 
-    "MESH_CONFIGURATION_BUTTON": "Configurer réseau Mesh",
-    "MESH_PAGE_TITLE": "Réseau Mesh",
-    "MESH_PAGE_AMOUNT_LABEL": "Nombre de pixels",
-    "MESH_PAGE_HEIGHT_LABEL": "Nombre de lignes",
-    "MESH_PAGE_WIDTH_LABEL": "Nombre de colonnes",
-    "MESH_PAGE_INSTRUCTION": "Appuyez sur la fenêtre correspondant à celle qui clignote",
-    "MESH_VALIDATION_BUTTON": "Valider la géométrie de l'installation",
-    "MESH_INSTRUCTIONS": "Appuyez sur la matrice sur les pixels qui clignotent",
-    "CONFIRM_PIXEL_ATTRIBUTION_BUTTON": "Confirmer pixel",
-    "RETURN_PIXEL_ATTRIBUTION_BUTTON": "Annuler pixel",
-    "BUILDING_DIMENSIONS_REJECTED": "Veuillez insérer les bonnes valeurs",
-    "GRID_PAGE_TITLE": "Adressage manuel",
-    "MESH_PAGE_BACK_BUTTON": "Retour à Mesh",
-    "RAC_PAGE_TITLE": "Readressage à chaud",
-    "SKIP_PAGE_TITLE": "Charger adressage stocké",
-    "MESH_ADDRESSING_COMPLETE": "L'adressage a été stocké",
-    "MESH_LOAD_ADDRESSING": "L'adressage stocké dans la base de données a été chargé. Veuillez attendre la confirmation visuel pour fermer ce popup",
-
-
-
     "GET_OUT":"Désolé, vous n'avez plus l'autorisation de jouer. Réessayez.",
     "GAME_OVER":"Vous avez perdu 😉",
     "EXPIRE_SOON":"Votre tour pourrait bientôt se terminer",

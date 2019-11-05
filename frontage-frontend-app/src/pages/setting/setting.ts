@@ -7,7 +7,6 @@ import { Component, OnInit } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { DataFAppsProvider } from '../../providers/data-f-apps/data-f-apps';
 import { WebsocketMessageHandlerProvider } from './../../providers/websocket-message-handler/websocket-message-handler';
-import { MeshPage } from '../mesh/mesh';
 
 @Component({
   selector: 'page-setting',
@@ -22,15 +21,7 @@ export class SettingPage implements OnInit {
   selectedTimeOn: string;
   selectedTimeOff: string;
   offsetTimeOptions: Map<string, [string, number]>;
-
   lifetime: number;
-
-  buildingWidth: number;
-  buildingHeight: number;
-  totalAmount: number;
-  badDimensions: boolean = false;
-  dimensionsAccepted: boolean = false;
-
 
   constructor(public navCtrl: NavController,
     public websocketMessageHandlerProvider: WebsocketMessageHandlerProvider,
@@ -103,12 +94,6 @@ export class SettingPage implements OnInit {
     this.authentication.isFacadeUp()
       .subscribe(res => {
         this.selectedFrontageState = res.state;
-        if (res['height'] > 0)
-          this.buildingHeight = res['height'];
-        if (res['width'] > 0)
-          this.buildingWidth = res['width'];
-        if (res['amount'] > 0)
-          this.totalAmount = res['amount'];
       });
     this.adminProvider.getLifetime()
       .subscribe(res => {
@@ -170,30 +155,6 @@ export class SettingPage implements OnInit {
    */
   goToFappList() {
     this.navCtrl.pop();
-  }
-
-  goToMeshPage() {
-    this.navCtrl.push(MeshPage);
-    }
-
-  validateDimensions() {
-      if (this.buildingHeight > 0 && this.buildingWidth > 0 && this.totalAmount > 0
-      && this.totalAmount <= this.buildingHeight * this.buildingWidth) {
-
-          let dimensions = {
-              width: this.buildingWidth,
-              height: this.buildingHeight,
-              amount: this.totalAmount
-          }
-
-          this.adminProvider.setBuildingDimensions(dimensions).subscribe(resp => {
-              this.badDimensions = false;
-              this.dimensionsAccepted = true;
-          });
-      }
-      else {
-          this.badDimensions = true;
-      }
   }
 
   /**

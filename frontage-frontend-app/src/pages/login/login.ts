@@ -86,7 +86,6 @@ export class LoginPage {
       this.localStorageProvider.setWidth(response.width);
       this.localStorageProvider.setHeight(response.height);
       this.localStorageProvider.setDisabled(response.disabled);
-      this.localStorageProvider.setAmount(response.amount);
       this.isForced = response.is_forced;
     }
   }

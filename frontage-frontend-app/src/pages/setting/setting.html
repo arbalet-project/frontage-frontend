@@ -31,14 +31,6 @@
     <ion-label>{{"SETTINGS_PAGE_DEFAULT_LIFETIME" | translate}}</ion-label>
     <ion-input type="number" [(ngModel)]="lifetime" min="30" max="1800" (ionChange)="updateLifetime()"></ion-input>
   </ion-item>
-
-
-<ion-item>
-  <button ion-button icon-end full color="secondary" class="tr" (click)="goToMeshPage()">
-    {{"MESH_PAGE_TITLE" | translate}}
-    <ion-icon color="secondary" ios="ios-log-in" md="md-log-in"></ion-icon>
-  </button>
-</ion-item>
 </ion-content>
 
 <ion-footer>

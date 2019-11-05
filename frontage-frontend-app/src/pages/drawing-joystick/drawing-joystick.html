@@ -213,7 +213,15 @@
     </svg>
 
     <!--------------------------------------------------- DRAWING MATRIX (BUILDING) ------------------------------------------------------------------------------------------------------>
-    <ion-card id="drawdraw" style="horizontal-align: center;" (pan)="handleStart($event)">
+    <ion-card id="DrawingArea">
+      <svg id="DrawingMatrix"
+      version="1.1"
+      viewBox="0 0 128.4198 49.307999"
+      style="max-width:100%; max-height:100%;"
+      (touchstart)="handleMove($event)"
+      (touchmove)="handleMove($event)"
+      (click)="handleMove($event)">
+      </svg>
     </ion-card>
     </div>
 </ion-content>
