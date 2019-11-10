@@ -74,7 +74,7 @@ export class SettingPage implements OnInit {
           }
         }
         else {
-          this.selectedTimeOn = this.initHoursFormat(hoursSettings.time_on);
+          this.selectedTimeOn = this.initHoursFormat(this.toLocal(hoursSettings.time_on));
         }
       if(hoursSettings.time_off == "sunset" || hoursSettings.time_off == "sunrise") {
         for(let sunIcon in this.offsetTimeOptions) {
@@ -87,7 +87,7 @@ export class SettingPage implements OnInit {
         }
       }
       else {
-        this.selectedTimeOff = this.initHoursFormat(hoursSettings.time_off);
+        this.selectedTimeOff = this.initHoursFormat(this.toLocal(hoursSettings.time_off));
       }
     });
 
@@ -112,8 +112,20 @@ export class SettingPage implements OnInit {
     let mn = parseInt(times[1]);
     let dateConvert = new Date(2000, 1, 1, hr, 0, 0, 0);
     let hrUTC = dateConvert.getUTCHours();
-    let timeUTC = hrUTC.toString() + ":" + mn.toString();
+    let timeUTC = (hrUTC < 10 ? "0" : "") + hrUTC.toString() + ":" + (mn < 10 ? "0" : "") + mn.toString();
     return timeUTC;
+  }
+
+  private toLocal(time:string) {
+    // Convert UTC time e.g. "22:00" to local e.g. "23:00" according to current locale e.g; UTC+1
+    let times = time.split(":");
+    let hr = parseInt(times[0]);
+    let mn = parseInt(times[1]);
+    let dateConvert = new Date(2000, 1, 1, 0, 0, 0, 0);
+    dateConvert.setUTCHours(hr, mn);
+    let hrLocale = dateConvert.getHours();
+    let timeLocale = (hrLocale < 10 ? "0" : "") + hrLocale.toString() + ":" + (mn < 10 ? "0" : "") + mn.toString();
+    return timeLocale;
   }
 
   private initTimeLists() {
