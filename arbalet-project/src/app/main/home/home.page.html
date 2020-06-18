@@ -1,0 +1,15 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-img src="assets/img/logo/frontage_white.png"></ion-img>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-slides [options]="slideOpts">
+      <ion-slide *ngFor="let image of images">
+        <img [src]="image.path" />
+      </ion-slide>
+    </ion-slides>
+  </ion-card>
+</ion-content>

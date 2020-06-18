@@ -24,3 +24,12 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+:root {
+    --ion-font-family: 'Roboto', 'Noto Sans', sans-serif;
+}
+
+ion-content {
+    --background: #fff url("assets/img/background.png") no-repeat center center /
+      cover;
+  }
