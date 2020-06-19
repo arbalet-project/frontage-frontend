@@ -1,25 +1,47 @@
 <ion-header>
   <ion-toolbar color="dark">
-    <ion-img src="assets/img/logo/frontage_white.png"></ion-img>
+    <ion-img class="logo" src="assets/img/logo/frontage_white.png"></ion-img>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
-  <ion-card>
-    <p>{{ 'home.text_1' | translate }}</p>
-    <p>{{ 'home.text_2' | translate }}</p>
-    <p>
-      {{ 'home.text_3' | translate }} (<a
-        href="http://arbalet-project.org/frontage"
-        >{{"home.link_text" | translate}}</a
-      >).
-    </p>
-  </ion-card>
-  <ion-card class="ion-margin-top">
-    <ion-slides [options]="slideOpts">
-      <ion-slide *ngFor="let image of images">
-        <img [src]="image.path" />
-      </ion-slide>
-    </ion-slides>
-  </ion-card>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12" size-md="8" offset-md="2">
+        <ion-card>
+          <p>{{ 'home.text_1' | translate }}</p>
+          <p>{{ 'home.text_2' | translate }}</p>
+          <p>
+            {{ 'home.text_3' | translate }} (<a
+              href="http://arbalet-project.org/frontage"
+              >{{"home.link_text" | translate}}</a
+            >).
+          </p>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12" size-md="8" offset-md="2">
+        <ion-card class="ion-margin-top">
+          <ion-slides [options]="slideOpts">
+            <ion-slide *ngFor="let image of images">
+              <img [src]="image.path" />
+            </ion-slide>
+          </ion-slides>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
+
+<ion-footer>
+  <ion-button
+    color="tertiary"
+    class="ion-no-margin"
+    routerLink="/connection"
+    expand="full"
+  >
+    {{ "home.start_button" | translate }}
+    <ion-icon color="success" slot="end" name="log-in-outline"></ion-icon>
+  </ion-button>
+</ion-footer>
