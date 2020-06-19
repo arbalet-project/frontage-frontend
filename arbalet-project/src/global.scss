@@ -29,11 +29,24 @@
   --ion-font-family: "Roboto", "Noto Sans", sans-serif;
 }
 
+/**********************************************
+ *                 BACKGROUND                 *
+ **********************************************/
+
+// Background image
 ion-content {
   --background: url("assets/img/background.png") no-repeat center center / cover;
 }
 
+// Background footer and toolbar is transparent.
+ion-footer, ion-toolbar {
+  --background: transparent;
+  background: var(--af-bg-color);
+  --ion-color-base: transparent !important;
+}
+
 ion-card {
-  --background : rgba(0,0,0,0.5);
+  --background : var(--af-bg-color);
   color: var(--ion-color-dark-contrast);
 }
+
