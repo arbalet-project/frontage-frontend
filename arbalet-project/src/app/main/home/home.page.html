@@ -4,8 +4,18 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="ion-padding">
   <ion-card>
+    <p>{{ 'home.text_1' | translate }}</p>
+    <p>{{ 'home.text_2' | translate }}</p>
+    <p>
+      {{ 'home.text_3' | translate }} (<a
+        href="http://arbalet-project.org/frontage"
+        >{{"home.link_text" | translate}}</a
+      >).
+    </p>
+  </ion-card>
+  <ion-card class="ion-margin-top">
     <ion-slides [options]="slideOpts">
       <ion-slide *ngFor="let image of images">
         <img [src]="image.path" />

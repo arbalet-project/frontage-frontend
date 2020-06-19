@@ -16,7 +16,7 @@
 @import "~@ionic/angular/css/normalize.css";
 @import "~@ionic/angular/css/structure.css";
 @import "~@ionic/angular/css/typography.css";
-@import '~@ionic/angular/css/display.css';
+@import "~@ionic/angular/css/display.css";
 
 /* Optional CSS utils that can be commented out */
 @import "~@ionic/angular/css/padding.css";
@@ -26,10 +26,10 @@
 @import "~@ionic/angular/css/flex-utils.css";
 
 :root {
-    --ion-font-family: 'Roboto', 'Noto Sans', sans-serif;
+  --ion-font-family: "Roboto", "Noto Sans", sans-serif;
 }
 
 ion-content {
-    --background: #fff url("assets/img/background.png") no-repeat center center /
-      cover;
-  }
+  --background: #fff url("assets/img/background.png") no-repeat center center /
+    cover;
+}
