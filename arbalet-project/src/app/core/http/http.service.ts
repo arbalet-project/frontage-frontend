@@ -17,7 +17,7 @@ class StatusFacade {
   width : number;
   is_forced: boolean;
   is_usable: boolean;
-  state: boolean;
+  state: string;
   version: string;
 }
 

@@ -5,5 +5,9 @@
     "text_3": "By connecting, you will be able to change colors of the facade, enjoy gaming, or even learn computer programming during workshops with a trainer  ",
     "link_text": "online info",
     "start_button" : "Let's go!"
+  },
+  "outdated": {
+    "title": "Upgrade Needed",
+    "message": "Sorry, the version of your application is outdated. Please update it from your app store and retry."
   }
 }
