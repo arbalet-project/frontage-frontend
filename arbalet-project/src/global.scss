@@ -50,3 +50,8 @@ ion-card {
   color: var(--ion-color-dark-contrast);
 }
 
+ion-card-header, ion-card-content {
+  background: transparent;
+  color: inherit;
+}
+

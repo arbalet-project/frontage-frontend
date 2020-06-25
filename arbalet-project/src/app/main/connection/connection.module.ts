@@ -7,14 +7,17 @@ import { IonicModule } from '@ionic/angular';
 import { ConnectionPageRoutingModule } from './connection-routing.module';
 
 import { ConnectionPage } from './connection.page';
+import { ServerUnreacheableComponent } from './components/server-unreacheable/server-unreacheable.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ConnectionPageRoutingModule
+    ConnectionPageRoutingModule,
+    TranslateModule.forChild()
   ],
-  declarations: [ConnectionPage]
+  declarations: [ConnectionPage, ServerUnreacheableComponent]
 })
 export class ConnectionPageModule {}

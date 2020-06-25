@@ -8,5 +8,15 @@
 </ion-header>
 
 <ion-content fullscreen>
+  <div *ngIf="statusServer;else serverUnreacheable">
 
+  </div>
+
+  <ng-template #serverUnreacheable>
+    <server-unreacheable></server-unreacheable>
+  </ng-template>
 </ion-content>
+
+<ion-footer *ngIf="!statusServer">
+  TODO : Tetris
+</ion-footer>
