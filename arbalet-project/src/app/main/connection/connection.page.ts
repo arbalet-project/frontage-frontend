@@ -3,6 +3,7 @@ import { HttpService } from "src/app/core/http/http.service";
 import { environment } from "src/environments/environment";
 import { AlertController } from "@ionic/angular";
 import { TranslateService } from "@ngx-translate/core";
+import { FrontageService } from 'src/app/core/frontage/frontage.service';
 
 @Component({
   selector: "app-connection",
@@ -18,7 +19,8 @@ export class ConnectionPage {
   constructor(
     private api: HttpService,
     public alertCtrl: AlertController,
-    public translate: TranslateService
+    public translate: TranslateService,
+    public frontage: FrontageService
   ) {}
 
   ionViewWillEnter() {
@@ -26,6 +28,7 @@ export class ConnectionPage {
     // if (!this.isServerUp) {
     //  TODO : Periodically
     // }
+    console.log("TODO");
   }
 
   public update(): void {
@@ -41,6 +44,9 @@ export class ConnectionPage {
     });
   }
 
+  /**
+   * @remarks Update app with the api status.
+   */
   public updateStatus(): void {
     this.statusServer = true;
     this.api.statusFacade().subscribe((status) => {
@@ -53,13 +59,20 @@ export class ConnectionPage {
         this.facadeUp = false;
       }
       this.forced = status.is_forced;
+
+      this.frontage.height = status.height;
+      this.frontage.width = status.width;
+      this.frontage.disabled = status.disabled;
     });
   }
 
   public updateHour(time : string) {
-    
+    console.log("TODO");
   }
 
+  /**
+   * @remarks Show an alert controller if the user has not updated the app.
+   */
   public showOutdated(): void {
     this.translate
       .get(["outdated.title", "outdated.message"])

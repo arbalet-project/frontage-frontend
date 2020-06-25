@@ -6,6 +6,7 @@ export class StatusFacade {
   width: number;
   is_forced: boolean;
   is_usable: boolean;
+  disabled: Array<Array<number>>
   state: string;
   version: string;
 }
