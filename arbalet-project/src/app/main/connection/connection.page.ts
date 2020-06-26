@@ -4,24 +4,37 @@ import { environment } from "src/environments/environment";
 import { AlertController } from "@ionic/angular";
 import { TranslateService } from "@ngx-translate/core";
 import { FrontageService } from "src/app/core/frontage/frontage.service";
+import { FormGroup, FormControl, Validators } from "@angular/forms";
+import { NicknameGeneratorService } from "src/app/core/nickname_generator/nickname-generator.service";
 
 @Component({
   selector: "app-connection",
   templateUrl: "./connection.page.html",
   styleUrls: ["./connection.page.scss"],
 })
-export class ConnectionPage {
+export class ConnectionPage implements OnInit {
   public statusServer: boolean = false;
   public facadeUp: boolean = false;
   public messageKey = "";
-  public subMessage= "";
+  public subMessage = "";
+  public form: FormGroup;
 
   constructor(
     private api: HttpService,
     public alertCtrl: AlertController,
     public translate: TranslateService,
-    public frontage: FrontageService
+    public frontage: FrontageService,
+    private nickname: NicknameGeneratorService
   ) {}
+
+  ngOnInit() {
+    this.form = new FormGroup({
+      username: new FormControl(this.nickname.generateNickname(), {
+        updateOn: "blur",
+        validators: [Validators.required],
+      }),
+    });
+  }
 
   ionViewWillEnter() {
     this.update();
@@ -53,13 +66,11 @@ export class ConnectionPage {
       if (status.state == "off") {
         this.messageKey = "connection.message.not_available";
         this.subMessage = "";
-      }
-      else if (status.is_usable) this.facadeUp = true;
+      } else if (status.is_usable) this.facadeUp = true;
       else if (status.is_forced) {
         this.messageKey = "connection.message.forced";
         this.subMessage = "";
-      }
-      else {
+      } else {
         this.facadeUp = false;
         this.updateHour(status.next_on_time);
         this.messageKey = "connection.message.down_alert";

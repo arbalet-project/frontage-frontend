@@ -4,7 +4,7 @@
     "text_2": "Elle vous donne l'occasion d'interagir et d'apprendre avec le patrimoine qui vous entoure.",
     "text_3": "En poursuivant vous pourrez changer les couleurs, jouer avec, ou même apprendre un langage de programmation lors d'un atelier encadré par un formateur ",
     "link_text": "infos en ligne",
-    "start_button" : "C'est parti !"
+    "start_button": "C'est parti !"
   },
   "outdated": {
     "title": "Mise à jour nécessaire",
@@ -13,14 +13,19 @@
   "connection": {
     "unreacheable": {
       "title": "Connectez-vous en Wifi",
-      "step_1" : "Approchez-vous de l'entrée principale de la façade illuminée",
-      "step_2" : "Démarrez la connexion Wifi de votre smartphone puis sélectionnez le réseau ARBALET_FRONTAGE",
-      "step_3" : "Fermez l'avertissement indiquant que vous n'êtes pas connecté à Internet puis revenez ici pour jouer"
+      "step_1": "Approchez-vous de l'entrée principale de la façade illuminée",
+      "step_2": "Démarrez la connexion Wifi de votre smartphone puis sélectionnez le réseau ARBALET_FRONTAGE",
+      "step_3": "Fermez l'avertissement indiquant que vous n'êtes pas connecté à Internet puis revenez ici pour jouer"
     },
     "message": {
       "not_available": "L'administrateur a éteint Arbalet Frontage. Revenez un autre jour.",
       "forced": "L'administrateur a verrouillé Arbalet Frontage. Revenez plus tard.",
       "down_alert": "Arbalet Frontage n'est pas encore active. Revenez à partir de "
+    },
+    "form": {
+      "username_label": "Mon sobriquet",
+      "passwd_label": "Mot de passe",
+      "title_submit": "Valider"
     }
   }
 }

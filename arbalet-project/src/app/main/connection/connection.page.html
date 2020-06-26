@@ -9,11 +9,18 @@
 
 <ion-content fullscreen>
   <div *ngIf="statusServer;else serverUnreacheable">
-    <div>
-      TODO
-    </div>
-    <ion-button *ngIf="facadeUp;else messageError"></ion-button>
-    <ng-template #messageError> 
+    <form [formGroup]="form">
+      <ion-item>
+        <ion-label
+          >{{ "connection.form.username_label" | translate }}</ion-label
+        >
+        <ion-input type="text" formControlName="title"></ion-input>
+      </ion-item>
+    </form>
+    <ion-button *ngIf="facadeUp;else messageError">
+      {{ "connection.form.title_submit" | translate }}</ion-button
+    >
+    <ng-template #messageError>
       <h2>{{ messageKey | translate }} {{ subMessage }}</h2>
     </ng-template>
   </div>
