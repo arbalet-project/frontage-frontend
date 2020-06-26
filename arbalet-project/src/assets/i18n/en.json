@@ -16,6 +16,11 @@
       "step_1" : "Approach the main entrance of your building",
       "step_2" : "Switch on the Wifi connection of your smartphone and select network ARBALET_FRONTAGE",
       "step_3" : "Close warnings stating that you are not connected to Internet and come back here to play"
+    }, 
+    "message": {
+      "not_available": "Adminitrator has disabled Arbalet Frontage. Come back later.",
+      "forced": "Administrator has locked Arbalet Frontage. Come back later.",
+      "down_alert": "Arbalet Frontage is not up yet. Come back from "
     }
   }
 }

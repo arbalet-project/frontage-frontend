@@ -9,7 +9,13 @@
 
 <ion-content fullscreen>
   <div *ngIf="statusServer;else serverUnreacheable">
-
+    <div>
+      TODO
+    </div>
+    <ion-button *ngIf="facadeUp;else messageError"></ion-button>
+    <ng-template #messageError> 
+      <h2>{{ messageKey | translate }} {{ subMessage }}</h2>
+    </ng-template>
   </div>
 
   <ng-template #serverUnreacheable>

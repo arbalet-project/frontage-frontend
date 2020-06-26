@@ -3,7 +3,7 @@ import { HttpService } from "src/app/core/http/http.service";
 import { environment } from "src/environments/environment";
 import { AlertController } from "@ionic/angular";
 import { TranslateService } from "@ngx-translate/core";
-import { FrontageService } from 'src/app/core/frontage/frontage.service';
+import { FrontageService } from "src/app/core/frontage/frontage.service";
 
 @Component({
   selector: "app-connection",
@@ -12,9 +12,9 @@ import { FrontageService } from 'src/app/core/frontage/frontage.service';
 })
 export class ConnectionPage {
   public statusServer: boolean = false;
-  public statusOff: boolean = false;
   public facadeUp: boolean = false;
-  public forced : boolean = false;
+  public messageKey = "";
+  public subMessage= "";
 
   constructor(
     private api: HttpService,
@@ -50,15 +50,20 @@ export class ConnectionPage {
   public updateStatus(): void {
     this.statusServer = true;
     this.api.statusFacade().subscribe((status) => {
-      if (status.state == "off")
-        this.statusOff = true;
-      else if (status.is_usable)
-        this.facadeUp = true;
-      else {
-        this.updateHour(status.next_on_time);
-        this.facadeUp = false;
+      if (status.state == "off") {
+        this.messageKey = "connection.message.not_available";
+        this.subMessage = "";
       }
-      this.forced = status.is_forced;
+      else if (status.is_usable) this.facadeUp = true;
+      else if (status.is_forced) {
+        this.messageKey = "connection.message.forced";
+        this.subMessage = "";
+      }
+      else {
+        this.facadeUp = false;
+        this.updateHour(status.next_on_time);
+        this.messageKey = "connection.message.down_alert";
+      }
 
       this.frontage.height = status.height;
       this.frontage.width = status.width;
@@ -66,7 +71,7 @@ export class ConnectionPage {
     });
   }
 
-  public updateHour(time : string) {
+  public updateHour(time: string) {
     console.log("TODO");
   }
 

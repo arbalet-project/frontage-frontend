@@ -16,6 +16,11 @@
       "step_1" : "Approchez-vous de l'entrée principale de la façade illuminée",
       "step_2" : "Démarrez la connexion Wifi de votre smartphone puis sélectionnez le réseau ARBALET_FRONTAGE",
       "step_3" : "Fermez l'avertissement indiquant que vous n'êtes pas connecté à Internet puis revenez ici pour jouer"
+    },
+    "message": {
+      "not_available": "L'administrateur a éteint Arbalet Frontage. Revenez un autre jour.",
+      "forced": "L'administrateur a verrouillé Arbalet Frontage. Revenez plus tard.",
+      "down_alert": "Arbalet Frontage n'est pas encore active. Revenez à partir de "
     }
   }
 }
