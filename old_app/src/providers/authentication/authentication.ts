@@ -47,7 +47,7 @@ export class AuthenticationProvider {
 
     return this.auth(body, this.authEndpoint);
   }
-  
+
   private auth(body, endpoint) : Observable<boolean>{
     console.log("Endpoint : " + this.baseUrl + endpoint)
 

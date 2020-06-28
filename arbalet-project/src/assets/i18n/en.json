@@ -11,7 +11,7 @@
     "message": "Sorry, the version of your application is outdated. Please update it from your app store and retry."
   },
   "connection": {
-    "unreacheable": {
+    "unreachable": {
       "title": "Connect using Wifi",
       "step_1": "Approach the main entrance of your building",
       "step_2": "Switch on the Wifi connection of your smartphone and select network ARBALET_FRONTAGE",

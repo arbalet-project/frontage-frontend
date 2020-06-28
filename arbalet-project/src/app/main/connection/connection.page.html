@@ -7,8 +7,8 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content fullscreen>
-  <div *ngIf="statusServer;else serverUnreacheable">
+<ion-content>
+  <div *ngIf="statusServer;else serverUnreachable">
     <form [formGroup]="form">
       <ion-item>
         <ion-label
@@ -17,7 +17,7 @@
         <ion-input type="text" formControlName="title"></ion-input>
       </ion-item>
     </form>
-    <ion-button *ngIf="facadeUp;else messageError">
+    <ion-button outline *ngIf="facadeUp;else messageError">
       {{ "connection.form.title_submit" | translate }}</ion-button
     >
     <ng-template #messageError>
@@ -25,8 +25,8 @@
     </ng-template>
   </div>
 
-  <ng-template #serverUnreacheable>
-    <server-unreacheable></server-unreacheable>
+  <ng-template #serverUnreachable>
+    <server-unreachable></server-unreachable>
   </ng-template>
 </ion-content>
 
