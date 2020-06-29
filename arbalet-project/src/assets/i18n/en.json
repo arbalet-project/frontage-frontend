@@ -23,6 +23,7 @@
       "down_alert": "Arbalet Frontage is not up yet. Come back from "
     },
     "form": {
+      "title": "Pick a nickname",
       "username_label": "Nickname",
       "passwd_label": "Password",
       "title_submit": "Confirm"

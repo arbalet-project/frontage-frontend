@@ -9,6 +9,7 @@ import { ConnectionPageRoutingModule } from './connection-routing.module';
 import { ConnectionPage } from './connection.page';
 import { ServerUnreachableComponent } from './components/server-unreachable/server-unreachable.component';
 import { TranslateModule } from '@ngx-translate/core';
+import { UserFormComponent } from './components/user-form/user-form.component';
 
 @NgModule({
   imports: [
@@ -18,6 +19,6 @@ import { TranslateModule } from '@ngx-translate/core';
     TranslateModule.forChild(),
     ReactiveFormsModule
   ],
-  declarations: [ConnectionPage, ServerUnreachableComponent]
+  declarations: [ConnectionPage, ServerUnreachableComponent, UserFormComponent]
 })
 export class ConnectionPageModule {}

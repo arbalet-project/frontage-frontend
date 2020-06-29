@@ -4,33 +4,13 @@ import { Injectable } from "@angular/core";
   providedIn: "root",
 })
 export class FrontageService {
-  private _width: number;
-  private _height: number;
-  private _disabled: Array<Array<number>>;
-
+  public width: number;
+  public height: number;
+  public disabled: Array<Array<number>>;
+  public state: string;
+  public usable: boolean;
+  public forced: boolean;
+  public next_on_time: string;
   constructor() {}
 
-  get width() {
-    return this._width;
-  }
-
-  set width(w: number) {
-    this._width = w;
-  }
-
-  get height() {
-    return this._height;
-  }
-
-  set height(h: number) {
-    this._height = h;
-  }
-
-  get disabled() {
-    return this._disabled;
-  }
-
-  set disabled(d: Array<Array<number>>) {
-    this._disabled = d;
-  }
 }

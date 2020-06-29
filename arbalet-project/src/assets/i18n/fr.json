@@ -23,6 +23,7 @@
       "down_alert": "Arbalet Frontage n'est pas encore active. Revenez à partir de "
     },
     "form": {
+      "title": "Sélectionnez votre sobriquet",
       "username_label": "Mon sobriquet",
       "passwd_label": "Mot de passe",
       "title_submit": "Valider"

@@ -1,0 +1,21 @@
+<ion-card class="ion-padding">
+  <ion-card-header>
+    {{ "connection.form.title" | translate }}
+  </ion-card-header>
+  <ion-card-content>
+    <form [formGroup]="form">
+      <ion-item>
+        <ion-label position="floating">{{
+          "connection.form.username_label" | translate
+        }}</ion-label>
+        <ion-input formControlName="username" clearInput></ion-input>
+      </ion-item>
+    </form>
+    <ion-button outline *ngIf="disabled; else messageError" expand="full" fill="clear" (click)="start()">
+      {{ "connection.form.title_submit" | translate }}</ion-button
+    >
+    <ng-template #messageError>
+      <h2>{{ message }}</h2>
+    </ng-template>
+  </ion-card-content>
+</ion-card>

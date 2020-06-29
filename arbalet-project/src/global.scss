@@ -38,11 +38,15 @@ ion-content {
   --background: url("assets/img/background.png") no-repeat center center / cover;
 }
 
-// Background footer and toolbar is transparent.
-ion-footer, ion-toolbar {
+ion-toolbar {
+  --background: var(--af-bg-color);
+  color: var(--ion-color-dark-contrast);
+}
+
+// // Background footer and toolbar is transparent.
+ion-footer{
   --background: transparent;
   background: var(--af-bg-color);
-  --ion-color-base: transparent !important;
 }
 
 ion-card {
@@ -51,7 +55,6 @@ ion-card {
 }
 
 ion-card-header, ion-card-content {
-  background: transparent;
+  background: transparent !important;
   color: inherit;
 }
-

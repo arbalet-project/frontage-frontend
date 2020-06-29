@@ -4,37 +4,23 @@ import { environment } from "src/environments/environment";
 import { AlertController } from "@ionic/angular";
 import { TranslateService } from "@ngx-translate/core";
 import { FrontageService } from "src/app/core/frontage/frontage.service";
-import { FormGroup, FormControl, Validators } from "@angular/forms";
-import { NicknameGeneratorService } from "src/app/core/nickname_generator/nickname-generator.service";
 
 @Component({
   selector: "app-connection",
   templateUrl: "./connection.page.html",
   styleUrls: ["./connection.page.scss"],
 })
-export class ConnectionPage implements OnInit {
+export class ConnectionPage {
   public statusServer: boolean = false;
+  public message: string;
   public facadeUp: boolean = false;
-  public messageKey = "";
-  public subMessage = "";
-  public form: FormGroup;
 
   constructor(
     private api: HttpService,
     public alertCtrl: AlertController,
     public translate: TranslateService,
-    public frontage: FrontageService,
-    private nickname: NicknameGeneratorService
+    public frontage: FrontageService
   ) {}
-
-  ngOnInit() {
-    this.form = new FormGroup({
-      username: new FormControl(this.nickname.generateNickname(), {
-        updateOn: "blur",
-        validators: [Validators.required],
-      }),
-    });
-  }
 
   ionViewWillEnter() {
     this.update();
@@ -46,12 +32,9 @@ export class ConnectionPage implements OnInit {
 
   public update(): void {
     this.api.statusServer().subscribe((status) => {
-      if (
-        status.protocol_version === environment.protocol_version &&
-        status.is_up
-      ) {
+      if (status.protocol_version === environment.protocol_version) {
         this.updateStatus();
-      } else if (status.protocol_version !== environment.protocol_version) {
+      } else {
         this.showOutdated();
       }
     });
@@ -63,27 +46,46 @@ export class ConnectionPage implements OnInit {
   public updateStatus(): void {
     this.statusServer = true;
     this.api.statusFacade().subscribe((status) => {
-      if (status.state == "off") {
-        this.messageKey = "connection.message.not_available";
-        this.subMessage = "";
-      } else if (status.is_usable) this.facadeUp = true;
-      else if (status.is_forced) {
-        this.messageKey = "connection.message.forced";
-        this.subMessage = "";
-      } else {
-        this.facadeUp = false;
-        this.updateHour(status.next_on_time);
-        this.messageKey = "connection.message.down_alert";
-      }
-
       this.frontage.height = status.height;
       this.frontage.width = status.width;
       this.frontage.disabled = status.disabled;
+      this.frontage.forced = status.is_forced;
+      this.frontage.usable = status.is_usable;
+      this.frontage.state = status.state;
+      this.frontage.next_on_time = status.next_on_time;
+      this.updateForm();
     });
   }
 
-  public updateHour(time: string) {
-    console.log("TODO");
+  public updateForm() {
+    if (this.frontage.state == "off") {
+      this.get_translation("connection.message.not_available");
+    } else if (this.frontage.usable) {
+      this.facadeUp = true;
+    } else if (this.frontage.forced) {
+      this.get_translation("connection.message.forced");
+    } else {
+      this.facadeUp = false;
+      // this.updateHour(status.next_on_time); TODO : next_on_time
+      this.get_translation(
+        "connection.message.down_alert",
+        this.hourToString()
+      );
+    }
+  }
+
+  get_translation(message_key: string, subText: string = "") {
+    this.translate.get(message_key).subscribe((translation) => {
+      console.log(translation);
+      this.message = translation + subText;
+    });
+  }
+  
+  hourToString(): string {
+    console.log("coucou", this.frontage.next_on_time);
+    console.log(this.frontage);
+
+    return "";
   }
 
   /**

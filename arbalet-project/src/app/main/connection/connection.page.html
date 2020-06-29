@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar translucent>
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/"></ion-back-button>
     </ion-buttons>
@@ -7,29 +7,19 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <div *ngIf="statusServer;else serverUnreachable">
-    <form [formGroup]="form">
-      <ion-item>
-        <ion-label
-          >{{ "connection.form.username_label" | translate }}</ion-label
-        >
-        <ion-input type="text" formControlName="title"></ion-input>
-      </ion-item>
-    </form>
-    <ion-button outline *ngIf="facadeUp;else messageError">
-      {{ "connection.form.title_submit" | translate }}</ion-button
-    >
-    <ng-template #messageError>
-      <h2>{{ messageKey | translate }} {{ subMessage }}</h2>
-    </ng-template>
-  </div>
-
-  <ng-template #serverUnreachable>
-    <server-unreachable></server-unreachable>
-  </ng-template>
+<ion-content fullscreen>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12" size-md="8" offset-md="2">
+        <user-form *ngIf="statusServer; else serverUnreachable" [disabled]="facadeUp" [message]="message"> </user-form>
+        <ng-template #serverUnreachable>
+          <server-unreachable></server-unreachable>
+        </ng-template>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
 
-<ion-footer *ngIf="!statusServer">
+<ion-footer translucent *ngIf="!statusServer">
   TODO : Tetris
 </ion-footer>
