@@ -15,6 +15,10 @@ const routes: Routes = [
     path: 'connection',
     loadChildren: () => import('./main/connection/connection.module').then( m => m.ConnectionPageModule)
   },
+  {
+    path: 'f-app',
+    loadChildren: () => import('./f-app/f-app.module').then( m => m.FAppPageModule)
+  },
 ];
 
 @NgModule({

@@ -1,9 +1,8 @@
 import { Component, OnInit, Input } from "@angular/core";
 import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { NicknameGeneratorService } from "src/app/core/nickname_generator/nickname-generator.service";
-import { FrontageService } from "src/app/core/frontage/frontage.service";
-import { TranslateService } from "@ngx-translate/core";
-import { cpuUsage } from 'process';
+import { AuthenticationService } from "src/app/core/authentication/authentication.service";
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: "user-form",
@@ -17,7 +16,8 @@ export class UserFormComponent implements OnInit {
 
   constructor(
     private nickname: NicknameGeneratorService,
-    public translate: TranslateService
+    public auth: AuthenticationService,
+    public navCtrl: NavController
   ) {}
 
   ngOnInit() {
@@ -30,8 +30,12 @@ export class UserFormComponent implements OnInit {
   }
 
   public start() {
-    console.log(this.form.value.username);
+    this.auth.userAuth(this.form.value.username).subscribe((res) => {
+      if(res) {
+        this.navCtrl.navigateForward("/f-app");
+      } else {
+        // TODO
+      }
+    });
   }
-
-
 }
