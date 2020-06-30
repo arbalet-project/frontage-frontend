@@ -11,7 +11,7 @@ import { map } from "rxjs/operators";
 export class AuthenticationService {
   private baseUrl = environment.backEndBaseUrl;
   private authUrl = "/b/login";
-  private token : string;
+  public token : string;
   private admin: boolean = false;
   private username: string;
 
