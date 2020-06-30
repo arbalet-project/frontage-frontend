@@ -1,12 +1,13 @@
-import { Component } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { ActionSheetController } from "@ionic/angular";
+import { TranslateService } from "@ngx-translate/core";
 
 @Component({
   selector: "app-home",
   templateUrl: "./home.page.html",
   styleUrls: ["./home.page.scss"],
 })
-export class HomePage {
+export class HomePage implements OnInit {
   slideOpts = {
     speed: 1500,
     loop: true,
@@ -25,15 +26,38 @@ export class HomePage {
     { path: "assets/img/slides/6.jpg" },
   ];
 
-  constructor(public actionSheet: ActionSheetController) {}
+  public selectedLanguage = "fr";
+
+  constructor(
+    public actionSheet: ActionSheetController,
+    public translate: TranslateService
+  ) {}
+
+  ngOnInit() {
+    this.translate.onLangChange.subscribe((event) => {
+      this.selectedLanguage = event.lang;
+    });
+  }
 
   async changeLanguage() {
     const actionSheet = await this.actionSheet.create({
       header: "Langues",
       buttons: [
-        { text: "French", icon: "flag-sharp", handler: () => { console.log("test 1")}},
-        { text : "English", icon: "flag-sharp" },
-        { text: "Cancel", icon: "close", role: "cancel" }
+        {
+          text: "French",
+          icon: "flag-sharp",
+          handler: () => {
+            this.translate.use("fr");
+          },
+        },
+        {
+          text: "English",
+          icon: "flag-sharp",
+          handler: () => {
+            this.translate.use("en");
+          },
+        },
+        { text: "Cancel", icon: "close", role: "cancel" },
       ],
     });
 
