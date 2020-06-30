@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { ActionSheetController } from "@ionic/angular";
-import { TranslateService } from "@ngx-translate/core";
+import { TranslateService, LangChangeEvent } from "@ngx-translate/core";
 
 @Component({
   selector: "app-home",
@@ -34,7 +34,7 @@ export class HomePage implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.translate.onLangChange.subscribe((event) => {
+    this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
       this.selectedLanguage = event.lang;
     });
   }
@@ -44,20 +44,24 @@ export class HomePage implements OnInit {
       header: "Langues",
       buttons: [
         {
-          text: "French",
+          text: this.translate.instant("language.french"),
           icon: "flag-sharp",
           handler: () => {
             this.translate.use("fr");
           },
         },
         {
-          text: "English",
+          text: this.translate.instant("language.english"),
           icon: "flag-sharp",
           handler: () => {
             this.translate.use("en");
           },
         },
-        { text: "Cancel", icon: "close", role: "cancel" },
+        {
+          text: this.translate.instant("action.cancel"),
+          icon: "close",
+          role: "cancel",
+        },
       ],
     });
 

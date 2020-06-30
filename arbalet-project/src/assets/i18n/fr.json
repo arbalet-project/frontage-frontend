@@ -1,14 +1,6 @@
 {
-  "home": {
-    "text_1": "Arbalet Frontage est une mise en lumière éphémère de votre bâtiment. Ses fenêtres se parent de couleurs au crépuscule.",
-    "text_2": "Elle vous donne l'occasion d'interagir et d'apprendre avec le patrimoine qui vous entoure.",
-    "text_3": "En poursuivant vous pourrez changer les couleurs, jouer avec, ou même apprendre un langage de programmation lors d'un atelier encadré par un formateur ",
-    "link_text": "infos en ligne",
-    "start_button": "C'est parti !"
-  },
-  "outdated": {
-    "title": "Mise à jour nécessaire",
-    "message": "Désolé, la version de votre application n'est plus à jour avec Arbalet Frontage. Veuillez la mettre à jour depuis le store puis réessayez."
+  "action": {
+    "cancel": "Annuler"
   },
   "connection": {
     "unreachable": {
@@ -31,5 +23,20 @@
   },
   "f_app": {
     "title": "Liste des application frontage"
+  },
+  "home": {
+    "text_1": "Arbalet Frontage est une mise en lumière éphémère de votre bâtiment. Ses fenêtres se parent de couleurs au crépuscule.",
+    "text_2": "Elle vous donne l'occasion d'interagir et d'apprendre avec le patrimoine qui vous entoure.",
+    "text_3": "En poursuivant vous pourrez changer les couleurs, jouer avec, ou même apprendre un langage de programmation lors d'un atelier encadré par un formateur ",
+    "link_text": "infos en ligne",
+    "start_button": "C'est parti !"
+  },
+  "language": {
+    "french": "Français",
+    "english": "Anglais"
+  },
+  "outdated": {
+    "title": "Mise à jour nécessaire",
+    "message": "Désolé, la version de votre application n'est plus à jour avec Arbalet Frontage. Veuillez la mettre à jour depuis le store puis réessayez."
   }
 }

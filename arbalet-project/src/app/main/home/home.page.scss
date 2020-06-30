@@ -7,9 +7,14 @@ ion-button:hover {
     background: green;
 }
 
+.flag {
+    border-radius: 5px !important;
+    overflow: hidden;
+}
+
 @media(min-width: 768px) {
     .flag {
-        width: 50%;
-        height: 50%;
+        width: 40%;
+        height: 70%;
     }
 }
