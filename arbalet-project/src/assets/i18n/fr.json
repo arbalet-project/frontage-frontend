@@ -28,5 +28,8 @@
       "passwd_label": "Mot de passe",
       "title_submit": "Valider"
     }
+  },
+  "f_app": {
+    "title": "Liste des application frontage"
   }
 }

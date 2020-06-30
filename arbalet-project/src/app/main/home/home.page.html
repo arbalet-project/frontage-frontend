@@ -1,6 +1,24 @@
 <ion-header translucent>
   <ion-toolbar>
-    <ion-img class="logo" src="assets/img/logo/frontage_white.png"></ion-img>
+    <ion-grid>
+      <ion-row>
+        <ion-col size="10" class="ion-align-self-center">
+          <ion-img
+            class="logo"
+            src="assets/img/logo/frontage_white.png"
+          ></ion-img>
+        </ion-col>
+        <ion-col
+          size="2"
+          class="ion-align-self-center"
+          size-md="1"
+          offset-md="1"
+          (click)="changeLanguage()"
+        >
+            <ion-img class="flag" src="assets/img/flag/en.svg"></ion-img>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
   </ion-toolbar>
 </ion-header>
 

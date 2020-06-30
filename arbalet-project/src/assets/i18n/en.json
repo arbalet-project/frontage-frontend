@@ -28,5 +28,8 @@
       "passwd_label": "Password",
       "title_submit": "Confirm"
     }
+  },
+  "f_app": {
+    "title": "Frontage app list"
   }
 }

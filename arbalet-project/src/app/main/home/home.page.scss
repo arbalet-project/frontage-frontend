@@ -1,9 +1,15 @@
 .logo {
     height: 3rem;
     width: 16rem;
-    padding-left: 2%;
 }
 
 ion-button:hover {
     background: green;
+}
+
+@media(min-width: 768px) {
+    .flag {
+        width: 50%;
+        height: 50%;
+    }
 }
