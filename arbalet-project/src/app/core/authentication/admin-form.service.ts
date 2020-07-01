@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { AlertController } from "@ionic/angular";
+import { AlertController, NavController } from "@ionic/angular";
 import { TranslateService } from "@ngx-translate/core";
 import { AuthenticationService } from "./authentication.service";
 
@@ -13,7 +13,8 @@ export class AdminFormService {
   constructor(
     private alertCtrl: AlertController,
     public translate: TranslateService,
-    public auth: AuthenticationService
+    public auth: AuthenticationService,
+    private navCtrl: NavController
   ) {}
 
   public activate() {
@@ -53,7 +54,7 @@ export class AdminFormService {
               .adminAuth(data.username, data.password)
               .subscribe((res: boolean) => {
                 if (res) {
-                  // this.navCtrl.navigateForward("/f-app"); // TODO : NavControl !
+                  this.navCtrl.navigateForward("/f-app"); // TODO : NavControl !
                 } else {
                   // TODO : Error
                 }

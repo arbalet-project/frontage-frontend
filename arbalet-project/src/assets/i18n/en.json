@@ -27,7 +27,17 @@
     }
   },
   "f_app": {
-    "title": "Frontage app list"
+    "title": "Frontage app list",
+    "name": {
+      "Flags": "Flags",
+      "RandomFlashing": "Sparks",
+      "SweepRand": "Dual colors",
+      "SweepAsync": "Color wheel",
+      "Tetris": "Tetris",
+      "Snake": "Snake",
+      "Drawing": "Freehand Draw",
+      "Snap": "Live"
+    }
   },
   "home": {
     "text_1": "Arbalet Frontage is an architectural lighting of your building. Daily at dusk, its window light up in colors.",

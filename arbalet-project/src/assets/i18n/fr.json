@@ -1,10 +1,10 @@
 {
   "action": {
     "cancel": "Annuler",
-    "login" : "Connection"
+    "login": "Connection"
   },
-  "admin_form" : {
-    "title" : "Formulaire de connexion",
+  "admin_form": {
+    "title": "Formulaire de connexion",
     "username_placeholder": "Nom d'utilisateur",
     "password_placeholder": "Mot de passe"
   },
@@ -27,7 +27,17 @@
     }
   },
   "f_app": {
-    "title": "Liste des application frontage"
+    "title": "Liste des application frontage",
+    "name": {
+      "Flags": "Drapeaux",
+      "RandomFlashing": "Étincelles",
+      "SweepRand": "Couleurs duelles",
+      "SweepAsync": "Roue des couleurs",
+      "Tetris": "Tetris",
+      "Snake": "Snake",
+      "Drawing": "Dessin libre",
+      "Snap": "Live"
+    }
   },
   "home": {
     "text_1": "Arbalet Frontage est une mise en lumière éphémère de votre bâtiment. Ses fenêtres se parent de couleurs au crépuscule.",

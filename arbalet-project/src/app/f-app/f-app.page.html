@@ -1,9 +1,19 @@
 <ion-header translucent>
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/connection"></ion-back-button>
+    </ion-buttons>
     <ion-title>{{"f_app.title" | translate }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content fullscreen>
-  Test
+  <ion-list>
+    <ion-item *ngFor="let fApp of fAppList">
+      <p>{{ "f_app.name." + fApp.name | translate }}</p>
+      <ion-thumbnail slot="start">
+        <img src="assets/icon/apps/{{fApp.name}}.svg">
+      </ion-thumbnail>
+    </ion-item>
+  </ion-list>
 </ion-content>

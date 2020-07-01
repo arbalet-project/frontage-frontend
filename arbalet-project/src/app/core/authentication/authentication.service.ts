@@ -28,7 +28,6 @@ export class AuthenticationService {
     if (r.token) {
       localStorage.setItem("token", r.token);
       console.log(this.jwt.decodeToken(r.token));
-      localStorage.setItem('token', r.token);
       return true;
     } else {
       return false;
@@ -41,7 +40,7 @@ export class AuthenticationService {
         username: username,
         password: password,
       })
-      .pipe(map((r) => this.login(r)));
+      .pipe(map(r => this.login(r)));
   }
 
   get token() {
