@@ -4,6 +4,7 @@ import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { AuthAnswer } from "./models/auth";
 import { map } from "rxjs/operators";
+import { JwtHelperService } from "@auth0/angular-jwt";
 
 @Injectable({
   providedIn: "root",
@@ -16,7 +17,7 @@ export class AuthenticationService {
   // private admin: boolean = false;
   // private username: string;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private jwt: JwtHelperService) {}
 
   public userAuth(username: string): Observable<boolean> {
     return this.http
@@ -25,13 +26,10 @@ export class AuthenticationService {
   }
 
   public login(r: AuthAnswer, username: string): boolean {
-    let token = r.token;
-    if (token) {
-      this.token = token;
-      // this.admin = false;
-      // this.username = username;
-      console.log(username);
-      // TODO : See jwt
+    if (r.token) {
+      this.token = r.token;
+      this.jwt.decodeToken(r.token);
+      localStorage.setItem('token', r.token);
       return true;
     } else {
       return true;

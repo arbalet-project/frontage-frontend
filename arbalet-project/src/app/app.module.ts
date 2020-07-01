@@ -14,13 +14,17 @@ import { TranslateHttpLoader } from "@ngx-translate/http-loader";
 import {
   HttpClientModule,
   HttpClient,
-  HTTP_INTERCEPTORS,
 } from "@angular/common/http";
 
-import { AuthInterceptorService } from "./core/authentication/auth-interceptor.service";
+import { JwtModule } from "@auth0/angular-jwt";
+import { environment } from "src/environments/environment";
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, "./assets/i18n/", ".json");
+}
+
+export function tokenGetter() {
+  return localStorage.getItem("token");
 }
 
 @NgModule({
@@ -31,6 +35,12 @@ export function createTranslateLoader(http: HttpClient) {
     IonicModule.forRoot(),
     AppRoutingModule,
     HttpClientModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: tokenGetter,
+        whitelistedDomains: [environment.backEndBaseUrl.split("//")[1]],
+      },
+    }),
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -43,7 +53,6 @@ export function createTranslateLoader(http: HttpClient) {
     StatusBar,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true },
   ],
   bootstrap: [AppComponent],
 })
