@@ -12,8 +12,7 @@ import { JwtHelperService } from "@auth0/angular-jwt";
 export class AuthenticationService {
   private baseUrl = environment.backEndBaseUrl;
   private authUrl = "/b/login";
-  private authAdminUrl = "/b/login";
-  public token: string;
+  private authAdminUrl = "/b/adminlogin";
   // private admin: boolean = false;
   // private username: string;
 
@@ -22,17 +21,17 @@ export class AuthenticationService {
   public userAuth(username: string): Observable<boolean> {
     return this.http
       .post<AuthAnswer>(this.baseUrl + this.authUrl, { username: username })
-      .pipe(map((r) => this.login(r, username)));
+      .pipe(map((r) => this.login(r)));
   }
 
-  public login(r: AuthAnswer, username: string): boolean {
+  public login(r: AuthAnswer): boolean {
     if (r.token) {
-      this.token = r.token;
-      this.jwt.decodeToken(r.token);
+      localStorage.setItem("token", r.token);
+      console.log(this.jwt.decodeToken(r.token));
       localStorage.setItem('token', r.token);
       return true;
     } else {
-      return true;
+      return false;
     }
   }
 
@@ -42,6 +41,10 @@ export class AuthenticationService {
         username: username,
         password: password,
       })
-      .pipe(map((r) => this.login(r, username)));
+      .pipe(map((r) => this.login(r)));
+  }
+
+  get token() {
+    return localStorage.getItem("token");
   }
 }

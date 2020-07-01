@@ -1,6 +1,12 @@
 {
   "action": {
-    "cancel": "Annuler"
+    "cancel": "Annuler",
+    "login" : "Connection"
+  },
+  "admin_form" : {
+    "title" : "Formulaire de connexion",
+    "username_placeholder": "Nom d'utilisateur",
+    "password_placeholder": "Mot de passe"
   },
   "connection": {
     "unreachable": {
@@ -17,7 +23,6 @@
     "form": {
       "title": "Sélectionnez votre sobriquet",
       "username_label": "Mon sobriquet",
-      "passwd_label": "Mot de passe",
       "title_submit": "Valider"
     }
   },

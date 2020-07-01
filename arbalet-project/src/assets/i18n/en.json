@@ -1,6 +1,12 @@
 {
   "action": {
-    "cancel": "Cancel"
+    "cancel": "Cancel",
+    "login" : "Login"
+  },
+  "admin_form" : {
+    "title" : "Login form",
+    "username_placeholder": "Username",
+    "password_placeholder": "Password"
   },
   "connection": {
     "unreachable": {
@@ -17,7 +23,6 @@
     "form": {
       "title": "Pick a nickname",
       "username_label": "Nickname",
-      "passwd_label": "Password",
       "title_submit": "Confirm"
     }
   },

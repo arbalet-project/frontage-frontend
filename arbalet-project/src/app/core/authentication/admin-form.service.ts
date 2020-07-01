@@ -1,14 +1,14 @@
 import { Injectable } from "@angular/core";
 import { AlertController } from "@ionic/angular";
 import { TranslateService } from "@ngx-translate/core";
-import { AuthenticationService } from './authentication.service';
+import { AuthenticationService } from "./authentication.service";
 
 @Injectable({
   providedIn: "root",
 })
 export class AdminFormService {
   private nbActive: number = 0;
-  private nbActiveMax: number = 8;
+  private nbActiveMax: number = 0;
 
   constructor(
     private alertCtrl: AlertController,
@@ -26,35 +26,43 @@ export class AdminFormService {
 
   public async displayForm() {
     let alert = await this.alertCtrl.create({
-      header: "Username",
-      message: "Enter your username",
+      header: this.translate.instant("admin_form.title"),
       inputs: [
         {
           name: "username",
+          placeholder: this.translate.instant("admin_form.username_placeholder"),
           type: "text",
-          placeholder: "Your admin username",
         },
-        { name: "password", type: "password" },
+        {
+          name: "password",
+          type: "password",
+          placeholder: this.translate.instant("admin_form.password_placeholder"),
+        },
       ],
       buttons: [
         {
-          text: "Cancel",
+          text: this.translate.instant("action.cancel"),
           handler: () => {
             console.log("Cancel clicked");
           },
         },
         {
-          text: "Save",
+          text: this.translate.instant("action.login"),
           handler: (data) => {
-            this.auth.adminAuth(data.username, data.password);
-            // TODO : Error
-            // TODO : NavControl !
+            this.auth
+              .adminAuth(data.username, data.password)
+              .subscribe((res: boolean) => {
+                if (res) {
+                  // this.navCtrl.navigateForward("/f-app"); // TODO : NavControl !
+                } else {
+                  // TODO : Error
+                }
+              });
           },
         },
       ],
     });
 
-    let t = await alert.present();
-    console.log(t);
+    await alert.present();
   }
 }

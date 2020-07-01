@@ -76,7 +76,6 @@ export class ConnectionPage {
 
   get_translation(message_key: string, subText: string = "") {
     this.translate.get(message_key).subscribe((translation) => {
-      console.log(translation);
       this.message = translation + subText;
     });
   }
