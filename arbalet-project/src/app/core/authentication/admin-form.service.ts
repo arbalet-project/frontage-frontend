@@ -1,5 +1,7 @@
 import { Injectable } from "@angular/core";
 import { AlertController } from "@ionic/angular";
+import { TranslateService } from "@ngx-translate/core";
+import { AuthenticationService } from './authentication.service';
 
 @Injectable({
   providedIn: "root",
@@ -8,7 +10,11 @@ export class AdminFormService {
   private nbActive: number = 0;
   private nbActiveMax: number = 8;
 
-  constructor(private alertCtrl: AlertController) {}
+  constructor(
+    private alertCtrl: AlertController,
+    public translate: TranslateService,
+    public auth: AuthenticationService
+  ) {}
 
   public activate() {
     this.nbActive++;
@@ -40,8 +46,9 @@ export class AdminFormService {
         {
           text: "Save",
           handler: (data) => {
-            console.log(data);
-            console.log("Saved clicked");
+            this.auth.adminAuth(data.username, data.password);
+            // TODO : Error
+            // TODO : NavControl !
           },
         },
       ],

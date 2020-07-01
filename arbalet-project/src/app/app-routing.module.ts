@@ -19,6 +19,10 @@ const routes: Routes = [
     path: 'f-app',
     loadChildren: () => import('./f-app/f-app.module').then( m => m.FAppPageModule)
   },
+  {
+    path: 'admin/home',
+    loadChildren: () => import('./admin/admin.module').then( m => m.AdminPageModule)
+  },
 ];
 
 @NgModule({

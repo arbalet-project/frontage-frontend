@@ -11,30 +11,39 @@ import { map } from "rxjs/operators";
 export class AuthenticationService {
   private baseUrl = environment.backEndBaseUrl;
   private authUrl = "/b/login";
-  public token : string;
-  private admin: boolean = false;
-  private username: string;
+  private authAdminUrl = "/b/login";
+  public token: string;
+  // private admin: boolean = false;
+  // private username: string;
 
   constructor(private http: HttpClient) {}
 
   public userAuth(username: string): Observable<boolean> {
     return this.http
-    .post<AuthAnswer>(this.baseUrl + this.authUrl, { "username" : username })
-    .pipe(map((r) => this.login(r, username)));
+      .post<AuthAnswer>(this.baseUrl + this.authUrl, { username: username })
+      .pipe(map((r) => this.login(r, username)));
   }
 
-
-  public login(r : AuthAnswer, username : string) : boolean {
+  public login(r: AuthAnswer, username: string): boolean {
     let token = r.token;
-    if(token) {
+    if (token) {
       this.token = token;
-      this.admin = false;
-      this.username = username;
+      // this.admin = false;
+      // this.username = username;
       console.log(username);
       // TODO : See jwt
       return true;
     } else {
       return true;
     }
+  }
+
+  public adminAuth(username: string, password: string) {
+    return this.http
+      .post<AuthAnswer>(this.baseUrl + this.authAdminUrl, {
+        username: username,
+        password: password,
+      })
+      .pipe(map((r) => this.login(r, username)));
   }
 }
