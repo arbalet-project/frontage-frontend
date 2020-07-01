@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { ActionSheetController } from "@ionic/angular";
 import { TranslateService, LangChangeEvent } from "@ngx-translate/core";
+import { AdminFormService } from "src/app/core/authentication/admin-form.service";
 
 @Component({
   selector: "app-home",
@@ -30,13 +31,18 @@ export class HomePage implements OnInit {
 
   constructor(
     public actionSheet: ActionSheetController,
-    public translate: TranslateService
+    public translate: TranslateService,
+    public admin_form: AdminFormService
   ) {}
 
   ngOnInit() {
     this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
       this.selectedLanguage = event.lang;
     });
+  }
+
+  handleTapEvent() {
+    this.admin_form.activate();
   }
 
   async changeLanguage() {

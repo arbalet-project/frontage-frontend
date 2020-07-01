@@ -6,6 +6,7 @@
           <ion-img
             class="logo"
             src="assets/img/logo/frontage_white.png"
+            (click)="handleTapEvent()"
           ></ion-img>
         </ion-col>
         <ion-col
@@ -15,7 +16,10 @@
           offset-md="1"
           (click)="changeLanguage()"
         >
-            <ion-img class="flag" src="assets/img/flag/{{selectedLanguage}}.svg"></ion-img>
+          <ion-img
+            class="flag"
+            src="assets/img/flag/{{selectedLanguage}}.svg"
+          ></ion-img>
         </ion-col>
       </ion-row>
     </ion-grid>
