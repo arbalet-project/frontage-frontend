@@ -31,21 +31,22 @@ export class AdminFormService {
       inputs: [
         {
           name: "username",
-          placeholder: this.translate.instant("admin_form.username_placeholder"),
+          placeholder: this.translate.instant(
+            "admin_form.username_placeholder"
+          ),
           type: "text",
         },
         {
           name: "password",
           type: "password",
-          placeholder: this.translate.instant("admin_form.password_placeholder"),
+          placeholder: this.translate.instant(
+            "admin_form.password_placeholder"
+          ),
         },
       ],
       buttons: [
         {
           text: this.translate.instant("action.cancel"),
-          handler: () => {
-            console.log("Cancel clicked");
-          },
         },
         {
           text: this.translate.instant("action.login"),
