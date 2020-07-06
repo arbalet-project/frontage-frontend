@@ -1,4 +1,4 @@
 export class AuthAnswer {
-    login : boolean;
+    login: boolean;
     token?: string;
 }

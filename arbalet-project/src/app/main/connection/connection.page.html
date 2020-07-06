@@ -11,9 +11,9 @@
   <ion-grid>
     <ion-row>
       <ion-col size="12" size-md="8" offset-md="2">
-        <user-form *ngIf="statusServer; else serverUnreachable" [disabled]="facadeUp" [message]="message"> </user-form>
+        <app-user-form *ngIf="statusServer; else serverUnreachable" [disabled]="facadeUp" [message]="message"> </app-user-form>
         <ng-template #serverUnreachable>
-          <server-unreachable></server-unreachable>
+          <app-server-unreachable></app-server-unreachable>
         </ng-template>
       </ion-col>
     </ion-row>

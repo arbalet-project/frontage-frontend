@@ -1,3 +1,4 @@
+// tslint:disable:variable-name
 export class StatusFacade {
   current_app: string;
   current_time: string;
@@ -6,7 +7,8 @@ export class StatusFacade {
   width: number;
   is_forced: boolean;
   is_usable: boolean;
-  disabled: Array<Array<number>>
+  disabled: Array<Array<number>>;
   state: string;
   version: string;
 }
+// tslint:enable:variable-name

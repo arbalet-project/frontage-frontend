@@ -1,7 +1,7 @@
-import { Injectable } from "@angular/core";
+import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: "root",
+  providedIn: 'root',
 })
 export class FrontageService {
   public width: number;
@@ -10,7 +10,7 @@ export class FrontageService {
   public state: string;
   public usable: boolean;
   public forced: boolean;
-  public next_on_time: string;
+  public nextOnTime: string;
   constructor() {}
 
 }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'server-unreachable',
+  selector: 'app-server-unreachable',
   templateUrl: './server-unreachable.component.html',
   styleUrls: ['./server-unreachable.component.scss'],
 })

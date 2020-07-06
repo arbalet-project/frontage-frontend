@@ -1,18 +1,18 @@
-import { Injectable } from "@angular/core";
-import { environment } from "src/environments/environment";
-import { HttpClient } from "@angular/common/http";
-import { Observable } from "rxjs";
-import { AuthAnswer } from "./models/auth";
-import { map } from "rxjs/operators";
-import { JwtHelperService } from "@auth0/angular-jwt";
+import { Injectable } from '@angular/core';
+import { environment } from 'src/environments/environment';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { AuthAnswer } from './models/auth';
+import { map } from 'rxjs/operators';
+import { JwtHelperService } from '@auth0/angular-jwt';
 
 @Injectable({
-  providedIn: "root",
+  providedIn: 'root',
 })
 export class AuthenticationService {
   private baseUrl = environment.backEndBaseUrl;
-  private authUrl = "/b/login";
-  private authAdminUrl = "/b/adminlogin";
+  private authUrl = '/b/login';
+  private authAdminUrl = '/b/adminlogin';
   // private admin: boolean = false;
   // private username: string;
 
@@ -20,13 +20,13 @@ export class AuthenticationService {
 
   public userAuth(username: string): Observable<boolean> {
     return this.http
-      .post<AuthAnswer>(this.baseUrl + this.authUrl, { username: username })
+      .post<AuthAnswer>(this.baseUrl + this.authUrl, { username })
       .pipe(map((r) => this.login(r)));
   }
 
   public login(r: AuthAnswer): boolean {
     if (r.token) {
-      localStorage.setItem("token", r.token);
+      localStorage.setItem('token', r.token);
       console.log(this.jwt.decodeToken(r.token));
       return true;
     } else {
@@ -37,13 +37,13 @@ export class AuthenticationService {
   public adminAuth(username: string, password: string) {
     return this.http
       .post<AuthAnswer>(this.baseUrl + this.authAdminUrl, {
-        username: username,
-        password: password,
+        username,
+        password,
       })
       .pipe(map(r => this.login(r)));
   }
 
   get token() {
-    return localStorage.getItem("token");
+    return localStorage.getItem('token');
   }
 }

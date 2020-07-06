@@ -1,23 +1,23 @@
-import { Component, OnInit } from "@angular/core";
-import { FAppService } from "../core/f-app/f-app.service";
-import { FApp } from "../core/f-app/models/f-app";
+import { Component, OnInit } from '@angular/core';
+import { FAppService } from '../core/f-app/f-app.service';
+import { FApp } from '../core/f-app/models/f-app';
 
 @Component({
-  selector: "app-f-app",
-  templateUrl: "./f-app.page.html",
-  styleUrls: ["./f-app.page.scss"],
+  selector: 'app-f-app',
+  templateUrl: './f-app.page.html',
+  styleUrls: ['./f-app.page.scss'],
 })
 export class FAppPage {
   public fAppList: Array<FApp> = [];
   public fAppKnow: Array<string> = [
-    "Flags",
-    "RandomFlashing",
-    "SweepRand",
-    "SweepAsync",
-    "Tetris",
-    "Snake",
-    "Drawing",
-    "Snap",
+    'Flags',
+    'RandomFlashing',
+    'SweepRand',
+    'SweepAsync',
+    'Tetris',
+    'Snake',
+    'Drawing',
+    'Snap',
   ];
 
   constructor(private fApp: FAppService) {}

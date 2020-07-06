@@ -9,10 +9,10 @@ import { Observable } from 'rxjs';
 })
 export class FAppService {
   private baseUrl = environment.backEndBaseUrl;
-  private listUrl = "/b/apps";
+  private listUrl = '/b/apps';
   constructor(public http: HttpClient) { }
 
-  public getList() :Observable<[FApp]>{
+  public getList(): Observable<[FApp]>{
     return this.http.get<[FApp]>(this.baseUrl + this.listUrl);
   }
 }

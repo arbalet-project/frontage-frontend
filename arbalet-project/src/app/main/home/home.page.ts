@@ -1,12 +1,12 @@
-import { Component, OnInit } from "@angular/core";
-import { ActionSheetController } from "@ionic/angular";
-import { TranslateService, LangChangeEvent } from "@ngx-translate/core";
-import { AdminFormService } from "src/app/core/authentication/admin-form.service";
+import { Component, OnInit } from '@angular/core';
+import { ActionSheetController } from '@ionic/angular';
+import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
+import { AdminFormService } from 'src/app/core/authentication/admin-form.service';
 
 @Component({
-  selector: "app-home",
-  templateUrl: "./home.page.html",
-  styleUrls: ["./home.page.scss"],
+  selector: 'app-home',
+  templateUrl: './home.page.html',
+  styleUrls: ['./home.page.scss'],
 })
 export class HomePage implements OnInit {
   slideOpts = {
@@ -19,20 +19,20 @@ export class HomePage implements OnInit {
   };
 
   images = [
-    { path: "assets/img/slides/1.jpg" },
-    { path: "assets/img/slides/2.jpg" },
-    { path: "assets/img/slides/3.jpg" },
-    { path: "assets/img/slides/4.jpg" },
-    { path: "assets/img/slides/5.jpg" },
-    { path: "assets/img/slides/6.jpg" },
+    { path: 'assets/img/slides/1.jpg' },
+    { path: 'assets/img/slides/2.jpg' },
+    { path: 'assets/img/slides/3.jpg' },
+    { path: 'assets/img/slides/4.jpg' },
+    { path: 'assets/img/slides/5.jpg' },
+    { path: 'assets/img/slides/6.jpg' },
   ];
 
-  public selectedLanguage = "fr";
+  public selectedLanguage = 'fr';
 
   constructor(
     public actionSheet: ActionSheetController,
     public translate: TranslateService,
-    public admin_form: AdminFormService
+    public adminForm: AdminFormService
   ) {}
 
   ngOnInit() {
@@ -42,31 +42,31 @@ export class HomePage implements OnInit {
   }
 
   handleTapEvent() {
-    this.admin_form.activate();
+    this.adminForm.activate();
   }
 
   async changeLanguage() {
     const actionSheet = await this.actionSheet.create({
-      header: "Langues",
+      header: 'Langues',
       buttons: [
         {
-          text: this.translate.instant("language.french"),
-          icon: "flag-sharp",
+          text: this.translate.instant('language.french'),
+          icon: 'flag-sharp',
           handler: () => {
-            this.translate.use("fr");
+            this.translate.use('fr');
           },
         },
         {
-          text: this.translate.instant("language.english"),
-          icon: "flag-sharp",
+          text: this.translate.instant('language.english'),
+          icon: 'flag-sharp',
           handler: () => {
-            this.translate.use("en");
+            this.translate.use('en');
           },
         },
         {
-          text: this.translate.instant("action.cancel"),
-          icon: "close",
-          role: "cancel",
+          text: this.translate.instant('action.cancel'),
+          icon: 'close',
+          role: 'cancel',
         },
       ],
     });

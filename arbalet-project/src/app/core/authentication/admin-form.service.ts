@@ -1,14 +1,14 @@
-import { Injectable } from "@angular/core";
-import { AlertController, NavController } from "@ionic/angular";
-import { TranslateService } from "@ngx-translate/core";
-import { AuthenticationService } from "./authentication.service";
+import { Injectable } from '@angular/core';
+import { AlertController, NavController } from '@ionic/angular';
+import { TranslateService } from '@ngx-translate/core';
+import { AuthenticationService } from './authentication.service';
 
 @Injectable({
-  providedIn: "root",
+  providedIn: 'root',
 })
 export class AdminFormService {
-  private nbActive: number = 0;
-  private nbActiveMax: number = 0;
+  private nbActive = 0;
+  private nbActiveMax = 0;
 
   constructor(
     private alertCtrl: AlertController,
@@ -26,36 +26,36 @@ export class AdminFormService {
   }
 
   public async displayForm() {
-    let alert = await this.alertCtrl.create({
-      header: this.translate.instant("admin_form.title"),
+    const alert = await this.alertCtrl.create({
+      header: this.translate.instant('admin_form.title'),
       inputs: [
         {
-          name: "username",
+          name: 'username',
           placeholder: this.translate.instant(
-            "admin_form.username_placeholder"
+            'admin_form.username_placeholder'
           ),
-          type: "text",
+          type: 'text',
         },
         {
-          name: "password",
-          type: "password",
+          name: 'password',
+          type: 'password',
           placeholder: this.translate.instant(
-            "admin_form.password_placeholder"
+            'admin_form.password_placeholder'
           ),
         },
       ],
       buttons: [
         {
-          text: this.translate.instant("action.cancel"),
+          text: this.translate.instant('action.cancel'),
         },
         {
-          text: this.translate.instant("action.login"),
+          text: this.translate.instant('action.login'),
           handler: (data) => {
             this.auth
               .adminAuth(data.username, data.password)
               .subscribe((res: boolean) => {
                 if (res) {
-                  this.navCtrl.navigateForward("/f-app"); // TODO : NavControl !
+                  this.navCtrl.navigateForward('/f-app'); // TODO : NavControl !
                 } else {
                   // TODO : Error
                 }
