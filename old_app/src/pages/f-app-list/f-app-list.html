@@ -25,7 +25,7 @@
               <ion-thumbnail item-start>
                 <img width="50" height="50" src="assets/img/apps/{{fApp.name}}.svg">
               </ion-thumbnail>
-              {{fApp.name + "_DESCRIPTION" | uppercase | translate}}
+              {{ fApp.name + "_DESCRIPTION" | uppercase | translate}}
             </ion-item>
           </ion-col>
           <ion-col col-2 *ngIf="isAdmin && fApp.name != 'Snap' && !isForced" style="display: flex; align-content: center; align-items: center;">
