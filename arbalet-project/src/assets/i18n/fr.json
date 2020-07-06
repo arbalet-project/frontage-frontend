@@ -28,15 +28,37 @@
   },
   "f_app": {
     "title": "Liste des application frontage",
-    "name": {
-      "Flags": "Drapeaux",
-      "RandomFlashing": "Étincelles",
-      "SweepRand": "Couleurs duelles",
-      "SweepAsync": "Roue des couleurs",
-      "Tetris": "Tetris",
-      "Snake": "Snake",
-      "Drawing": "Dessin libre",
-      "Snap": "Live"
+    "Flags": {
+      "name": "Drapeaux",
+      "description": "Mettez Arbalet Frontage à la couleur de votre pays !"
+    },
+    "RandomFlashing": {
+      "name": "Étincelles",
+      "description": "Faîtes scintiller Arbalet Frontage de façon calme et reposante."
+    },
+    "SweepRand": {
+      "name": "Couleurs duelles",
+      "description": "Animez Arbalet Frontage de deux couleurs duelles."
+    },
+    "SweepAsync": {
+      "name": "Roue des couleurs",
+      "description": "Visualisez toute la roue des couleurs, chaque fenêtre à son rythme."
+    },
+    "Tetris": {
+      "name": "Tetris",
+      "description": "Jouer à l'emblématique Tetris sur une façade géante !"
+    },
+    "Snake": {
+      "name": "Snake",
+      "description": "Incarnez un serpent et mangez des pommes."
+    },
+    "Drawing": {
+      "name": "Dessin libre",
+      "description": "Dessinez sur Arbalet Frontage avec une palette de couleurs."
+    },
+    "Snap": {
+      "name": "Live",
+      "description": "Démarrer un atelier de programmation créative."
     }
   },
   "home": {

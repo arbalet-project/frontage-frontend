@@ -1,10 +1,10 @@
 {
   "action": {
     "cancel": "Cancel",
-    "login" : "Login"
+    "login": "Login"
   },
-  "admin_form" : {
-    "title" : "Login form",
+  "admin_form": {
+    "title": "Login form",
     "username_placeholder": "Username",
     "password_placeholder": "Password"
   },
@@ -28,15 +28,37 @@
   },
   "f_app": {
     "title": "Frontage app list",
-    "name": {
-      "Flags": "Flags",
-      "RandomFlashing": "Sparks",
-      "SweepRand": "Dual colors",
-      "SweepAsync": "Color wheel",
-      "Tetris": "Tetris",
-      "Snake": "Snake",
-      "Drawing": "Freehand Draw",
-      "Snap": "Live"
+    "Flags": {
+      "name": "Flags",
+      "description": "Light Arbalet Frontage to the colors of your country!"
+    },
+    "RandomFlashing": {
+      "name": "Sparks",
+      "description": "Make Arbalet Frontage slowly flashing."
+    },
+    "SweepRand": {
+      "name": "Dual colors",
+      "description": "Animate Arbalet Frontage with dual colors."
+    },
+    "SweepAsync": {
+      "name": "Color wheel",
+      "description": "Display the full color wheel, each window at a different pace."
+    },
+    "Tetris": {
+      "name": "Tetris",
+      "description": "Play this well known arcade game on a giant facade."
+    },
+    "Snake": {
+      "name": "Snake",
+      "description": "Play a Snake and eat apples."
+    },
+    "Drawing": {
+      "name": "Freehand Draw",
+      "description": "Draw on Arbalet Frontage with a colour palette."
+    },
+    "Snap": {
+      "name": "Live",
+      "description": "Learning computer programming with a playful and creative approach by creating your own light animation thanks to this visual programming language."
     }
   },
   "home": {
@@ -47,8 +69,8 @@
     "start_button": "Let's go!"
   },
   "language": {
-    "french" : "French",
-    "english" : "English"
+    "french": "French",
+    "english": "English"
   },
   "outdated": {
     "title": "Upgrade Needed",
