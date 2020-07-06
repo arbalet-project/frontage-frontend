@@ -1,6 +1,7 @@
 {
   "action": {
     "cancel": "Cancel",
+    "disconnect": "Disconnect",
     "login": "Login"
   },
   "admin_form": {

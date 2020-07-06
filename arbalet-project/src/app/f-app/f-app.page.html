@@ -12,3 +12,15 @@
     <app-fapp-item *ngFor="let fApp of fAppList" [fApp]="fApp"></app-fapp-item>
   </ion-list>
 </ion-content>
+
+<ion-footer
+  ><ion-button
+    fill="clear"
+    class="ion-no-margin bg_arbalet"
+    routerLink="/home"
+    expand="full"
+  >
+    {{ "action.disconnect" | translate }}
+    <ion-icon color="success" slot="end" name="power"></ion-icon>
+  </ion-button>
+</ion-footer>

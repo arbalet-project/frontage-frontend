@@ -1,6 +1,7 @@
 {
   "action": {
     "cancel": "Annuler",
+    "disconnect": "Déconnexion",
     "login": "Connection"
   },
   "admin_form": {
