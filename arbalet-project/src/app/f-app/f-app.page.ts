@@ -27,10 +27,9 @@ export class FAppPage {
       fAppList.forEach((fApp) => {
         if (this.fAppKnow.includes(fApp.name)) {
           this.fAppList.push(fApp);
-          console.log(fApp);
         } else {
-          console.log(
-            "This app '" + fApp.name + "' is not know to the frontend, skipping"
+          console.error(
+            `This app '${fApp.name}' is not know to the frontend, skipping`
           );
         }
       });
