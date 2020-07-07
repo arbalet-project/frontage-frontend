@@ -7,6 +7,10 @@ const routes: Routes = [
   {
     path: '',
     component: DrawingPage
+  },
+  {
+    path: 'options',
+    loadChildren: () => import('./options/options.module').then( m => m.OptionsPageModule)
   }
 ];
 
