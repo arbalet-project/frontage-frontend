@@ -23,6 +23,7 @@ export class FAppPage {
   constructor(private fApp: FAppService) {}
 
   ionViewWillEnter() {
+    this.fAppList = [];
     this.fApp.getList().subscribe((fAppList) => {
       fAppList.forEach((fApp) => {
         if (this.fAppKnow.includes(fApp.name)) {
