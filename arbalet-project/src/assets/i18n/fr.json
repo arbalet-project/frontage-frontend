@@ -47,7 +47,11 @@
     },
     "Tetris": {
       "name": "Tetris",
-      "description": "Jouer à l'emblématique Tetris sur une façade géante !"
+      "description": "Jouer à l'emblématique Tetris sur une façade géante !",
+      "options" : {
+        "title" : "Règles du jeu",
+        "rules": "Eliminez le plus possible de colonnes. Les tetrominos tombent de gauche à droite, vous pouvez les faire pivoter avec le bouton d'action. Les pixels du perron, bien qu'inexistants, font partie du jeu."
+      }
     },
     "Snake": {
       "name": "Snake",

@@ -47,7 +47,11 @@
     },
     "Tetris": {
       "name": "Tetris",
-      "description": "Play this well known arcade game on a giant facade."
+      "description": "Play this well known arcade game on a giant facade.",
+      "options": {
+        "title": "Rules of the game",
+        "rules": "Eliminate as much columns as you can. Tetrominos drop from left to right. Use the action button to rotate them. Although door steps of the building are invisible, their pixels are part of the game."
+      }
     },
     "Snake": {
       "name": "Snake",
