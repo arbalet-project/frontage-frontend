@@ -55,7 +55,11 @@
     },
     "Snake": {
       "name": "Snake",
-      "description": "Play a Snake and eat apples."
+      "description": "Play a Snake and eat apples.",
+      "options": {
+        "title": "Rules of the game",
+        "rules": "You will be a red snake eating green apples. You can cross walls, in that case you' be spawned at the other side, but do not eat your tail! Although door steps of the building are invisible, their pixels are part of the game."
+      }
     },
     "Drawing": {
       "name": "Freehand Draw",

@@ -55,7 +55,11 @@
     },
     "Snake": {
       "name": "Snake",
-      "description": "Incarnez un serpent et mangez des pommes."
+      "description": "Incarnez un serpent et mangez des pommes.",
+      "options" : {
+        "title" : "Règles du jeu",
+        "rules": "Incarnez un serpent rouge et mangez les pommes vertes. Vous pouvez traverser les mûrs, dans ce cas vous atterissez de l'autre côté, mais attention à ne pas mordre votre queue ! Les pixels du perron, bien qu'inexistants, font partie du jeu."
+      }
     },
     "Drawing": {
       "name": "Dessin libre",

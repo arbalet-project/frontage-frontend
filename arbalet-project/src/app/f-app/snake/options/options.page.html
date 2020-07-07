@@ -1,9 +1,16 @@
-<ion-header>
+<ion-header translucent>
   <ion-toolbar>
-    <ion-title>options</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button  defaultHref="/f-app"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ "f_app.Snake.options.title" | translate }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-
+<ion-content fullscreen>
+<ion-card>
+  <ion-card-content class="ion-padding">
+    {{"f_app.Snake.options.rules" | translate}}
+  </ion-card-content>
+</ion-card>
 </ion-content>
