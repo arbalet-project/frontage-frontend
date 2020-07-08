@@ -4,6 +4,8 @@ import { environment } from 'src/environments/environment';
 import { AlertController } from '@ionic/angular';
 import { TranslateService } from '@ngx-translate/core';
 import { FrontageService } from 'src/app/core/frontage/frontage.service';
+import { interval, Subscription } from 'rxjs';
+import { startWith } from 'rxjs/operators';
 
 @Component({
   selector: 'app-connection',
@@ -14,30 +16,28 @@ export class ConnectionPage {
   public statusServer = false;
   public message: string;
   public facadeUp = false;
+  public subscribe: Subscription;
 
   constructor(
     private api: HttpService,
     public alertCtrl: AlertController,
     public translate: TranslateService,
     public frontage: FrontageService
-  ) {}
+  ) { }
 
   ionViewWillEnter() {
-    this.update();
-    // if (!this.isServerUp) {
-    //  TODO : Periodically
-    // }
-    console.log('TODO');
+    this.subscribe = interval(2500).pipe(startWith(0)).subscribe(() => this.update());
   }
 
   public update(): void {
     this.api.statusServer().subscribe((status) => {
+      this.subscribe.unsubscribe();
       if (status.protocol_version === environment.protocol_version) {
         this.updateStatus();
       } else {
         this.showOutdated();
       }
-    });
+    }, console.error);
   }
 
   /**

@@ -29,7 +29,7 @@ export class AppComponent {
 
     this.translate.setDefaultLang("fr");
 
-    if (!this.platform.is('mobile')) {
+    if (this.platform.is('mobile')) {
       // Enable plugin to keep screen on
       CapacitorKeepScreenOn.enable();
     }
