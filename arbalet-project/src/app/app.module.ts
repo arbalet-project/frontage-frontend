@@ -38,7 +38,7 @@ export function tokenGetter() {
     JwtModule.forRoot({
       config: {
         tokenGetter,
-        whitelistedDomains: [environment.backEndBaseUrl.split('//')[1]],
+        allowedDomains: [environment.backEndBaseUrl.split('//')[1]],
       },
     }),
     TranslateModule.forRoot({
