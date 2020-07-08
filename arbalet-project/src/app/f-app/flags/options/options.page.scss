@@ -1,0 +1,16 @@
+ion-list {
+    background: transparent !important; 
+
+    ion-list-header {
+        color: white;
+        --background: var(--af-bg-color);
+
+    }
+}
+
+ion-item {
+    color: white;
+    --background: var(--af-bg-color);
+}
+
+// TODO : Move all this in global !

@@ -15,6 +15,10 @@ export class OptionsPage implements OnInit {
   ngOnInit() {
     this.fApp = this.fAppList.findByName('Flags');
     console.log(this.fApp);
+  }$
+
+  onChange(event) {
+   console.log(event.detail.value);
   }
 
 }
