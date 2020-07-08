@@ -15,3 +15,10 @@
     </ion-radio-group>
   </ion-list>
 </ion-content>
+
+<ion-footer>
+  <app-footer-options
+    [name]="fApp.name.toLowerCase()"
+    [disabled]="chooseValue"
+  ></app-footer-options>
+</ion-footer>

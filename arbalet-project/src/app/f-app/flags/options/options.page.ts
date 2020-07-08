@@ -9,7 +9,7 @@ import { FAppListService } from 'src/app/core/f-app/f-app-list.service';
 })
 export class OptionsPage implements OnInit {
   fApp: FApp;
-
+  chooseValue : boolean = true;
   constructor(public fAppList: FAppListService) { }
 
   ngOnInit() {
@@ -19,6 +19,10 @@ export class OptionsPage implements OnInit {
 
   onChange(event) {
    console.log(event.detail.value);
+   this.chooseValue = false;
   }
 
+  start() {
+
+  }
 }

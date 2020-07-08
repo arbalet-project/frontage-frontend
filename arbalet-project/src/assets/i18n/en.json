@@ -152,6 +152,9 @@
     "french": "French",
     "english": "English"
   },
+  "options" : {
+    "start_button" : "Start application"
+  },
   "outdated": {
     "title": "Upgrade Needed",
     "message": "Sorry, the version of your application is outdated. Please update it from your app store and retry."

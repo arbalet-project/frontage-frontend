@@ -9,6 +9,7 @@ import { OptionsPageRoutingModule } from './options-routing.module';
 import { OptionsPage } from './options.page';
 import { TranslateModule } from '@ngx-translate/core';
 import { HeaderOptionsComponent } from '../../components/header-options/header-options.component';
+import { FooterOptionsComponent } from '../../components/footer-options/footer-options.component';
 
 @NgModule({
   imports: [
@@ -18,6 +19,6 @@ import { HeaderOptionsComponent } from '../../components/header-options/header-o
     TranslateModule.forChild(),
     OptionsPageRoutingModule
   ],
-  declarations: [OptionsPage, HeaderOptionsComponent]
+  declarations: [OptionsPage, HeaderOptionsComponent, FooterOptionsComponent]
 })
 export class OptionsPageModule {}
