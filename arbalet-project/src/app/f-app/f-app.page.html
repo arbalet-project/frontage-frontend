@@ -9,7 +9,7 @@
 
 <ion-content fullscreen>
   <ion-list class="ion-margin-top">
-    <app-fapp-item *ngFor="let fApp of fAppList" [fApp]="fApp"></app-fapp-item>
+    <app-fapp-item *ngFor="let fApp of fAppList.getList()" [fApp]="fApp"></app-fapp-item>
   </ion-list>
 </ion-content>
 

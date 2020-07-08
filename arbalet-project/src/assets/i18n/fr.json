@@ -31,7 +31,11 @@
     "title": "Liste des application frontage",
     "Flags": {
       "name": "Drapeaux",
-      "description": "Mettez Arbalet Frontage à la couleur de votre pays !"
+      "description": "Mettez Arbalet Frontage à la couleur de votre pays !",
+      "options" : {
+        "title" : "Choisissez votre drapeau",
+        "list" : "Drapeaux disponibles: "
+      }
     },
     "RandomFlashing": {
       "name": "Étincelles",

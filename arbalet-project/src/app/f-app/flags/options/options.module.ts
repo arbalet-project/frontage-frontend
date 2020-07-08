@@ -7,14 +7,17 @@ import { IonicModule } from '@ionic/angular';
 import { OptionsPageRoutingModule } from './options-routing.module';
 
 import { OptionsPage } from './options.page';
+import { TranslateModule } from '@ngx-translate/core';
+import { HeaderOptionsComponent } from '../../components/header-options/header-options.component';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
+    TranslateModule.forChild(),
     OptionsPageRoutingModule
   ],
-  declarations: [OptionsPage]
+  declarations: [OptionsPage, HeaderOptionsComponent]
 })
 export class OptionsPageModule {}

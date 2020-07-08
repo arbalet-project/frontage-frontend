@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FAppService } from '../core/f-app/f-app.service';
 import { FApp } from '../core/f-app/models/f-app';
+import { FAppListService } from '../core/f-app/f-app-list.service';
 
 @Component({
   selector: 'app-f-app',
@@ -8,7 +9,6 @@ import { FApp } from '../core/f-app/models/f-app';
   styleUrls: ['./f-app.page.scss'],
 })
 export class FAppPage {
-  public fAppList: Array<FApp> = [];
   public fAppKnow: Array<string> = [
     'Flags',
     'RandomFlashing',
@@ -20,10 +20,10 @@ export class FAppPage {
     'Snap',
   ];
 
-  constructor(private fApp: FAppService) {}
+  constructor(private fApp: FAppService, public fAppList : FAppListService) {}
 
   ionViewWillEnter() {
-    this.fAppList = [];
+    this.fAppList.reset();
     this.fApp.getList().subscribe((fAppList) => {
       fAppList.forEach((fApp) => {
         if (this.fAppKnow.includes(fApp.name)) {

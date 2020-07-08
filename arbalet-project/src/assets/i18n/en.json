@@ -31,7 +31,11 @@
     "title": "Frontage app list",
     "Flags": {
       "name": "Flags",
-      "description": "Light Arbalet Frontage to the colors of your country!"
+      "description": "Light Arbalet Frontage to the colors of your country!",
+      "options" : {
+        "title" : "Select your flag",
+        "list" : "Available flags: "
+      }
     },
     "RandomFlashing": {
       "name": "Sparks",
