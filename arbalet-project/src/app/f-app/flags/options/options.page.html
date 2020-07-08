@@ -2,4 +2,16 @@
   <app-header-options [name]="fApp.name"></app-header-options>
 </ion-header>
 
-<ion-content fullscreen> </ion-content>
+<ion-content fullscreen>
+  <ion-list *ngIf="fApp.params_list">
+    <ion-radio-group>
+      <ion-list-header>
+        {{ "f_app." + fApp.name + ".options.list" | translate }}
+      </ion-list-header>
+      <ion-item *ngFor="let parameter of fApp.params_list.flags">
+        <ion-label>{{ "countries." + parameter | translate}}</ion-label>
+        <ion-radio value="{{ parameter }}"></ion-radio>
+      </ion-item>
+    </ion-radio-group>
+  </ion-list>
+</ion-content>
