@@ -7,7 +7,7 @@ import { FApp } from 'src/app/core/f-app/models/f-app';
   styleUrls: ['./fapp-item.component.scss'],
 })
 export class FappItemComponent implements OnInit {
-  @Input() fApp : FApp;
+  @Input() fApp: FApp;
 
   constructor() { }
 

@@ -102,7 +102,8 @@
       "options" : {
         "title" : "Choisissez votre drapeau",
         "list" : "Drapeaux disponibles: "
-      }
+      },
+      "title": ""
     },
     "RandomFlashing": {
       "name": "Étincelles",

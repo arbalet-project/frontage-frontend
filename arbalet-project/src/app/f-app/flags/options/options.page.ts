@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FApp } from 'src/app/core/f-app/models/f-app';
 import { FAppListService } from 'src/app/core/f-app/f-app-list.service';
+import { OptionsService } from 'src/app/core/f-app/options.service';
 
 @Component({
   selector: 'app-options',
@@ -9,16 +10,16 @@ import { FAppListService } from 'src/app/core/f-app/f-app-list.service';
 })
 export class OptionsPage implements OnInit {
   fApp: FApp;
-  chooseValue : boolean = true;
-  constructor(public fAppList: FAppListService) { }
+  chooseValue = true;
+  constructor(public fAppList: FAppListService, public fAppOptions: OptionsService) { }
 
   ngOnInit() {
     this.fApp = this.fAppList.findByName('Flags');
-    console.log(this.fApp);
-  }$
+    this.fAppOptions.name = this.fApp.name;
+  }
 
   onChange(event) {
-   console.log(event.detail.value);
+   this.fAppOptions.parameters.flags = event.detail.value;
    this.chooseValue = false;
   }
 

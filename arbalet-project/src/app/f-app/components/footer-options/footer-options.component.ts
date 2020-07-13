@@ -6,8 +6,8 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./footer-options.component.scss'],
 })
 export class FooterOptionsComponent implements OnInit {
-  @Input() name : string;
-  @Input() disabled : boolean;
+  @Input() name: string;
+  @Input() disabled: boolean;
   constructor() { }
 
   ngOnInit() {}

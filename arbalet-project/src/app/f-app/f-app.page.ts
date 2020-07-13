@@ -20,7 +20,7 @@ export class FAppPage {
     'Snap',
   ];
 
-  constructor(private fApp: FAppService, public fAppList : FAppListService) {}
+  constructor(private fApp: FAppService, public fAppList: FAppListService) {}
 
   ionViewWillEnter() {
     this.fAppList.reset();

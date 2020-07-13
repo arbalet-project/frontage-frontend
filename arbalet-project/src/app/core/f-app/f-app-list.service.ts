@@ -6,26 +6,26 @@ import { element } from 'protractor';
   providedIn: 'root'
 })
 export class FAppListService {
-  private f_app_list: Array<FApp> = [];
+  private fAppList: Array<FApp> = [];
 
   constructor() {
-    this.f_app_list = JSON.parse(localStorage.getItem('fAppList'));
+    this.fAppList = JSON.parse(localStorage.getItem('fAppList'));
    }
 
   getList() {
-    return [...this.f_app_list];
+    return [...this.fAppList];
   }
 
   push(fApp: FApp) {
-    this.f_app_list.push(fApp);
-    localStorage.setItem('fAppList', JSON.stringify(this.f_app_list));
+    this.fAppList.push(fApp);
+    localStorage.setItem('fAppList', JSON.stringify(this.fAppList));
   }
 
   reset() {
-    this.f_app_list = [];
+    this.fAppList = [];
   }
 
-  findByName(name: string) : FApp {
-    return this.f_app_list.find(el => el.name === name)
+  findByName(name: string): FApp {
+    return this.fAppList.find(el => el.name === name);
   }
 }
