@@ -1,4 +1,12 @@
-<p>
-  waiting-page works!
-  {{ "waiting.title" | translate}}
-</p>
+<ion-header translucent>
+  <ion-toolbar>
+    <!-- TODO : Back button -->
+    <ion-title>{{ "waiting.title" | translate }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+  <ion-card>
+    {{ message_key | translate }} {{ submessage }}
+  </ion-card>
+</ion-content>

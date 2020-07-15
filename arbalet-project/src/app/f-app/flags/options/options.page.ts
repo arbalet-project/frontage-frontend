@@ -49,6 +49,10 @@ export class OptionsPage implements OnInit {
           }
         });
 
+        modal.onDidDismiss().then(() => {
+          console.log("test");
+        })
+
         return await modal.present();
       });
   }
