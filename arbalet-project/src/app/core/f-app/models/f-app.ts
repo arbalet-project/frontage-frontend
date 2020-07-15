@@ -3,7 +3,7 @@ export interface FlagParameters {
     flags: string[] | string;
 }
 
-export class FApp {
+export interface FApp {
     name: string;
     activated: boolean;
     playable: boolean;
@@ -15,5 +15,9 @@ export interface ResponseLaunch {
     keep_alive_delay: number;
     queued: boolean;
     remove_previous: boolean;
+}
+
+export interface PositionResponse {
+    position : number
 }
 // tslint:enable:variable-name

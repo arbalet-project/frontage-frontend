@@ -159,5 +159,8 @@
   "outdated": {
     "title": "Mise à jour nécessaire",
     "message": "Désolé, la version de votre application n'est plus à jour avec Arbalet Frontage. Veuillez la mettre à jour depuis le store puis réessayez."
+  },
+  "waiting" : {
+    "title" : "Chargement ..."
   }
 }

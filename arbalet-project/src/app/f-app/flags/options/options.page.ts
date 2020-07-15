@@ -4,6 +4,7 @@ import { FAppListService } from 'src/app/core/f-app/f-app-list.service';
 import { OptionsService } from 'src/app/core/f-app/options.service';
 import { FAppService } from 'src/app/core/f-app/f-app.service';
 import { ModalController } from '@ionic/angular';
+import { WaitingComponent } from '../../components/waiting/waiting.component';
 
 @Component({
   selector: 'app-options',
@@ -31,6 +32,7 @@ export class OptionsPage implements OnInit {
   }
 
   startFApp() {
+    console.log("test");
     this.httpFapp
       .launchFApp({
         name: this.fAppOptions.name,
@@ -38,6 +40,16 @@ export class OptionsPage implements OnInit {
           uapp: this.fAppOptions.parameters.flags,
         },
       })
-      .subscribe((r) => console.log(r));
+      .subscribe(async (r) => {
+        console.log(r);
+        const modal = await this.modal.create({
+          component: WaitingComponent,
+          componentProps: {
+            'info' : r
+          }
+        });
+
+        return await modal.present();
+      });
   }
 }

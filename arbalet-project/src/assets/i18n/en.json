@@ -158,5 +158,8 @@
   "outdated": {
     "title": "Upgrade Needed",
     "message": "Sorry, the version of your application is outdated. Please update it from your app store and retry."
+  },
+  "waiting" : {
+    "title" : "Loading..."
   }
 }

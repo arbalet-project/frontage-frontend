@@ -10,6 +10,7 @@ import { OptionsPage } from './options.page';
 import { TranslateModule } from '@ngx-translate/core';
 import { HeaderOptionsComponent } from '../../components/header-options/header-options.component';
 import { FooterOptionsComponent } from '../../components/footer-options/footer-options.component';
+import { WaitingComponent } from '../../components/waiting/waiting.component';
 
 @NgModule({
   imports: [
@@ -19,6 +20,6 @@ import { FooterOptionsComponent } from '../../components/footer-options/footer-o
     TranslateModule.forChild(),
     OptionsPageRoutingModule
   ],
-  declarations: [OptionsPage, HeaderOptionsComponent, FooterOptionsComponent]
+  declarations: [OptionsPage, HeaderOptionsComponent, FooterOptionsComponent, WaitingComponent]
 })
 export class OptionsPageModule {}
