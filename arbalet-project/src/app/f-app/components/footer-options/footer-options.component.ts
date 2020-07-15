@@ -2,8 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-footer-options',
-  templateUrl: './footer-options.component.html',
-  styleUrls: ['./footer-options.component.scss'],
+  templateUrl: './footer-options.component.html'
 })
 export class FooterOptionsComponent implements OnInit {
   @Input() name: string;
@@ -12,6 +11,6 @@ export class FooterOptionsComponent implements OnInit {
   @Output() launch = new EventEmitter();
   constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
 }
