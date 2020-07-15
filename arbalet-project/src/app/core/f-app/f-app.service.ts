@@ -15,4 +15,7 @@ export class FAppService {
   public getList(): Observable<[FApp]>{
     return this.http.get<[FApp]>(this.baseUrl + this.listUrl);
   }
+
+  public launchFApp(fAppOptions) {
+  }
 }
