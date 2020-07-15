@@ -12,7 +12,7 @@ import { WebsocketService } from 'src/app/core/websocket/websocket.service';
 export class FlagsPage implements OnInit {
   public fApp: FApp;
 
-  constructor(private fAppList: FAppListService, private fAppOptions: OptionsService, public websocket : WebsocketService) { }
+  constructor(private fAppList: FAppListService, private fAppOptions: OptionsService, public websocket: WebsocketService) { }
 
   ngOnInit() {
     this.fApp = this.fAppList.findByName('Flags');

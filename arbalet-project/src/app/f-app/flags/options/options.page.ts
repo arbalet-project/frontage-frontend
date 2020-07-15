@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FApp } from 'src/app/core/f-app/models/f-app';
 import { FAppListService } from 'src/app/core/f-app/f-app-list.service';
 import { OptionsService } from 'src/app/core/f-app/options.service';
+import { FAppService } from 'src/app/core/f-app/f-app.service';
+import { ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-options',
@@ -11,7 +13,12 @@ import { OptionsService } from 'src/app/core/f-app/options.service';
 export class OptionsPage implements OnInit {
   fApp: FApp;
   chooseValue = true;
-  constructor(public fAppList: FAppListService, public fAppOptions: OptionsService) { }
+  constructor(
+    public fAppList: FAppListService,
+    public fAppOptions: OptionsService,
+    public httpFapp: FAppService,
+    public modal: ModalController
+  ) {}
 
   ngOnInit() {
     this.fApp = this.fAppList.findByName('Flags');
@@ -19,11 +26,18 @@ export class OptionsPage implements OnInit {
   }
 
   onChange(event) {
-   this.fAppOptions.parameters.flags = event.detail.value;
-   this.chooseValue = false;
+    this.fAppOptions.parameters.flags = event.detail.value;
+    this.chooseValue = false; // TODO : Change this !
   }
 
-  start() {
-
+  startFApp() {
+    this.httpFapp
+      .launchFApp({
+        name: this.fAppOptions.name,
+        params: {
+          uapp: this.fAppOptions.parameters.flags,
+        },
+      })
+      .subscribe((r) => console.log(r));
   }
 }

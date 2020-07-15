@@ -10,4 +10,10 @@ export class FApp {
     params_list: FlagParameters;
     scheduled: boolean;
 }
+
+export interface ResponseLaunch {
+    keep_alive_delay: number;
+    queued: boolean;
+    remove_previous: boolean;
+}
 // tslint:enable:variable-name

@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class OptionsService {
-  public parameters: any;
+  public parameters: any = {};
   public name: string;
 
   constructor() { }

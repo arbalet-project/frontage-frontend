@@ -20,5 +20,6 @@
   <app-footer-options
     [name]="fApp.name.toLowerCase()"
     [disabled]="chooseValue"
+    (start) = "startFApp()"
   ></app-footer-options>
 </ion-footer>
