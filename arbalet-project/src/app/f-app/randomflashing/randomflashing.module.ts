@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { RandomflashingPageRoutingModule } from './randomflashing-routing.module';
 
 import { RandomflashingPage } from './randomflashing.page';
+import { OptionsPage } from './options/options.page';
 
 @NgModule({
   imports: [
@@ -15,6 +16,6 @@ import { RandomflashingPage } from './randomflashing.page';
     IonicModule,
     RandomflashingPageRoutingModule
   ],
-  declarations: [RandomflashingPage]
+  declarations: [RandomflashingPage, OptionsPage]
 })
 export class RandomflashingPageModule {}
