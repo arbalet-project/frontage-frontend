@@ -18,7 +18,7 @@ const routes: Routes = [
       }
     ]
   },
-  { path: "", redirectTo: "/admin/tabs/settings", pathMatch: "full" },
+  { path: '', redirectTo: '/admin/tabs/settings', pathMatch: 'full' },
 ];
 
 @NgModule({
