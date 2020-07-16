@@ -15,7 +15,12 @@ export class FlagsPage implements OnInit {
   public fApp: FApp;
   public value: string;
 
-  constructor(private fAppList: FAppListService, public websocket: WebsocketService, public nav: NavController, public http: FAppService) { }
+  constructor(
+    private fAppList: FAppListService,
+    public websocket: WebsocketService,
+    public nav: NavController,
+    public http: FAppService
+  ) {}
 
   ngOnInit() {
     this.fApp = this.fAppList.findByName('Flags');
@@ -25,7 +30,7 @@ export class FlagsPage implements OnInit {
   sendOption(event) {
     this.value = event.detail.value;
     const parameters = {
-      flag: this.value
+      flag: this.value,
     };
     this.websocket.sendMessage(parameters);
   }
@@ -39,5 +44,4 @@ export class FlagsPage implements OnInit {
     this.websocket.close();
     this.http.stopApp();
   }
-
 }

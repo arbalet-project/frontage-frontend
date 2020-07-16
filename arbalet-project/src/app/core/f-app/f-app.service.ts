@@ -12,7 +12,7 @@ export class FAppService {
   private listUrl = '/b/apps';
   private launchUrl = '/b/apps/running';
   private positionUrl = '/b/apps/position';
-  private quitUrl = '/b/queue/quit'
+  private quitUrl = '/b/queue/quit';
 
   constructor(public http: HttpClient) { }
 
@@ -33,6 +33,6 @@ export class FAppService {
   }
 
   public stopApp(): void {
-    this.http.get(this.baseUrl + this.quitUrl).subscribe(() => {},e => console.error);
+    this.http.get(this.baseUrl + this.quitUrl).subscribe(() => {}, e => console.error);
   }
 }
