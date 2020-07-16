@@ -27,12 +27,12 @@ export class AdminFormService {
 
   public async displayForm() {
     const alert = await this.alertCtrl.create({
-      header: this.translate.instant('admin_form.title'),
+      header: this.translate.instant('admin.form.title'),
       inputs: [
         {
           name: 'username',
           placeholder: this.translate.instant(
-            'admin_form.username_placeholder'
+            'admin.form.username_placeholder'
           ),
           type: 'text',
         },
@@ -40,7 +40,7 @@ export class AdminFormService {
           name: 'password',
           type: 'password',
           placeholder: this.translate.instant(
-            'admin_form.password_placeholder'
+            'admin.form.password_placeholder'
           ),
         },
       ],

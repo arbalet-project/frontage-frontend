@@ -10,6 +10,12 @@
     "username_placeholder": "Username",
     "password_placeholder": "Password"
   },
+  "admin": {
+    "tabs" : {
+      "settings" : "Settings",
+      "fapp" : "Applications"
+    }
+  },
   "connection": {
     "unreachable": {
       "title": "Connect using Wifi",

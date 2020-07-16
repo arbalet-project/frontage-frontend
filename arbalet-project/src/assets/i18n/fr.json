@@ -5,10 +5,16 @@
     "login": "Connection",
     "stop" : "Quitter"
   },
-  "admin_form": {
-    "title": "Formulaire de connexion",
-    "username_placeholder": "Nom d'utilisateur",
-    "password_placeholder": "Mot de passe"
+  "admin": {
+    "form" : {
+      "title": "Formulaire de connexion",
+      "username_placeholder": "Nom d'utilisateur",
+      "password_placeholder": "Mot de passe"  
+    },
+    "tabs" : {
+      "settings" : "Settings",
+      "fapp" : "Applications"
+    }
   },
   "connection": {
     "unreachable": {

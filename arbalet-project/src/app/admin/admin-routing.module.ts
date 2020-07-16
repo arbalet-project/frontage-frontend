@@ -5,12 +5,12 @@ import { AdminPage } from './admin.page';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'tabs',
     component: AdminPage,
     children: [
       {
-        path: 'params',
-        loadChildren: () => import('./params/params.module').then(m => m.ParamsPageModule)
+        path: 'settings',
+        loadChildren: () => import('./settings/settings.module').then(m => m.SettingsPageModule)
       },
       {
         path: 'f-app',
@@ -18,7 +18,7 @@ const routes: Routes = [
       }
     ]
   },
-
+  { path: "", redirectTo: "/admin/tabs/settings", pathMatch: "full" },
 ];
 
 @NgModule({
