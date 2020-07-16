@@ -9,6 +9,10 @@ import { FlagsPageRoutingModule } from './flags-routing.module';
 import { FlagsPage } from './flags.page';
 import { TranslateModule } from '@ngx-translate/core';
 import { RadioListComponent } from '../components/form/radio-list/radio-list.component';
+import { HeaderOptionsComponent } from '../components/header-options/header-options.component';
+import { FooterOptionsComponent } from '../components/footer-options/footer-options.component';
+import { WaitingComponent } from '../components/waiting/waiting.component';
+import { OptionsPage } from './options/options.page';
 
 @NgModule({
   imports: [
@@ -18,6 +22,6 @@ import { RadioListComponent } from '../components/form/radio-list/radio-list.com
     TranslateModule.forChild(),
     FlagsPageRoutingModule
   ],
-  declarations: [FlagsPage, RadioListComponent]
+  declarations: [FlagsPage, OptionsPage, RadioListComponent, HeaderOptionsComponent, FooterOptionsComponent, WaitingComponent]
 })
 export class FlagsPageModule {}
