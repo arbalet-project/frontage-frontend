@@ -1,13 +1,15 @@
 <ion-header translucent>
   <ion-toolbar>
-    <ion-title
-      >{{ "f_app." + fApp.name + ".name" | translate }}</ion-title
-    >
+    <ion-title>{{ "f_app." + fApp.name + ".name" | translate }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content fullscreen> 
-    
+<ion-content fullscreen>
+  <app-radio-list
+  (ionChange)="sendOption($event)"
+  [list]="fApp.params_list.flags"
+  [keyLabel]="'countries.'"
+></app-radio-list>
 </ion-content>
 
 <ion-footer>

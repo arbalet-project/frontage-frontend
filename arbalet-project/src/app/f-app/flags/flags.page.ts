@@ -12,6 +12,7 @@ import { NavController } from '@ionic/angular';
 })
 export class FlagsPage implements OnInit {
   public fApp: FApp;
+  public value: string;
 
   constructor(private fAppList: FAppListService, public websocket: WebsocketService, public nav: NavController) { }
 
@@ -20,9 +21,14 @@ export class FlagsPage implements OnInit {
     this.websocket.init();
   }
 
-  sendOption() {
+  changeFlag() {
+
+  }
+
+  sendOption(event) {
+    this.value = event.detail.value;
     let params = {
-      flag: "France"
+      flag: this.value
     }
     console.log(params.toString());
     this.websocket.sendMessage(params.toString());

@@ -8,6 +8,7 @@ import { FlagsPageRoutingModule } from './flags-routing.module';
 
 import { FlagsPage } from './flags.page';
 import { TranslateModule } from '@ngx-translate/core';
+import { RadioListComponent } from '../components/form/radio-list/radio-list.component';
 
 @NgModule({
   imports: [
@@ -17,6 +18,6 @@ import { TranslateModule } from '@ngx-translate/core';
     TranslateModule.forChild(),
     FlagsPageRoutingModule
   ],
-  declarations: [FlagsPage]
+  declarations: [FlagsPage, RadioListComponent]
 })
 export class FlagsPageModule {}

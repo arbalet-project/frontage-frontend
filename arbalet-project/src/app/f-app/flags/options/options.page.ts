@@ -14,7 +14,8 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class OptionsPage implements OnInit {
   fApp: FApp;
-  chooseValue = true;
+  defaultValue: string = 'french';
+
   constructor(
     public fAppList: FAppListService,
     public fAppOptions: OptionsService,
@@ -22,7 +23,7 @@ export class OptionsPage implements OnInit {
     public modal: ModalController,
     public alert: AlertController,
     public translate: TranslateService,
-    public nav : NavController
+    public nav: NavController
   ) { }
 
   ngOnInit() {
@@ -32,7 +33,6 @@ export class OptionsPage implements OnInit {
 
   onChange(event) {
     this.fAppOptions.parameters.flags = event.detail.value;
-    this.chooseValue = false; // TODO : Change this !
   }
 
   startFApp() {
@@ -49,10 +49,10 @@ export class OptionsPage implements OnInit {
         });
 
         modal.onDidDismiss().then(async (data) => {
-          let finish : boolean = data.data.ok;
+          let finish: boolean = data.data.ok;
 
-          if(finish) {
-           this.nav.navigateForward('/f-app/flags');
+          if (finish) {
+            this.nav.navigateForward('/f-app/flags');
           } else {
             const alert = await this.alert.create({
               header: this.translate.instant('waiting.kicked.title'),
