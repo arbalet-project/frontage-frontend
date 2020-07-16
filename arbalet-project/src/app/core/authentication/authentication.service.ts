@@ -27,7 +27,6 @@ export class AuthenticationService {
   public login(r: AuthAnswer): boolean {
     if (r.token) {
       localStorage.setItem('token', r.token);
-      console.log(this.jwt.decodeToken(r.token));
       return true;
     } else {
       return false;
@@ -45,5 +44,13 @@ export class AuthenticationService {
 
   get token() {
     return localStorage.getItem('token');
+  }
+
+  get admin() {
+    return this.jwt.decodeToken(this.token).is_admin;
+  }
+
+  get userid() {
+    return this.jwt.decodeToken(this.token).userid;
   }
 }

@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Subscription, interval } from 'rxjs';
+import { Subscription, interval, Observable, of } from 'rxjs';
 import { ModalController } from '@ionic/angular';
 import { FAppService } from 'src/app/core/f-app/f-app.service';
+import { AuthenticationService } from 'src/app/core/authentication/authentication.service';
+import { delay } from 'rxjs/operators';
 
 @Component({
   selector: 'app-waiting',
@@ -15,7 +17,7 @@ export class WaitingComponent implements OnInit {
   private positionSubscription: Subscription;
   private launched: boolean = false;
 
-  constructor(public modal: ModalController, public http: FAppService) { }
+  constructor(public modal: ModalController, public http: FAppService, public auth: AuthenticationService) { }
 
   ngOnInit() {
     this.message_key = "waiting.message.waiting";
@@ -39,7 +41,15 @@ export class WaitingComponent implements OnInit {
   }
 
   startFapp() {
-    this.modal.dismiss();
+    of(true).pipe(delay(1000)).subscribe(() => {
+      this.http.getCurrentFApp().subscribe(res => {
+        if(res.userid == this.auth.userid || (res.is_forced && this.auth.admin)) {
+          this.modal.dismiss({ok : true});
+        } else {
+          this.modal.dismiss({ok : false});
+        }
+      });
+    });
   }
 
   ionViewWillLeave() {

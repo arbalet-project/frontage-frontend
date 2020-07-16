@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { FApp, ResponseLaunch, PositionResponse } from './models/f-app';
+import { FApp, ResponseLaunch, PositionResponse, CurrentFAppResponse } from './models/f-app';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -25,6 +25,9 @@ export class FAppService {
 
   public checkPosition() : Observable<PositionResponse> {
     return this.http.get<PositionResponse>(this.baseUrl + this.positionUrl);
+  }
 
+  public getCurrentFApp() : Observable<CurrentFAppResponse> {
+    return this.http.get<CurrentFAppResponse>(this.baseUrl + this.launchUrl);
   }
 }
