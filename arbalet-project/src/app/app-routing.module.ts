@@ -20,7 +20,7 @@ const routes: Routes = [
     loadChildren: () => import('./f-app/f-app.module').then( m => m.FAppPageModule)
   },
   {
-    path: 'admin/home',
+    path: 'admin',
     loadChildren: () => import('./admin/admin.module').then( m => m.AdminPageModule)
   },
 ];

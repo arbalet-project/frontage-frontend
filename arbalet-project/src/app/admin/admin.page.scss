@@ -1,0 +1,10 @@
+ion-tab-bar {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    --background: var(--af-bg-footer-color);
+  
+    ion-tab-button {
+      --background: transparent;
+    }
+  }

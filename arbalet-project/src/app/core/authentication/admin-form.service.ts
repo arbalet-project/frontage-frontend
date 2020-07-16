@@ -55,7 +55,7 @@ export class AdminFormService {
               .adminAuth(data.username, data.password)
               .subscribe((res: boolean) => {
                 if (res) {
-                  this.navCtrl.navigateForward('/f-app'); // TODO : NavControl !
+                  this.navCtrl.navigateForward('/admin'); // TODO : NavControl !
                 } else {
                   // TODO : Error
                 }

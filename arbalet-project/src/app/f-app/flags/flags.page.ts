@@ -36,7 +36,6 @@ export class FlagsPage implements OnInit {
 
   ionViewDidLeave() {
     // Stop connection.
-    console.log('Bye');
     this.websocket.close();
     this.http.stopApp();
   }
