@@ -8,6 +8,7 @@ import { TetrisPageRoutingModule } from './tetris-routing.module';
 
 import { TetrisPage } from './tetris.page';
 import { TranslateModule } from '@ngx-translate/core';
+import { OptionsPage } from './options/options.page';
 
 @NgModule({
   imports: [
@@ -17,6 +18,6 @@ import { TranslateModule } from '@ngx-translate/core';
     TranslateModule.forChild(),
     TetrisPageRoutingModule
   ],
-  declarations: [TetrisPage]
+  declarations: [TetrisPage, OptionsPage]
 })
 export class TetrisPageModule {}

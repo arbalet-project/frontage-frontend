@@ -8,6 +8,7 @@ import { SnakePageRoutingModule } from './snake-routing.module';
 
 import { SnakePage } from './snake.page';
 import { TranslateModule } from '@ngx-translate/core';
+import { OptionsPage } from './options/options.page';
 
 @NgModule({
   imports: [
@@ -17,6 +18,6 @@ import { TranslateModule } from '@ngx-translate/core';
     TranslateModule.forChild(),
     SnakePageRoutingModule
   ],
-  declarations: [SnakePage]
+  declarations: [SnakePage, OptionsPage]
 })
 export class SnakePageModule {}

@@ -8,6 +8,7 @@ import { AdminPageRoutingModule } from './admin-routing.module';
 
 import { AdminPage } from './admin.page';
 import { TranslateModule } from '@ngx-translate/core';
+import { SettingsPage } from './settings/settings.page';
 
 @NgModule({
   imports: [
@@ -17,6 +18,6 @@ import { TranslateModule } from '@ngx-translate/core';
     AdminPageRoutingModule,
     TranslateModule.forChild()
   ],
-  declarations: [AdminPage]
+  declarations: [AdminPage, SettingsPage]
 })
 export class AdminPageModule {}

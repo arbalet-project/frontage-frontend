@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { DrawingPageRoutingModule } from './drawing-routing.module';
 
 import { DrawingPage } from './drawing.page';
+import { OptionsPage } from './options/options.page';
 
 @NgModule({
   imports: [
@@ -15,6 +16,6 @@ import { DrawingPage } from './drawing.page';
     IonicModule,
     DrawingPageRoutingModule
   ],
-  declarations: [DrawingPage]
+  declarations: [DrawingPage, OptionsPage]
 })
 export class DrawingPageModule {}

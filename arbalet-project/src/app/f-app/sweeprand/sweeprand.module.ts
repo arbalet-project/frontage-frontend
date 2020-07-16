@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { SweeprandPageRoutingModule } from './sweeprand-routing.module';
 
 import { SweeprandPage } from './sweeprand.page';
+import { OptionsPage } from './options/options.page';
 
 @NgModule({
   imports: [
@@ -15,6 +16,6 @@ import { SweeprandPage } from './sweeprand.page';
     IonicModule,
     SweeprandPageRoutingModule
   ],
-  declarations: [SweeprandPage]
+  declarations: [SweeprandPage, OptionsPage]
 })
 export class SweeprandPageModule {}

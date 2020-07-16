@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { SnakePage } from './snake.page';
+import { OptionsPage } from './options/options.page';
 
 const routes: Routes = [
   {
@@ -10,7 +11,7 @@ const routes: Routes = [
   },
   {
     path: 'options',
-    loadChildren: () => import('./options/options.module').then( m => m.OptionsPageModule)
+    component: OptionsPage
   }
 ];
 

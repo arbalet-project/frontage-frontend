@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { SweepasyncPageRoutingModule } from './sweepasync-routing.module';
 
 import { SweepasyncPage } from './sweepasync.page';
+import { OptionsPage } from './options/options.page';
 
 @NgModule({
   imports: [
@@ -15,6 +16,6 @@ import { SweepasyncPage } from './sweepasync.page';
     IonicModule,
     SweepasyncPageRoutingModule
   ],
-  declarations: [SweepasyncPage]
+  declarations: [SweepasyncPage, OptionsPage]
 })
 export class SweepasyncPageModule {}
