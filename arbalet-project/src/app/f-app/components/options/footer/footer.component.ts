@@ -2,7 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-footer-options',
-  templateUrl: './footer-options.component.html'
+  templateUrl: './footer.component.html'
 })
 export class FooterOptionsComponent implements OnInit {
   @Input() name: string;
