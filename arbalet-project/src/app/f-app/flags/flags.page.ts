@@ -21,17 +21,12 @@ export class FlagsPage implements OnInit {
     this.websocket.init();
   }
 
-  changeFlag() {
-
-  }
-
   sendOption(event) {
     this.value = event.detail.value;
-    let params = {
+    let parameters = {
       flag: this.value
-    }
-    console.log(params.toString());
-    this.websocket.sendMessage(params.toString());
+    };
+    this.websocket.sendMessage(parameters);
   }
 
   stopFApp() {
@@ -41,6 +36,7 @@ export class FlagsPage implements OnInit {
   ionViewDidLeave() {
     // Stop connection.
     console.log("Bye");
+    this.websocket.close();
   }
 
 }
