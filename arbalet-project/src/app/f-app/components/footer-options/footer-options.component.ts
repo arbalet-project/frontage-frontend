@@ -8,7 +8,6 @@ export class FooterOptionsComponent implements OnInit {
   @Input() name: string;
   @Input() disabled: boolean;
 
-  @Output() launch = new EventEmitter();
   constructor() { }
 
   ngOnInit() { }
