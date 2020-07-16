@@ -35,21 +35,16 @@ export class OptionsPage implements OnInit {
   }
 
   startFApp() {
-    console.log("test");
     this.httpFapp
       .launchFApp({
         name: this.fAppOptions.name,
         params: {
-          uapp: this.fAppOptions.parameters.flags,
+          uapp: this.fAppOptions.parameters.flags, // TODO : Remove this !
         },
       })
       .subscribe(async (r) => {
-        console.log(r);
         const modal = await this.modal.create({
-          component: WaitingComponent,
-          componentProps: {
-            'info': r
-          }
+          component: WaitingComponent
         });
 
         modal.onDidDismiss().then(async (data) => {
