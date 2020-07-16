@@ -11,9 +11,11 @@
       "username_placeholder": "Nom d'utilisateur",
       "password_placeholder": "Mot de passe"  
     },
-    "tabs" : {
-      "settings" : "Settings",
-      "fapp" : "Applications"
+    "f-app" : {
+      "title" : "Applications"
+    },
+    "settings" : {
+      "title" : "Paramètres"
     }
   },
   "connection": {

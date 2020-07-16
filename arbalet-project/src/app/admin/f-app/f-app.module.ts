@@ -7,12 +7,14 @@ import { IonicModule } from '@ionic/angular';
 import { FAppPageRoutingModule } from './f-app-routing.module';
 
 import { FAppPage } from './f-app.page';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
+    TranslateModule.forChild(),
     FAppPageRoutingModule
   ],
   declarations: [FAppPage]

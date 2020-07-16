@@ -3,17 +3,19 @@
     "cancel": "Cancel",
     "disconnect": "Disconnect",
     "login": "Login",
-    "stop" : "Stop this app"
-  },
-  "admin_form": {
-    "title": "Login form",
-    "username_placeholder": "Username",
-    "password_placeholder": "Password"
+    "stop": "Stop this app"
   },
   "admin": {
-    "tabs" : {
-      "settings" : "Settings",
-      "fapp" : "Applications"
+    "form": {
+      "title": "Login form",
+      "username_placeholder": "Username",
+      "password_placeholder": "Password"
+    },
+    "f-app": {
+      "title": "Applications"
+    },
+    "settings": {
+      "title": "Settings"
     }
   },
   "connection": {
@@ -167,14 +169,14 @@
     "message": "Sorry, the version of your application is outdated. Please update it from your app store and retry."
   },
   "waiting": {
-    "kicked" : {
-      "title" : "Access denied",
-      "message" : "Sorry, you can no longer play."  
+    "kicked": {
+      "title": "Access denied",
+      "message": "Sorry, you can no longer play."
     },
     "message": {
-      "queued" : "You are queued at position: ",
-      "starting" : "Starting...",
-      "waiting" : "Waiting..."
+      "queued": "You are queued at position: ",
+      "starting": "Starting...",
+      "waiting": "Waiting..."
     },
     "title": "Loading..."
   }
