@@ -1,9 +1,6 @@
 <ion-radio-group [value]="defaultValue">
-  <ion-list-header>
-    {{ key_header | translate }} <!-- "f_app." + fApp.name + ".options.list" -->
-  </ion-list-header>
-  <ion-item *ngFor="let el of list"> <!-- fApp.params_list.flags -->
-    <ion-label>{{ keyLabel + el | translate }}</ion-label> <!-- "countries." -->
+  <ion-item *ngFor="let el of list"> 
+    <ion-label>{{ keyLabel + el | translate }}</ion-label>
     <ion-radio slot="start" value="{{ el }}"></ion-radio>
   </ion-item>
 </ion-radio-group>

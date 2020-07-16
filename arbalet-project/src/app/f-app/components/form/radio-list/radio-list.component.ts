@@ -8,7 +8,6 @@ import { Component, OnInit, Input } from '@angular/core';
 export class RadioListComponent {
 
   @Input() defaultValue: string;
-  @Input() keyHeader: string;
   @Input() keyLabel: string;
   @Input() list : string;
 
