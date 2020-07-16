@@ -11,16 +11,15 @@ export class WebsocketService {
 
   connect() {
     this.socket = webSocket({
-      url :environment.webSocketAdress,
-      serializer: (value: any) => JSON.stringify(value),
+      url: environment.webSocketAdress
     });
   }
 
   init() {
     this.connect();
-    this.socket.subscribe((message)=> {
+    this.socket.subscribe((message) => {
       console.log(message);
-    }, err => console.error, () => console.log("finish"));
+    }, err => console.error, () => console.log('finish'));
   }
 
   sendMessage(msg: any) {

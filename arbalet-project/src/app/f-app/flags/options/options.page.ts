@@ -14,7 +14,7 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class OptionsPage implements OnInit {
   fApp: FApp;
-  defaultValue: string = 'french';
+  defaultValue = 'french';
 
   constructor(
     public fAppList: FAppListService,
@@ -49,7 +49,7 @@ export class OptionsPage implements OnInit {
         });
 
         modal.onDidDismiss().then(async (data) => {
-          let finish: boolean = data.data.ok;
+          const finish: boolean = data.data.ok;
 
           if (finish) {
             this.nav.navigateForward('/f-app/flags');
@@ -58,11 +58,11 @@ export class OptionsPage implements OnInit {
               header: this.translate.instant('waiting.kicked.title'),
               message: this.translate.instant('waiting.kicked.message'),
               buttons: ['Ok']
-            })
+            });
 
             await alert.present();
           }
-        })
+        });
 
         return await modal.present();
       });

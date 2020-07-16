@@ -9,7 +9,7 @@ export class RadioListComponent {
 
   @Input() defaultValue: string;
   @Input() keyLabel: string;
-  @Input() list : string;
+  @Input() list: string;
 
   constructor() { }
 }

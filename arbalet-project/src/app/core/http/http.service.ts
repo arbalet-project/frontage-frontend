@@ -11,7 +11,7 @@ import { StatusFacade } from './models/facade';
 })
 export class HttpService {
   private baseUrl = environment.backEndBaseUrl;
-  private statusServerUrl = '/status/is_up'; 
+  private statusServerUrl = '/status/is_up';
   private statusFacadeUrl = '/frontage/status';
 
   constructor(private http: HttpClient) {}

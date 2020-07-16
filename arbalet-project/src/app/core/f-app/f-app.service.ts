@@ -12,7 +12,7 @@ export class FAppService {
   private listUrl = '/b/apps';
   private launchUrl = '/b/apps/running';
   private positionUrl = '/b/apps/position';
-  
+
   constructor(public http: HttpClient) { }
 
   public getList(): Observable<[FApp]>{
@@ -23,11 +23,11 @@ export class FAppService {
     return this.http.post<ResponseLaunch>(this.baseUrl + this.launchUrl, fAppOptions);
   }
 
-  public checkPosition() : Observable<PositionResponse> {
+  public checkPosition(): Observable<PositionResponse> {
     return this.http.get<PositionResponse>(this.baseUrl + this.positionUrl);
   }
 
-  public getCurrentFApp() : Observable<CurrentFAppResponse> {
+  public getCurrentFApp(): Observable<CurrentFAppResponse> {
     return this.http.get<CurrentFAppResponse>(this.baseUrl + this.launchUrl);
   }
 }

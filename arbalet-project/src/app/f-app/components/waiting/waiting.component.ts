@@ -11,16 +11,16 @@ import { delay } from 'rxjs/operators';
   styleUrls: ['./waiting.component.scss'],
 })
 export class WaitingComponent implements OnInit {
-  public message_key: string;
-  public submessage : string;
+  public messageKey: string;
+  public submessage: string;
 
   private positionSubscription: Subscription;
-  private launched: boolean = false;
+  private launched = false;
 
   constructor(public modal: ModalController, public http: FAppService, public auth: AuthenticationService) { }
 
   ngOnInit() {
-    this.message_key = "waiting.message.waiting";
+    this.messageKey = 'waiting.message.waiting';
     this.positionSubscription = interval(500).subscribe(() => {
       this.http.checkPosition().subscribe(r => this.handlePosition(r.position), err => console.error);
     });
@@ -28,14 +28,14 @@ export class WaitingComponent implements OnInit {
 
   handlePosition(position: number) {
     if (position > 0) {
-      this.message_key = "waiting.message.queued";
-      this.submessage = "" + position;
+      this.messageKey = 'waiting.message.queued';
+      this.submessage = '' + position;
     } else {
-      this.submessage = "";
-      this.message_key = "waiting.message.starting"
-      if (!this.launched && position == -1) {
+      this.submessage = '';
+      this.messageKey = 'waiting.message.starting';
+      if (!this.launched && position === -1) {
         this.launched = true;
-        this.startFapp()
+        this.startFapp();
       }
     }
   }
@@ -43,7 +43,7 @@ export class WaitingComponent implements OnInit {
   startFapp() {
     of(true).pipe(delay(1000)).subscribe(() => {
       this.http.getCurrentFApp().subscribe(res => {
-        if(res.userid == this.auth.userid || (res.is_forced && this.auth.admin)) {
+        if (res.userid === this.auth.userid || (res.is_forced && this.auth.admin)) {
           this.modal.dismiss({ok : true});
         } else {
           this.modal.dismiss({ok : false});
