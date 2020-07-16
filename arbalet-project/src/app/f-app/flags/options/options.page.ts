@@ -31,6 +31,7 @@ export class OptionsPage implements OnInit {
   }
 
   onChange(event) {
+    console.log("good !");
     this.fAppOptions.parameters.flags = event.detail.value;
     this.chooseValue = false; // TODO : Change this !
   }

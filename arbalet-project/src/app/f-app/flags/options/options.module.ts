@@ -11,6 +11,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { HeaderOptionsComponent } from '../../components/header-options/header-options.component';
 import { FooterOptionsComponent } from '../../components/footer-options/footer-options.component';
 import { WaitingComponent } from '../../components/waiting/waiting.component';
+import { RadioListComponent } from '../../components/form/radio-list/radio-list.component';
 
 @NgModule({
   imports: [
@@ -20,6 +21,6 @@ import { WaitingComponent } from '../../components/waiting/waiting.component';
     TranslateModule.forChild(),
     OptionsPageRoutingModule
   ],
-  declarations: [OptionsPage, HeaderOptionsComponent, FooterOptionsComponent, WaitingComponent]
+  declarations: [OptionsPage, HeaderOptionsComponent, FooterOptionsComponent, WaitingComponent, RadioListComponent]
 })
 export class OptionsPageModule {}
