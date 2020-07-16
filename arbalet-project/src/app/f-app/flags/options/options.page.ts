@@ -3,7 +3,7 @@ import { FApp } from 'src/app/core/f-app/models/f-app';
 import { FAppListService } from 'src/app/core/f-app/f-app-list.service';
 import { OptionsService } from 'src/app/core/f-app/options.service';
 import { FAppService } from 'src/app/core/f-app/f-app.service';
-import { ModalController, AlertController } from '@ionic/angular';
+import { ModalController, AlertController, NavController } from '@ionic/angular';
 import { WaitingComponent } from '../../components/waiting/waiting.component';
 import { TranslateService } from '@ngx-translate/core';
 
@@ -21,7 +21,8 @@ export class OptionsPage implements OnInit {
     public httpFapp: FAppService,
     public modal: ModalController,
     public alert: AlertController,
-    public translate: TranslateService
+    public translate: TranslateService,
+    public nav : NavController
   ) { }
 
   ngOnInit() {
@@ -51,7 +52,7 @@ export class OptionsPage implements OnInit {
           let finish : boolean = data.data.ok;
 
           if(finish) {
-            // TODO : Go to the page
+           this.nav.navigateForward('/f-app/flags');
           } else {
             const alert = await this.alert.create({
               header: this.translate.instant('waiting.kicked.title'),

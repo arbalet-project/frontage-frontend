@@ -2,7 +2,8 @@
   "action": {
     "cancel": "Cancel",
     "disconnect": "Disconnect",
-    "login": "Login"
+    "login": "Login",
+    "stop" : "Stop this app"
   },
   "admin_form": {
     "title": "Login form",

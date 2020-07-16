@@ -12,6 +12,10 @@ export class WebsocketService {
     this.socket = webSocket(environment.webSocketAdress);
   }
 
+  init() {
+    this.connect();
+  }
+
   sendMessage(msg: any) { // TODO : We can change any maybe
     this.socket.next(msg);
   }

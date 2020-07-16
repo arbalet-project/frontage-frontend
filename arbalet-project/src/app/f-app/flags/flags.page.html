@@ -6,4 +6,13 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content fullscreen> Test </ion-content>
+<ion-content fullscreen> 
+    
+</ion-content>
+
+<ion-footer>
+  <ion-button (click)="stopFApp()">
+    {{ "app.stop" | translate }}
+    <ion-icon slot="end" color="sucess" name="flag"></ion-icon>
+  </ion-button>
+</ion-footer>

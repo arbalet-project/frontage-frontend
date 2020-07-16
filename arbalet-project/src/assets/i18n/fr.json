@@ -2,7 +2,8 @@
   "action": {
     "cancel": "Annuler",
     "disconnect": "Déconnexion",
-    "login": "Connection"
+    "login": "Connection",
+    "stop" : "Quitter"
   },
   "admin_form": {
     "title": "Formulaire de connexion",
