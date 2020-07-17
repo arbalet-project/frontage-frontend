@@ -5,11 +5,5 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './f-app.page.html',
   styleUrls: ['./f-app.page.scss'],
 })
-export class FAppPage implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+export class FAppPage {
 }

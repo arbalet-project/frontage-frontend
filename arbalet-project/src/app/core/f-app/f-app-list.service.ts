@@ -6,11 +6,7 @@ import { element } from 'protractor';
   providedIn: 'root'
 })
 export class FAppListService {
-  private fAppList: Array<FApp> = [];
-
-  constructor() {
-    this.fAppList = JSON.parse(localStorage.getItem('fAppList'));
-   }
+  private fAppList: Array<FApp> = JSON.parse(localStorage.getItem('fAppList'));
 
   getList() {
     return [...this.fAppList];

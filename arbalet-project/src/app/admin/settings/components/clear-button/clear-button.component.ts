@@ -5,10 +5,6 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './clear-button.component.html',
   styleUrls: ['./clear-button.component.scss'],
 })
-export class ClearButtonComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {}
+export class ClearButtonComponent {
 
 }

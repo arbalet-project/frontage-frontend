@@ -6,6 +6,4 @@ import { Injectable } from '@angular/core';
 export class OptionsService {
   public parameters: any = {};
   public name: string;
-
-  constructor() { }
 }

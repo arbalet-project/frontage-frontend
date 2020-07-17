@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FAppListService } from 'src/app/core/f-app/f-app-list.service';
 import { FApp } from 'src/app/core/f-app/models/f-app';
-import { OptionsService } from 'src/app/core/f-app/options.service';
 import { WebsocketService } from 'src/app/core/websocket/websocket.service';
 import { NavController } from '@ionic/angular';
 import { FAppService } from 'src/app/core/api/app.service';

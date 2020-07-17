@@ -3,7 +3,7 @@ import { ApiService } from 'src/app/core/api/api.service';
 import { environment } from 'src/environments/environment';
 import { AlertController } from '@ionic/angular';
 import { TranslateService } from '@ngx-translate/core';
-import { FrontageService } from 'src/app/core/frontage/frontage.service';
+import { State } from 'src/app/core/state/state.service';
 import { interval, Subscription } from 'rxjs';
 import { startWith } from 'rxjs/operators';
 
@@ -22,7 +22,7 @@ export class ConnectionPage {
     private http: ApiService,
     public alertCtrl: AlertController,
     public translate: TranslateService,
-    public frontage: FrontageService
+    public state: State
   ) { }
 
   ionViewWillEnter() {
@@ -46,23 +46,23 @@ export class ConnectionPage {
   public updateStatus(): void {
     this.statusServer = true;
     this.http.statusFacade().subscribe((status) => {
-      this.frontage.height = status.height;
-      this.frontage.width = status.width;
-      this.frontage.disabled = status.disabled;
-      this.frontage.forced = status.is_forced;
-      this.frontage.usable = status.is_usable;
-      this.frontage.state = status.state;
-      this.frontage.nextOnTime = status.next_on_time;
+      this.state.frontage.height = status.height;
+      this.state.frontage.width = status.width;
+      this.state.frontage.disabled = status.disabled;
+      this.state.frontage.forced = status.is_forced;
+      this.state.frontage.usable = status.is_usable;
+      this.state.frontage.state = status.state;
+      this.state.frontage.nextOnTime = status.next_on_time;
       this.updateForm();
     });
   }
 
   public updateForm() {
-    if (this.frontage.state === 'off') {
+    if (this.state.frontage.state === 'off') {
       this.get_translation('connection.message.not_available');
-    } else if (this.frontage.usable) {
+    } else if (this.state.frontage.usable) {
       this.facadeUp = true;
-    } else if (this.frontage.forced) {
+    } else if (this.state.frontage.forced) {
       this.get_translation('connection.message.forced');
     } else {
       this.facadeUp = false;
@@ -81,8 +81,8 @@ export class ConnectionPage {
   }
 
   hourToString(): string {
-    console.log('coucou', this.frontage.nextOnTime);
-    console.log(this.frontage);
+    console.log('coucou', this.state.frontage.nextOnTime);
+    console.log(this.state.frontage);
 
     return '';
   }
