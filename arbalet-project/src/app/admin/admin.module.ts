@@ -9,6 +9,9 @@ import { AdminPageRoutingModule } from './admin-routing.module';
 import { AdminPage } from './admin.page';
 import { TranslateModule } from '@ngx-translate/core';
 import { SettingsPage } from './settings/settings.page';
+import { ListComponent } from './settings/components/list/list.component';
+import { LifetimeComponent } from './settings/components/lifetime/lifetime.component';
+import { ClearButtonComponent } from './settings/components/clear-button/clear-button.component';
 
 @NgModule({
   imports: [
@@ -18,6 +21,6 @@ import { SettingsPage } from './settings/settings.page';
     AdminPageRoutingModule,
     TranslateModule.forChild()
   ],
-  declarations: [AdminPage, SettingsPage]
+  declarations: [AdminPage, SettingsPage, ListComponent, LifetimeComponent, ClearButtonComponent]
 })
 export class AdminPageModule {}

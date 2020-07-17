@@ -15,6 +15,14 @@
       "title": "Applications"
     },
     "settings": {
+      "clear" : "Clear user queue",
+      "label": {
+        "lifetime" : "Lifetime of default apps",
+        "start": "Start time",
+        "stop": "Stop time",
+        "sunset": "Sunset",
+        "sunrise": "Sunrise"
+      },
       "title": "Settings"
     }
   },

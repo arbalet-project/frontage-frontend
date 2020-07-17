@@ -3,19 +3,27 @@
     "cancel": "Annuler",
     "disconnect": "Déconnexion",
     "login": "Connection",
-    "stop" : "Quitter"
+    "stop": "Quitter"
   },
   "admin": {
-    "form" : {
+    "form": {
       "title": "Formulaire de connexion",
       "username_placeholder": "Nom d'utilisateur",
-      "password_placeholder": "Mot de passe"  
+      "password_placeholder": "Mot de passe"
     },
-    "f-app" : {
-      "title" : "Applications"
+    "f-app": {
+      "title": "Applications"
     },
-    "settings" : {
-      "title" : "Paramètres"
+    "settings": {
+      "clear" : "Vider la file d'attente",
+      "label": {
+        "lifetime" : "Durée des applications",
+        "start": "Horaire de démarrage",
+        "stop": "Horaire d'arrêt",
+        "sunset": "Coucher du soleil",
+        "sunrise": "Lever du soleil"
+      },
+      "title": "Paramètres"
     }
   },
   "connection": {
@@ -170,9 +178,9 @@
     "message": "Désolé, la version de votre application n'est plus à jour avec Arbalet Frontage. Veuillez la mettre à jour depuis le store puis réessayez."
   },
   "waiting": {
-    "kicked" : {
-      "title" : "Accès refusé",
-      "message" : "Désolé, vous n'avez plus l'autorisation de jouer."  
+    "kicked": {
+      "title": "Accès refusé",
+      "message": "Désolé, vous n'avez plus l'autorisation de jouer."
     },
     "message": {
       "queued": "Vous êtes dans la file d'attente à la position : ",
