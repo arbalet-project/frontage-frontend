@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FApp } from 'src/app/core/f-app/models/f-app';
-import { FAppListService } from 'src/app/core/f-app/f-app-list.service';
+import { FApp } from 'src/app/core/state/models/f-app';
+import { FAppListService } from 'src/app/core/state/f-app-list.service';
 import { OptionsService } from 'src/app/core/f-app/options.service';
 import { FAppService } from 'src/app/core/api/app.service';
 import { ModalController, AlertController, NavController } from '@ionic/angular';

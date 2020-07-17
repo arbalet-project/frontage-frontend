@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { FApp } from '../f-app/models/f-app';
+import { FApp } from '../state/models/f-app';
 import { Observable } from 'rxjs';
 import { Launch, CurrentFApp, Position } from './models/f-app';
 
