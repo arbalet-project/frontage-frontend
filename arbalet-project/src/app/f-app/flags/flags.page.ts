@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FAppListService } from 'src/app/core/state/f-app-list.service';
 import { FApp } from 'src/app/core/state/models/f-app';
 import { WebsocketService } from 'src/app/core/websocket/websocket.service';
 import { NavController } from '@ionic/angular';
 import { FAppService } from 'src/app/core/api/app.service';
+import { State } from 'src/app/core/state/state.service';
 
 @Component({
   selector: 'app-flags',
@@ -15,14 +15,14 @@ export class FlagsPage implements OnInit {
   public value: string;
 
   constructor(
-    private fAppList: FAppListService,
+    private state: State,
     public websocket: WebsocketService,
     public nav: NavController,
     public http: FAppService
   ) {}
 
   ngOnInit() {
-    this.fApp = this.fAppList.findByName('Flags');
+    this.fApp = this.state.fAppList.findByName('Flags');
     this.websocket.init();
   }
 

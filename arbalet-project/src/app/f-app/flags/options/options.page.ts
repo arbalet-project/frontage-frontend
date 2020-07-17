@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FApp } from 'src/app/core/state/models/f-app';
-import { FAppListService } from 'src/app/core/state/f-app-list.service';
 import { OptionsService } from 'src/app/core/f-app/options.service';
 import { FAppService } from 'src/app/core/api/app.service';
 import { ModalController, AlertController, NavController } from '@ionic/angular';
 import { WaitingComponent } from '../../components/waiting/waiting.component';
 import { TranslateService } from '@ngx-translate/core';
+import { State } from 'src/app/core/state/state.service';
 
 @Component({
   selector: 'app-options',
@@ -17,7 +17,7 @@ export class OptionsPage implements OnInit {
   defaultValue = 'french';
 
   constructor(
-    public fAppList: FAppListService,
+    public state: State,
     public fAppOptions: OptionsService,
     public httpFapp: FAppService,
     public modal: ModalController,
@@ -27,7 +27,7 @@ export class OptionsPage implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.fApp = this.fAppList.findByName('Flags');
+    this.fApp = this.state.fAppList.findByName('Flags');
     this.fAppOptions.name = this.fApp.name;
   }
 

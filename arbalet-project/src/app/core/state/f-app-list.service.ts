@@ -1,27 +1,57 @@
-import { Injectable } from '@angular/core';
 import { FApp } from './models/f-app';
-import { element } from 'protractor';
 
-@Injectable({
-  providedIn: 'root'
-})
-export class FAppListService {
-  private fAppList: Array<FApp> = JSON.parse(localStorage.getItem('fAppList'));
+type fApplist = Array<FApp>;
 
-  getList() {
-    return [...this.fAppList];
+export class FAppList {
+  public keyList = 'fAppList';
+
+  /**
+   * Get the list of all frontage applications.
+   *
+   * @return An array contains all frontage applications.
+   */
+  get list(): fApplist {
+    return localStorage.hasOwnProperty(this.keyList) ? this.getLocalStorage() : [];
   }
 
+  /**
+   * Add a new frontage application in the list.
+   */
   push(fApp: FApp) {
-    this.fAppList.push(fApp);
-    localStorage.setItem('fAppList', JSON.stringify(this.fAppList));
+    this.setLocalStorage([...this.list, fApp]);
   }
 
-  reset() {
-    this.fAppList = [];
-  }
-
+  /**
+   * Find a frontage application by its name.
+   */
   findByName(name: string): FApp {
-    return this.fAppList.find(el => el.name === name);
+    return this.list.find(el => el.name === name);
+  }
+
+  /***********************************************
+   *            LocalStorageHandler
+   ***********************************************/
+
+  /**
+   * Persist in the localStorage the list of all frontage application.
+   *
+   * @param list List of frontage application to persist.
+   */
+  private setLocalStorage(list: fApplist) {
+    localStorage.setItem(this.keyList, JSON.stringify(list));
+  }
+
+  /**
+   * Get the list frontage application persisted in the localStorage.
+   */
+  private getLocalStorage(): fApplist {
+    return JSON.parse(localStorage.getItem(this.keyList));
+  }
+
+  /**
+   * Remove the list of frontage application persisted in the localStorage.
+   */
+  reset() {
+    localStorage.removeItem(this.keyList);
   }
 }

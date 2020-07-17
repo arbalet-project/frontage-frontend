@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { FApp } from 'src/app/core/f-app/models/f-app';
+import { FApp } from 'src/app/core/state/models/f-app';
 
 @Component({
   selector: 'app-fapp-item',
