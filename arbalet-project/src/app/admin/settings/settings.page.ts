@@ -21,11 +21,11 @@ export class SettingsPage implements OnInit {
     this.timeListOptions.set("🌇 " + this.translate.instant("admin.settings.label.sunset"), ["sunset", 0]);
     this.timeListOptions.set("🌅 " + this.translate.instant("admin.settings.label.sunrise"), ["sunrise", 0]);
 
-    // Sunrise 
+    // Sunset 
     this.timeList.forEach(time => this.timeListOptions.set("🌇 - " + time[0], ["sunset", -time[1]]));
     this.timeList.forEach(time => this.timeListOptions.set("🌇 + " + time[0], ["sunset", +time[1]]));
 
-    // Sunset
+    // Sunrise
     this.timeList.forEach(time => this.timeListOptions.set("🌅 - " + time[0], ["sunrise", -time[1]]));
     this.timeList.forEach(time => this.timeListOptions.set("🌅 + " + time[0], ["sunrise", +time[1]]));
 
