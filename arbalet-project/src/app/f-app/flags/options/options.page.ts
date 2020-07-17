@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FApp } from 'src/app/core/f-app/models/f-app';
 import { FAppListService } from 'src/app/core/f-app/f-app-list.service';
 import { OptionsService } from 'src/app/core/f-app/options.service';
-import { FAppService } from 'src/app/core/f-app/f-app.service';
+import { FAppService } from 'src/app/core/api/app.service';
 import { ModalController, AlertController, NavController } from '@ionic/angular';
 import { WaitingComponent } from '../../components/waiting/waiting.component';
 import { TranslateService } from '@ngx-translate/core';

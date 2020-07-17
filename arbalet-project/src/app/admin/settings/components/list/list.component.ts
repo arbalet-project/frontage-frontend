@@ -11,11 +11,11 @@ export class ListComponent implements OnInit {
 
   constructor() {
     console.log(this.list);
-    console.log("blabal")
+    console.log('blabal');
    }
 
   ngOnInit() {
-    console.log("blabal")
+    console.log('blabal');
   }
 
 }

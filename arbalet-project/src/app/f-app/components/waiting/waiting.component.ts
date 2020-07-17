@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription, interval, Observable, of } from 'rxjs';
 import { ModalController } from '@ionic/angular';
-import { FAppService } from 'src/app/core/f-app/f-app.service';
+import { FAppService } from 'src/app/core/api/app.service';
 import { AuthenticationService } from 'src/app/core/authentication/authentication.service';
 import { delay } from 'rxjs/operators';
 

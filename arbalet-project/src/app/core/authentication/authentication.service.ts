@@ -13,8 +13,6 @@ export class AuthenticationService {
   private baseUrl = environment.backEndBaseUrl;
   private authUrl = '/b/login';
   private authAdminUrl = '/b/adminlogin';
-  // private admin: boolean = false;
-  // private username: string;
 
   constructor(private http: HttpClient, private jwt: JwtHelperService) {}
 

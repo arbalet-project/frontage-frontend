@@ -1,5 +1,10 @@
 // tslint:disable:variable-name
-export class StatusFacade {
+export interface Status {
+  is_up: string;
+  protocol_version: number;
+}
+
+export interface StatusFacade {
   current_app: string;
   current_time: string;
   next_on_time: string;

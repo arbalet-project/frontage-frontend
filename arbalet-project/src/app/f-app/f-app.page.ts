@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FAppService } from '../core/f-app/f-app.service';
+import { FAppService } from '../core/api/app.service';
 import { FAppListService } from '../core/f-app/f-app-list.service';
 
 @Component({

@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { FApp, ResponseLaunch, PositionResponse, CurrentFAppResponse } from './models/f-app';
+import { FApp } from '../f-app/models/f-app';
 import { Observable } from 'rxjs';
+import { Launch, CurrentFApp, Position } from './models/f-app';
 
 @Injectable({
   providedIn: 'root'
@@ -20,16 +21,16 @@ export class FAppService {
     return this.http.get<[FApp]>(this.baseUrl + this.listUrl);
   }
 
-  public launchFApp(fAppOptions: any): Observable<ResponseLaunch> { // TODO : remove any
-    return this.http.post<ResponseLaunch>(this.baseUrl + this.launchUrl, fAppOptions);
+  public launchFApp(fAppOptions: any): Observable<Launch> { // TODO : remove any
+    return this.http.post<Launch>(this.baseUrl + this.launchUrl, fAppOptions);
   }
 
-  public checkPosition(): Observable<PositionResponse> {
-    return this.http.get<PositionResponse>(this.baseUrl + this.positionUrl);
+  public checkPosition(): Observable<Position> {
+    return this.http.get<Position>(this.baseUrl + this.positionUrl);
   }
 
-  public getCurrentFApp(): Observable<CurrentFAppResponse> {
-    return this.http.get<CurrentFAppResponse>(this.baseUrl + this.launchUrl);
+  public getCurrentFApp(): Observable<CurrentFApp> {
+    return this.http.get<CurrentFApp>(this.baseUrl + this.launchUrl);
   }
 
   public stopApp(): void {

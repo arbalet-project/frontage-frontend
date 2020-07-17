@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { HttpService } from 'src/app/core/http/http.service';
+import { Component } from '@angular/core';
+import { ApiService } from 'src/app/core/api/api.service';
 import { environment } from 'src/environments/environment';
 import { AlertController } from '@ionic/angular';
 import { TranslateService } from '@ngx-translate/core';
@@ -19,7 +19,7 @@ export class ConnectionPage {
   public subscribe: Subscription;
 
   constructor(
-    private api: HttpService,
+    private http: ApiService,
     public alertCtrl: AlertController,
     public translate: TranslateService,
     public frontage: FrontageService
@@ -30,7 +30,7 @@ export class ConnectionPage {
   }
 
   public update(): void {
-    this.api.statusServer().subscribe((status) => {
+    this.http.statusServer().subscribe((status) => {
       this.subscribe.unsubscribe();
       if (status.protocol_version === environment.protocol_version) {
         this.updateStatus();
@@ -45,7 +45,7 @@ export class ConnectionPage {
    */
   public updateStatus(): void {
     this.statusServer = true;
-    this.api.statusFacade().subscribe((status) => {
+    this.http.statusFacade().subscribe((status) => {
       this.frontage.height = status.height;
       this.frontage.width = status.width;
       this.frontage.disabled = status.disabled;
