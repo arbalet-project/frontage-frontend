@@ -1,8 +1,4 @@
-<ion-header translucent>
-  <app-header-options [name]="fApp.name"></app-header-options>
-</ion-header>
-
-<ion-content fullscreen>
+<app-template [name]="fApp.name" (start)="startFApp()">
   <ion-list *ngIf="fApp.params_list">
     <ion-list-header>
       {{ "f_app." + fApp.name + ".options.list" | translate }}
@@ -15,11 +11,4 @@
     >
     </app-radio-list>
   </ion-list>
-</ion-content>
-
-<ion-footer>
-  <app-footer-options
-    [name]="fApp.name.toLowerCase()"
-    (click)="startFApp()"
-  ></app-footer-options>
-</ion-footer>
+</app-template>

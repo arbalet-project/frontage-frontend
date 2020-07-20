@@ -1,0 +1,28 @@
+<div class="ion-page">
+  <ion-header translucent>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="/f-app"></ion-back-button>
+      </ion-buttons>
+      <ion-title>{{
+        "f_app." + name + ".options.title" | translate
+      }}</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content fullscreen>
+    <ng-content></ng-content>
+  </ion-content>
+
+  <ion-footer translucent>
+    <ion-button
+      fill="clear"
+      class="ion-no-margin"
+      expand="full"
+      (click)="start.emit()"
+    >
+      {{ "options.start_button" | translate }}
+      <ion-icon color="success" slot="end" name="game-controller"></ion-icon>
+    </ion-button>
+  </ion-footer>
+</div>

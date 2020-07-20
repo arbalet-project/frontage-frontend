@@ -11,6 +11,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { RadioListComponent } from '../components/form/radio-list/radio-list.component';
 import { OptionsPage } from './options/options.page';
 import { SharedModule } from '../components/shared.module';
+import { TemplateComponent } from '../components/options/template/template.component';
 
 @NgModule({
   imports: [
@@ -21,6 +22,6 @@ import { SharedModule } from '../components/shared.module';
     TranslateModule.forChild(),
     FlagsPageRoutingModule,
   ],
-  declarations: [FlagsPage, OptionsPage, RadioListComponent]
+  declarations: [FlagsPage, OptionsPage, RadioListComponent, TemplateComponent]
 })
 export class FlagsPageModule {}
