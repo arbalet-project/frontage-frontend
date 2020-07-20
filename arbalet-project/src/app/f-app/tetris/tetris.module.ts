@@ -9,12 +9,14 @@ import { TetrisPageRoutingModule } from './tetris-routing.module';
 import { TetrisPage } from './tetris.page';
 import { TranslateModule } from '@ngx-translate/core';
 import { OptionsPage } from './options/options.page';
+import { SharedModule } from '../components/shared.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
+    SharedModule,
     TranslateModule.forChild(),
     TetrisPageRoutingModule
   ],

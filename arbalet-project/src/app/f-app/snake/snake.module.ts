@@ -9,12 +9,14 @@ import { SnakePageRoutingModule } from './snake-routing.module';
 import { SnakePage } from './snake.page';
 import { TranslateModule } from '@ngx-translate/core';
 import { OptionsPage } from './options/options.page';
+import { SharedModule } from '../components/shared.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
+    SharedModule,
     TranslateModule.forChild(),
     SnakePageRoutingModule
   ],

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FApp } from 'src/app/core/state/models/f-app';
+import { State } from 'src/app/core/state/state.service';
 
 @Component({
   selector: 'app-options',
@@ -6,10 +8,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./options.page.scss'],
 })
 export class OptionsPage implements OnInit {
-
-  constructor() { }
+  public fApp : FApp;
+  constructor(private state : State) { }
 
   ngOnInit() {
+    this.fApp = this.state.fAppList.findByName('Tetris');
+  }
+
+  startFApp() {
+
   }
 
 }
