@@ -6,7 +6,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 })
 export class OptionsComponent {
   @Input() name: string;
-  @Output() start = new EventEmitter();
+  @Output() startFApp = new EventEmitter();
 
   constructor() { }
 }

@@ -1,4 +1,4 @@
-<app-options-template [name]="fApp.name" (start)="startFApp()">
+<app-options-template [name]="fApp.name" (startFApp)="startFApp()">
   <ion-list *ngIf="fApp.params_list">
     <ion-list-header>
       {{ "f_app." + fApp.name + ".options.list" | translate }}

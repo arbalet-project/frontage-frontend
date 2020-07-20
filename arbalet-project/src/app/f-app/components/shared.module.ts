@@ -5,6 +5,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
 import { OptionsComponent } from './options/options.component';
+import { TemplateComponent } from 'src/app/template/template.component';
 
 @NgModule({
     imports: [
@@ -15,7 +16,8 @@ import { OptionsComponent } from './options/options.component';
      ],
     declarations: [
         WaitingComponent,
-        OptionsComponent
+        OptionsComponent,
+        TemplateComponent
     ],
     exports: [
         WaitingComponent,

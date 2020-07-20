@@ -1,9 +1,29 @@
-<ion-header translucent>
-  <ion-toolbar> 
-    <ng-container *ngTemplateOutlet="headerTemplate ?  headerTemplate : defaultHeader"></ng-container>
-  </ion-toolbar>
-</ion-header>
+<div class="ion-page"> 
+  <ion-header translucent>
+    <ion-toolbar>
+      <ng-container
+        *ngTemplateOutlet="headerTemplate ? headerTemplate : defaultHeader"
+      ></ng-container>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content fullscreen>
+    <ng-content></ng-content>
+  </ion-content>
+
+  <ion-footer translucent>
+    <ng-container
+      *ngTemplateOutlet="footerTemplate ? footerTemplate : defaultFooter"
+    ></ng-container>
+  </ion-footer>
+</div>
+
 
 <ng-template #defaultHeader>
-
+  <ion-buttons slot="start">
+    <ion-back-button [defaultHref]="default"></ion-back-button>
+  </ion-buttons>
+  <ion-title>{{ titleKey | translate }}</ion-title>
 </ng-template>
+
+<ng-template #defaultFooter> </ng-template>
