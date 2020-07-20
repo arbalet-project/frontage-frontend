@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { State } from '../core/state/state.service';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-f-app',
@@ -7,5 +6,5 @@ import { State } from '../core/state/state.service';
   styleUrls: ['./f-app.page.scss'],
 })
 export class FAppPage {
-  constructor(public state: State) {}
+  constructor() {}
 }

@@ -1,14 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, TemplateRef } from '@angular/core';
 
 @Component({
   selector: 'app-template',
   templateUrl: './template.component.html',
-  styleUrls: ['./template.component.scss'],
 })
-export class TemplateComponent implements OnInit {
+export class TemplateComponent {
 
-  constructor() { }
+  @Input() headerTemplate: TemplateRef<any>;
 
-  ngOnInit() {}
-
+  constructor() {}
 }

@@ -14,8 +14,8 @@ const routes: Routes = [
         component: SettingsPage
       },
       {
-        path: 'f-app',
-        loadChildren: () => import('./f-app/f-app.module').then(m => m.FAppPageModule)
+        path: 'fapp',
+        loadChildren: () => import('./fapp/fapp.module').then(m => m.FAppPageModule)
       }
     ]
   },

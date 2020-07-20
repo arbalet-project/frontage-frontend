@@ -4,10 +4,11 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { FAppPageRoutingModule } from './f-app-routing.module';
+import { FAppPageRoutingModule } from './fapp-routing.module';
 
-import { FAppPage } from './f-app.page';
+import { FAppPage } from './fapp.page';
 import { TranslateModule } from '@ngx-translate/core';
+import { FappListComponent } from 'src/app/components/fapp-list/fapp-list.component';
 
 @NgModule({
   imports: [
@@ -17,6 +18,6 @@ import { TranslateModule } from '@ngx-translate/core';
     TranslateModule.forChild(),
     FAppPageRoutingModule
   ],
-  declarations: [FAppPage]
+  declarations: [FAppPage, FappListComponent]
 })
 export class FAppPageModule {}

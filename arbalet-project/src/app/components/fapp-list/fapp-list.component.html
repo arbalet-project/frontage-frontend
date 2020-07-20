@@ -1,0 +1,36 @@
+<ion-list>
+  <ng-container
+    *ngFor="let fapp of state.fAppList.list"
+    [ngTemplateOutlet]="adminView !== undefined ? admin : user"
+    [ngTemplateOutletContext]="{ fapp: fapp }"
+  >
+  </ng-container>
+</ion-list>
+
+<ng-template let-fapp="fapp" #user>
+  <ion-item [routerLink]="fapp.name.toLowerCase() + '/options'">
+    <ion-thumbnail slot="start">
+      <img src="assets/icon/apps/{{ fapp.name }}.svg" />
+    </ion-thumbnail>
+    <ion-label>
+      <h2>{{ "f_app." + fapp.name + ".name" | translate }}</h2>
+      <p class="ion-text-wrap">
+        {{ "f_app." + fapp.name + ".description" | translate }}
+      </p>
+    </ion-label>
+  </ion-item>
+</ng-template>
+
+<ng-template let-fapp="fapp" #admin>
+  <ion-item [routerLink]="fapp.name.toLowerCase()">
+    <ion-thumbnail slot="start">
+      <img src="assets/icon/apps/{{ fapp.name }}.svg" />
+    </ion-thumbnail>
+    <ion-label>
+      <h2>{{ "f_app." + fapp.name + ".name" | translate }}</h2>
+      <p class="ion-text-wrap">
+        {{ "f_app." + fapp.name + ".description" | translate }}
+      </p>
+    </ion-label>
+  </ion-item>
+</ng-template>

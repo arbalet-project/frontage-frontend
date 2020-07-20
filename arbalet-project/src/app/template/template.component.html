@@ -1,3 +1,9 @@
-<p>
-  template works!
-</p>
+<ion-header translucent>
+  <ion-toolbar> 
+    <ng-container *ngTemplateOutlet="headerTemplate ?  headerTemplate : defaultHeader"></ng-container>
+  </ion-toolbar>
+</ion-header>
+
+<ng-template #defaultHeader>
+
+</ng-template>
