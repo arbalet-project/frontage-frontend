@@ -7,5 +7,6 @@ import { FAppList } from './f-app-list.service';
 })
 export class State {
   public frontage: Frontage = {} as Frontage;
-  public fAppList: FAppList = new FAppList();
+
+  constructor(public fAppList: FAppList) {}
 }

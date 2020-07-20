@@ -8,8 +8,8 @@ import { State } from 'src/app/core/state/state.service';
   styleUrls: ['./options.page.scss'],
 })
 export class OptionsPage implements OnInit {
-  public fApp : FApp;
-  constructor(private state : State) { }
+  public fApp: FApp;
+  constructor(private state: State) { }
 
   ngOnInit() {
     this.fApp = this.state.fAppList.findByName('Tetris');

@@ -1,9 +1,38 @@
 import { FApp } from './models/f-app';
+import { FAppService } from '../api/app.service';
+import { Injectable } from '@angular/core';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 type fApplist = Array<FApp>;
-
+@Injectable({
+  providedIn: 'root',
+})
 export class FAppList {
   public keyList = 'fAppList';
+  public fAppKnow: Array<string> = [
+    'Flags',
+    'RandomFlashing',
+    'SweepRand',
+    'SweepAsync',
+    'Tetris',
+    'Snake',
+    'Drawing',
+    'Snap',
+  ];
+
+  constructor(public http: FAppService) {
+    this.init();
+  }
+
+  init() {
+    this.reset();
+
+    this.http.getList().subscribe((fAppList) => {
+      this.setLocalStorage(fAppList.filter((fApp) => {
+        return this.fAppKnow.includes(fApp.name);
+      }));
+    });
+  }
 
   /**
    * Get the list of all frontage applications.
@@ -14,12 +43,6 @@ export class FAppList {
     return localStorage.hasOwnProperty(this.keyList) ? this.getLocalStorage() : [];
   }
 
-  /**
-   * Add a new frontage application in the list.
-   */
-  push(fApp: FApp) {
-    this.setLocalStorage([...this.list, fApp]);
-  }
 
   /**
    * Find a frontage application by its name.
