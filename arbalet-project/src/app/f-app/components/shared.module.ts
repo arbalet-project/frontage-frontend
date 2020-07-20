@@ -4,6 +4,7 @@ import { WaitingComponent } from './waiting/waiting.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
+import { OptionsComponent } from './options/options.component';
 
 @NgModule({
     imports: [
@@ -13,10 +14,12 @@ import { FormsModule } from '@angular/forms';
         TranslateModule.forChild(),
      ],
     declarations: [
-        WaitingComponent
+        WaitingComponent,
+        OptionsComponent
     ],
     exports: [
-        WaitingComponent
+        WaitingComponent,
+        OptionsComponent
     ]
 })
 export class SharedModule {}

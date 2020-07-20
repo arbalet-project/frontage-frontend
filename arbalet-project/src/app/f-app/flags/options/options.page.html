@@ -1,4 +1,4 @@
-<app-template [name]="fApp.name" (start)="startFApp()">
+<app-options-template [name]="fApp.name" (start)="startFApp()">
   <ion-list *ngIf="fApp.params_list">
     <ion-list-header>
       {{ "f_app." + fApp.name + ".options.list" | translate }}
@@ -11,4 +11,4 @@
     >
     </app-radio-list>
   </ion-list>
-</app-template>
+</app-options-template>
