@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-flags',
+  selector: 'settings-flags',
   templateUrl: './flags.component.html',
   styleUrls: ['./flags.component.scss'],
 })

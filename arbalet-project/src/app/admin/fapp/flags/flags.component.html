@@ -1,3 +1,21 @@
-<p>
-  flags works!
-</p>
+<ng-template #customHeader>
+  <ion-buttons slot="start">
+    <ion-back-button defaultHref="/admin/tabs/fapp"></ion-back-button>
+  </ion-buttons>
+  <ion-title>{{ "drapeaux" | translate }}</ion-title>
+  <ion-item slot="end">
+    <ion-label>
+      Scheduled
+    </ion-label>
+    <ion-toggle color="success"></ion-toggle>
+  </ion-item>
+</ng-template>
+
+<app-template
+  default="/admin/tabs/fapp"
+  [titleKey]="'f_app.' + '.options.title'"
+  displayFooter="false"
+  [headerTemplate]="customHeader"
+>
+<!-- TODO -->
+</app-template>

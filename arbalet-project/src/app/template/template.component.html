@@ -11,7 +11,7 @@
     <ng-content></ng-content>
   </ion-content>
 
-  <ion-footer translucent>
+  <ion-footer translucent *ngIf="displayFooter === true">
     <ng-container
       *ngTemplateOutlet="footerTemplate ? footerTemplate : defaultFooter"
     ></ng-container>
