@@ -14,7 +14,7 @@ export class FappListComponent implements OnInit {
    }
 
   ngOnInit() {
-    console.log(this.adminView)
+    console.log(this.adminView);
   }
 
 }

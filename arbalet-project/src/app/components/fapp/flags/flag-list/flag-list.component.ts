@@ -9,10 +9,8 @@ import { EventEmitter } from 'events';
   styleUrls: ['./flag-list.component.scss'],
 })
 export class FlagListComponent implements OnInit {
-  @Output() onChange: EventEmitter;
-  
   public fApp: FApp;
-  
+
   constructor(public state: State) { }
 
   ngOnInit() {

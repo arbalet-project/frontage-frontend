@@ -1,22 +1,17 @@
-import { Component, Input, TemplateRef, OnInit } from '@angular/core';
+import { Component, Input, TemplateRef } from '@angular/core';
 
 @Component({
   selector: 'app-template',
   templateUrl: './template.component.html',
 })
-export class TemplateComponent implements OnInit  {
+export class TemplateComponent {
 
   @Input() headerTemplate: TemplateRef<any>;
   @Input() footerTemplate: TemplateRef<any>;
-  @Input() displayFooter: boolean = true;
+  @Input() displayFooter = true;
   @Input() titleKey: string;
   @Input() default: string;
 
   constructor() {
   }
-  ngOnInit() {
-    console.log(this.displayFooter)
-    console.log("test")
-  }
-
 }
