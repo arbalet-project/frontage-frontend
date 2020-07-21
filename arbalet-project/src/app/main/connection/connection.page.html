@@ -3,7 +3,11 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/"></ion-back-button>
     </ion-buttons>
-    <ion-img class="logo" src="assets/img/logo/frontage_white.png"></ion-img>
+    <ion-img
+      (click)="handleTapEvent()"
+      class="logo"
+      src="assets/img/logo/frontage_white.png"
+    ></ion-img>
   </ion-toolbar>
 </ion-header>
 
@@ -11,7 +15,12 @@
   <ion-grid>
     <ion-row>
       <ion-col size="12" size-md="8" offset-md="2">
-        <app-user-form *ngIf="statusServer; else serverUnreachable" [disabled]="facadeUp" [message]="message"> </app-user-form>
+        <app-user-form
+          *ngIf="statusServer; else serverUnreachable"
+          [disabled]="facadeUp"
+          [message]="message"
+        >
+        </app-user-form>
         <ng-template #serverUnreachable>
           <app-server-unreachable></app-server-unreachable>
         </ng-template>

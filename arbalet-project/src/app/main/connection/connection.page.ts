@@ -6,6 +6,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { State } from 'src/app/core/state/state.service';
 import { interval, Subscription } from 'rxjs';
 import { startWith } from 'rxjs/operators';
+import { AdminFormService } from 'src/app/core/authentication/admin-form.service';
 
 @Component({
   selector: 'app-connection',
@@ -22,7 +23,8 @@ export class ConnectionPage {
     private http: ApiService,
     public alertCtrl: AlertController,
     public translate: TranslateService,
-    public state: State
+    public state: State,
+    public adminForm: AdminFormService
   ) { }
 
   ionViewWillEnter() {
@@ -102,5 +104,9 @@ export class ConnectionPage {
           })
           .then((altEl) => altEl.present());
       });
+  }
+
+  public handleTapEvent() {
+    this.adminForm.activate();
   }
 }
