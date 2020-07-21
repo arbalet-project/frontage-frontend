@@ -44,24 +44,29 @@ ion-toolbar {
   color: var(--ion-color-dark-contrast);
 }
 
-ion-footer{
+ion-footer {
   --background: transparent;
   background: var(--af-bg-footer-color);
 }
 
 // ion-card
 ion-card {
-  --background : var(--af-bg-color);
+  --background: var(--af-bg-color);
   color: var(--ion-color-dark-contrast);
 }
 
-ion-card-header, ion-card-content {
+ion-card-header,
+ion-card-content {
   background: transparent !important;
   color: inherit;
 }
 
 ion-list {
-  background: transparent !important; 
+  background: transparent !important;
+}
+
+.list-md {
+  padding: 0;
 }
 
 ion-list-header {
