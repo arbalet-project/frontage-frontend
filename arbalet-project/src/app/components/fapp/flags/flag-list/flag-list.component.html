@@ -1,0 +1,10 @@
+<ion-list>
+  <ion-list-header>
+    {{ "f_app." + fApp.name + ".options.list" | translate }}
+  </ion-list-header>
+  <app-radio-list
+  (ionChange)="this.onChange.emit($event)"
+  [list]="fApp.params_list.flags"
+  [keyLabel]="'countries.'"
+  ></app-radio-list>
+</ion-list>

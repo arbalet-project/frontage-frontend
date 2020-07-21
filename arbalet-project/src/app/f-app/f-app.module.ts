@@ -8,7 +8,6 @@ import { FAppPageRoutingModule } from './f-app-routing.module';
 
 import { FAppPage } from './f-app.page';
 import { TranslateModule } from '@ngx-translate/core';
-import { FappItemComponent } from './components/fapp-item/fapp-item.component';
 import { FappListComponent } from '../components/fapp-list/fapp-list.component';
 
 @NgModule({
@@ -19,6 +18,6 @@ import { FappListComponent } from '../components/fapp-list/fapp-list.component';
     FAppPageRoutingModule,
     TranslateModule.forChild()
   ],
-  declarations: [FAppPage, FappItemComponent, FappListComponent]
+  declarations: [FAppPage, FappListComponent]
 })
 export class FAppPageModule {}

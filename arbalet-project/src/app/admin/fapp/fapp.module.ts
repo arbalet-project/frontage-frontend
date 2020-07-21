@@ -9,9 +9,10 @@ import { FAppPageRoutingModule } from './fapp-routing.module';
 import { FAppPage } from './fapp.page';
 import { TranslateModule } from '@ngx-translate/core';
 import { FappListComponent } from 'src/app/components/fapp-list/fapp-list.component';
-import { SharedModule } from 'src/app/f-app/components/shared.module';
 import { TemplateComponent } from 'src/app/template/template.component';
 import { FlagsComponent } from './flags/flags.component';
+import { FlagListComponent } from 'src/app/components/fapp/flags/flag-list/flag-list.component';
+import { RadioListComponent } from 'src/app/f-app/components/form/radio-list/radio-list.component';
 
 @NgModule({
   imports: [
@@ -21,6 +22,6 @@ import { FlagsComponent } from './flags/flags.component';
     TranslateModule.forChild(),
     FAppPageRoutingModule
   ],
-  declarations: [FAppPage, FappListComponent, TemplateComponent, FlagsComponent]
+  declarations: [FAppPage, FappListComponent, TemplateComponent, FlagsComponent, FlagListComponent, RadioListComponent]
 })
 export class FAppPageModule { }

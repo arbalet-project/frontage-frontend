@@ -1,14 +1,4 @@
 <app-options-template [name]="fApp.name" (startFApp)="startFApp()">
-  <ion-list *ngIf="fApp.params_list">
-    <ion-list-header>
-      {{ "f_app." + fApp.name + ".options.list" | translate }}
-    </ion-list-header>
-    <app-radio-list
-      (ionChange)="onChange($event)"
-      [list]="fApp.params_list.flags"
-      [keyLabel]="'countries.'"
-      [defaultValue]="defaultValue"
-    >
-    </app-radio-list>
-  </ion-list>
+  <app-flag-list>
+  </app-flag-list>
 </app-options-template>
