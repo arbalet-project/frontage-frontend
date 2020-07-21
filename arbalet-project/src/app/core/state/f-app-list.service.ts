@@ -21,10 +21,10 @@ export class FAppList {
   ];
 
   constructor(public http: FAppService) {
-    this.init();
+    this.updateList();
   }
 
-  init() {
+  private updateList() {
     this.reset();
 
     this.http.getList().subscribe((fAppList) => {
@@ -32,6 +32,10 @@ export class FAppList {
         return this.fAppKnow.includes(fApp.name);
       }));
     });
+  }
+
+  public update() {
+    this.updateList();
   }
 
   /**
