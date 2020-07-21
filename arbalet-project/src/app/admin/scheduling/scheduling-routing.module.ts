@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { FAppPage } from './fapp.page';
+import { SchedulingPage } from './scheduling.page';
 import { FlagsComponent } from './flags/flags.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: FAppPage,
+    component: SchedulingPage,
   },
   {
     path: 'flags',

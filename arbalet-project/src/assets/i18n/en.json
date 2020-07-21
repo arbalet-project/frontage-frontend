@@ -6,13 +6,16 @@
     "stop": "Stop this app"
   },
   "admin": {
+    "fapp" : {
+      "title" : "Applications"
+    },
     "form": {
       "title": "Login form",
       "username_placeholder": "Username",
       "password_placeholder": "Password"
     },
-    "f-app": {
-      "title": "Applications"
+    "scheduling": {
+      "title": "Scheduling"
     },
     "settings": {
       "clear" : "Clear user queue",

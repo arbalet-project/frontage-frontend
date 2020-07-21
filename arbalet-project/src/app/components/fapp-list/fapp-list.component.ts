@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { State } from 'src/app/core/state/state.service';
 
 @Component({
@@ -6,15 +6,11 @@ import { State } from 'src/app/core/state/state.service';
   templateUrl: './fapp-list.component.html',
   styleUrls: ['./fapp-list.component.scss'],
 })
-export class FappListComponent implements OnInit {
+export class FappListComponent {
 
   @Input() adminView;
 
   constructor(public state: State) {
    }
-
-  ngOnInit() {
-    console.log(this.adminView);
-  }
 
 }

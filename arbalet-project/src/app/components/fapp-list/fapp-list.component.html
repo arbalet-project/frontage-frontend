@@ -8,7 +8,7 @@
 </ion-list>
 
 <ng-template let-fapp="fapp" #user>
-  <ion-item [routerLink]="fapp.name.toLowerCase() + '/options'">
+  <ion-item [routerLink]=' "/f-app/" + fapp.name.toLowerCase() + "/options"'>
     <ion-thumbnail slot="start">
       <img src="assets/icon/apps/{{ fapp.name }}.svg" />
     </ion-thumbnail>
@@ -22,7 +22,7 @@
 </ng-template>
 
 <ng-template let-fapp="fapp" #admin>
-  <ion-item [routerLink]="fapp.name.toLowerCase()">
+  <ion-item [routerLink]='"/admin/tabs/scheduling/" + fapp.name.toLowerCase()'>
     <ion-thumbnail slot="start">
       <img src="assets/icon/apps/{{ fapp.name }}.svg" />
     </ion-thumbnail>

@@ -6,13 +6,16 @@
     "stop": "Quitter"
   },
   "admin": {
+    "fapp" : {
+      "title" : "Applications"
+    },
     "form": {
       "title": "Formulaire de connexion",
       "username_placeholder": "Nom d'utilisateur",
       "password_placeholder": "Mot de passe"
     },
-    "f-app": {
-      "title": "Applications"
+    "scheduling": {
+      "title": "Ordonnancement"
     },
     "settings": {
       "clear" : "Vider la file d'attente",

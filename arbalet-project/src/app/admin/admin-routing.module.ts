@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { AdminPage } from './admin.page';
 import { SettingsPage } from './settings/settings.page';
+import { FappComponent } from './fapp/fapp.component';
 
 const routes: Routes = [
   {
@@ -14,8 +15,12 @@ const routes: Routes = [
         component: SettingsPage
       },
       {
+        path: 'scheduling',
+        loadChildren: () => import('./scheduling/scheduling.module').then(m => m.SchedulingPageModule)
+      },
+      {
         path: 'fapp',
-        loadChildren: () => import('./fapp/fapp.module').then(m => m.FAppPageModule)
+        component: FappComponent
       }
     ]
   },
