@@ -7,7 +7,7 @@ import { AuthenticationService } from '../authentication.service';
   providedIn: 'root'
 })
 export class UserGuard implements CanActivate, CanActivateChild {
-  constructor(public auth : AuthenticationService, public router: Router) {}
+  constructor(public auth: AuthenticationService, public router: Router) {}
 
   canActivate(
     next: ActivatedRouteSnapshot,
@@ -19,8 +19,8 @@ export class UserGuard implements CanActivate, CanActivateChild {
       return false;
     }
   }
- 
-  
+
+
   canActivateChild(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
