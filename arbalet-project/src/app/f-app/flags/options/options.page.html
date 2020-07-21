@@ -1,4 +1,4 @@
 <app-options-template [name]="fApp.name" (startFApp)="startFApp()">
-  <app-flag-list>
+  <app-flag-list (ionChange)="onChange($event)">
   </app-flag-list>
 </app-options-template>
