@@ -10,12 +10,12 @@ import { TranslateService } from '@ngx-translate/core';
 import { ToastController } from '@ionic/angular';
 
 enum CODE {
-  CLOSE_APP = "1",
-  GAME_OVER = "2",
-  EXPIRE = "3",
-  EXPIRE_SOON = "4",
-  TETRIS_CLEARED_ROW = "10",
-  SNAKE_ATE_APPLE = "11",
+  CLOSE_APP = 1,
+  GAME_OVER = 2,
+  EXPIRE = 3,
+  EXPIRE_SOON = 4,
+  TETRIS_CLEARED_ROW = 10,
+  SNAKE_ATE_APPLE = 11,
 }
 
 @Injectable({
@@ -71,6 +71,7 @@ export class WebsocketService {
       case CODE.CLOSE_APP:
         break;
       default:
+        console.error("error");
       // TODO
     }
   }
