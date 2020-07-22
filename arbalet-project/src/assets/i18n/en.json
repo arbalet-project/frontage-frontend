@@ -172,6 +172,9 @@
     "french": "French",
     "english": "English"
   },
+  "message" : {
+    "expire_soon" : "Your turn might end soon"
+  },
   "options": {
     "start_button": "Start application"
   },
