@@ -21,7 +21,7 @@ export interface CurrentFApp {
     last_alive: number;
     name: string;
     params: {
-        'uApp': string; // TODO change to flags or another.
+        uapp: string; // TODO change to flags or another.
     };
     position: number;
     started_at: string;

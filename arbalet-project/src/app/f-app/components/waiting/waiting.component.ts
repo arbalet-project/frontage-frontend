@@ -41,15 +41,7 @@ export class WaitingComponent implements OnInit {
   }
 
   startFapp() {
-    of(true).pipe(delay(1000)).subscribe(() => {
-      this.http.getCurrentFApp().subscribe(res => {
-        if (res.userid === this.auth.userid || (res.is_forced && this.auth.admin)) {
-          this.modal.dismiss({ok : true});
-        } else {
-          this.modal.dismiss({ok : false});
-        }
-      });
-    });
+    this.modal.dismiss({ok : true});
   }
 
   ionViewWillLeave() {

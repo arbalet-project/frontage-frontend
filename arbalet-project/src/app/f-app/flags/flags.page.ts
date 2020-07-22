@@ -4,6 +4,7 @@ import { WebsocketService } from 'src/app/core/websocket/websocket.service';
 import { NavController } from '@ionic/angular';
 import { FAppService } from 'src/app/core/api/app.service';
 import { State } from 'src/app/core/state/state.service';
+import { AuthenticationService } from 'src/app/core/authentication/authentication.service';
 
 @Component({
   selector: 'app-flags',
@@ -12,24 +13,35 @@ import { State } from 'src/app/core/state/state.service';
 })
 export class FlagsPage implements OnInit {
   public fApp: FApp;
-  public value: string;
+  public defaultValue : string;
 
   constructor(
     private state: State,
     public websocket: WebsocketService,
     public nav: NavController,
-    public http: FAppService
+    public http: FAppService,
+    public auth: AuthenticationService
   ) {}
 
   ngOnInit() {
     this.fApp = this.state.fAppList.findByName('Flags');
     this.websocket.init();
+    this.start();
+  }
+
+  start() {
+    this.http.getCurrentFApp().subscribe(res => {
+        if (res.userid === this.auth.userid || (res.is_forced && this.auth.admin)) {
+          this.defaultValue = res.params.uapp
+        } else {
+          // Leaving this and ...
+        }
+      });
   }
 
   sendOption(event) {
-    this.value = event.detail.value;
     const parameters = {
-      flag: this.value,
+      flag: event.detail.value
     };
     this.websocket.sendMessage(parameters);
   }
