@@ -30,4 +30,8 @@ export interface CurrentFApp {
     userid: string;
     username: string;
 }
+
+export interface KeepAlive {
+    keepAlive : boolean
+}
 // tslint:enable:variable-name

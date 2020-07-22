@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { FApp } from '../state/models/f-app';
 import { Observable } from 'rxjs';
-import { Launch, CurrentFApp, Position } from './models/f-app';
+import { Launch, CurrentFApp, Position, KeepAlive } from './models/f-app';
 
 @Injectable({
   providedIn: 'root'
@@ -14,8 +14,9 @@ export class FAppService {
   private launchUrl = '/b/apps/running';
   private positionUrl = '/b/apps/position';
   private quitUrl = '/b/queue/quit';
+  private keepUrl = '/b/apps/iamalive';
 
-  constructor(public http: HttpClient) { }
+  constructor(private http: HttpClient) { }
 
   public getList(): Observable<[FApp]>{
     return this.http.get<[FApp]>(this.baseUrl + this.listUrl);
@@ -35,5 +36,9 @@ export class FAppService {
 
   public stopApp(): void {
     this.http.get(this.baseUrl + this.quitUrl).subscribe(() => {}, e => console.error);
+  }
+
+  public keepAlive() : Observable<KeepAlive> {
+    return this.http.post<KeepAlive>(this.baseUrl + this.keepUrl, "heartbeat");
   }
 }

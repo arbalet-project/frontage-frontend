@@ -10,8 +10,13 @@
 </ion-content>
 
 <ion-footer>
-  <ion-button (click)="stopFApp()">
-    {{ "app.stop" | translate }}
+  <ion-button
+    fill="clear"
+    class="ion-no-margin"
+    expand="full"
+    (click)="stopFApp()"
+  >
+    {{ "action.stop" | translate }}
     <ion-icon slot="end" color="success" name="flag"></ion-icon>
   </ion-button>
 </ion-footer>
