@@ -1,4 +1,4 @@
-import { Component, OnInit, Output } from '@angular/core';
+import { Component, OnInit, Output, Input } from '@angular/core';
 import { FApp } from 'src/app/core/state/models/f-app';
 import { State } from 'src/app/core/state/state.service';
 import { EventEmitter } from 'events';
@@ -10,6 +10,8 @@ import { EventEmitter } from 'events';
 })
 export class FlagListComponent implements OnInit {
   public fApp: FApp;
+
+  @Input() defaultValue: string;
 
   constructor(public state: State) { }
 

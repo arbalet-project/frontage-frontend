@@ -26,7 +26,6 @@ export class AuthenticationService {
   public login(r: AuthAnswer): boolean {
     if (r.token) {
       localStorage.setItem('token', r.token);
-      console.log("test")
       this.state.fAppList.update();
       return true;
     } else {

@@ -73,3 +73,11 @@ ion-list-header {
   color: white;
   --background: var(--af-bg-color);
 }
+
+/**********************************************
+ *                    FORMS                   *
+ **********************************************/
+
+.button_green:hover {
+  background: var(--ion-color-secondary);
+}

@@ -1,7 +1,7 @@
 {
   "action": {
     "cancel": "Annuler",
-    "disconnect": "Déconnexion",
+    "disconnect": "Se déconnecter",
     "login": "Connection",
     "stop": "Quitter"
   },
@@ -115,7 +115,7 @@
     "yemen": "Yémen"
   },
   "f_app": {
-    "title": "Liste des applications frontage",
+    "title": "Sélectionnez une application",
     "Flags": {
       "name": "Drapeaux",
       "description": "Mettez Arbalet Frontage à la couleur de votre pays !",

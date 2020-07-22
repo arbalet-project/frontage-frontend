@@ -22,6 +22,7 @@ import { HomePage } from './main/home/home.page';
 import { ConnectionPage } from './main/connection/connection.page';
 import { ServerUnreachableComponent } from './main/connection/components/server-unreachable/server-unreachable.component';
 import { UserFormComponent } from './main/connection/components/user-form/user-form.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -52,6 +53,7 @@ export function tokenGetter() {
         deps: [HttpClient],
       },
     }),
+    ReactiveFormsModule
   ],
   providers: [
     StatusBar,

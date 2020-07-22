@@ -1,7 +1,7 @@
 {
   "action": {
     "cancel": "Cancel",
-    "disconnect": "Disconnect",
+    "disconnect": "Logout",
     "login": "Login",
     "stop": "Stop this app"
   },
@@ -115,7 +115,7 @@
     "yemen": "Yemen"
   },
   "f_app": {
-    "title": "Frontage app list",
+    "title": "Select an application",
     "Flags": {
       "description": "Light Arbalet Frontage to the colors of your country!",
       "name": "Flags",

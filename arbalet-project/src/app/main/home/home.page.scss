@@ -1,20 +1,16 @@
 .logo {
-    height: 3rem;
-    width: 16rem;
-}
-
-ion-button:hover {
-    background: green;
+  height: 3rem;
+  width: 16rem;
 }
 
 .flag {
-    border-radius: 5px !important;
-    overflow: hidden;
+  border-radius: 5px !important;
+  overflow: hidden;
 }
 
-@media(min-width: 768px) {
-    .flag {
-        width: 40%;
-        height: 70%;
-    }
+@media (min-width: 768px) {
+  .flag {
+    width: 40%;
+    height: 70%;
+  }
 }
