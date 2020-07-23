@@ -2,7 +2,7 @@
   <ion-header translucent>
     <ion-toolbar>
       <ng-container
-        *ngTemplateOutlet="headerTemplate ? headerTemplate : defaultHeader"
+        *ngTemplateOutlet="headerTemplate ? headerTemplate : titleBackHeader"
       ></ng-container>
     </ion-toolbar>
   </ion-header>
@@ -18,12 +18,25 @@
   </ion-footer>
 </div>
 
+<ng-template #titleHeader>
+  <ion-title>{{ titleKey | translate }}</ion-title>
+</ng-template>
 
-<ng-template #defaultHeader>
+<ng-template #titleBackHeader>
   <ion-buttons slot="start">
     <ion-back-button [defaultHref]="default"></ion-back-button>
   </ion-buttons>
   <ion-title>{{ titleKey | translate }}</ion-title>
 </ng-template>
 
-<ng-template #defaultFooter> </ng-template>
+<ng-template #defaultFooter>
+  <ion-button
+  fill="clear"
+  class="ion-no-margin"
+  expand="full"
+  (click)="clickButton.emit()"
+>
+  {{ footerKey | translate }}
+  <ion-icon slot="end" color="success" [name]="footerIcon"></ion-icon>
+</ion-button>
+</ng-template>

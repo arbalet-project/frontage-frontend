@@ -21,7 +21,8 @@ import { TemplateComponent } from 'src/app/template/template.component';
     ],
     exports: [
         WaitingComponent,
-        OptionsComponent
+        OptionsComponent,
+        TemplateComponent
     ]
 })
 export class SharedModule {}

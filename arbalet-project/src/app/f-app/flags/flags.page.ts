@@ -9,8 +9,7 @@ import { OptionsService } from 'src/app/core/f-app/options.service';
 
 @Component({
   selector: 'app-flags',
-  templateUrl: './flags.page.html',
-  styleUrls: ['./flags.page.scss'],
+  templateUrl: './flags.page.html'
 })
 export class FlagsPage implements OnInit {
   public fApp: FApp;

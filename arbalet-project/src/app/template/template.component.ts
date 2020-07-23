@@ -1,4 +1,4 @@
-import { Component, Input, TemplateRef } from '@angular/core';
+import { Component, Input, TemplateRef, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-template',
@@ -7,10 +7,15 @@ import { Component, Input, TemplateRef } from '@angular/core';
 export class TemplateComponent {
 
   @Input() headerTemplate: TemplateRef<any>;
-  @Input() footerTemplate: TemplateRef<any>;
-  @Input() displayFooter = true;
   @Input() titleKey: string;
   @Input() default: string;
+
+  @Input() footerTemplate: TemplateRef<any>;
+  @Input() displayFooter = true;
+  @Input() footerKey: string;
+  @Input() footerIcon: string;
+  
+  @Output() clickButton = new EventEmitter();
 
   constructor() {
   }

@@ -1,22 +1,9 @@
-<ion-header translucent>
-  <ion-toolbar>
-    <ion-title>{{ "f_app." + fApp.name + ".name" | translate }}</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content fullscreen>
+<app-template
+  [titleKey]='"f_app." + fApp.name + ".name"'
+  (clickButton)="stopFApp()"
+  footerKey="action.stop"
+  footerIcon="flag"
+>
   <app-flag-list (ionChange)="sendOption($event)" [defaultValue]="defaultValue">
   </app-flag-list>
-</ion-content>
-
-<ion-footer>
-  <ion-button
-    fill="clear"
-    class="ion-no-margin"
-    expand="full"
-    (click)="stopFApp()"
-  >
-    {{ "action.stop" | translate }}
-    <ion-icon slot="end" color="success" name="flag"></ion-icon>
-  </ion-button>
-</ion-footer>
+</app-template>
