@@ -16,6 +16,7 @@ export class OptionsPage implements OnInit {
   }
 
   startFApp() {
+    console.log("test");
     this.options.startFapp({
       name: this.fApp.name,
     }, '/f-app/tetris');
