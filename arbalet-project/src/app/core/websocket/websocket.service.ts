@@ -120,6 +120,7 @@ export class WebsocketService {
     const alert = await this.alert.create({
       header: this.translate.instant(key + '.title'),
       message: this.translate.instant(key + '.message'),
+      backdropDismiss : true,
       buttons: [
         {
           text: 'Ok',

@@ -4,18 +4,21 @@ import { ModalController, AlertController } from '@ionic/angular';
 import { WaitingComponent } from 'src/app/f-app/components/waiting/waiting.component';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
+import { CurrentFApp } from '../api/models/f-app';
 
 @Injectable({
   providedIn: 'root',
 })
 export class OptionsService {
 
+  public current : CurrentFApp; 
+
   constructor(
     public http: FAppService,
     public modal: ModalController,
     public alert: AlertController,
     public router: Router,
-    public translate: TranslateService
+    public translate: TranslateService,
   ) { }
 
   startFapp(parameters: any, url: string) {
@@ -27,7 +30,8 @@ export class OptionsService {
       modal.onDidDismiss().then(async ({ data }) => {
         if (data.ok) {
           this.router.navigateByUrl(url);
-        } else {
+        } 
+        else if(data.kicked) {
           const alert = await this.alert.create({
             header: this.translate.instant('waiting.kicked.title'),
             message: this.translate.instant('waiting.kicked.message'),
@@ -36,7 +40,7 @@ export class OptionsService {
 
           await alert.present();
         }
-      });
+      })
 
       return await modal.present();
     });

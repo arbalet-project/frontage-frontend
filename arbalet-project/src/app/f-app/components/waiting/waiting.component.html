@@ -6,7 +6,12 @@
 </ion-header>
 
 <ion-content fullscreen>
-  <ion-card>
-    {{ messageKey | translate }} {{ submessage }}
-  </ion-card>
+  <ion-card> {{ messageKey | translate }} {{ submessage }} </ion-card>
 </ion-content>
+
+<ion-footer>
+  <ion-button fill="clear" class="ion-no-margin" expand="full" (click)="stop()">
+    {{ "action.stop" | translate }}
+    <ion-icon slot="end" color="success" name="log-out-outline"></ion-icon>
+  </ion-button>
+</ion-footer>

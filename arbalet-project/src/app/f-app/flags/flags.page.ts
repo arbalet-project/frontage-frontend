@@ -5,6 +5,7 @@ import { NavController } from '@ionic/angular';
 import { FAppService } from 'src/app/core/api/app.service';
 import { State } from 'src/app/core/state/state.service';
 import { AuthenticationService } from 'src/app/core/authentication/authentication.service';
+import { OptionsService } from 'src/app/core/f-app/options.service';
 
 @Component({
   selector: 'app-flags',
@@ -20,23 +21,14 @@ export class FlagsPage implements OnInit {
     public websocket: WebsocketService,
     public nav: NavController,
     public http: FAppService,
-    public auth: AuthenticationService
+    public auth: AuthenticationService,
+    public options: OptionsService
   ) {}
 
   ngOnInit() {
     this.fApp = this.state.fAppList.findByName('Flags');
     this.websocket.init();
-    this.start();
-  }
-
-  start() {
-    this.http.getCurrentFApp().subscribe(res => {
-        if (res.userid === this.auth.userid || (res.is_forced && this.auth.admin)) {
-          this.defaultValue = res.params.uapp;
-        } else {
-          // Leaving this and ...
-        }
-      });
+    this.defaultValue = this.options.current.params.uapp;
   }
 
   sendOption(event) {

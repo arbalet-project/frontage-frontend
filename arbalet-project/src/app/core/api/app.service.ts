@@ -35,10 +35,15 @@ export class FAppService {
   }
 
   public stopApp(): void {
-    this.http.get(this.baseUrl + this.quitUrl).subscribe(() => {}, e => console.error);
+    this.http.get(this.baseUrl + this.quitUrl);
   }
 
   public keepAlive(): Observable<KeepAlive> {
     return this.http.post<KeepAlive>(this.baseUrl + this.keepUrl, 'heartbeat');
   }
+
+  public quitQueue() {
+    this.http.get(this.baseUrl + "/b/queue/quit");
+  }
+
 }
