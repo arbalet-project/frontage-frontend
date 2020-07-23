@@ -38,7 +38,7 @@ export class FAppService {
     this.http.get(this.baseUrl + this.quitUrl).subscribe(() => {}, e => console.error);
   }
 
-  public keepAlive() : Observable<KeepAlive> {
-    return this.http.post<KeepAlive>(this.baseUrl + this.keepUrl, "heartbeat");
+  public keepAlive(): Observable<KeepAlive> {
+    return this.http.post<KeepAlive>(this.baseUrl + this.keepUrl, 'heartbeat');
   }
 }

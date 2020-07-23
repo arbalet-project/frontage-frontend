@@ -13,7 +13,7 @@ import { AuthenticationService } from 'src/app/core/authentication/authenticatio
 })
 export class FlagsPage implements OnInit {
   public fApp: FApp;
-  public defaultValue : string;
+  public defaultValue: string;
 
   constructor(
     private state: State,
@@ -32,7 +32,7 @@ export class FlagsPage implements OnInit {
   start() {
     this.http.getCurrentFApp().subscribe(res => {
         if (res.userid === this.auth.userid || (res.is_forced && this.auth.admin)) {
-          this.defaultValue = res.params.uapp
+          this.defaultValue = res.params.uapp;
         } else {
           // Leaving this and ...
         }

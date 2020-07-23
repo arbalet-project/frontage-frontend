@@ -32,6 +32,6 @@ export interface CurrentFApp {
 }
 
 export interface KeepAlive {
-    keepAlive : boolean
+    keepAlive: boolean;
 }
 // tslint:enable:variable-name

@@ -9,7 +9,7 @@ import { State } from 'src/app/core/state/state.service';
 })
 export class OptionsPage implements OnInit {
   fApp: FApp;
-  value: string = 'french';
+  value = 'french';
 
   constructor(public state: State, public options: OptionsService) { }
 
@@ -27,6 +27,6 @@ export class OptionsPage implements OnInit {
       params: {
         uapp: this.value
       }
-    }, '/f-app/flags')
+    }, '/f-app/flags');
   }
 }
