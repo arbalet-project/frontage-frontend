@@ -174,7 +174,23 @@
     "english": "Anglais"
   },
   "message" : {
-    "expire_soon" : "Votre tour pourrait bientôt se terminer"
+    "close" : {
+      "title" : "Accès refusé",
+      "message" : "Désolé, vous n'avez plus l'autorisation de jouer. Réessayez."
+    },
+    "expire" : {
+      "title": "Time is over",
+      "message" : "Votre temps d'utilisation est écoulé, il est temps de laisser quelqu'un d'autre jouer !"
+    },
+    "expire_soon" : "Votre tour pourrait bientôt se terminer",
+    "game_over": {
+      "title" : "Vous avez perdu",
+      "message" : "Perdu"
+    },
+    "unknown" : {
+      "title" : "Nous avons reçu un message inattendu, veuillez mettre à jour votre application depuis le store",
+      "message" : "Message inattendu"
+    }
   },
   "options": {
     "start_button": "Lancer l'application"

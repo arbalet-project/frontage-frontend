@@ -1,13 +1,14 @@
-import { Injectable } from "@angular/core";
-import { webSocket, WebSocketSubject } from "rxjs/webSocket";
-import { environment } from "src/environments/environment";
-import { Subscription, Observable, interval } from "rxjs";
-import { FAppService } from "../api/app.service";
-import { AuthenticationService } from "../authentication/authentication.service";
-import { TranslateService } from "@ngx-translate/core";
-import { ToastController } from "@ionic/angular";
+import { Injectable } from '@angular/core';
+import { webSocket, WebSocketSubject } from 'rxjs/webSocket';
+import { environment } from 'src/environments/environment';
+import { Subscription, Observable, interval, Subject } from 'rxjs';
+import { FAppService } from '../api/app.service';
+import { AuthenticationService } from '../authentication/authentication.service';
+import { TranslateService } from '@ngx-translate/core';
+import { ToastController, AlertController, NavController } from '@ionic/angular';
+import { VibrationService } from '../plugins/vibration.service';
 
-enum CODE {
+enum CodeWebsocket {
   CLOSE_APP = 1,
   GAME_OVER = 2,
   EXPIRE = 3,
@@ -16,19 +17,29 @@ enum CODE {
   SNAKE_ATE_APPLE = 11,
 }
 
+enum CodeSubscription {
+  INTERRUPTED_APP = 1,
+}
+
+type messageSubscription = { code: number, body?: string };
+
 @Injectable({
-  providedIn: "root",
+  providedIn: 'root',
 })
 export class WebsocketService {
   public socket: WebSocketSubject<any>; // TODO : Try to understand why any
   public keepAliveSub: Subscription;
+  public websocketSubject = new Subject<messageSubscription>();
 
   constructor(
     public http: FAppService,
     public auth: AuthenticationService,
     public translate: TranslateService,
-    public toast: ToastController
-  ) {}
+    public toast: ToastController,
+    public alert: AlertController,
+    public nav: NavController,
+    public vibration: VibrationService
+  ) { }
 
   connect() {
     this.socket = webSocket({
@@ -46,36 +57,46 @@ export class WebsocketService {
         }
       },
       (err) => console.error,
-      () => console.log("finish")
+      () => console.log('finish')
     );
 
     this.keepAliveSub = interval(5000).subscribe(() => {
       this.http.keepAlive().subscribe((resp) => {
         if (resp.keepAlive) {
-          // TODO : Show app something !
+          this.websocketSubject.next({ code: CodeSubscription.INTERRUPTED_APP });
+          this.showAlert('message.close');
+          this.vibration.vibrate();
         }
       });
     });
-
-    //   this.interruptedApp = resp["keepAlive"] == false;
-    //   if(this.interruptedApp && !this.popupDisplayed && this.mustKeepAlive) {
-    //     this.showPopUp("CLOSE_APP_TITLE", "GET_OUT", navCtrl);
-    //     this.vibration.vibrate([100, 100, 100, 100, 600]);
   }
 
   handleMessage(message: any) {
     // Change this any !
     switch (message.code) {
-      case CODE.EXPIRE_SOON:
-        this.presentToast("message.expire_soon");
+      case CodeWebsocket.EXPIRE_SOON:
+        this.showToast('message.expire_soon');
         break;
-      case CODE.EXPIRE:
+      case CodeWebsocket.EXPIRE:
+        this.showAlert('message.expire');
+        this.vibration.vibrate();
         break;
-      case CODE.CLOSE_APP:
+      case CodeWebsocket.CLOSE_APP:
+        this.showAlert('message.close');
+        this.vibration.vibrate();
+        break;
+      case CodeWebsocket.SNAKE_ATE_APPLE:
+        this.vibration.vibrate();
+        break;
+      case CodeWebsocket.GAME_OVER:
+        this.showAlert('message.game_over');
+        this.vibration.vibrate();
+        break;
+      case CodeWebsocket.TETRIS_CLEARED_ROW:
+        this.vibration.vibrate();
         break;
       default:
-        console.error("error");
-      // TODO
+        this.showAlert('message.unknown');
     }
   }
 
@@ -88,12 +109,28 @@ export class WebsocketService {
     this.keepAliveSub.unsubscribe();
   }
 
-  async presentToast(messageKey: string) {
+  async showToast(messageKey: string) {
     const toast = await this.toast.create({
       message: this.translate.instant(messageKey),
       duration: 4000,
-      position: "top",
+      position: 'top',
     });
     toast.present();
+  }
+
+  async showAlert(key: string) {
+    const alert = await this.alert.create({
+      header: this.translate.instant(key + '.title'),
+      message: this.translate.instant(key + '.message'),
+      buttons: [
+        {
+          text: 'Ok',
+          handler: () => {
+            this.nav.pop();
+          }
+        }
+      ]
+    });
+    alert.present();
   }
 }

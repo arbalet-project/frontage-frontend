@@ -173,7 +173,23 @@
     "english": "English"
   },
   "message" : {
-    "expire_soon" : "Your turn might end soon"
+    "close" : {
+      "title" : "Access denied",
+      "message" : "Sorry, you can no longer play. Please retry."
+    },
+    "expire" : {
+      "title": "Time is over",
+      "message" : "Your turn is over, it is time to let other people play!"
+    },
+    "expire_soon" : "Your turn might end soon",
+    "game_over": {
+      "title" : "Game Over",
+      "message" : "Game Over, you lose 😉"
+    },
+    "unknown" : {
+      "title" : "Unexpected message",
+      "message" : "We received an unexpected message, please update your app from the store"
+    }
   },
   "options": {
     "start_button": "Start application"
