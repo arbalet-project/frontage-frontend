@@ -8,7 +8,6 @@ import { FlagsPageRoutingModule } from './flags-routing.module';
 
 import { FlagsPage } from './flags.page';
 import { TranslateModule } from '@ngx-translate/core';
-import { RadioListComponent } from '../components/form/radio-list/radio-list.component';
 import { OptionsPage } from './options/options.page';
 import { SharedModule } from '../components/shared.module';
 import { FlagListComponent } from 'src/app/components/fapp/flags/flag-list/flag-list.component';
@@ -22,6 +21,6 @@ import { FlagListComponent } from 'src/app/components/fapp/flags/flag-list/flag-
     TranslateModule.forChild(),
     FlagsPageRoutingModule,
   ],
-  declarations: [FlagsPage, OptionsPage, RadioListComponent, FlagListComponent]
+  declarations: [FlagsPage, OptionsPage, FlagListComponent]
 })
 export class FlagsPageModule {}

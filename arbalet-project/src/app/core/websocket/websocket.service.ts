@@ -29,7 +29,6 @@ type messageSubscription = { code: number, body?: string };
 export class WebsocketService {
   public socket: WebSocketSubject<any>; // TODO : Try to understand why any
   public keepAliveSub: Subscription;
-  public websocketSubject = new Subject<messageSubscription>();
 
   constructor(
     public http: FAppService,
@@ -62,8 +61,7 @@ export class WebsocketService {
 
     this.keepAliveSub = interval(5000).subscribe(() => {
       this.http.keepAlive().subscribe((resp) => {
-        if (resp.keepAlive) {
-          this.websocketSubject.next({ code: CodeSubscription.INTERRUPTED_APP });
+        if (!resp.keepAlive) {
           this.showAlert('message.close');
           this.vibration.vibrate();
         }

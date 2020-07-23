@@ -12,7 +12,6 @@ import { FappListComponent } from 'src/app/components/fapp-list/fapp-list.compon
 import { TemplateComponent } from 'src/app/template/template.component';
 import { FlagsComponent } from './flags/flags.component';
 import { FlagListComponent } from 'src/app/components/fapp/flags/flag-list/flag-list.component';
-import { RadioListComponent } from 'src/app/f-app/components/form/radio-list/radio-list.component';
 
 @NgModule({
   imports: [
@@ -22,6 +21,6 @@ import { RadioListComponent } from 'src/app/f-app/components/form/radio-list/rad
     TranslateModule.forChild(),
     FAppPageRoutingModule
   ],
-  declarations: [SchedulingPage, FappListComponent, TemplateComponent, FlagsComponent, FlagListComponent, RadioListComponent]
+  declarations: [SchedulingPage, FappListComponent, TemplateComponent, FlagsComponent, FlagListComponent]
 })
 export class SchedulingPageModule { }
