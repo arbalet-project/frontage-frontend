@@ -29,6 +29,7 @@ type messageSubscription = { code: number, body?: string };
 export class WebsocketService {
   public socket: WebSocketSubject<any>; // TODO : Try to understand why any
   public keepAliveSub: Subscription;
+  public externalClose = false;
 
   constructor(
     public http: FAppService,
@@ -117,10 +118,11 @@ export class WebsocketService {
   }
 
   async showAlert(key: string) {
+    this.externalClose = true;
     const alert = await this.alert.create({
       header: this.translate.instant(key + '.title'),
       message: this.translate.instant(key + '.message'),
-      backdropDismiss : true,
+      backdropDismiss: true,
       buttons: [
         {
           text: 'Ok',

@@ -43,7 +43,7 @@ export class FAppService {
   }
 
   public quitQueue() {
-    this.http.get(this.baseUrl + "/b/queue/quit");
+    this.http.get(this.baseUrl + '/b/queue/quit');
   }
 
 }

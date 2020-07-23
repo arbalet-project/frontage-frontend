@@ -11,7 +11,7 @@ import { CurrentFApp } from '../api/models/f-app';
 })
 export class OptionsService {
 
-  public current : CurrentFApp; 
+  public current: CurrentFApp;
 
   constructor(
     public http: FAppService,
@@ -30,8 +30,8 @@ export class OptionsService {
       modal.onDidDismiss().then(async ({ data }) => {
         if (data.ok) {
           this.router.navigateByUrl(url);
-        } 
-        else if(data.kicked) {
+        }
+        else if (data.kicked) {
           const alert = await this.alert.create({
             header: this.translate.instant('waiting.kicked.title'),
             message: this.translate.instant('waiting.kicked.message'),
@@ -40,7 +40,7 @@ export class OptionsService {
 
           await alert.present();
         }
-      })
+      });
 
       return await modal.present();
     });

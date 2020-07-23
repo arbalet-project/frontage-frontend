@@ -1,17 +1,17 @@
-import { Component, OnInit } from "@angular/core";
-import { Subscription, interval, Observable, of } from "rxjs";
-import { ModalController, NavController } from "@ionic/angular";
-import { FAppService } from "src/app/core/api/app.service";
-import { AuthenticationService } from "src/app/core/authentication/authentication.service";
-import { delay } from "rxjs/operators";
+import { Component, OnInit } from '@angular/core';
+import { Subscription, interval, Observable, of } from 'rxjs';
+import { ModalController, NavController } from '@ionic/angular';
+import { FAppService } from 'src/app/core/api/app.service';
+import { AuthenticationService } from 'src/app/core/authentication/authentication.service';
+import { delay } from 'rxjs/operators';
 import { OptionsService } from 'src/app/core/f-app/options.service';
 
 @Component({
-  selector: "app-waiting",
-  templateUrl: "./waiting.component.html",
+  selector: 'app-waiting',
+  templateUrl: './waiting.component.html',
 })
 export class WaitingComponent implements OnInit {
-  public messageKey: string = "waiting.message.waiting";
+  public messageKey = 'waiting.message.waiting';
   public submessage: string;
 
   private positionSubscription: Subscription;
@@ -36,11 +36,11 @@ export class WaitingComponent implements OnInit {
 
   handlePosition(position: number) {
     if (position > 0) {
-      this.messageKey = "waiting.message.queued";
-      this.submessage = "" + position;
+      this.messageKey = 'waiting.message.queued';
+      this.submessage = '' + position;
     } else {
-      this.submessage = "";
-      this.messageKey = "waiting.message.starting";
+      this.submessage = '';
+      this.messageKey = 'waiting.message.starting';
       if (!this.launched && position === -1) {
         this.launched = true;
         this.startFapp();
