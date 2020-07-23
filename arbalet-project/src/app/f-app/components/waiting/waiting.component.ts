@@ -3,7 +3,6 @@ import { Subscription, interval, Observable, of } from 'rxjs';
 import { ModalController, NavController } from '@ionic/angular';
 import { FAppService } from 'src/app/core/api/app.service';
 import { AuthenticationService } from 'src/app/core/authentication/authentication.service';
-import { delay } from 'rxjs/operators';
 import { OptionsService } from 'src/app/core/f-app/options.service';
 
 @Component({
@@ -21,9 +20,7 @@ export class WaitingComponent implements OnInit {
     public modal: ModalController,
     public http: FAppService,
     public auth: AuthenticationService,
-    public nav: NavController,
-    public options: OptionsService
-  ) { }
+    public nav: NavController) { }
 
   ngOnInit() {
     this.positionSubscription = interval(500).subscribe(() => {
@@ -54,8 +51,7 @@ export class WaitingComponent implements OnInit {
         res.userid === this.auth.userid ||
         (res.is_forced && this.auth.admin)
       ) {
-        this.options.current = res;
-        this.modal.dismiss({ ok: true });
+        this.modal.dismiss({ ok: true, result: res });
       } else {
         this.modal.dismiss({ ok: false, kicked: true });
       }

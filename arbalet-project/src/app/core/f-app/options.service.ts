@@ -30,6 +30,7 @@ export class OptionsService {
       modal.onDidDismiss().then(async ({ data }) => {
         if (data.ok) {
           this.router.navigateByUrl(url);
+          this.current = data.result;
         }
         else if (data.kicked) {
           const alert = await this.alert.create({

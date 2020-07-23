@@ -6,6 +6,7 @@ import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
 import { OptionsComponent } from './options/options.component';
 import { TemplateComponent } from 'src/app/template/template.component';
+import { JoystickComponent } from './joystick/joystick.component';
 
 @NgModule({
     imports: [
@@ -17,12 +18,14 @@ import { TemplateComponent } from 'src/app/template/template.component';
     declarations: [
         WaitingComponent,
         OptionsComponent,
-        TemplateComponent
+        TemplateComponent,
+        JoystickComponent
     ],
     exports: [
         WaitingComponent,
         OptionsComponent,
-        TemplateComponent
+        TemplateComponent,
+        JoystickComponent
     ]
 })
 export class SharedModule {}
