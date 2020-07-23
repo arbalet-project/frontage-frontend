@@ -10,6 +10,7 @@ import { SnakePage } from './snake.page';
 import { TranslateModule } from '@ngx-translate/core';
 import { OptionsPage } from './options/options.page';
 import { SharedModule } from '../components/shared.module';
+import { JoystickComponent } from './joystick/joystick.component';
 
 @NgModule({
   imports: [
@@ -20,6 +21,6 @@ import { SharedModule } from '../components/shared.module';
     TranslateModule.forChild(),
     SnakePageRoutingModule
   ],
-  declarations: [SnakePage, OptionsPage]
+  declarations: [SnakePage, OptionsPage, JoystickComponent]
 })
 export class SnakePageModule {}

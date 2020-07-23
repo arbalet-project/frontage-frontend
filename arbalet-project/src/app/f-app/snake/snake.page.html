@@ -1,9 +1,8 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>snake</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content>
-
-</ion-content>
+<app-template
+  [titleKey]='"f_app." + fApp.name + ".name"'
+  (clickButton)="stopFApp()"
+  footerKey="action.stop"
+  footerIcon="flag"
+>
+  <app-joystick></app-joystick>
+</app-template>
