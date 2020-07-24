@@ -14,7 +14,7 @@ export class TemplateComponent {
   @Input() displayFooter = true;
   @Input() footerKey: string;
   @Input() footerIcon: string;
-  
+
   @Output() clickButton = new EventEmitter();
 
   constructor() {

@@ -12,22 +12,22 @@ export class JoystickComponent {
   constructor(public websocket: WebsocketService, public vibration: VibrationService) { }
 
   up(): void {
-    this.websocket.sendMessage({ direction: "^" });
+    this.websocket.sendMessage({ direction: '^' });
     this.vibration.vibrate();
     // Fade In and fade out to do !
   }
 
   down(): void {
-    this.websocket.sendMessage({ direction: "v" });
+    this.websocket.sendMessage({ direction: 'v' });
     this.vibration.vibrate();
   }
   right(): void {
-    this.websocket.sendMessage({ direction: ">" });
+    this.websocket.sendMessage({ direction: '>' });
     this.vibration.vibrate();
   }
 
   left(): void {
-    this.websocket.sendMessage({ direction: "<" });
+    this.websocket.sendMessage({ direction: '<' });
     this.vibration.vibrate();
   }
 
