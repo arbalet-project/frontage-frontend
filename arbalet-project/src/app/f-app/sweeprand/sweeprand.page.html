@@ -1,9 +1,14 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>sweeprand</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content>
-
-</ion-content>
+<app-template
+  [titleKey]='"f_app." + fApp.name + ".name"'
+  (clickButton)="stopFApp()"
+  footerKey="action.stop"
+  footerIcon="flag"
+>
+  <app-colorlist
+    [title]='"f_app." + fApp.name + ".options.title"'
+    (ionChange)="sendValue()"
+    [defaultValue]="defaultValue"
+    #colorList
+  >
+  </app-colorlist>
+</app-template>

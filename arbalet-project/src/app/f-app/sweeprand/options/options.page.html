@@ -1,15 +1,8 @@
 <app-options-template [name]="fApp.name" (startFApp)="startFApp()">
-  <ion-list>
-    <ion-list-header>
-      <ion-label>
-        {{ "f_app." + fApp.name + ".options.title" | translate }}
-      </ion-label>
-    </ion-list-header>
-    <ion-radio-group #radioGroup [value]="parametersList[0]">
-      <ion-item *ngFor="let parameter of parametersList">
-        <ion-label>{{ parameter | titlecase }}</ion-label>
-        <ion-radio slot="start" [value]="parameter"></ion-radio>
-      </ion-item>
-    </ion-radio-group>
-  </ion-list>
+  <app-colorlist
+    [title]='"f_app." + fApp.name + ".options.title"'
+    defaultValue="road"
+    #colorList
+  >
+  </app-colorlist>
 </app-options-template>

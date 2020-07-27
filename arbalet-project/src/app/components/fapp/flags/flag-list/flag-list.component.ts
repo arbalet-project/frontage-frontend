@@ -1,7 +1,6 @@
 import { Component, OnInit, Output, Input } from '@angular/core';
 import { FApp } from 'src/app/core/state/models/f-app';
 import { State } from 'src/app/core/state/state.service';
-import { EventEmitter } from 'events';
 
 @Component({
   selector: 'app-flag-list',

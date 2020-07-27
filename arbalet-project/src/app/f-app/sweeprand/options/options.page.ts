@@ -3,31 +3,31 @@ import { State } from 'src/app/core/state/state.service';
 import { FApp } from 'src/app/core/state/models/f-app';
 import { OptionsService } from 'src/app/core/f-app/options.service';
 import { IonRadioGroup } from '@ionic/angular';
+import { ColorlistComponent } from 'src/app/components/fapp/sweeprand/colorlist/colorlist.component';
 
 @Component({
   selector: 'app-options',
   templateUrl: './options.page.html',
-  styleUrls: ['./options.page.scss']
 })
 export class OptionsPage implements OnInit {
   public fApp: FApp;
-  parametersList = ["road", "gender", "cold", "warm"];
 
-  @ViewChild("radioGroup") radio : IonRadioGroup;
+  @ViewChild("colorList") colorList: ColorlistComponent;
 
-    constructor(public state: State, public options: OptionsService) { }
+  constructor(public state: State, public options: OptionsService) { }
 
   ngOnInit() {
-    this.fApp = this.state.fAppList.findByName('SweepAsync');
+    this.fApp = this.state.fAppList.findByName('SweepRand');
   }
 
   startFApp() {
+    console.log(this.colorList.radio.value);
     this.options.startFapp({
       name: this.fApp.name,
       params: {
-        uapp: this.radio.value
+        uapp: this.colorList.radio.value
       }
-    }, '/f-app/sweeprandom');
+    }, '/f-app/sweeprand');
   }
 
 }
