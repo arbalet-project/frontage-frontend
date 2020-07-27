@@ -8,12 +8,16 @@ import { SweeprandPageRoutingModule } from './sweeprand-routing.module';
 
 import { SweeprandPage } from './sweeprand.page';
 import { OptionsPage } from './options/options.page';
+import { SharedModule } from '../components/shared.module';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
+    SharedModule,
+    TranslateModule.forChild(),
     SweeprandPageRoutingModule
   ],
   declarations: [SweeprandPage, OptionsPage]

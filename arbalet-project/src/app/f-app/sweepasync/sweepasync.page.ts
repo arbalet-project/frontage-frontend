@@ -8,7 +8,6 @@ import { NavController } from '@ionic/angular';
 @Component({
   selector: 'app-sweepasync',
   templateUrl: './sweepasync.page.html',
-  styleUrls: ['./sweepasync.page.scss'],
 })
 export class SweepasyncPage implements OnInit {
 

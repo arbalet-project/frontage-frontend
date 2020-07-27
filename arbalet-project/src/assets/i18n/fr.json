@@ -131,7 +131,10 @@
     },
     "SweepRand": {
       "name": "Couleurs duelles",
-      "description": "Animez Arbalet Frontage de deux couleurs duelles."
+      "description": "Animez Arbalet Frontage de deux couleurs duelles.",
+      "options" : {
+        "title" : "Couleur :"
+      }
     },
     "SweepAsync": {
       "name": "Roue des couleurs",

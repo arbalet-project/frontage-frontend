@@ -130,7 +130,10 @@
     },
     "SweepRand": {
       "name": "Dual colors",
-      "description": "Animate Arbalet Frontage with dual colors."
+      "description": "Animate Arbalet Frontage with dual colors.",
+      "options" : {
+        "title" : "Color :"
+      }
     },
     "SweepAsync": {
       "name": "Color wheel",
