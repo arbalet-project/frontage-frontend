@@ -8,9 +8,9 @@ import { OptionsService } from 'src/app/core/f-app/options.service';
   templateUrl: './options.page.html',
 })
 export class OptionsPage implements OnInit {
-  public fApp : FApp;
+  public fApp: FApp;
 
-  constructor(public state : State, public options: OptionsService) { }
+  constructor(public state: State, public options: OptionsService) { }
 
   ngOnInit() {
     this.fApp = this.state.fAppList.findByName('SweepAsync');

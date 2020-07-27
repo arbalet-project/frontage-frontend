@@ -23,7 +23,7 @@ export class OptionsPage implements OnInit {
       name: this.fApp.name,
       hideParams: true,
       params: {
-        "model" : ""
+        model : ''
       }
     }, '/f-app/drawing');
   }

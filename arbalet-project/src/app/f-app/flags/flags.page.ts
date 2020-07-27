@@ -13,7 +13,7 @@ import { OptionsService } from 'src/app/core/f-app/options.service';
 })
 export class FlagsPage implements OnInit {
   public fApp: FApp;
-  public defaultValue: string;
+  public defaultValue = '';
 
   constructor(
     private state: State,
@@ -31,10 +31,9 @@ export class FlagsPage implements OnInit {
   }
 
   sendOption(event) {
-    const parameters = {
+    this.websocket.sendMessage({
       flag: event.detail.value
-    };
-    this.websocket.sendMessage(parameters);
+    });
   }
 
   stopFApp() {

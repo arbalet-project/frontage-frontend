@@ -1,9 +1,12 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>sweepasync</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content>
-
-</ion-content>
+<app-template
+  [titleKey]='"f_app." + fApp.name + ".name"'
+  (clickButton)="stopFApp()"
+  footerKey="action.stop"
+  footerIcon="flag"
+>
+  <ion-card>
+    <ion-card-content class="ion-padding">
+      {{"f_app." + fApp.name + ".options.rules" | translate}}
+    </ion-card-content>
+  </ion-card>
+</app-template>
