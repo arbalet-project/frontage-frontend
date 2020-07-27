@@ -6,8 +6,8 @@
     "stop": "Quitter"
   },
   "admin": {
-    "fapp" : {
-      "title" : "Applications"
+    "fapp": {
+      "title": "Applications"
     },
     "form": {
       "title": "Formulaire de connexion",
@@ -18,9 +18,9 @@
       "title": "Ordonnancement"
     },
     "settings": {
-      "clear" : "Vider la file d'attente",
+      "clear": "Vider la file d'attente",
       "label": {
-        "lifetime" : "Durée des applications",
+        "lifetime": "Durée des applications",
         "start": "Horaire de démarrage",
         "stop": "Horaire d'arrêt",
         "sunset": "Coucher du soleil",
@@ -135,7 +135,11 @@
     },
     "SweepAsync": {
       "name": "Roue des couleurs",
-      "description": "Visualisez toute la roue des couleurs, chaque fenêtre à son rythme."
+      "description": "Visualisez toute la roue des couleurs, chaque fenêtre à son rythme.",
+      "options": {
+        "title" : "Roue des couleurs",
+        "rules" : "Vous allez voir défiler toute la roue des couleurs, chaque fenêtre à son rythme."
+      }
     },
     "Tetris": {
       "name": "Tetris",
@@ -155,7 +159,14 @@
     },
     "Drawing": {
       "name": "Dessin libre",
-      "description": "Dessinez sur Arbalet Frontage avec une palette de couleurs."
+      "description": "Dessinez sur Arbalet Frontage avec une palette de couleurs.",
+      "options": {
+        "title": "Comment dessiner ?",
+        "rules": "Vous pourrez dessiner vos propres motifs sur Arbalet Frontage en sélectionnant une couleur et en glissant votre doigt sur un pixel pour le teinter. Rappelez-vous que teinter un pixel en noir revient à l'éteindre."
+      },
+      "admin": {
+        "rules": "Pour les commémorations ayant des représentations visuelles spécifiques, cette application permet également à l'administrateur de définir un motif personnalisé dans le planning quotidien en enregistrant son dessin."
+      }
     },
     "Snap": {
       "name": "Live",
@@ -173,23 +184,23 @@
     "french": "Français",
     "english": "Anglais"
   },
-  "message" : {
-    "close" : {
-      "title" : "Accès refusé",
-      "message" : "Désolé, vous n'avez plus l'autorisation de jouer. Réessayez."
+  "message": {
+    "close": {
+      "title": "Accès refusé",
+      "message": "Désolé, vous n'avez plus l'autorisation de jouer. Réessayez."
     },
-    "expire" : {
+    "expire": {
       "title": "Time is over",
-      "message" : "Votre temps d'utilisation est écoulé, il est temps de laisser quelqu'un d'autre jouer !"
+      "message": "Votre temps d'utilisation est écoulé, il est temps de laisser quelqu'un d'autre jouer !"
     },
-    "expire_soon" : "Votre tour pourrait bientôt se terminer",
+    "expire_soon": "Votre tour pourrait bientôt se terminer",
     "game_over": {
-      "title" : "Vous avez perdu",
-      "message" : "Perdu"
+      "title": "Vous avez perdu",
+      "message": "Perdu"
     },
-    "unknown" : {
-      "title" : "Nous avons reçu un message inattendu, veuillez mettre à jour votre application depuis le store",
-      "message" : "Message inattendu"
+    "unknown": {
+      "title": "Nous avons reçu un message inattendu, veuillez mettre à jour votre application depuis le store",
+      "message": "Message inattendu"
     }
   },
   "options": {

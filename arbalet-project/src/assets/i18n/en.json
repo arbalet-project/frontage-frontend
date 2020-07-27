@@ -6,8 +6,8 @@
     "stop": "Stop this app"
   },
   "admin": {
-    "fapp" : {
-      "title" : "Applications"
+    "fapp": {
+      "title": "Applications"
     },
     "form": {
       "title": "Login form",
@@ -18,9 +18,9 @@
       "title": "Scheduling"
     },
     "settings": {
-      "clear" : "Clear user queue",
+      "clear": "Clear user queue",
       "label": {
-        "lifetime" : "Lifetime of default apps",
+        "lifetime": "Lifetime of default apps",
         "start": "Start time",
         "stop": "Stop time",
         "sunset": "Sunset",
@@ -134,7 +134,11 @@
     },
     "SweepAsync": {
       "name": "Color wheel",
-      "description": "Display the full color wheel, each window at a different pace."
+      "description": "Display the full color wheel, each window at a different pace.",
+      "options": {
+        "title" : "Color's Wheels",
+        "rules" : "You will see the full color wheel, each window at a different pace."
+      }
     },
     "Tetris": {
       "name": "Tetris",
@@ -154,7 +158,14 @@
     },
     "Drawing": {
       "name": "Freehand Draw",
-      "description": "Draw on Arbalet Frontage with a colour palette."
+      "description": "Draw on Arbalet Frontage with a colour palette.",
+      "options": {
+        "title": "How to draw ?",
+        "rules": "You will be able to draw your own patterns on Arbalet Frontage by clicking a color from the palette and swiping your finger on a pixel. Colouring a pixel in equivalentblack is  to switching it off."
+      },
+      "admin": {
+        "rules": "For commemoration having specific visual representations, this app allows the administrator to set a custom pattern in the daily schedule by saving his/her drawing."
+      }
     },
     "Snap": {
       "name": "Live",
@@ -172,23 +183,23 @@
     "french": "French",
     "english": "English"
   },
-  "message" : {
-    "close" : {
-      "title" : "Access denied",
-      "message" : "Sorry, you can no longer play. Please retry."
+  "message": {
+    "close": {
+      "title": "Access denied",
+      "message": "Sorry, you can no longer play. Please retry."
     },
-    "expire" : {
+    "expire": {
       "title": "Time is over",
-      "message" : "Your turn is over, it is time to let other people play!"
+      "message": "Your turn is over, it is time to let other people play!"
     },
-    "expire_soon" : "Your turn might end soon",
+    "expire_soon": "Your turn might end soon",
     "game_over": {
-      "title" : "Game Over",
-      "message" : "Game Over, you lose 😉"
+      "title": "Game Over",
+      "message": "Game Over, you lose 😉"
     },
-    "unknown" : {
-      "title" : "Unexpected message",
-      "message" : "We received an unexpected message, please update your app from the store"
+    "unknown": {
+      "title": "Unexpected message",
+      "message": "We received an unexpected message, please update your app from the store"
     }
   },
   "options": {
