@@ -30,6 +30,7 @@
     "@ngx-translate/http-loader": "^6.0.0",
     "capacitor-keep-screen-on": "^1.0.0-alpha.6",
     "cordova-plugin-screen-orientation": "^3.0.2",
+    "ngx-color": "^6.0.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.3"

@@ -1,9 +1,10 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>options</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content>
-
-</ion-content>
+<app-options-template [name]="fApp.name" (startFApp)="startFApp()">
+  <ion-card>
+    <ion-card-header>
+      {{ "f_app." + fApp.name + ".options.label" | translate }}
+    </ion-card-header>
+    <ion-card-content>
+      <color-chrome></color-chrome>
+    </ion-card-content>
+  </ion-card>
+</app-options-template>

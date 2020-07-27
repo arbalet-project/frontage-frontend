@@ -126,21 +126,26 @@
     },
     "RandomFlashing": {
       "name": "Sparks",
-      "description": "Make Arbalet Frontage slowly flashing."
+      "description": "Make Arbalet Frontage slowly flashing.",
+      "options" : {
+        "title" : "Select your colors",
+        "label" : "Color :"
+      }
     },
     "SweepRand": {
       "name": "Dual colors",
       "description": "Animate Arbalet Frontage with dual colors.",
-      "options" : {
-        "title" : "Color :"
+      "options": {
+        "title": "Select your colors",
+        "list": "Color"
       }
     },
     "SweepAsync": {
       "name": "Color wheel",
       "description": "Display the full color wheel, each window at a different pace.",
       "options": {
-        "title" : "Color's Wheels",
-        "rules" : "You will see the full color wheel, each window at a different pace."
+        "title": "Color's Wheels",
+        "rules": "You will see the full color wheel, each window at a different pace."
       }
     },
     "Tetris": {

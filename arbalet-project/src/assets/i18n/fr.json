@@ -127,13 +127,18 @@
     },
     "RandomFlashing": {
       "name": "Étincelles",
-      "description": "Faîtes scintiller Arbalet Frontage de façon calme et reposante."
+      "description": "Faîtes scintiller Arbalet Frontage de façon calme et reposante.",
+      "options" : {
+        "title" : "Choisissez vos couleurs",
+        "label" : "Couleur :"
+      }
     },
     "SweepRand": {
       "name": "Couleurs duelles",
       "description": "Animez Arbalet Frontage de deux couleurs duelles.",
       "options" : {
-        "title" : "Couleur :"
+        "title" : "Choisissez vos couleurs",
+        "list" : "Couleur"
       }
     },
     "SweepAsync": {
