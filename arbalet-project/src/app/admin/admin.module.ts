@@ -11,7 +11,6 @@ import { TranslateModule } from '@ngx-translate/core';
 import { SettingsPage } from './settings/settings.page';
 import { ListComponent } from './settings/components/list/list.component';
 import { LifetimeComponent } from './settings/components/lifetime/lifetime.component';
-import { ClearButtonComponent } from './settings/components/clear-button/clear-button.component';
 import { FappComponent } from './fapp/fapp.component';
 import { FappListComponent } from '../components/fapp-list/fapp-list.component';
 
@@ -23,6 +22,6 @@ import { FappListComponent } from '../components/fapp-list/fapp-list.component';
     AdminPageRoutingModule,
     TranslateModule.forChild()
   ],
-  declarations: [AdminPage, SettingsPage, ListComponent, LifetimeComponent, ClearButtonComponent, FappComponent, FappListComponent]
+  declarations: [AdminPage, SettingsPage, ListComponent, LifetimeComponent, FappComponent, FappListComponent]
 })
 export class AdminPageModule {}

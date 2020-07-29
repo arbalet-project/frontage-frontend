@@ -1,8 +1,10 @@
-<ion-item>
-  <ion-label> {{ labelKey | translate }}</ion-label>
-  <ion-select>
-    <ion-select-option *ngFor="let el of list" value="el">
-      {{ el }}
-    </ion-select-option>
-  </ion-select>
-</ion-item>
+<ion-list>
+  <ion-item>
+    <ion-label> {{ labelKey | translate }}</ion-label>
+    <ion-select>
+      <ion-select-option *ngFor="let el of list" [value]="el">
+        {{ el }}
+      </ion-select-option>
+    </ion-select>
+  </ion-item>
+</ion-list>

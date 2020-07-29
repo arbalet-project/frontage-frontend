@@ -15,6 +15,8 @@ export class FAppService {
   private positionUrl = '/b/apps/position';
   private quitUrl = '/b/queue/quit';
   private keepUrl = '/b/apps/iamalive';
+  public quitQueueUrl = '/b/queue/quit';
+  public clearQueueUrl = '/b/apps/queue/clear';
 
   constructor(private http: HttpClient) { }
 
@@ -43,7 +45,11 @@ export class FAppService {
   }
 
   public quitQueue() {
-    this.http.get(this.baseUrl + '/b/queue/quit');
+    this.http.get(this.baseUrl + this.quitQueueUrl);
+  }
+
+  public clearUserQueue() {
+    this.http.get(this.baseUrl + this.clearQueueUrl);
   }
 
 }
