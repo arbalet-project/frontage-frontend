@@ -13,14 +13,14 @@ import { ColorlistComponent } from 'src/app/components/fapp/sweeprand/colorlist/
 })
 export class SweeprandPage implements OnInit {
   public fApp: FApp;
-  public defaultValue : string;
-  @ViewChild("colorList") colorList: ColorlistComponent;
+  public defaultValue: string;
+  @ViewChild('colorList') colorList: ColorlistComponent;
 
   constructor(private state: State,
-    public websocket: WebsocketService,
-    public nav: NavController,
-    public http: FAppService,
-    public options: OptionsService) { }
+              public websocket: WebsocketService,
+              public nav: NavController,
+              public http: FAppService,
+              public options: OptionsService) { }
 
   ngOnInit() {
     this.fApp = this.state.fAppList.findByName('SweepRand');

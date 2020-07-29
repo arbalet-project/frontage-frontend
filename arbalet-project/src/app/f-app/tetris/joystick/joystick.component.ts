@@ -12,7 +12,6 @@ export class JoystickComponent {
   constructor(public websocket: WebsocketService, public vibration: VibrationService) { }
 
   up(): void {
-    console.log('test');
     this.websocket.sendMessage({ direction: '>' });
     this.vibration.vibrate();
     // Fade In and fade out to do !

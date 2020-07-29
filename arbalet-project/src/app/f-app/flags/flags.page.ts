@@ -18,7 +18,7 @@ export class FlagsPage implements OnInit {
     private state: State,
     public websocket: WebsocketService,
     public nav: NavController,
-    public http: FAppService, 
+    public http: FAppService,
     public options: OptionsService
   ) { }
 

@@ -1,22 +1,22 @@
-import { Injectable } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
-import { environment } from "src/environments/environment";
-import { Observable } from "rxjs";
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
+import { Observable } from 'rxjs';
 
 // Models
-import { Status, StatusFacade } from "./models/status";
-import { CalendarResponse, LifeTimeResponse } from "./models/settings";
+import { Status, StatusFacade } from './models/status';
+import { CalendarResponse, LifeTimeResponse } from './models/settings';
 
 @Injectable({
-  providedIn: "root",
+  providedIn: 'root',
 })
 export class ApiService {
   private baseUrl = environment.backEndBaseUrl;
-  private statusServerUrl = "/status/is_up";
-  private statusFacadeUrl = "/frontage/status";
-  private calendarUrl = "/b/admin/cal";
-  private timeUrl = "/b/admin/state";
-  private lifeTimeUrl = "/b/admin/settings";
+  private statusServerUrl = '/status/is_up';
+  private statusFacadeUrl = '/frontage/status';
+  private calendarUrl = '/b/admin/cal';
+  private timeUrl = '/b/admin/state';
+  private lifeTimeUrl = '/b/admin/settings';
   constructor(private http: HttpClient) {}
 
   public statusServer(): Observable<Status> {
@@ -43,7 +43,7 @@ export class ApiService {
   }
 
 
-  public getLifeTime() : Observable<LifeTimeResponse> {
+  public getLifeTime(): Observable<LifeTimeResponse> {
     return this.http.get<LifeTimeResponse>(this.baseUrl + this.lifeTimeUrl);
 
   }

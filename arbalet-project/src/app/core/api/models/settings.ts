@@ -7,6 +7,6 @@ export interface CalendarResponse {
 }
 
 export interface LifeTimeResponse {
-    default_lifetime : number;
+    default_lifetime: number;
 }
 // tslint:enable:variable-name

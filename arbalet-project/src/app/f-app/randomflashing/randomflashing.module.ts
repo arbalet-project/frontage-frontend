@@ -10,7 +10,7 @@ import { RandomflashingPage } from './randomflashing.page';
 import { OptionsPage } from './options/options.page';
 import { SharedModule } from '../components/shared.module';
 import { TranslateModule } from '@ngx-translate/core';
-import { ColorChromeModule } from 'ngx-color/chrome'; 
+import { ColorChromeModule } from 'ngx-color/chrome';
 
 @NgModule({
   imports: [

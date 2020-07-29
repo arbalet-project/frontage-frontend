@@ -9,9 +9,9 @@ import { IonRadioGroup } from '@ionic/angular';
 export class ColorlistComponent {
 
   @Input() title: string;
-  @Input() defaultValue : string;
-  @ViewChild("radioGroup") radio : IonRadioGroup;
-  public list =  ["road", "gender", "cold", "warm"];
+  @Input() defaultValue: string;
+  @ViewChild('radioGroup') radio: IonRadioGroup;
+  public list =  ['road', 'gender', 'cold', 'warm'];
 
   constructor() { }
 

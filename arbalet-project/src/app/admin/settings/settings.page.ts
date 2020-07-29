@@ -25,7 +25,7 @@ export class SettingsPage implements OnInit {
   }
 
   private initList() {
-    this.timeListOptions.set('sunset|0', '🌇 ' + this.translate.instant('admin.settings.label.sunset'),);
+    this.timeListOptions.set('sunset|0', '🌇 ' + this.translate.instant('admin.settings.label.sunset'), );
     this.timeListOptions.set('sunrise|0', '🌅 ' + this.translate.instant('admin.settings.label.sunrise'));
 
     // Sunset
@@ -42,27 +42,26 @@ export class SettingsPage implements OnInit {
     });
 
     this.timeList.forEach(time => {
-      this.timeListOptions.set(`sunrise|${time[1]}`, '🌅 + ' + time[0])
+      this.timeListOptions.set(`sunrise|${time[1]}`, '🌅 + ' + time[0]);
     });
 
     // Hour
     for (let i = 0; i < 24; i++) {
-      this.timeListOptions.set(this.toUTC(i) + "|0", this.fillTime(i));
+      this.timeListOptions.set(this.toUTC(i) + '|0', this.fillTime(i));
     }
   }
 
   private getStartStopTime() {
     this.api.getCalendar().subscribe((calendar) => {
-      console.log(calendar);
       this.defaultTimeOn = this.getCalendarTime(calendar.time_on, calendar.offset_time_on);
       this.defaultTimeOff = this.getCalendarTime(calendar.time_off, calendar.offset_time_off);
-    })
+    });
   }
 
   private initTime() {
     this.api.getLifeTime().subscribe((res) => {
       this.defaultLifeTime = res.default_lifetime;
-    })
+    });
   }
 
 
@@ -73,20 +72,20 @@ export class SettingsPage implements OnInit {
 
 
   getCalendarTime(time: string, offset: number) {
-    return `${time}|${offset}`
+    return `${time}|${offset}`;
   }
 
   // TODO : We can improve this.
   private toUTC(hour: number): string {
-    let time = new Date();
+    const time = new Date();
     time.setHours(hour);
     return this.fillTime(time.getUTCHours());
   }
 
   public toLocal(hour: number) {
-    let time = new Date();
+    const time = new Date();
     time.setUTCHours(hour, 0);
-    return this.fillTime(time.getHours())
+    return this.fillTime(time.getHours());
   }
 
 
@@ -95,8 +94,8 @@ export class SettingsPage implements OnInit {
   }
 
   setTime(event, on: boolean) {
-    let tmp = event.detail.value.split("|");
-    this.api.setTime(on, tmp[0], parseInt(tmp[1]));
+    const tmp = event.detail.value.split('|');
+    this.api.setTime(on, tmp[0], parseInt(tmp[1], 10));
   }
 
   updateLifeTime(event) {

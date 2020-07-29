@@ -12,7 +12,7 @@ import { ColorlistComponent } from 'src/app/components/fapp/sweeprand/colorlist/
 export class OptionsPage implements OnInit {
   public fApp: FApp;
 
-  @ViewChild("colorList") colorList: ColorlistComponent;
+  @ViewChild('colorList') colorList: ColorlistComponent;
 
   constructor(public state: State, public options: OptionsService) { }
 
@@ -21,7 +21,6 @@ export class OptionsPage implements OnInit {
   }
 
   startFApp() {
-    console.log(this.colorList.radio.value);
     this.options.startFapp({
       name: this.fApp.name,
       params: {

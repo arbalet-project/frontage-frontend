@@ -21,7 +21,6 @@ export class SnakePage implements OnInit {
   ) {}
 
   ngOnInit() {
-    console.log('test');
     this.fApp = this.state.fAppList.findByName('Snake');
     this.websocket.init();
   }

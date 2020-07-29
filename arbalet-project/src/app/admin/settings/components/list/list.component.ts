@@ -10,7 +10,7 @@ export class ListComponent {
   @Input() labelKey: string;
   @Input() list: Array<string>;
   @Input() default: string;
-  
+
   public orderTime = (a: KeyValue<string, string>, b: KeyValue<string, string>): number => {
     return 0;
   }
