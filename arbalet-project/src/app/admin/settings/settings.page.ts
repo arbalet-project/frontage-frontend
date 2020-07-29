@@ -10,67 +10,83 @@ import { ApiService } from 'src/app/core/api/api.service';
 })
 export class SettingsPage implements OnInit {
   public timeOnList: Array<string> = [];
-  public timeList: Array<[string, number]> = [['15mn', 900], ['30mn', 1800], ['1h', 3600], ['2hr', 7200]];
-  public timeListOptions: Map<string, [string, number]> = new Map<string, [string, number]>();
+  public timeList: Array<[string, number]> = [['15 mn', 900], ['30 mn', 1800], ['1 h', 3600], ['2 h', 7200]];
+  public timeListOptions: Map<string, string> = new Map<string, string>();
+  public defaultTimeOn: string;
+  public defaultTimeOff: string;
+  public defaultLifeTime: number;
 
   constructor(public translate: TranslateService, public api: ApiService, public http: FAppService) { }
 
   ngOnInit() {
     this.initList();
     this.getStartStopTime();
+    this.initTime();
   }
 
-  initList() {
-    this.timeListOptions.set('🌇 ' + this.translate.instant('admin.settings.label.sunset'), ['sunset', 0]);
-    this.timeListOptions.set('🌅 ' + this.translate.instant('admin.settings.label.sunrise'), ['sunrise', 0]);
+  private initList() {
+    this.timeListOptions.set('sunset|0', '🌇 ' + this.translate.instant('admin.settings.label.sunset'),);
+    this.timeListOptions.set('sunrise|0', '🌅 ' + this.translate.instant('admin.settings.label.sunrise'));
 
     // Sunset
-    this.timeList.forEach(time => this.timeListOptions.set('🌇 - ' + time[0], ['sunset', -time[1]]));
-    this.timeList.forEach(time => this.timeListOptions.set('🌇 + ' + time[0], ['sunset', +time[1]]));
+    this.timeList.forEach(time => {
+      this.timeListOptions.set(`sunset|${time[1]}`, '🌇 + ' + time[0]);
+    });
 
+    this.timeList.forEach(time => {
+      this.timeListOptions.set(`sunset|-${time[1]}`, '🌇 - ' + time[0]);
+    });
     // Sunrise
-    this.timeList.forEach(time => this.timeListOptions.set('🌅 - ' + time[0], ['sunrise', -time[1]]));
-    this.timeList.forEach(time => this.timeListOptions.set('🌅 + ' + time[0], ['sunrise', +time[1]]));
+    this.timeList.forEach(time => {
+      this.timeListOptions.set(`sunrise|-${time[1]}`, '🌅 - ' + time[0]);
+    });
+
+    this.timeList.forEach(time => {
+      this.timeListOptions.set(`sunrise|${time[1]}`, '🌅 + ' + time[0])
+    });
 
     // Hour
     for (let i = 0; i < 24; i++) {
-      const hour = (i < 10 ? '0' + i : i) + ':00';
-      this.timeListOptions.set(hour, [this.toUTC(hour), 0]);
+      this.timeListOptions.set(this.toUTC(i) + "|0", this.fillTime(i));
     }
   }
 
-  getStartStopTime() {
+  private getStartStopTime() {
     this.api.getCalendar().subscribe((calendar) => {
       console.log(calendar);
+      this.defaultTimeOn = this.getCalendarTime(calendar.time_on, calendar.offset_time_on);
+      this.defaultTimeOff = this.getCalendarTime(calendar.time_off, calendar.offset_time_off);
     })
   }
 
+  private initTime() {
+    this.api.getLifeTime().subscribe((res) => {
+      this.defaultLifeTime = res.default_lifetime;
+    })
+  }
+
+
+  fillTime(hour: number): string {
+    return (hour < 10 ? '0' + hour : hour) + ':00';
+  }
+
+
+
+  getCalendarTime(time: string, offset: number) {
+    return `${time}|${offset}`
+  }
+
   // TODO : We can improve this.
-  private toUTC(time: string) {
-    // Convert time e.g. "22:00" to UTC e.g. "21:00" according to current locale e.g; UTC+1
-    const times = time.split(':');
-    const hr = parseInt(times[0]);
-    const mn = parseInt(times[1]);
-    const dateConvert = new Date(2000, 1, 1, hr, 0, 0, 0);
-    const hrUTC = dateConvert.getUTCHours();
-    const timeUTC = (hrUTC < 10 ? '0' : '') + hrUTC.toString() + ':' + (mn < 10 ? '0' : '') + mn.toString();
-    return timeUTC;
+  private toUTC(hour: number): string {
+    let time = new Date();
+    time.setHours(hour);
+    return this.fillTime(time.getUTCHours());
   }
 
-  public toLocal(time: string) {
-    // Convert UTC time e.g. "22:00" to local e.g. "23:00" according to current locale e.g; UTC+1
-    let times = time.split(":");
-    let hr = parseInt(times[0]);
-    let mn = parseInt(times[1]);
-    let dateConvert = new Date(2000, 1, 1, 0, 0, 0, 0);
-    dateConvert.setUTCHours(hr, mn);
-    let hrLocale = dateConvert.getHours();
-    let timeLocale = (hrLocale < 10 ? "0" : "") + hrLocale.toString() + ":" + (mn < 10 ? "0" : "") + mn.toString();
-    return timeLocale;
-  }
-
-  getKeysTime() {
-    return Array.from(this.timeListOptions.keys());
+  public toLocal(hour: number) {
+    let time = new Date();
+    time.setUTCHours(hour, 0);
+    return this.fillTime(time.getHours())
   }
 
 
@@ -78,14 +94,12 @@ export class SettingsPage implements OnInit {
     this.http.clearUserQueue();
   }
 
-  setTimeOn(event) {
-
-  }
-  setTimeOff(event) {
-
+  setTime(event, on: boolean) {
+    let tmp = event.detail.value.split("|");
+    this.api.setTime(on, tmp[0], parseInt(tmp[1]));
   }
 
   updateLifeTime(event) {
-
+    this.api.updateLifeTime(event.detail.value);
   }
 }

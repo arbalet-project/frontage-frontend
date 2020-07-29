@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { KeyValue } from '@angular/common';
 
 @Component({
   selector: 'app-list',
@@ -8,4 +9,9 @@ import { Component, OnInit, Input } from '@angular/core';
 export class ListComponent {
   @Input() labelKey: string;
   @Input() list: Array<string>;
+  @Input() default: string;
+  
+  public orderTime = (a: KeyValue<string, string>, b: KeyValue<string, string>): number => {
+    return 0;
+  }
 }

@@ -23,8 +23,9 @@
       <ion-col>
         <app-list
           labelKey="admin.settings.label.start"
-          [list]="getKeysTime()"
-          (ionChange)="setTimeOn($event)"
+          [list]="timeListOptions"
+          (ionChange)="setTime($event, true)"
+          [default]="defaultTimeOn"
         ></app-list>
       </ion-col>
     </ion-row>
@@ -32,8 +33,9 @@
       <ion-col>
         <app-list
           labelKey="admin.settings.label.stop"
-          [list]="getKeysTime()"
-          (ionChange)="setTimeOff($event)"
+          [list]="timeListOptions"
+          (ionChange)="setTime($event, false)"
+          [default]="defaultTimeOff"
         ></app-list>
       </ion-col>
     </ion-row>
@@ -45,7 +47,7 @@
           </ion-label>
           <ion-input
             type="number"
-            value="900"
+            [value]="defaultLifeTime"
             min="30"
             max="1800"
             (ionChange)="updateLifeTime($event)"

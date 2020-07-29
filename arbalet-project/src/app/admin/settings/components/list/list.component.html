@@ -1,9 +1,9 @@
 <ion-list>
   <ion-item>
     <ion-label> {{ labelKey | translate }}</ion-label>
-    <ion-select>
-      <ion-select-option *ngFor="let el of list" [value]="el">
-        {{ el }}
+    <ion-select [value]="default">
+      <ion-select-option *ngFor="let el of list | keyvalue: orderTime" [value]="el.key">
+        {{ el.value }}
       </ion-select-option>
     </ion-select>
   </ion-item>
