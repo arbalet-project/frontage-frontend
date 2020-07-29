@@ -12,6 +12,7 @@ import { FappListComponent } from 'src/app/components/fapp-list/fapp-list.compon
 import { TemplateComponent } from 'src/app/template/template.component';
 import { FlagsComponent } from './flags/flags.component';
 import { FlagListComponent } from 'src/app/components/fapp/flags/flag-list/flag-list.component';
+import { SweepasyncComponent } from './sweepasync/sweepasync.component';
 
 @NgModule({
   imports: [
@@ -21,6 +22,6 @@ import { FlagListComponent } from 'src/app/components/fapp/flags/flag-list/flag-
     TranslateModule.forChild(),
     FAppPageRoutingModule
   ],
-  declarations: [SchedulingPage, FappListComponent, TemplateComponent, FlagsComponent, FlagListComponent]
+  declarations: [SchedulingPage, FappListComponent, TemplateComponent, FlagsComponent, FlagListComponent, SweepasyncComponent]
 })
 export class SchedulingPageModule { }

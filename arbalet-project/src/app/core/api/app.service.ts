@@ -17,10 +17,11 @@ export class FAppService {
   private keepUrl = '/b/apps/iamalive';
   public quitQueueUrl = '/b/queue/quit';
   public clearQueueUrl = '/b/apps/queue/clear';
+  public updateStateUrl = '/b/apps/default/'
 
   constructor(private http: HttpClient) { }
 
-  public getList(): Observable<[FApp]>{
+  public getList(): Observable<[FApp]> {
     return this.http.get<[FApp]>(this.baseUrl + this.listUrl);
   }
 
@@ -52,4 +53,12 @@ export class FAppService {
     this.http.get(this.baseUrl + this.clearQueueUrl);
   }
 
+
+  public setScheduled(name: string, state: boolean) {
+    return this.http
+      .post(this.baseUrl +  this.updateStateUrl, {
+        app_name: name,
+        app_state: state
+      }).subscribe();
+  }
 }

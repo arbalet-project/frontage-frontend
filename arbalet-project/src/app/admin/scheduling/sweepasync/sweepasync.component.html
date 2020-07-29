@@ -1,11 +1,12 @@
 <ng-template #customHeader>
   <ion-buttons slot="start">
-    <ion-back-button defaultHref="/admin/tabs/fapp"></ion-back-button>
+    <ion-back-button defaultHref="/admin/tabs/scheduling"></ion-back-button>
   </ion-buttons>
   <ion-title>{{ "drapeaux" | translate }}</ion-title>
   <ion-item slot="end">
     <ion-label>
       Scheduled
+      <!-- TODO -->
     </ion-label>
     <ion-toggle (ionChange)="updateScheduled($event)" [checked]="fApp.scheduled" color="success"></ion-toggle>
   </ion-item>
@@ -17,6 +18,4 @@
   displayFooter="false"
   [headerTemplate]="customHeader"
 >
-<app-flag-list>
-</app-flag-list>
 </app-template>

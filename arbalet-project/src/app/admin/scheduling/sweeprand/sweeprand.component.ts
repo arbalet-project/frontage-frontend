@@ -1,21 +1,21 @@
 import { Component, OnInit } from '@angular/core';
-import { State } from 'src/app/core/state/state.service';
-import { FAppService } from 'src/app/core/api/app.service';
 import { FApp } from 'src/app/core/state/models/f-app';
+import { State } from 'src/app/core/state/state.service';
+import { ApiService } from 'src/app/core/api/api.service';
+import { FAppService } from 'src/app/core/api/app.service';
 
 @Component({
-  selector: 'app-flags-settings',
-  templateUrl: './flags.component.html',
-  styleUrls: ['./flags.component.scss'],
+  selector: 'app-sweeprand',
+  templateUrl: './sweeprand.component.html',
+  styleUrls: ['./sweeprand.component.scss'],
 })
-export class FlagsComponent implements OnInit {
-
-  public fApp : FApp;
+export class SweeprandComponent implements OnInit {
+  public fApp: FApp;
 
   constructor(public state: State, public http: FAppService) { }
 
   ngOnInit() {
-    this.fApp = this.state.fAppList.findByName('Flags');
+    this.fApp = this.state.fAppList.findByName('SweepRand');
   }
 
   updateScheduled(event: CustomEvent) {

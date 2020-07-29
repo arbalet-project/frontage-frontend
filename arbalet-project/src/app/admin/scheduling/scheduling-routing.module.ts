@@ -3,6 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { SchedulingPage } from './scheduling.page';
 import { FlagsComponent } from './flags/flags.component';
+import { SweepasyncComponent } from './sweepasync/sweepasync.component';
+import { SweeprandComponent } from './sweeprand/sweeprand.component';
 
 const routes: Routes = [
   {
@@ -12,6 +14,14 @@ const routes: Routes = [
   {
     path: 'flags',
     component: FlagsComponent
+  },
+  {
+    path: 'sweepasync',
+    component: SweepasyncComponent
+  },
+  {
+    path: 'sweeprand',
+    component: SweeprandComponent
   }
 ];
 
