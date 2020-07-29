@@ -1,6 +1,7 @@
-import { Component, OnInit, Output, Input } from '@angular/core';
+import { Component, OnInit, Output, Input, ViewChild } from '@angular/core';
 import { FApp } from 'src/app/core/state/models/f-app';
 import { State } from 'src/app/core/state/state.service';
+import { IonRadioGroup } from '@ionic/angular';
 
 @Component({
   selector: 'app-flag-list',
@@ -11,7 +12,7 @@ export class FlagListComponent implements OnInit {
   public fApp: FApp;
 
   @Input() defaultValue: string;
-
+  @ViewChild("list") list: IonRadioGroup;
   constructor(public state: State) { }
 
   ngOnInit() {

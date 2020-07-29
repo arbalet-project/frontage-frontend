@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { FApp } from '../state/models/f-app';
 import { Observable } from 'rxjs';
-import { Launch, CurrentFApp, Position, KeepAlive } from './models/f-app';
+import { Launch, CurrentFApp, Position, KeepAlive, ParametersStatus } from './models/f-app';
 
 @Injectable({
   providedIn: 'root'
@@ -56,9 +56,14 @@ export class FAppService {
 
   public setScheduled(name: string, state: boolean) {
     return this.http
-      .post(this.baseUrl +  this.updateStateUrl, {
+      .post(this.baseUrl + this.updateStateUrl, {
         app_name: name,
         app_state: state
       }).subscribe();
+  }
+
+  public sendParameters(fAppOptions: any): Observable<ParametersStatus> {
+    return this.http
+      .post<ParametersStatus>(this.baseUrl + "/b/apps/default/" + fAppOptions.name, fAppOptions)
   }
 }

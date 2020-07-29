@@ -14,9 +14,11 @@
 <app-template
   default="/admin/tabs/fapp"
   [titleKey]="'f_app.' + '.options.title'"
-  displayFooter="false"
+  footerKey="fapp.send_parameters"
+  footerIcon="flag"
+  (clickButton)="sendParameters($event)"
   [headerTemplate]="customHeader"
->
-<app-flag-list>
+> <!-- TODO -->
+<app-flag-list #flags>
 </app-flag-list>
 </app-template>
