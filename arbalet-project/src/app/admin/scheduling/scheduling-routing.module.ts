@@ -5,6 +5,7 @@ import { SchedulingPage } from './scheduling.page';
 import { FlagsComponent } from './flags/flags.component';
 import { SweepasyncComponent } from './sweepasync/sweepasync.component';
 import { SweeprandComponent } from './sweeprand/sweeprand.component';
+import { RandomflashingComponent } from './randomflashing/randomflashing.component';
 
 const routes: Routes = [
   {
@@ -22,7 +23,11 @@ const routes: Routes = [
   {
     path: 'sweeprand',
     component: SweeprandComponent
-  }
+  },
+  {
+    path: 'randomflashing',
+    component: RandomflashingComponent
+  },
 ];
 
 @NgModule({
