@@ -26,6 +26,12 @@
         "sunset": "Sunset",
         "sunrise": "Sunrise"
       },
+      "state": {
+        "label": "ON/OFF",
+        "on": "Forced on",
+        "off": "Forced off",
+        "scheduled": "According to daily schedule"
+      },
       "title": "Settings"
     }
   },

@@ -26,6 +26,12 @@
         "sunset": "Coucher du soleil",
         "sunrise": "Lever du soleil"
       },
+      "state": {
+        "label": "Mise en marche",
+        "on": "Marche forcée",
+        "off": "Arrêt forcé",
+        "scheduled": "Selon le planning quotidien"
+      },
       "title": "Paramètres"
     }
   },
@@ -115,9 +121,9 @@
     "yemen": "Yémen"
   },
   "f_app": {
-    "action" : {
-      "send_parameters" : "Envoyer options app ordonnancée",
-      "scheduled" : "Programmé :"
+    "action": {
+      "send_parameters": "Envoyer options app ordonnancée",
+      "scheduled": "Programmé :"
     },
     "title": "Sélectionnez une application",
     "Flags": {
@@ -132,25 +138,25 @@
     "RandomFlashing": {
       "name": "Étincelles",
       "description": "Faîtes scintiller Arbalet Frontage de façon calme et reposante.",
-      "options" : {
-        "title" : "Choisissez vos couleurs",
-        "label" : "Couleur :"
+      "options": {
+        "title": "Choisissez vos couleurs",
+        "label": "Couleur :"
       }
     },
     "SweepRand": {
       "name": "Couleurs duelles",
       "description": "Animez Arbalet Frontage de deux couleurs duelles.",
-      "options" : {
-        "title" : "Choisissez vos couleurs",
-        "list" : "Couleur"
+      "options": {
+        "title": "Choisissez vos couleurs",
+        "list": "Couleur"
       }
     },
     "SweepAsync": {
       "name": "Roue des couleurs",
       "description": "Visualisez toute la roue des couleurs, chaque fenêtre à son rythme.",
       "options": {
-        "title" : "Roue des couleurs",
-        "rules" : "Vous allez voir défiler toute la roue des couleurs, chaque fenêtre à son rythme."
+        "title": "Roue des couleurs",
+        "rules": "Vous allez voir défiler toute la roue des couleurs, chaque fenêtre à son rythme."
       }
     },
     "Tetris": {

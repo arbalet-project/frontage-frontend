@@ -15,6 +15,11 @@ export class SettingsPage implements OnInit {
   public defaultTimeOn: string;
   public defaultTimeOff: string;
   public defaultLifeTime: number;
+  public stateList = [
+    { value: "on" },
+    { value: "off" },
+    { value: "scheduled" }
+  ]
 
   constructor(public translate: TranslateService, public api: ApiService, public http: FAppService) { }
 
@@ -25,7 +30,7 @@ export class SettingsPage implements OnInit {
   }
 
   private initList() {
-    this.timeListOptions.set('sunset|0', '🌇 ' + this.translate.instant('admin.settings.label.sunset'), );
+    this.timeListOptions.set('sunset|0', '🌇 ' + this.translate.instant('admin.settings.label.sunset'),);
     this.timeListOptions.set('sunrise|0', '🌅 ' + this.translate.instant('admin.settings.label.sunrise'));
 
     // Sunset
