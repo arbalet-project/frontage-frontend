@@ -1,12 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { State } from 'src/app/core/state/state.service';
 
 @Component({
   selector: 'app-fapp',
   templateUrl: './fapp.component.html'})
-export class FappComponent implements OnInit {
+export class FappComponent {
 
-  constructor() { }
-
-  ngOnInit() {}
-
+  constructor(public state: State) { }
 }

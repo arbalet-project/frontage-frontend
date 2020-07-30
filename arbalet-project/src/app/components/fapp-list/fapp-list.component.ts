@@ -9,8 +9,8 @@ import { State } from 'src/app/core/state/state.service';
 export class FappListComponent {
 
   @Input() adminView;
-
-  constructor(public state: State) {
+  @Input() list;
+  constructor() {
    }
 
 }

@@ -1,6 +1,6 @@
 <ion-list>
   <ng-container
-    *ngFor="let fapp of state.fAppList.list"
+    *ngFor="let fapp of list"
     [ngTemplateOutlet]="adminView !== undefined ? admin : user"
     [ngTemplateOutletContext]="{ fapp: fapp }"
   >
