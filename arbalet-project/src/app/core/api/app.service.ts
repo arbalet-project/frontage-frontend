@@ -50,7 +50,7 @@ export class FAppService {
   }
 
   public clearUserQueue() {
-    this.http.get(this.baseUrl + this.clearQueueUrl);
+    this.http.get(this.baseUrl + this.clearQueueUrl).subscribe();
   }
 
 
