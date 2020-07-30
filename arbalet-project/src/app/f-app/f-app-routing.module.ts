@@ -35,6 +35,10 @@ const routes: Routes = [
   {
     path: 'sweepasync',
     loadChildren: () => import('./sweepasync/sweepasync.module').then( m => m.SweepasyncPageModule)
+  },
+  {
+    path: 'snap',
+    loadChildren: () => import('./snap/snap.module').then( m => m.SnapPageModule)
   }
 ];
 

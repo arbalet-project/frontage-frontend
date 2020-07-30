@@ -16,7 +16,7 @@ export class RandomflashingComponent implements OnInit {
   ngOnInit() {
     this.fApp = this.state.fAppList.findByName('RandomFlashing');
   }
-  
+
   updateScheduled(event: CustomEvent) {
     this.http.setScheduled(this.fApp.name, event.detail.checked);
   }

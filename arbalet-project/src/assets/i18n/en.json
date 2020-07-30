@@ -187,7 +187,11 @@
     },
     "Snap": {
       "name": "Live",
-      "description": "Learning computer programming with a playful and creative approach by creating your own light animation thanks to this visual programming language."
+      "description": "Learning computer programming with a playful and creative approach by creating your own light animation thanks to this visual programming language.",
+      "options" : {
+        "title": "Snap",
+        "rules" : "Each participant has a laptop or tablet. He connects to Wifi network ARBALET_FRONTAGE and loads \"live.arbalet-project.org\" in a Web browser, selects a nickname and create his own coloured animation. Administrator selects which nickname live controls Frontage."
+      }
     }
   },
   "home": {
