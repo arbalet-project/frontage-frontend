@@ -12,7 +12,7 @@ export class FlagListComponent implements OnInit {
   public fApp: FApp;
 
   @Input() defaultValue: string;
-  @ViewChild("list") list: IonRadioGroup;
+  @ViewChild('list') list: IonRadioGroup;
   constructor(public state: State) { }
 
   ngOnInit() {

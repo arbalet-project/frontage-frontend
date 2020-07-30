@@ -11,8 +11,8 @@ import { FlagListComponent } from 'src/app/components/fapp/flags/flag-list/flag-
 })
 export class FlagsComponent implements OnInit {
 
-  public fApp : FApp;
-  @ViewChild("flags") flags : FlagListComponent;
+  public fApp: FApp;
+  @ViewChild('flags') flags: FlagListComponent;
 
   constructor(public state: State, public http: FAppService) { }
 

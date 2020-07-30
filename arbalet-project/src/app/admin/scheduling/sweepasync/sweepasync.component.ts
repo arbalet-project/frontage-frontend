@@ -11,7 +11,7 @@ import { FAppService } from 'src/app/core/api/app.service';
 })
 export class SweepasyncComponent implements OnInit {
 
-  public fApp : FApp;
+  public fApp: FApp;
 
   constructor(public state: State, public http: FAppService) { }
 
@@ -21,6 +21,6 @@ export class SweepasyncComponent implements OnInit {
 
   updateScheduled(event) {
     console.log(event.detail.checked);
-   this.http.setScheduled(this.fApp.name, event.detail.checked);
+    this.http.setScheduled(this.fApp.name, event.detail.checked);
   }
 }

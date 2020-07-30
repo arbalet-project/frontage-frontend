@@ -1,0 +1,11 @@
+
+ion-item {
+    --background: transparent;
+    margin-bottom: 10px;
+    background: rgba(255,255,255,0.5);
+    border: medium none;
+
+    ion-select, ion-label {
+        color: #fff;
+    }
+}

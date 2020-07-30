@@ -17,7 +17,7 @@ export class FAppService {
   private keepUrl = '/b/apps/iamalive';
   public quitQueueUrl = '/b/queue/quit';
   public clearQueueUrl = '/b/apps/queue/clear';
-  public updateStateUrl = '/b/apps/default/'
+  public updateStateUrl = '/b/apps/default/';
 
   constructor(private http: HttpClient) { }
 
@@ -64,6 +64,6 @@ export class FAppService {
 
   public sendParameters(fAppOptions: any): Observable<ParametersStatus> {
     return this.http
-      .post<ParametersStatus>(this.baseUrl + "/b/apps/default/" + fAppOptions.name, fAppOptions)
+      .post<ParametersStatus>(this.baseUrl + '/b/apps/default/' + fAppOptions.name, fAppOptions);
   }
 }

@@ -11,13 +11,14 @@ import { CalendarResponse, LifeTimeResponse } from './models/settings';
   providedIn: 'root',
 })
 export class ApiService {
+  constructor(private http: HttpClient) {}
   private baseUrl = environment.backEndBaseUrl;
   private statusServerUrl = '/status/is_up';
   private statusFacadeUrl = '/frontage/status';
   private calendarUrl = '/b/admin/cal';
   private timeUrl = '/b/admin/state';
   private lifeTimeUrl = '/b/admin/settings';
-  constructor(private http: HttpClient) {}
+s;
 
   public statusServer(): Observable<Status> {
     return this.http.get<Status>(this.baseUrl + this.statusServerUrl);
@@ -52,5 +53,4 @@ export class ApiService {
     this.http.post(this.baseUrl + this.lifeTimeUrl, {
       default_lifetime: lifetime,
     }).subscribe();
-  }s
-}
+  }}
