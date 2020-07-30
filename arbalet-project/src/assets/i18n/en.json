@@ -115,6 +115,10 @@
     "yemen": "Yemen"
   },
   "f_app": {
+    "action" : {
+      "send_parameters" : "Send scheduled app options",
+      "scheduled" : "Scheduled :"
+    },
     "title": "Select an application",
     "Flags": {
       "description": "Light Arbalet Frontage to the colors of your country!",

@@ -2,7 +2,7 @@
   "action": {
     "cancel": "Annuler",
     "disconnect": "Se déconnecter",
-    "login": "Connection",
+    "login": "Connexion",
     "stop": "Quitter"
   },
   "admin": {
@@ -115,6 +115,10 @@
     "yemen": "Yémen"
   },
   "f_app": {
+    "action" : {
+      "send_parameters" : "Envoyer options app ordonnancée",
+      "scheduled" : "Programmé :"
+    },
     "title": "Sélectionnez une application",
     "Flags": {
       "name": "Drapeaux",

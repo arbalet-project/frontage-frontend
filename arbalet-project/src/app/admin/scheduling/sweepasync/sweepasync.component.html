@@ -2,13 +2,16 @@
   <ion-buttons slot="start">
     <ion-back-button defaultHref="/admin/tabs/scheduling"></ion-back-button>
   </ion-buttons>
-  <ion-title>{{ "drapeaux" | translate }}</ion-title>
+  <ion-title>{{ "f_app." + fApp.name + ".name" | translate }}</ion-title>
   <ion-item slot="end">
     <ion-label>
-      Scheduled
-      <!-- TODO -->
+      {{ "f_app.action.scheduled" | translate }}
     </ion-label>
-    <ion-toggle (ionChange)="updateScheduled($event)" [checked]="fApp.scheduled" color="success"></ion-toggle>
+    <ion-toggle
+      (ionChange)="updateScheduled($event)"
+      [checked]="fApp.scheduled"
+      color="success"
+    ></ion-toggle>
   </ion-item>
 </ng-template>
 
