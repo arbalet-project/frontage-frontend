@@ -43,7 +43,7 @@
       <ion-col>
         <ion-item>
           <ion-label> {{ "admin.settings.state.label" | translate }}</ion-label>
-          <ion-select value="on"> <!-- TODO -->
+          <ion-select [value]="state.frontage.state" (ionChange)="updateState($event)"> <!-- TODO -->
             <ion-select-option *ngFor="let el of stateList" [value]="el.value">
               {{ "admin.settings.state." + el.value | translate }}
             </ion-select-option>
