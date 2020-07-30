@@ -16,6 +16,7 @@ import { SweepasyncComponent } from './sweepasync/sweepasync.component';
 import { SweeprandComponent } from './sweeprand/sweeprand.component';
 import { ColorlistComponent } from 'src/app/components/fapp/sweeprand/colorlist/colorlist.component';
 import { RandomflashingComponent } from './randomflashing/randomflashing.component';
+import { DrawingComponent } from './drawing/drawing.component';
 
 @NgModule({
   imports: [
@@ -34,7 +35,8 @@ import { RandomflashingComponent } from './randomflashing/randomflashing.compone
     SweepasyncComponent,
     SweeprandComponent,
     ColorlistComponent,
-    RandomflashingComponent
+    RandomflashingComponent,
+    DrawingComponent
   ],
 })
 export class SchedulingPageModule {}

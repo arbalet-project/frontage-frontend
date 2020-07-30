@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { FApp } from '../state/models/f-app';
 import { Observable } from 'rxjs';
-import { Launch, CurrentFApp, Position, KeepAlive, ParametersStatus } from './models/f-app';
+import { Launch, CurrentFApp, Position, KeepAlive, ParametersStatus, LaunchForced } from './models/f-app';
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +12,7 @@ export class FAppService {
   private baseUrl = environment.backEndBaseUrl;
   private listUrl = '/b/apps';
   private launchUrl = '/b/apps/running';
+  public launchForcedUrl = '/b/apps/admin/running'
   private positionUrl = '/b/apps/position';
   private quitUrl = '/b/queue/quit';
   private keepUrl = '/b/apps/iamalive';
@@ -27,6 +28,11 @@ export class FAppService {
 
   public launchFApp(fAppOptions: any): Observable<Launch> { // TODO : remove any
     return this.http.post<Launch>(this.baseUrl + this.launchUrl, fAppOptions);
+  }
+
+  public launchForcedFApp(fAppOptions: any) : Observable<LaunchForced> {
+    return this.http
+    .post<LaunchForced>(this.baseUrl + this.launchForcedUrl, fAppOptions)
   }
 
   public checkPosition(): Observable<Position> {
@@ -64,6 +70,6 @@ export class FAppService {
 
   public sendParameters(fAppOptions: any): Observable<ParametersStatus> {
     return this.http
-      .post<ParametersStatus>(this.baseUrl + '/b/apps/default/' + fAppOptions.name, fAppOptions);
+      .post<ParametersStatus>(this.baseUrl + this.updateStateUrl + fAppOptions.name, fAppOptions);
   }
 }

@@ -22,7 +22,7 @@ export class OptionsService {
   ) { }
 
   startFapp(parameters: any, url: string) {
-    this.http.launchFApp(parameters).subscribe(async (r) => {
+    this.http.launchFApp(parameters).subscribe(async (_) => {
       const modal = await this.modal.create({
         component: WaitingComponent,
       });

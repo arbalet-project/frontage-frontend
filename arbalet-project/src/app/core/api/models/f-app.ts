@@ -5,6 +5,11 @@ export interface Launch {
     remove_previous: boolean;
 }
 
+export interface LaunchForced {
+    forced: boolean;
+    keep_alive_delay: number
+}
+
 export interface Position {
     position: number;
 }
