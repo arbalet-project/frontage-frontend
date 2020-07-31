@@ -17,6 +17,7 @@
 
 <app-template
   default="/admin/tabs/fapp"
+  [titleKey]="'f_app.' + fApp.name + '.options.title'"
   [headerTemplate]="customHeader"
   footerKey="f_app.action.send_parameters"
   footerIcon="flag"

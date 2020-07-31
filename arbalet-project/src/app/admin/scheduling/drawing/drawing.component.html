@@ -1,3 +1,24 @@
-<p>
-  drawing works!
-</p>
+<ng-template #customHeader>
+  <ion-buttons slot="start">
+    <ion-back-button defaultHref="/admin/tabs/scheduling"></ion-back-button>
+  </ion-buttons>
+  <ion-title>{{ "f_app." + fApp.name + ".name" | translate }}</ion-title>
+  <ion-item slot="end">
+    <ion-label>
+      {{ "f_app.action.scheduled" | translate }}
+    </ion-label>
+    <ion-toggle
+      (ionChange)="updateScheduled($event)"
+      [checked]="fApp.scheduled"
+      color="success"
+    ></ion-toggle>
+  </ion-item>
+</ng-template>
+
+<app-template
+  default="/admin/tabs/fapp"
+  [titleKey]="'f_app.' + fApp.name + '.options.title'"
+  displayFooter="false"
+  [headerTemplate]="customHeader"
+>
+</app-template>
