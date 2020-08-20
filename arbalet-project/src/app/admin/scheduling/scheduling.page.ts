@@ -7,14 +7,14 @@ import { FApp } from 'src/app/core/state/models/f-app';
   templateUrl: './scheduling.page.html',
 })
 export class SchedulingPage implements OnInit {
-  public filterList: Array<FApp>
+  public filterList: Array<FApp>;
   private fAppScheduled: Array<string> = [
     'Flags',
     'RandomFlashing',
     'SweepRand',
     'SweepAsync',
     'Drawing'
-  ]
+  ];
   constructor(public state: State) { }
 
   ngOnInit() {

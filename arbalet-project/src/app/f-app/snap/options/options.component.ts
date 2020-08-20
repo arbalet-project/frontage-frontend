@@ -8,10 +8,10 @@ import { FAppService } from 'src/app/core/api/app.service';
   templateUrl: './options.component.html',
 })
 export class OptionsComponent implements OnInit {
-  
+
   public fApp: FApp;
 
-  constructor(public state: State,public http: FAppService) { }
+  constructor(public state: State, public http: FAppService) { }
 
   ngOnInit() {
     this.fApp = this.state.fAppList.findByName('Snap');
@@ -22,6 +22,6 @@ export class OptionsComponent implements OnInit {
       name: this.fApp.name
     }).subscribe((res) => {
       console.log(res);
-    })
+    });
   }
 }

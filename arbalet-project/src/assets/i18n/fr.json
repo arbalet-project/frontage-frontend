@@ -189,10 +189,10 @@
     "Snap": {
       "name": "Live",
       "description": "Démarrer un atelier de programmation créative.",
-      "options" : {
-        "footer" : "Démarrer l'atelier",
+      "options": {
+        "footer": "Démarrer l'atelier",
         "title": "Atelier de programmation",
-        "rules" : "Chaque participant dispose d'un ordinateur ou tablette. Il se connecte au réseau Wifi ARBALET_FRONTAGE et charge \"live.arbalet-project.org\" dans un navigateur Web. Il choisit un sobriquet puis créé son animation colorée. L'administrateur choisit quel sobriquet peut contrôler Arbalet Frontage en live."
+        "rules": "Chaque participant dispose d'un ordinateur ou tablette. Il se connecte au réseau Wifi ARBALET_FRONTAGE et charge \"live.arbalet-project.org\" dans un navigateur Web. Il choisit un sobriquet puis créé son animation colorée. L'administrateur choisit quel sobriquet peut contrôler Arbalet Frontage en live."
       }
     }
   },
@@ -232,6 +232,22 @@
   "outdated": {
     "title": "Mise à jour nécessaire",
     "message": "Désolé, la version de votre application n'est plus à jour avec Arbalet Frontage. Veuillez la mettre à jour depuis le store puis réessayez."
+  },
+  "tetris_block": {
+    "play": "Jouer !",
+    "howto_play_title": "Comment jouer ?",
+    "howto_play_goal": "Votre objectif est d'empêcher les blocs de s'empiler au delà de l'hexagone.",
+    "howto_play_tap_keyboard": "Appuyez sur les touches gauche et droite pour tourner l'hexagone",
+    "howto_play_tap_screen": "Tapez le côté GAUCHE ou DROIT de l'écran pour tourner l'hexagone",
+    "howto_play_instructions_1": "Eliminez les blocs et gagnez des points en faisant se toucher au moins 3 blocs de même couleur.",
+    "howto_play_instructions_2": "Le temps restant pour faire un combo est indiqué par les lignes de couleurs extérieures à l'hexagone",
+    "paused_press_enter": "Appuyez sur ENTREE pour commencer",
+    "paused": "En pause",
+    "short_howto_play_1_keyboard": "Utilisez les touches DROITE et GAUCHE",
+    "short_howto_play_2_keyboard": "pour tourner l'hexagone",
+    "short_howto_play_1": "Tapez l'écran à GAUCHE ou DROITE",
+    "short_howto_play_2": "pour tourner l'hexagone.",
+    "short_howto_play_3": "Combinez au moins 3 blocs !"
   },
   "waiting": {
     "kicked": {

@@ -1,0 +1,34 @@
+<ion-header id="arbaHeader">
+  <ion-toolbar translucent>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-img
+      (click)="handleTapEvent()"
+      class="logo"
+      src="assets/img/logo/frontage_white.png"
+    ></ion-img>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content class="bg">
+  <canvas id="canvas"></canvas>
+  <div id='startBtn'></div>
+  <div id="helpScreen" class='unselectable'>
+    <div id='inst_main_body'></div>
+  </div>
+  <div id="pauseScreen" class='unselectable'>
+    <div id='pause_main_body'></div>
+  </div>
+  <img id="helpBtn" class='helpText' src="./assets/img/offline-tetris/btn_help.png" />
+  <img id="pauseBtn" src="./assets/img/offline-tetris/btn_pause.png" />
+  <img id='restartBtn' src="./assets/img/offline-tetris/btn_restart.png" />
+  <div id="gameoverscreen">
+    <div id='container'>
+      <div id='gameOverBox' class='GOTitle'>GAME OVER</div>
+      <div id='cScore'>0</div>
+    </div>
+  </div>
+
+</ion-content>

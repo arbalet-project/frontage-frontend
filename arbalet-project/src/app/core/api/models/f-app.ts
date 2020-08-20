@@ -7,7 +7,7 @@ export interface Launch {
 
 export interface LaunchForced {
     forced: boolean;
-    keep_alive_delay: number
+    keep_alive_delay: number;
 }
 
 export interface Position {

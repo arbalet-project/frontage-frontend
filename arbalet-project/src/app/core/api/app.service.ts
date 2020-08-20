@@ -12,7 +12,7 @@ export class FAppService {
   private baseUrl = environment.backEndBaseUrl;
   private listUrl = '/b/apps';
   private launchUrl = '/b/apps/running';
-  public launchForcedUrl = '/b/apps/admin/running'
+  public launchForcedUrl = '/b/apps/admin/running';
   private positionUrl = '/b/apps/position';
   private quitUrl = '/b/queue/quit';
   private keepUrl = '/b/apps/iamalive';
@@ -30,9 +30,9 @@ export class FAppService {
     return this.http.post<Launch>(this.baseUrl + this.launchUrl, fAppOptions);
   }
 
-  public launchForcedFApp(fAppOptions: any) : Observable<LaunchForced> {
+  public launchForcedFApp(fAppOptions: any): Observable<LaunchForced> {
     return this.http
-    .post<LaunchForced>(this.baseUrl + this.launchForcedUrl, fAppOptions)
+    .post<LaunchForced>(this.baseUrl + this.launchForcedUrl, fAppOptions);
   }
 
   public checkPosition(): Observable<Position> {
