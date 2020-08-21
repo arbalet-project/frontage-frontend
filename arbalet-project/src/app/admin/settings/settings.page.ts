@@ -113,7 +113,6 @@ export class SettingsPage implements OnInit {
     return `${time}|${offset}`;
   }
 
-  // TODO : We can improve this.
   private toUTC(hour: number): string {
     const time = new Date();
     time.setHours(hour);
@@ -140,6 +139,6 @@ export class SettingsPage implements OnInit {
   }
 
   updateState(event) {
-    console.log(event.detail.value); // TODO : Poblem with the old implementation
+    this.http.updateFrontageState(event.detail.value);
   }
 }

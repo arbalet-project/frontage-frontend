@@ -18,8 +18,8 @@ export class FAppService {
   private keepUrl = '/b/apps/iamalive';
   public quitQueueUrl = '/b/queue/quit';
   public clearQueueUrl = '/b/apps/queue/clear';
-  public updateStateUrl = '/b/apps/default/';
-
+  public updateAppUrl = '/b/apps/default/';
+  public updateStateUrl = '/b/admin/enabled';
   constructor(private http: HttpClient) { }
 
   public getList(): Observable<[FApp]> {
@@ -32,7 +32,7 @@ export class FAppService {
 
   public launchForcedFApp(fAppOptions: any): Observable<LaunchForced> {
     return this.http
-    .post<LaunchForced>(this.baseUrl + this.launchForcedUrl, fAppOptions);
+      .post<LaunchForced>(this.baseUrl + this.launchForcedUrl, fAppOptions);
   }
 
   public checkPosition(): Observable<Position> {
@@ -62,7 +62,7 @@ export class FAppService {
 
   public setScheduled(name: string, state: boolean) {
     return this.http
-      .post(this.baseUrl + this.updateStateUrl, {
+      .post(this.baseUrl + this.updateAppUrl, {
         app_name: name,
         app_state: state
       }).subscribe();
@@ -70,6 +70,14 @@ export class FAppService {
 
   public sendParameters(fAppOptions: any): Observable<ParametersStatus> {
     return this.http
-      .post<ParametersStatus>(this.baseUrl + this.updateStateUrl + fAppOptions.name, fAppOptions);
+      .post<ParametersStatus>(this.baseUrl + this.updateAppUrl + fAppOptions.name, fAppOptions);
   }
+
+  public updateFrontageState(state: string) {
+    return this.http
+      .post(this.baseUrl + this.updateStateUrl, {
+        state: state
+      }).subscribe();
+  }
+
 }
