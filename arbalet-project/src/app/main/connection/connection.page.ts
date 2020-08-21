@@ -5,7 +5,7 @@ import { AlertController } from '@ionic/angular';
 import { TranslateService } from '@ngx-translate/core';
 import { State } from 'src/app/core/state/state.service';
 import { interval, Subscription } from 'rxjs';
-import { startWith } from 'rxjs/operators';
+import { startWith, catchError } from 'rxjs/operators';
 import { AdminFormService } from 'src/app/core/authentication/admin-form.service';
 
 @Component({
@@ -32,14 +32,20 @@ export class ConnectionPage {
   }
 
   public update(): void {
-    this.http.statusServer().subscribe((status) => {
+    console.log("passed");
+    this.http.statusServer()
+    .subscribe((status) => {
+      console.log(status);
       this.subscribe.unsubscribe();
       if (status.protocol_version === environment.protocol_version) {
         this.updateStatus();
       } else {
         this.showOutdated();
       }
-    }, console.error);
+    }, (err) => {
+      console.log(err)
+      console.log("test");
+    });
   }
 
   /**

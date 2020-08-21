@@ -18,7 +18,6 @@ export class ApiService {
   private calendarUrl = '/b/admin/cal';
   private timeUrl = '/b/admin/state';
   private lifeTimeUrl = '/b/admin/settings';
-s;
 
   public statusServer(): Observable<Status> {
     return this.http.get<Status>(this.baseUrl + this.statusServerUrl);

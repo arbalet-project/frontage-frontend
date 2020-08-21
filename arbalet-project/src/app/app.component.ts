@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 
 import { Platform } from '@ionic/angular';
-import { SplashScreen } from '@ionic-native/splash-screen/ngx';
-import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { TranslateService } from '@ngx-translate/core';
 import { Plugins } from '@capacitor/core';
 const { CapacitorKeepScreenOn } = Plugins;
+const { SplashScreen } = Plugins;
+const { StatusBar } = Plugins;
+
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
@@ -13,8 +14,6 @@ const { CapacitorKeepScreenOn } = Plugins;
 export class AppComponent {
   constructor(
     private platform: Platform,
-    private splashScreen: SplashScreen,
-    private statusBar: StatusBar,
     private translate: TranslateService
   ) {
     this.initializeApp();
@@ -22,15 +21,15 @@ export class AppComponent {
 
   initializeApp() {
     this.platform.ready().then(() => {
-      this.statusBar.styleDefault();
-      this.splashScreen.hide();
+      // StatusBar.styleDefault();
+      SplashScreen.hide();
     });
 
     this.translate.setDefaultLang('fr');
 
     if (this.platform.is('mobile')) {
       // Enable plugin to keep screen on
-      CapacitorKeepScreenOn.enable();
+       CapacitorKeepScreenOn.enable();
     }
   }
 }
