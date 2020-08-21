@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import { cpuUsage } from 'process';
 
 declare var initialize;
 declare var quitTetris;
@@ -22,17 +23,10 @@ export class OfflineTetrisComponent implements OnInit {
       'short_howto_play_2_keyboard', 'short_howto_play_1', 'short_howto_play_2', 'short_howto_play_3'];
 
     for (const message of messageKey) {
-      this.translate.get('tetris_block.' + message).subscribe((msg) => {
-        this.messages[message] = msg;
-      });
+      this.messages[message] = this.translate.instant('tetris_block.' + message);
     }
-
     initialize(0, this.messages);
   }
-  // ionViewDidLoad() {
-  //   console.log("test");
-  //   initialize(0, this.messages);
-  // }
 
   ionViewDidLeave() {
     quitTetris();
