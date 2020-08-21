@@ -32,10 +32,8 @@ export class ConnectionPage {
   }
 
   public update(): void {
-    console.log("passed");
     this.http.statusServer()
     .subscribe((status) => {
-      console.log(status);
       this.subscribe.unsubscribe();
       if (status.protocol_version === environment.protocol_version) {
         this.updateStatus();
@@ -43,8 +41,7 @@ export class ConnectionPage {
         this.showOutdated();
       }
     }, (err) => {
-      console.log(err)
-      console.log("test");
+      console.log(err);
     });
   }
 

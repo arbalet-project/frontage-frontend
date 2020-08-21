@@ -53,4 +53,8 @@ export class AuthenticationService {
   get userid() {
     return this.jwt.decodeToken(this.token).userid;
   }
+
+  public logout() {
+    localStorage.setItem('token', '');
+  }
 }

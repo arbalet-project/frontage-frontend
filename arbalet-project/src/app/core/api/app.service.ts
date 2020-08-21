@@ -76,7 +76,7 @@ export class FAppService {
   public updateFrontageState(state: string) {
     return this.http
       .post(this.baseUrl + this.updateStateUrl, {
-        state: state
+        state
       }).subscribe();
   }
 
