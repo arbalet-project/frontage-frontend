@@ -16,7 +16,16 @@ If ionic is not installed: `npm i -g @ionic/cli`.
 ionic serve
 ```
 
-Deploy on a connected Android phone and use live reload:
+### Android phone
+
+Sync your project with android files:
 ```
-ionic capacitor run android -l
+ionic cap sync
 ```
+
+Set your android studio path in the capacitor.config.json.
+Open android studio:
+```
+npx cap open android
+```
+And launch with the android studio tools.
