@@ -1,6 +1,6 @@
 {
   "appId": "io.ionic.starter",
-  "appName": "arbalet-project",
+  "appName": "Arbalet Frontage",
   "bundledWebRuntime": false,
   "npmClient": "npm",
   "webDir": "www",
