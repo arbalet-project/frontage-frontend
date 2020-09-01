@@ -10,7 +10,7 @@ export const environment = {
   backEndBaseUrl: 'http://localhost:33405',
   webSocketAdress: 'ws://localhost:33406',
   trackingUrl: 'http://localhost:33460',
-  protocol_version: 2,
+  protocol_version: 3,
 };
 
 /*

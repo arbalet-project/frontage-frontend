@@ -1,7 +1,6 @@
 import { FApp } from './models/f-app';
 import { FAppService } from '../api/app.service';
 import { Injectable } from '@angular/core';
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 type fApplist = Array<FApp>;
 @Injectable({
