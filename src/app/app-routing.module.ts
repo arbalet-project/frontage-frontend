@@ -4,7 +4,6 @@ import { AdminGuard } from './core/authentication/guard/admin.guard';
 import { UserGuard } from './core/authentication/guard/user.guard';
 import { HomePage } from './main/home/home.page';
 import { ConnectionPage } from './main/connection/connection.page';
-import { OfflineTetrisComponent } from './main/offline-tetris/offline-tetris.component';
 
 const routes: Routes = [
   {
@@ -19,10 +18,6 @@ const routes: Routes = [
   {
     path: 'connection',
     component: ConnectionPage
-  },
-  {
-    path: 'offline-tetris',
-    component: OfflineTetrisComponent
   },
   {
     path: 'f-app',

@@ -28,15 +28,3 @@
     </ion-row>
   </ion-grid>
 </ion-content>
-
-<ion-footer translucent *ngIf="!statusServer">
-  <ion-button
-  fill="clear"
-  class="ion-no-margin button_green"
-  routerLink="/offline-tetris"
-  expand="full"
->
-  {{ "home.start_button" | translate }}
-  <ion-icon color="success" slot="end" name="log-in-outline"></ion-icon>
-</ion-button>
-</ion-footer>
