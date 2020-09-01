@@ -14,6 +14,8 @@ import { LifetimeComponent } from './settings/components/lifetime/lifetime.compo
 import { FappComponent } from './fapp/fapp.component';
 import { FappListComponent } from '../components/fapp-list/fapp-list.component';
 
+import { Chooser } from '@ionic-native/chooser/ngx';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -22,6 +24,9 @@ import { FappListComponent } from '../components/fapp-list/fapp-list.component';
     AdminPageRoutingModule,
     TranslateModule.forChild()
   ],
-  declarations: [AdminPage, SettingsPage, ListComponent, LifetimeComponent, FappComponent, FappListComponent]
+  declarations: [AdminPage, SettingsPage, ListComponent, LifetimeComponent, FappComponent, FappListComponent],
+  providers: [
+    Chooser
+  ]
 })
-export class AdminPageModule {}
+export class AdminPageModule { }

@@ -19,6 +19,7 @@
     },
     "settings": {
       "clear": "Vider la file d'attente",
+      "config": "Choisir le fichier de configuration",
       "label": {
         "lifetime": "Durée des applications",
         "start": "Horaire de démarrage",

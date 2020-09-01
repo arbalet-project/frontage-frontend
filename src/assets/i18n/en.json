@@ -19,6 +19,7 @@
     },
     "settings": {
       "clear": "Clear user queue",
+      "config": "Choose the configuration files",
       "label": {
         "lifetime": "Lifetime of default apps",
         "start": "Start time",

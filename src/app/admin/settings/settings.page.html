@@ -43,7 +43,11 @@
       <ion-col>
         <ion-item>
           <ion-label> {{ "admin.settings.state.label" | translate }}</ion-label>
-          <ion-select [value]="state.frontage.state" (ionChange)="updateState($event)"> <!-- TODO -->
+          <ion-select
+            [value]="state.frontage.state"
+            (ionChange)="updateState($event)"
+          >
+            <!-- TODO -->
             <ion-select-option *ngFor="let el of stateList" [value]="el.value">
               {{ "admin.settings.state." + el.value | translate }}
             </ion-select-option>
@@ -65,6 +69,19 @@
             (ionChange)="updateLifeTime($event)"
           ></ion-input>
         </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-button
+          fill="clear"
+          class="ion-no-margin"
+          expand="full"
+          (click)="loadConfig()"
+          color="warning"
+        >
+          {{ "admin.settings.config" | translate }}
+        </ion-button>
       </ion-col>
     </ion-row>
   </ion-grid>

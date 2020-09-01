@@ -3,6 +3,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { FAppService } from 'src/app/core/api/app.service';
 import { ApiService } from 'src/app/core/api/api.service';
 import { State } from 'src/app/core/state/state.service';
+import { Chooser } from '@ionic-native/chooser/ngx';
 
 @Component({
   selector: 'app-settings',
@@ -31,8 +32,9 @@ export class SettingsPage implements OnInit {
     public translate: TranslateService,
     public api: ApiService,
     public http: FAppService,
-    public state: State
-  ) {}
+    public state: State,
+    private chooser: Chooser
+  ) { }
 
   ngOnInit() {
     this.initList();
@@ -140,5 +142,15 @@ export class SettingsPage implements OnInit {
 
   updateState(event) {
     this.http.updateFrontageState(event.detail.value);
+  }
+
+  loadConfig() {
+    this.chooser.getFile()
+      .then(file => {
+        let json = JSON.parse(new TextDecoder("utf-8").decode(file.data));
+        console.log("TODO");
+        console.log(json);
+      })
+      .catch((error: any) => console.error(error));
   }
 }
