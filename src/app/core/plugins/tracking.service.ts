@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class TrakingService {
   baseUrl = `${environment.trackingUrl}`;
-  baseTracker = '/matomo.php?rec=1&idsite=3';
+  baseTracker = `/matomo.php?rec=1&idsite=${environment.idTrackingSite}`;
 
   constructor(public http: HttpClient) { }
 
