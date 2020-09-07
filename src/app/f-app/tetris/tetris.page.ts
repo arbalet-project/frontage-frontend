@@ -4,6 +4,7 @@ import { State } from 'src/app/core/state/state.service';
 import { FApp } from 'src/app/core/state/models/f-app';
 import { WebsocketService } from 'src/app/core/websocket/websocket.service';
 import { FAppService } from 'src/app/core/api/app.service';
+import { TrakingService } from 'src/app/core/plugins/tracking.service';
 
 @Component({
   selector: 'app-tetris',
@@ -18,7 +19,9 @@ export class TetrisPage implements OnInit {
     public state: State,
     public websocket: WebsocketService,
     public http: FAppService,
+    public tracker: TrakingService
   ) {
+    this.tracker.playEvent('Tetris');
   }
 
   ngOnInit() {

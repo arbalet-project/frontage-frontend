@@ -6,6 +6,7 @@ import { WebsocketService } from 'src/app/core/websocket/websocket.service';
 import { NavController } from '@ionic/angular';
 import { FAppService } from 'src/app/core/api/app.service';
 import { ColorlistComponent } from 'src/app/components/fapp/sweeprand/colorlist/colorlist.component';
+import { TrakingService } from 'src/app/core/plugins/tracking.service';
 
 @Component({
   selector: 'app-sweeprand',
@@ -16,11 +17,16 @@ export class SweeprandPage implements OnInit {
   public defaultValue: string;
   @ViewChild('colorList') colorList: ColorlistComponent;
 
-  constructor(private state: State,
-              public websocket: WebsocketService,
-              public nav: NavController,
-              public http: FAppService,
-              public options: OptionsService) { }
+  constructor(
+    private state: State,
+    public websocket: WebsocketService,
+    public nav: NavController,
+    public http: FAppService,
+    public options: OptionsService,
+    public tracker: TrakingService
+  ) {
+    this.tracker.playEvent('SweepRand');
+  }
 
   ngOnInit() {
     this.fApp = this.state.fAppList.findByName('SweepRand');
@@ -30,7 +36,7 @@ export class SweeprandPage implements OnInit {
 
   sendValue() {
     this.websocket.sendMessage({
-      uapp: this.colorList.radio.value
+      uapp: this.colorList.radio.value,
     });
   }
 

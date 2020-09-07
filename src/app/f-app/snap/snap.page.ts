@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TrakingService } from 'src/app/core/plugins/tracking.service';
 
 @Component({
   selector: 'app-snap',
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SnapPage implements OnInit {
 
-  constructor() { }
+  constructor(public tracker: TrakingService) {
+    this.tracker.playEvent('Live');
+  }
 
   ngOnInit() {
   }

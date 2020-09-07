@@ -5,6 +5,7 @@ import { NavController } from '@ionic/angular';
 import { FAppService } from 'src/app/core/api/app.service';
 import { State } from 'src/app/core/state/state.service';
 import { OptionsService } from 'src/app/core/f-app/options.service';
+import { TrakingService } from 'src/app/core/plugins/tracking.service';
 
 @Component({
   selector: 'app-flags',
@@ -19,10 +20,12 @@ export class FlagsPage implements OnInit {
     public websocket: WebsocketService,
     public nav: NavController,
     public http: FAppService,
-    public options: OptionsService
+    public options: OptionsService,
+    public tracker: TrakingService
   ) { }
 
   ngOnInit() {
+    this.tracker.playEvent('Flags');
     this.fApp = this.state.fAppList.findByName('Flags');
     this.websocket.init();
     this.defaultValue = this.options.current.params.uapp;

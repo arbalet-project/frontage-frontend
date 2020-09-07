@@ -147,8 +147,8 @@ export class SettingsPage implements OnInit {
   loadConfig() {
     this.chooser.getFile()
       .then(file => {
-        let json = JSON.parse(new TextDecoder("utf-8").decode(file.data));
-        console.log("TODO");
+        const json = JSON.parse(new TextDecoder('utf-8').decode(file.data));
+        console.log('TODO');
         console.log(json);
       })
       .catch((error: any) => console.error(error));
