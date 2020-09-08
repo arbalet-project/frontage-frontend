@@ -52,16 +52,9 @@ export class ConnectionPage {
    */
   public updateStatus(): void {
     this.statusServer = true;
-    this.http.statusFacade().subscribe((status) => {
-      this.state.frontage.height = status.height;
-      this.state.frontage.width = status.width;
-      this.state.frontage.disabled = status.disabled;
-      this.state.frontage.forced = status.is_forced;
-      this.state.frontage.usable = status.is_usable;
-      this.state.frontage.state = status.state;
-      this.state.frontage.nextOnTime = status.next_on_time;
+    this.state.updateState().subscribe(() => {
       this.updateForm();
-    });
+    })
   }
 
   public updateForm() {

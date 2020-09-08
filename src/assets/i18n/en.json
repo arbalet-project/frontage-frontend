@@ -27,6 +27,7 @@
         "sunset": "Sunset",
         "sunrise": "Sunrise"
       },
+      "page_unforce" : "Unforce app",
       "state": {
         "label": "ON/OFF",
         "on": "Forced on",

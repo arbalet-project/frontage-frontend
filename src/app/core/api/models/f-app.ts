@@ -43,4 +43,8 @@ export interface KeepAlive {
 export interface ParametersStatus {
     done: boolean;
 }
+
+export interface UnforceAppResponse {
+    removed: boolean;
+}
 // tslint:enable:variable-name

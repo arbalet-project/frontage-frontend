@@ -19,9 +19,7 @@ export class FAppList {
     'Snap',
   ];
 
-  constructor(public http: FAppService) {
-    this.updateList();
-  }
+  constructor(public http: FAppService) {}
 
   private updateList() {
     this.reset();

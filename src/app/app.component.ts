@@ -5,7 +5,6 @@ import { TranslateService } from '@ngx-translate/core';
 import { Plugins } from '@capacitor/core';
 const { CapacitorKeepScreenOn } = Plugins;
 const { SplashScreen } = Plugins;
-const { StatusBar } = Plugins;
 
 @Component({
   selector: 'app-root',

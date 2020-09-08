@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { FApp } from '../state/models/f-app';
 import { Observable } from 'rxjs';
-import { Launch, CurrentFApp, Position, KeepAlive, ParametersStatus, LaunchForced } from './models/f-app';
+import { Launch, CurrentFApp, Position, KeepAlive, ParametersStatus, LaunchForced, UnforceAppResponse } from './models/f-app';
 
 @Injectable({
   providedIn: 'root'
@@ -12,14 +12,16 @@ export class FAppService {
   private baseUrl = environment.backEndBaseUrl;
   private listUrl = '/b/apps';
   private launchUrl = '/b/apps/running';
-  public launchForcedUrl = '/b/apps/admin/running';
+  private launchForcedUrl = '/b/apps/admin/running';
   private positionUrl = '/b/apps/position';
   private quitUrl = '/b/queue/quit';
   private keepUrl = '/b/apps/iamalive';
-  public quitQueueUrl = '/b/queue/quit';
-  public clearQueueUrl = '/b/apps/queue/clear';
-  public updateAppUrl = '/b/apps/default/';
-  public updateStateUrl = '/b/admin/enabled';
+  private quitQueueUrl = '/b/queue/quit';
+  private clearQueueUrl = '/b/apps/queue/clear';
+  private updateAppUrl = '/b/apps/default/';
+  private updateStateUrl = '/b/admin/enabled';
+  private forceAppUrl = '/b/apps/admin/quit';
+  
   constructor(private http: HttpClient) { }
 
   public getList(): Observable<[FApp]> {
@@ -80,4 +82,8 @@ export class FAppService {
       }).subscribe();
   }
 
+  public unForceFApp(): Observable<UnforceAppResponse> {
+    return this.http
+      .get<UnforceAppResponse>(this.baseUrl + this.forceAppUrl)
+  }
 }

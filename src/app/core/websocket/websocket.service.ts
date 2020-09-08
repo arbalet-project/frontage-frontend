@@ -27,7 +27,7 @@ type messageSubscription = { code: number, body?: string };
   providedIn: 'root',
 })
 export class WebsocketService {
-  public socket: WebSocketSubject<any>; // TODO : Try to understand why any
+  public socket: WebSocketSubject<any>;
   public keepAliveSub: Subscription;
   public externalClose = false;
 

@@ -96,15 +96,7 @@ export class SettingsPage implements OnInit {
   }
 
   private updateStatus() {
-    this.api.statusFacade().subscribe((status) => {
-      this.state.frontage.height = status.height;
-      this.state.frontage.width = status.width;
-      this.state.frontage.disabled = status.disabled;
-      this.state.frontage.forced = status.is_forced;
-      this.state.frontage.usable = status.is_usable;
-      this.state.frontage.state = status.state;
-      this.state.frontage.nextOnTime = status.next_on_time;
-    });
+    this.state.updateState().subscribe();
   }
 
   fillTime(hour: number): string {
@@ -142,6 +134,13 @@ export class SettingsPage implements OnInit {
 
   updateState(event) {
     this.http.updateFrontageState(event.detail.value);
+  }
+
+  unForceFApp() {
+    this.http.unForceFApp().subscribe(res => {
+      if(res.removed) 
+        this.state.updateState();
+    });
   }
 
   loadConfig() {

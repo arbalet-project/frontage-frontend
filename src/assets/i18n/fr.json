@@ -27,6 +27,7 @@
         "sunset": "Coucher du soleil",
         "sunrise": "Lever du soleil"
       },
+      "page_unforce" : "Relâcher l'application forcée",
       "state": {
         "label": "Mise en marche",
         "on": "Marche forcée",

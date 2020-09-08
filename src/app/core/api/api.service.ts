@@ -52,4 +52,6 @@ export class ApiService {
     this.http.post(this.baseUrl + this.lifeTimeUrl, {
       default_lifetime: lifetime,
     }).subscribe();
-  }}
+  }
+}
+  
