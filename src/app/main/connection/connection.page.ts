@@ -7,6 +7,7 @@ import { State } from 'src/app/core/state/state.service';
 import { interval, Subscription } from 'rxjs';
 import { startWith, catchError } from 'rxjs/operators';
 import { AdminFormService } from 'src/app/core/authentication/admin-form.service';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-connection',
@@ -24,7 +25,8 @@ export class ConnectionPage {
     public alertCtrl: AlertController,
     public translate: TranslateService,
     public state: State,
-    public adminForm: AdminFormService
+    public adminForm: AdminFormService,
+    private datePipe: DatePipe
   ) { }
 
   ionViewWillEnter() {
@@ -33,16 +35,16 @@ export class ConnectionPage {
 
   public update(): void {
     this.http.statusServer()
-    .subscribe((status) => {
-      this.subscribe.unsubscribe();
-      if (status.protocol_version === environment.protocol_version) {
-        this.updateStatus();
-      } else {
-        this.showOutdated();
-      }
-    }, (err) => {
-      console.log(err);
-    });
+      .subscribe((status) => {
+        this.subscribe.unsubscribe();
+        if (status.protocol_version === environment.protocol_version) {
+          this.updateStatus();
+        } else {
+          this.showOutdated();
+        }
+      }, (err) => {
+        console.log(err);
+      });
   }
 
   /**
@@ -71,7 +73,6 @@ export class ConnectionPage {
       this.get_translation('connection.message.forced');
     } else {
       this.facadeUp = false;
-      // this.updateHour(status.next_on_time); TODO : next_on_time
       this.get_translation(
         'connection.message.down_alert',
         this.hourToString()
@@ -86,10 +87,11 @@ export class ConnectionPage {
   }
 
   hourToString(): string {
-    console.log('coucou', this.state.frontage.nextOnTime);
-    console.log(this.state.frontage);
-
-    return '';
+    const splittedTime = this.state.frontage.nextOnTime.split("T")[1].split(":");
+    let date = new Date()
+    date.setUTCHours(parseInt(splittedTime[0]))
+    date.setUTCMinutes(parseInt(splittedTime[1]));
+    return this.datePipe.transform(date, "HH'h'mm");
   }
 
   /**

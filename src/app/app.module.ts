@@ -23,6 +23,7 @@ import { ConnectionPage } from './main/connection/connection.page';
 import { ServerUnreachableComponent } from './main/connection/components/server-unreachable/server-unreachable.component';
 import { UserFormComponent } from './main/connection/components/user-form/user-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { DatePipe } from '@angular/common';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -59,6 +60,7 @@ export function tokenGetter() {
     StatusBar,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    DatePipe
   ],
   bootstrap: [AppComponent],
 })
