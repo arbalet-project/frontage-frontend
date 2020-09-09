@@ -25,9 +25,7 @@ export interface CurrentFApp {
     is_scheduled: boolean;
     last_alive: number;
     name: string;
-    params: {
-        uapp: string; // TODO change to flags or another.
-    };
+    params: any;
     position: number;
     started_at: string;
     task_id: string;

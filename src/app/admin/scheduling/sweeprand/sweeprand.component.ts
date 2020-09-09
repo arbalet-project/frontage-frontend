@@ -18,7 +18,6 @@ export class SweeprandComponent implements OnInit {
 
   ngOnInit() {
     this.fApp = this.state.fAppList.findByName('SweepRand');
-    console.log(this.fApp);
   }
 
   updateScheduled(event: CustomEvent) {

@@ -141,7 +141,7 @@ export class SettingsPage implements OnInit {
 
       console.log(res);
       if (res.removed) {
-        this.state.updateState(); 
+        this.state.updateState();
       }
     });
   }

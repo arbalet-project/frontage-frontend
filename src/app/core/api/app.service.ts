@@ -22,7 +22,7 @@ export class FAppService {
   private updateStateUrl = '/b/admin/enabled';
   private forceAppUrl = '/b/apps/admin/quit';
   public snapUserUrl = '/b/admin/snap/users';
-  public grantUserUrl = '/b/admin/snap/guser'
+  public grantUserUrl = '/b/admin/snap/guser';
   constructor(private http: HttpClient) { }
 
   public getList(): Observable<[FApp]> {
@@ -87,13 +87,13 @@ export class FAppService {
     return this.http
       .get<UnforceAppResponse>(this.baseUrl + this.forceAppUrl);
   }
-  
-  public getSnapUsers() :  Observable<any> {
+
+  public getSnapUsers(): Observable<any> {
     return this.http
        .get(this.baseUrl + this.snapUserUrl);
   }
 
-  public setSnapUsers(body : { selected_client : string}) : Observable<any> {
+  public setSnapUsers(body: { selected_client: string}): Observable<any> {
     return this.http
         .post(this.baseUrl + this.grantUserUrl, body);
   }

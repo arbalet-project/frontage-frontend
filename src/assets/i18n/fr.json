@@ -195,6 +195,10 @@
         "title" : "Application terminée",
         "message": "Désolé, un administrateur a fermé l'atelier de programmation créative"
       },
+      "inexist_client" : {
+        "title": "Participant déconnecté",
+        "message" : "Désolé, ce participant n'est plus connecté, choisissez-en un autre"
+      },
       "info" : "L'application est forcée, pensez à la relâcher à la fin de l'atelier. Choisissez le sobriquet qui contrôle Arbalet Frontage en live :",
       "options": {
         "footer": "Démarrer l'atelier",

@@ -3,6 +3,7 @@ import { FApp } from 'src/app/core/state/models/f-app';
 import { State } from 'src/app/core/state/state.service';
 import { OptionsService } from 'src/app/core/f-app/options.service';
 import { TrakingService } from 'src/app/core/plugins/tracking.service';
+import { ColorEvent } from 'ngx-color';
 
 @Component({
   selector: 'app-options',
@@ -11,6 +12,7 @@ import { TrakingService } from 'src/app/core/plugins/tracking.service';
 })
 export class OptionsPage implements OnInit {
   fApp: FApp;
+  color = {h: 2.01158940397351, s: 0, v: 1, a: 1};
 
   constructor(
     public state: State,
@@ -23,5 +25,24 @@ export class OptionsPage implements OnInit {
   ngOnInit() {
     this.fApp = this.state.fAppList.findByName('RandomFlashing');
   }
-  startFApp() {}
+  handleChange(event: ColorEvent) {
+    console.log(event.color);
+    this.color =  event.color.hsv;
+  }
+
+  startFApp() {
+    this.options.startFapp(
+      {
+        name: this.fApp.name,
+        params: {
+          colors: [
+            this.color.h,
+            this.color.s,
+            this.color.v
+          ]
+        },
+      },
+      '/f-app/randomflashing'
+    );
+  }
 }

@@ -194,6 +194,10 @@
         "title" : "Application is over",
         "message": "Sorry, another administrator closed the programming workshop"
       },
+      "inexist_client" : {
+        "title": "Participant disconnected",
+        "message" : "Sorry this participant is no longer connected, please choose another one"
+      },
       "info" : "This application is forced, do not forget to unforce it when the workshop ends. Choose the nickname who controls Arbalet Frontage:",
       "options" : {
         "footer" : "Start Snap",

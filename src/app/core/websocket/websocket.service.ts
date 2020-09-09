@@ -56,8 +56,7 @@ export class WebsocketService {
           this.handleMessage(message);
         }
       },
-      (err) => console.error,
-      () => console.log('finish')
+      (err) => console.error
     );
 
     this.keepAliveSub = interval(5000).subscribe(() => {
