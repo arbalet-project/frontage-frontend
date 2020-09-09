@@ -191,11 +191,17 @@
     "Snap": {
       "name": "Live",
       "description": "Démarrer un atelier de programmation créative.",
+      "errors" : {
+        "title" : "Application terminée",
+        "message": "Désolé, un administrateur a fermé l'atelier de programmation créative"
+      },
+      "info" : "L'application est forcée, pensez à la relâcher à la fin de l'atelier. Choisissez le sobriquet qui contrôle Arbalet Frontage en live :",
       "options": {
         "footer": "Démarrer l'atelier",
         "title": "Atelier de programmation",
         "rules": "Chaque participant dispose d'un ordinateur ou tablette. Il se connecte au réseau Wifi ARBALET_FRONTAGE et charge \"live.arbalet-project.org\" dans un navigateur Web. Il choisit un sobriquet puis créé son animation colorée. L'administrateur choisit quel sobriquet peut contrôler Arbalet Frontage en live."
-      }
+      },
+      "username_off" : "Tout éteindre"
     }
   },
   "home": {

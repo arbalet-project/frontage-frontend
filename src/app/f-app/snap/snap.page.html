@@ -1,9 +1,19 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>snap</ion-title>
-  </ion-toolbar>
-</ion-header>
+<app-template
+  [titleKey]='"f_app." + fApp.name + ".name"'
+  (clickButton)="stopFApp()"
+  footerKey="action.stop"
+  footerIcon="flag"
+>
+  <ion-item>
+    {{ "f_app." + fApp.name + ".info" | translate}}
+  </ion-item>
 
-<ion-content>
-
-</ion-content>
+  <ion-list>
+    <ion-radio-group  (ionChange)="changeUser($event)" value="selectedClient">
+    <ion-item *ngFor="let client of clientList">
+      <ion-label >{{client.username}}</ion-label>
+      <ion-radio value="{{client.id}}" ></ion-radio>
+    </ion-item>
+    </ion-radio-group>
+  </ion-list>
+</app-template>

@@ -2,7 +2,6 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { State } from 'src/app/core/state/state.service';
 import { FApp } from 'src/app/core/state/models/f-app';
 import { OptionsService } from 'src/app/core/f-app/options.service';
-import { IonRadioGroup } from '@ionic/angular';
 import { ColorlistComponent } from 'src/app/components/fapp/sweeprand/colorlist/colorlist.component';
 import { TrakingService } from 'src/app/core/plugins/tracking.service';
 

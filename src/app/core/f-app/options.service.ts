@@ -46,4 +46,30 @@ export class OptionsService {
       return await modal.present();
     });
   }
+
+  startForcedFApp(parameters: any, url: string) {
+    this.http.launchForcedFApp(parameters).subscribe(async (_) => {
+      const modal = await this.modal.create({
+        component: WaitingComponent,
+      });
+
+      modal.onDidDismiss().then(async ({ data }) => {
+        if (data.ok) {
+          this.router.navigateByUrl(url);
+          this.current = data.result;
+        }
+        else if (data.kicked) {
+          const alert = await this.alert.create({
+            header: this.translate.instant('waiting.kicked.title'),
+            message: this.translate.instant('waiting.kicked.message'),
+            buttons: ['Ok'],
+          });
+
+          await alert.present();
+        }
+      });
+
+      return await modal.present();
+    });
+  }
 }

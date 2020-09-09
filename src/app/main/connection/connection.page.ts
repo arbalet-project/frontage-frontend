@@ -54,7 +54,7 @@ export class ConnectionPage {
     this.statusServer = true;
     this.state.updateState().subscribe(() => {
       this.updateForm();
-    })
+    });
   }
 
   public updateForm() {
@@ -80,11 +80,11 @@ export class ConnectionPage {
   }
 
   hourToString(): string {
-    const splittedTime = this.state.frontage.nextOnTime.split("T")[1].split(":");
-    let date = new Date()
-    date.setUTCHours(parseInt(splittedTime[0]))
-    date.setUTCMinutes(parseInt(splittedTime[1]));
-    return this.datePipe.transform(date, "HH'h'mm");
+    const splittedTime = this.state.frontage.nextOnTime.split('T')[1].split(':');
+    const date = new Date();
+    date.setUTCHours(parseInt(splittedTime[0], 10));
+    date.setUTCMinutes(parseInt(splittedTime[1], 10));
+    return this.datePipe.transform(date, 'HH\'h\'mm');
   }
 
   /**
