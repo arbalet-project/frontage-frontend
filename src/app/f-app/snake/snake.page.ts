@@ -27,7 +27,7 @@ export class SnakePage implements OnInit {
     this.tracker.playEvent('Snake');
     if (this.platform.is('mobile')) {
       this.screen.lock(this.screen.ORIENTATIONS.LANDSCAPE);
-    }  
+    }
   }
 
   ngOnInit() {

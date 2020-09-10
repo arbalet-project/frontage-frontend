@@ -10,6 +10,7 @@ import { DrawingPage } from './drawing.page';
 import { OptionsPage } from './options/options.page';
 import { SharedModule } from '../components/shared.module';
 import { TranslateModule } from '@ngx-translate/core';
+import { CanvasComponent } from './canvas/canvas.component';
 
 @NgModule({
   imports: [
@@ -20,6 +21,6 @@ import { TranslateModule } from '@ngx-translate/core';
     TranslateModule.forChild(),
     DrawingPageRoutingModule
   ],
-  declarations: [DrawingPage, OptionsPage]
+  declarations: [DrawingPage, OptionsPage, CanvasComponent]
 })
 export class DrawingPageModule {}

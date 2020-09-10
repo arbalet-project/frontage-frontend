@@ -15,24 +15,24 @@ export class JoystickComponent {
   up(): void {
     this.websocket.sendMessage({ direction: '^' });
     this.vibration.vibrate();
-    $('#upArrow').hide({duration:0, done: function() {$('#upArrow').fadeIn(200);}});
+    $('#upArrow').hide({duration: 0, done() {$('#upArrow').fadeIn(200); }});
   }
 
   down(): void {
     this.websocket.sendMessage({ direction: 'v' });
     this.vibration.vibrate();
-    $('#downArrow').hide({duration:0, done: function() {$('#downArrow').fadeIn(200);}});
+    $('#downArrow').hide({duration: 0, done() {$('#downArrow').fadeIn(200); }});
   }
   right(): void {
     this.websocket.sendMessage({ direction: '>' });
     this.vibration.vibrate();
-    $('#rightArrow').hide({duration:0, done: function() {$('#rightArrow').fadeIn(200);}});
+    $('#rightArrow').hide({duration: 0, done() {$('#rightArrow').fadeIn(200); }});
   }
 
   left(): void {
     this.websocket.sendMessage({ direction: '<' });
     this.vibration.vibrate();
-    $('#leftArrow').hide({duration:0, done: function() {$('#leftArrow').fadeIn(200);}});
+    $('#leftArrow').hide({duration: 0, done() {$('#leftArrow').fadeIn(200); }});
   }
 
 }
