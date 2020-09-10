@@ -2,9 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { State } from 'src/app/core/state/state.service';
 import { FApp } from 'src/app/core/state/models/f-app';
 import { WebsocketService } from 'src/app/core/websocket/websocket.service';
-import { NavController } from '@ionic/angular';
+import { NavController, Platform } from '@ionic/angular';
 import { FAppService } from 'src/app/core/api/app.service';
 import { TrakingService } from 'src/app/core/plugins/tracking.service';
+import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
 
 @Component({
   selector: 'app-snake',
@@ -19,9 +20,14 @@ export class SnakePage implements OnInit {
     public websocket: WebsocketService,
     public nav: NavController,
     public http: FAppService,
-    public tracker: TrakingService
+    public tracker: TrakingService,
+    private screen: ScreenOrientation,
+    private platform: Platform
   ) {
     this.tracker.playEvent('Snake');
+    if (this.platform.is('mobile')) {
+      this.screen.lock(this.screen.ORIENTATIONS.LANDSCAPE);
+    }  
   }
 
   ngOnInit() {
@@ -37,6 +43,11 @@ export class SnakePage implements OnInit {
     this.websocket.close();
     if (!this.websocket.externalClose) {
       this.http.stopApp();
+    }
+
+    if (this.platform.is('mobile')) {
+      this.screen.lock(this.screen.ORIENTATIONS.PORTRAIT);
+      this.screen.unlock();
     }
   }
 }

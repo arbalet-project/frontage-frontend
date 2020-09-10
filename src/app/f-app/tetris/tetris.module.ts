@@ -21,6 +21,7 @@ import { JoystickComponent } from './joystick/joystick.component';
     TranslateModule.forChild(),
     TetrisPageRoutingModule
   ],
-  declarations: [TetrisPage, OptionsPage, JoystickComponent]
+  declarations: [TetrisPage, OptionsPage, JoystickComponent],
+  providers: [ScreenOrientation]
 })
 export class TetrisPageModule { }

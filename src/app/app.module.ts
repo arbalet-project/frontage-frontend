@@ -25,6 +25,8 @@ import { UserFormComponent } from './main/connection/components/user-form/user-f
 import { ReactiveFormsModule } from '@angular/forms';
 import { DatePipe } from '@angular/common';
 
+import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
+
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
@@ -60,7 +62,8 @@ export function tokenGetter() {
     StatusBar,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    DatePipe
+    DatePipe,
+    ScreenOrientation
   ],
   bootstrap: [AppComponent],
 })
