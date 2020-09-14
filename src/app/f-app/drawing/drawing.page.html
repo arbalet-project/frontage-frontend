@@ -1,3 +1,24 @@
-<ion-content>
+<ion-content fullscreen>
   <app-canvas (changeColor)="setColor($event)"></app-canvas>
 </ion-content>
+
+<ion-footer translucent>
+  <ion-button
+    fill="clear"
+    class="ion-no-margin"
+    expand="full"
+    (click)="stopFApp()"
+  >
+    {{ "f_app." + fApp.name + ".options.list" | translate }}
+    <ion-icon slot="end" color="success" mname="flag"></ion-icon>
+  </ion-button>
+  <ion-button *ngIf="auth.admin"
+    fill="clear"
+    class="ion-no-margin"
+    expand="full"
+    (click)="changeModel()"
+  >
+    {{ "f_app." + fApp.name + ".admin.button" | translate }}
+    <ion-icon slot="end" color="success" mname="flag"></ion-icon>
+  </ion-button>
+</ion-footer>

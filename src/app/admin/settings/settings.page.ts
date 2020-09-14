@@ -150,8 +150,10 @@ export class SettingsPage implements OnInit {
     this.chooser.getFile()
       .then(file => {
         const json = JSON.parse(new TextDecoder('utf-8').decode(file.data));
-        console.log('TODO');
-        console.log(json);
+        this.api.updateConfigGeneral(json.general);
+        this.api.updateConfigFApp(json.apps);
+        this.api.updateConfigMappings(json.mappings);
+        this.api.updateConfigScheduling(json.sunrise);
       })
       .catch((error: any) => console.error(error));
   }

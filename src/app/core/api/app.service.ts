@@ -23,6 +23,7 @@ export class FAppService {
   private forceAppUrl = '/b/apps/admin/quit';
   public snapUserUrl = '/b/admin/snap/users';
   public grantUserUrl = '/b/admin/snap/guser';
+  public drawingModelUrl = '/b/apps/drawing/default';
   constructor(private http: HttpClient) { }
 
   public getList(): Observable<[FApp]> {
@@ -62,7 +63,6 @@ export class FAppService {
     this.http.get(this.baseUrl + this.clearQueueUrl).subscribe();
   }
 
-
   public setScheduled(name: string, state: boolean) {
     return this.http
       .post(this.baseUrl + this.updateAppUrl, {
@@ -96,5 +96,10 @@ export class FAppService {
   public setSnapUsers(body: { selected_client: string}): Observable<any> {
     return this.http
         .post(this.baseUrl + this.grantUserUrl, body);
+  }
+
+  public sendScheduledDrawing(): Observable<any> {
+    return this.http
+      .post(this.baseUrl + this.drawingModelUrl, {});
   }
 }

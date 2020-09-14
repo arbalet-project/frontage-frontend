@@ -50,7 +50,7 @@ export class SnapPage {
         selected_client: event.detail.value,
       })
       .subscribe((res) => {
-        if (res.success) {
+        if (!res.success) {
           this.showPopup(
             this.translate.instant('f_app.' + this.fApp.name + '.inexist_client.title'),
             this.translate.instant('f_app.' + this.fApp.name + '.inexist_client.message')

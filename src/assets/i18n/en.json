@@ -27,7 +27,7 @@
         "sunset": "Sunset",
         "sunrise": "Sunrise"
       },
-      "page_unforce" : "Unforce app",
+      "page_unforce": "Unforce app",
       "state": {
         "label": "ON/OFF",
         "on": "Forced on",
@@ -123,9 +123,9 @@
     "yemen": "Yemen"
   },
   "f_app": {
-    "action" : {
-      "send_parameters" : "Send scheduled app options",
-      "scheduled" : "Scheduled :"
+    "action": {
+      "send_parameters": "Send scheduled app options",
+      "scheduled": "Scheduled :"
     },
     "title": "Select an application",
     "Flags": {
@@ -139,9 +139,9 @@
     "RandomFlashing": {
       "name": "Sparks",
       "description": "Make Arbalet Frontage slowly flashing.",
-      "options" : {
-        "title" : "Select your colors",
-        "label" : "Color :"
+      "options": {
+        "title": "Select your colors",
+        "label": "Color :"
       }
     },
     "SweepRand": {
@@ -184,27 +184,30 @@
         "rules": "You will be able to draw your own patterns on Arbalet Frontage by clicking a color from the palette and swiping your finger on a pixel. Colouring a pixel in equivalentblack is  to switching it off."
       },
       "admin": {
-        "rules": "For commemoration having specific visual representations, this app allows the administrator to set a custom pattern in the daily schedule by saving his/her drawing."
+        "rules": "For commemoration having specific visual representations, this app allows the administrator to set a custom pattern in the daily schedule by saving his/her drawing.",
+        "title": "Drawing saved",
+        "message": "If you want it to be displayed in the daily schedule from now, stop this app and check <b>Drawing</b> in the schedule.",
+        "button": "Save this drawing in the daily schedule"
       }
     },
     "Snap": {
       "name": "Live",
       "description": "Learning computer programming with a playful and creative approach by creating your own light animation thanks to this visual programming language.",
-      "errors" : {
-        "title" : "Application is over",
+      "errors": {
+        "title": "Application is over",
         "message": "Sorry, another administrator closed the programming workshop"
       },
-      "inexist_client" : {
+      "inexist_client": {
         "title": "Participant disconnected",
-        "message" : "Sorry this participant is no longer connected, please choose another one"
+        "message": "Sorry this participant is no longer connected, please choose another one"
       },
-      "info" : "This application is forced, do not forget to unforce it when the workshop ends. Choose the nickname who controls Arbalet Frontage:",
-      "options" : {
-        "footer" : "Start Snap",
+      "info": "This application is forced, do not forget to unforce it when the workshop ends. Choose the nickname who controls Arbalet Frontage:",
+      "options": {
+        "footer": "Start Snap",
         "title": "Snap",
-        "rules" : "Each participant has a laptop or tablet. He connects to Wifi network ARBALET_FRONTAGE and loads \"live.arbalet-project.org\" in a Web browser, selects a nickname and create his own coloured animation. Administrator selects which nickname live controls Frontage."
+        "rules": "Each participant has a laptop or tablet. He connects to Wifi network ARBALET_FRONTAGE and loads \"live.arbalet-project.org\" in a Web browser, selects a nickname and create his own coloured animation. Administrator selects which nickname live controls Frontage."
       },
-      "username_off" : "Turn off"
+      "username_off": "Turn off"
     }
   },
   "home": {

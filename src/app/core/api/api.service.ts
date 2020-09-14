@@ -11,13 +11,17 @@ import { CalendarResponse, LifeTimeResponse } from './models/settings';
   providedIn: 'root',
 })
 export class ApiService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
   private baseUrl = environment.backEndBaseUrl;
   private statusServerUrl = '/status/is_up';
   private statusFacadeUrl = '/frontage/status';
   private calendarUrl = '/b/admin/cal';
   private timeUrl = '/b/admin/state';
   private lifeTimeUrl = '/b/admin/settings';
+  public configSchedulingUrl = '/b/admin/config/sunset_sunrise';
+  public configFAppUrl = '/b/admin/config/apps';
+  public configMappingUrl = '/b/admin/config/mappings';
+  public configGeneralUrl = '/b/admin/config/general';
 
   public statusServer(): Observable<Status> {
     return this.http.get<Status>(this.baseUrl + this.statusServerUrl);
@@ -52,6 +56,22 @@ export class ApiService {
     this.http.post(this.baseUrl + this.lifeTimeUrl, {
       default_lifetime: lifetime,
     }).subscribe();
+  }
+
+  public updateConfigGeneral(general) {
+    this.http.post(this.baseUrl + this.configGeneralUrl, general).subscribe();
+  }
+
+  public updateConfigFApp(apps) {
+    this.http.post(this.baseUrl + this.configFAppUrl, { apps}).subscribe();
+  }
+
+  public updateConfigMappings(mappings) {
+    this.http.post(this.baseUrl + this.configMappingUrl, { mappings }).subscribe();
+  }
+
+  public updateConfigScheduling(schedule) {
+    this.http.post(this.baseUrl + this.configSchedulingUrl, { dates: schedule}).subscribe();
   }
 }
 

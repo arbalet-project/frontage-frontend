@@ -46,7 +46,7 @@ export class AuthenticationService {
     return localStorage.getItem('token');
   }
 
-  get admin() {
+  get admin(): boolean {
     return this.jwt.decodeToken(this.token).is_admin;
   }
 

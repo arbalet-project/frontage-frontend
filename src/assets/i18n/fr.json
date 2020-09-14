@@ -185,7 +185,10 @@
         "rules": "Vous pourrez dessiner vos propres motifs sur Arbalet Frontage en sélectionnant une couleur et en glissant votre doigt sur un pixel pour le teinter. Rappelez-vous que teinter un pixel en noir revient à l'éteindre."
       },
       "admin": {
-        "rules": "Pour les commémorations ayant des représentations visuelles spécifiques, cette application permet également à l'administrateur de définir un motif personnalisé dans le planning quotidien en enregistrant son dessin."
+        "rules": "Pour les commémorations ayant des représentations visuelles spécifiques, cette application permet également à l'administrateur de définir un motif personnalisé dans le planning quotidien en enregistrant son dessin.",
+        "title": "Dessin enregistré",
+        "message" : "Si vous souhaitez qu'il s'affiche dans le planning quotidien dès maintenant, quittez l'application puis vérifiez que <b>Dessin libre</b> est cochée dans le planning.",
+        "button": "Enregistrer ce dessin pour le planning quotidien"
       }
     },
     "Snap": {
