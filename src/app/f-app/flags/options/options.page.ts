@@ -38,4 +38,16 @@ export class OptionsPage implements OnInit {
       '/f-app/flags'
     );
   }
+
+  startForcedApp() {
+    this.options.startForcedFApp(
+      {
+        name: this.fApp.name,
+        params: {
+          flags: this.value,
+        },
+      },
+      '/f-app/flags'
+    );
+  }
 }

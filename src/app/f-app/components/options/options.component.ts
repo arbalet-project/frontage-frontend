@@ -1,4 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { AuthenticationService } from 'src/app/core/authentication/authentication.service';
 
 @Component({
   selector: 'app-options-template',
@@ -9,6 +10,7 @@ export class OptionsComponent {
   @Input() footerKey = 'options.start_button';
 
   @Output() startFApp = new EventEmitter();
+  @Output() startForcedApp = new EventEmitter();
 
-  constructor() { }
+  constructor(public auth: AuthenticationService) { }
 }

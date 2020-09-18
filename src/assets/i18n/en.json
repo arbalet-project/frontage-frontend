@@ -34,7 +34,8 @@
         "off": "Forced off",
         "scheduled": "According to daily schedule"
       },
-      "title": "Settings"
+      "title": "Settings",
+      "update_status" : "Update status"
     }
   },
   "connection": {
@@ -124,6 +125,7 @@
   },
   "f_app": {
     "action": {
+      "force_start" : "Force application",
       "send_parameters": "Send scheduled app options",
       "scheduled": "Scheduled :"
     },

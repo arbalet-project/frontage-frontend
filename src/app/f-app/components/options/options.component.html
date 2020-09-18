@@ -8,6 +8,16 @@
     {{ footerKey | translate }}
     <ion-icon color="success" slot="end" name="game-controller"></ion-icon>
   </ion-button>
+  <ion-button
+  *ngIf="auth.admin"
+  fill="clear"
+  class="ion-no-margin"
+  expand="full"
+  (click)="startForcedApp.emit()"
+>
+  {{ "f_app.action.force_start" | translate }}
+  <ion-icon color="success" slot="end" name="game-controller"></ion-icon>
+</ion-button>
 </ng-template>
 
 <app-template default="/f-app" [titleKey]="'f_app.' + name + '.options.title'" [footerTemplate]="customFooter">

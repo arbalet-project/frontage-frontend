@@ -36,4 +36,17 @@ export class OptionsPage implements OnInit {
       '/f-app/drawing'
     );
   }
+
+  startForcedApp() {
+    this.options.startForcedFApp(
+      {
+        name: this.fApp.name,
+        hideParams: true,
+        params: {
+          model: '',
+        },
+      },
+      '/f-app/drawing'
+    );
+  }
 }

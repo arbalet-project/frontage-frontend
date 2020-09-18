@@ -17,6 +17,7 @@ import { SweeprandComponent } from './sweeprand/sweeprand.component';
 import { ColorlistComponent } from 'src/app/components/fapp/sweeprand/colorlist/colorlist.component';
 import { RandomflashingComponent } from './randomflashing/randomflashing.component';
 import { DrawingComponent } from './drawing/drawing.component';
+import { ColorChromeModule } from 'ngx-color/chrome';
 
 @NgModule({
   imports: [
@@ -24,6 +25,7 @@ import { DrawingComponent } from './drawing/drawing.component';
     FormsModule,
     IonicModule,
     TranslateModule.forChild(),
+    ColorChromeModule,
     FAppPageRoutingModule,
   ],
   declarations: [

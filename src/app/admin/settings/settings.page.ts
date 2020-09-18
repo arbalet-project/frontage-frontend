@@ -95,7 +95,7 @@ export class SettingsPage implements OnInit {
     });
   }
 
-  private updateStatus() {
+  public updateStatus() {
     this.state.updateState().subscribe();
   }
 

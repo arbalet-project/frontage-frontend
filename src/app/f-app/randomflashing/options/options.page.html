@@ -1,4 +1,4 @@
-<app-options-template [name]="fApp.name" (startFApp)="startFApp()">
+<app-options-template [name]="fApp.name" (startFApp)="startFApp()" (startForcedApp)="startForcedApp()">
   <ion-card>
     <ion-card-header>
       {{ "f_app." + fApp.name + ".options.label" | translate }}

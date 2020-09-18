@@ -17,7 +17,7 @@ export class OptionsPage implements OnInit {
   constructor(
     public state: State,
     public options: OptionsService,
-    public tracker: TrakingService
+    public tracker: TrakingService,
   ) {
     this.tracker.selectEvent('RandomFlashing');
   }
@@ -25,13 +25,30 @@ export class OptionsPage implements OnInit {
   ngOnInit() {
     this.fApp = this.state.fAppList.findByName('RandomFlashing');
   }
+
   handleChange(event: ColorEvent) {
-    console.log(event.color);
     this.color =  event.color.hsv;
   }
 
   startFApp() {
     this.options.startFapp(
+      {
+        name: this.fApp.name,
+        params: {
+          colors: [
+            this.color.h,
+            this.color.s,
+            this.color.v
+          ]
+        },
+      },
+      '/f-app/randomflashing'
+    );
+  }
+
+
+  startForcedApp() {
+    this.options.startForcedFApp(
       {
         name: this.fApp.name,
         params: {

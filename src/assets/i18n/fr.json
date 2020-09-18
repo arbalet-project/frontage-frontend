@@ -34,7 +34,8 @@
         "off": "Arrêt forcé",
         "scheduled": "Selon le planning quotidien"
       },
-      "title": "Paramètres"
+      "title": "Paramètres",
+      "update_status" : "Mise à jour du status"
     }
   },
   "connection": {
@@ -124,6 +125,7 @@
   },
   "f_app": {
     "action": {
+      "force_start" : "Forcer l'application",
       "send_parameters": "Envoyer options app ordonnancée",
       "scheduled": "Programmé :"
     },

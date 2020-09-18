@@ -37,4 +37,16 @@ export class OptionsPage implements OnInit {
       '/f-app/sweeprand'
     );
   }
+
+  startForcedApp() {
+    this.options.startForcedFApp(
+      {
+        name: this.fApp.name,
+        params: {
+          uapp: this.colorList.radio.value,
+        },
+      },
+      '/f-app/sweeprand'
+    );
+  }
 }

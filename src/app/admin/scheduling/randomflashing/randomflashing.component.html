@@ -18,5 +18,12 @@
   footerIcon="flag"
   (clickButton)="sendParameters($event)"
   [headerTemplate]="customHeader"
-> <!-- TODO -->
+> 
+<ion-grid>
+  <ion-row>
+    <ion-col size="6" offset="2">
+      <color-chrome color="#fff" (onChange)="handleChange($event)"></color-chrome>
+    </ion-col>
+  </ion-row>
+</ion-grid>
 </app-template>

@@ -31,4 +31,14 @@ export class OptionsPage implements OnInit {
       '/f-app/sweepasync'
     );
   }
+
+  startForcedApp() {
+    this.options.startForcedFApp(
+      {
+        name: this.fApp.name,
+      },
+      '/f-app/sweepasync'
+    );
+  }
+
 }

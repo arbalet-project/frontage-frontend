@@ -30,4 +30,13 @@ export class OptionsPage implements OnInit {
       '/f-app/tetris'
     );
   }
+
+  startForcedApp() {
+    this.options.startForcedFApp(
+      {
+        name: this.fApp.name,
+      },
+      '/f-app/tetris'
+    );
+  }
 }

@@ -1,4 +1,4 @@
-<app-options-template [name]="fApp.name" (startFApp)="startFApp()">
+<app-options-template [name]="fApp.name" (startFApp)="startFApp()" (startForcedApp)="startForcedApp()">
   <app-colorlist
     [title]='"f_app." + fApp.name + ".options.list"'
     defaultValue="road"

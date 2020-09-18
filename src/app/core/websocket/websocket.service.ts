@@ -61,7 +61,7 @@ export class WebsocketService {
 
     this.keepAliveSub = interval(5000).subscribe(() => {
       this.http.keepAlive().subscribe((resp) => {
-        if (!resp.keepAlive) {
+        if (!resp.keepAlive && !this.auth.admin) {
           this.showAlert('message.close');
           this.vibration.vibrate();
         }
