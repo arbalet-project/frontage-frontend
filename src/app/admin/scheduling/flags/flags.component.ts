@@ -28,7 +28,7 @@ export class FlagsComponent implements OnInit {
       this.http.sendParameters({
         name: this.fApp.name,
         params: {
-          uapp: this.flags.list.value
+          flags: this.flags.list.value
         }
       }).subscribe((res) => {
         console.log(res);

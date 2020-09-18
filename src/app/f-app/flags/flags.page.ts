@@ -28,12 +28,12 @@ export class FlagsPage implements OnInit {
     this.tracker.playEvent('Flags');
     this.fApp = this.state.fAppList.findByName('Flags');
     this.websocket.init();
-    this.defaultValue = this.options.current.params.uapp;
+    this.defaultValue = this.options.current.params.flags;
   }
 
   sendOption(event) {
     this.websocket.sendMessage({
-      flag: event.detail.value
+      flags: event.detail.value
     });
   }
 

@@ -32,7 +32,7 @@ export class OptionsPage implements OnInit {
       {
         name: this.fApp.name,
         params: {
-          uapp: this.value,
+          flags: this.value,
         },
       },
       '/f-app/flags'
