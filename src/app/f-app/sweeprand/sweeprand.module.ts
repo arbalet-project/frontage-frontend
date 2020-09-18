@@ -10,7 +10,6 @@ import { SweeprandPage } from './sweeprand.page';
 import { OptionsPage } from './options/options.page';
 import { SharedModule } from '../components/shared.module';
 import { TranslateModule } from '@ngx-translate/core';
-import { ColorlistComponent } from 'src/app/components/fapp/sweeprand/colorlist/colorlist.component';
 
 @NgModule({
   imports: [
@@ -21,6 +20,6 @@ import { ColorlistComponent } from 'src/app/components/fapp/sweeprand/colorlist/
     TranslateModule.forChild(),
     SweeprandPageRoutingModule
   ],
-  declarations: [SweeprandPage, OptionsPage, ColorlistComponent]
+  declarations: [SweeprandPage, OptionsPage]
 })
 export class SweeprandPageModule {}

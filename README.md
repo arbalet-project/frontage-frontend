@@ -20,7 +20,7 @@ ionic serve
 
 Sync your project with android files:
 ```
-ionic cap sync
+ionic cap sync (--prod)
 ```
 
 Set your android studio path in the capacitor.config.json.

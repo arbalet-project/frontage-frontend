@@ -1,7 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FApp } from 'src/app/core/state/models/f-app';
 import { State } from 'src/app/core/state/state.service';
-import { ApiService } from 'src/app/core/api/api.service';
 import { FAppService } from 'src/app/core/api/app.service';
 import { ColorlistComponent } from 'src/app/components/fapp/sweeprand/colorlist/colorlist.component';
 

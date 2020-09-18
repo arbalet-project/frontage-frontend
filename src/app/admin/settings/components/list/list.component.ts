@@ -8,7 +8,7 @@ import { KeyValue } from '@angular/common';
 })
 export class ListComponent {
   @Input() labelKey: string;
-  @Input() list: Array<string>;
+  @Input() list: Map<String,String>;
   @Input() default: string;
 
   public orderTime = (a: KeyValue<string, string>, b: KeyValue<string, string>): number => {

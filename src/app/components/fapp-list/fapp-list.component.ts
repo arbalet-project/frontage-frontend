@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core';
-import { State } from 'src/app/core/state/state.service';
 
 @Component({
   selector: 'app-fapp-list',

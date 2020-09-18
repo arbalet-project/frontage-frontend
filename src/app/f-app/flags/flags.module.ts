@@ -10,7 +10,6 @@ import { FlagsPage } from './flags.page';
 import { TranslateModule } from '@ngx-translate/core';
 import { OptionsPage } from './options/options.page';
 import { SharedModule } from '../components/shared.module';
-import { FlagListComponent } from 'src/app/components/fapp/flags/flag-list/flag-list.component';
 
 @NgModule({
   imports: [
@@ -21,6 +20,6 @@ import { FlagListComponent } from 'src/app/components/fapp/flags/flag-list/flag-
     TranslateModule.forChild(),
     FlagsPageRoutingModule,
   ],
-  declarations: [FlagsPage, OptionsPage, FlagListComponent]
+  declarations: [FlagsPage, OptionsPage]
 })
 export class FlagsPageModule {}

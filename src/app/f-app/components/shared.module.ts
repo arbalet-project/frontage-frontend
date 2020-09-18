@@ -6,21 +6,34 @@ import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
 import { OptionsComponent } from './options/options.component';
 import { TemplateComponent } from 'src/app/template/template.component';
+import { FlagListComponent } from 'src/app/components/fapp/flags/flag-list/flag-list.component';
+import { FappListComponent } from 'src/app/components/fapp-list/fapp-list.component';
+import { ColorlistComponent } from 'src/app/components/fapp/sweeprand/colorlist/colorlist.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
     imports: [
         CommonModule,
         FormsModule,
         IonicModule,
+        RouterModule,
         TranslateModule.forChild(),
     ],
     declarations: [
         WaitingComponent,
         OptionsComponent,
-        TemplateComponent],
+        TemplateComponent,
+        FlagListComponent,
+        FappListComponent,
+        ColorlistComponent,
+    ],
     exports: [
         WaitingComponent,
         OptionsComponent,
-        TemplateComponent]
+        TemplateComponent,
+        FlagListComponent,
+        FappListComponent,
+        ColorlistComponent
+    ]
 })
 export class SharedModule { }

@@ -12,19 +12,19 @@ import { SettingsPage } from './settings/settings.page';
 import { ListComponent } from './settings/components/list/list.component';
 import { LifetimeComponent } from './settings/components/lifetime/lifetime.component';
 import { FappComponent } from './fapp/fapp.component';
-import { FappListComponent } from '../components/fapp-list/fapp-list.component';
-
 import { Chooser } from '@ionic-native/chooser/ngx';
+import { SharedModule } from '../f-app/components/shared.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
+    SharedModule,
     AdminPageRoutingModule,
     TranslateModule.forChild()
   ],
-  declarations: [AdminPage, SettingsPage, ListComponent, LifetimeComponent, FappComponent, FappListComponent],
+  declarations: [AdminPage, SettingsPage, ListComponent, LifetimeComponent, FappComponent],
   providers: [
     Chooser
   ]

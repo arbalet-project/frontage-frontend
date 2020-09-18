@@ -8,16 +8,14 @@ import { FAppPageRoutingModule } from './scheduling-routing.module';
 
 import { SchedulingPage } from './scheduling.page';
 import { TranslateModule } from '@ngx-translate/core';
-import { FappListComponent } from 'src/app/components/fapp-list/fapp-list.component';
-import { TemplateComponent } from 'src/app/template/template.component';
 import { FlagsComponent } from './flags/flags.component';
-import { FlagListComponent } from 'src/app/components/fapp/flags/flag-list/flag-list.component';
 import { SweepasyncComponent } from './sweepasync/sweepasync.component';
 import { SweeprandComponent } from './sweeprand/sweeprand.component';
-import { ColorlistComponent } from 'src/app/components/fapp/sweeprand/colorlist/colorlist.component';
 import { RandomflashingComponent } from './randomflashing/randomflashing.component';
 import { DrawingComponent } from './drawing/drawing.component';
 import { ColorChromeModule } from 'ngx-color/chrome';
+import { SharedModule } from 'src/app/f-app/components/shared.module';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   imports: [
@@ -26,19 +24,16 @@ import { ColorChromeModule } from 'ngx-color/chrome';
     IonicModule,
     TranslateModule.forChild(),
     ColorChromeModule,
+    SharedModule,
     FAppPageRoutingModule,
   ],
   declarations: [
     SchedulingPage,
-    FappListComponent,
-    TemplateComponent,
     FlagsComponent,
-    FlagListComponent,
     SweepasyncComponent,
     SweeprandComponent,
-    ColorlistComponent,
     RandomflashingComponent,
     DrawingComponent
   ],
 })
-export class SchedulingPageModule {}
+export class SchedulingPageModule { }

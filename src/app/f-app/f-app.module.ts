@@ -8,16 +8,18 @@ import { FAppPageRoutingModule } from './f-app-routing.module';
 
 import { FAppPage } from './f-app.page';
 import { TranslateModule } from '@ngx-translate/core';
-import { FappListComponent } from '../components/fapp-list/fapp-list.component';
+import { RouterModule } from '@angular/router';
+import { SharedModule } from './components/shared.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
+    SharedModule,
     FAppPageRoutingModule,
     TranslateModule.forChild()
   ],
-  declarations: [FAppPage, FappListComponent]
+  declarations: [FAppPage]
 })
 export class FAppPageModule {}
