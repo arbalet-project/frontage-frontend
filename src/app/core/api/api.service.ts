@@ -37,7 +37,7 @@ export class ApiService {
 
   public setTime(on: boolean, time: string, offset: number) {
     this.http
-      .patch(
+      .post(
         this.baseUrl + this.timeUrl,
         on
           ? { time_on: time, offset_time_on: offset }
