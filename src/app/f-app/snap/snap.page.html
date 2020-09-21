@@ -4,16 +4,22 @@
   footerKey="action.stop"
   footerIcon="flag"
 >
-  <ion-item>
-    {{ "f_app." + fApp.name + ".info" | translate}}
-  </ion-item>
-
-  <ion-list>
-    <ion-radio-group  (ionChange)="changeUser($event)" value="selectedClient">
-    <ion-item *ngFor="let client of clientList">
-      <ion-label >{{client.username}}</ion-label>
-      <ion-radio value="{{client.id}}" ></ion-radio>
-    </ion-item>
-    </ion-radio-group>
-  </ion-list>
+  <ion-card>
+    <ion-card-header>
+      {{ "f_app." + fApp.name + ".info" | translate}}
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-radio-group
+          (ionChange)="changeUser($event)"
+          value="selectedClient"
+        >
+          <ion-item *ngFor="let client of clientList">
+            <ion-label>{{client.username}}</ion-label>
+            <ion-radio value="{{client.id}}"></ion-radio>
+          </ion-item>
+        </ion-radio-group>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
 </app-template>
