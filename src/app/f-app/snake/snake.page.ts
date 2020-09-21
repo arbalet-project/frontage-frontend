@@ -36,7 +36,7 @@ export class SnakePage implements OnInit {
   }
 
   stopFApp() {
-    this.nav.pop();
+    this.nav.navigateBack('/f-app');
   }
 
   ionViewWillLeave() {

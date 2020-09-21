@@ -44,7 +44,7 @@ export class RandomflashingPage {
   }
 
   stopFApp() {
-    this.nav.pop();
+    this.nav.navigateBack('/f-app');
   }
 
   ionViewDidLeave() {
