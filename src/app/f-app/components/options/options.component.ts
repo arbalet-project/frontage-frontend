@@ -8,6 +8,7 @@ import { AuthenticationService } from 'src/app/core/authentication/authenticatio
 export class OptionsComponent {
   @Input() name: string;
   @Input() footerKey = 'options.start_button';
+  @Input() enabledForcedFApp = true;
 
   @Output() startFApp = new EventEmitter();
   @Output() startForcedApp = new EventEmitter();

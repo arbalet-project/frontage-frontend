@@ -9,7 +9,7 @@
     <ion-icon color="success" slot="end" name="game-controller"></ion-icon>
   </ion-button>
   <ion-button
-  *ngIf="auth.admin"
+  *ngIf="auth.admin && enabledForcedFApp"
   fill="clear"
   class="ion-no-margin"
   expand="full"
