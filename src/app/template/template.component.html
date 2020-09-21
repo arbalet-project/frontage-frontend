@@ -1,5 +1,5 @@
 <div class="ion-page"> 
-  <ion-header translucent>
+  <ion-header translucent *ngIf="displayHeader === true">
     <ion-toolbar>
       <ng-container
         *ngTemplateOutlet="headerTemplate ? headerTemplate : titleBackHeader"

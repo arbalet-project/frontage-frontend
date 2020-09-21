@@ -12,6 +12,7 @@ export class TemplateComponent {
 
   @Input() footerTemplate: TemplateRef<any>;
   @Input() displayFooter = true;
+  @Input() displayHeader = true;
   @Input() footerKey: string;
   @Input() footerIcon: string;
 
