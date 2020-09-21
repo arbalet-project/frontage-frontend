@@ -40,10 +40,15 @@
     }
   },
   "colors" : {
-    "red" : "Rouge",
-    "cyan" : "Bleu",
-    "magenta" : "Magenta",
-    "green" : "Vert"
+    "darkblue": "Bleu foncé",
+    "deeppink": "Rose",
+    "chartreuse": "Vert Chartreuse",
+    "gold": "Jaune Or",
+    "purple": "Pourpre",
+    "skyblue": "Bleu ciel",
+    "mediumturquoise": "Turquoise",
+    "bordeaux": "Bordeaux",
+    "darkorange": "Orange"
   },
   "connection": {
     "unreachable": {

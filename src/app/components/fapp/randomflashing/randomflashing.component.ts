@@ -18,14 +18,21 @@ export class RandomflashingListComponent {
   @ViewChild('list') list: IonRadioGroup;
 
   public colors: Map<string, Color> = new Map()
-  public defaultValue: string = "cyan";
-  
+  public defaultValue: string = "darkblue";
+
   constructor(public options: OptionsService) {
-    this.colors.set("red", { h: 0, s: 1, v: 1 })
-    this.colors.set("green", { h: 127, s: 0.99, v: 0.99 })
-    this.colors.set("cyan", { h: 186, s: 0.99, v: 0.99 })
-    this.colors.set("magenta", { h: 294, s: 0.99, v: 0.99 })
-    
+    //  , "purple", "skyblue", "mediumturquoise", "darkorange", "bordeaux"
+    //
+    this.colors.set("darkblue", { h: 0.666666667, s: 1, v: 0.27 })
+    this.colors.set("deeppink", { h: 0.911111111, s: 1.0, v: 0.54 })
+    this.colors.set("chartreuse", { h: 0.25, s: 1.0, v: 1.0 })
+    this.colors.set("gold", { h: 0.138211382, s: 1.0, v: 0.5 })
+    this.colors.set("purple", { h: 0.833333333, s: 1.0, v: 0.25 })
+    this.colors.set("skyblue", { h: 0.547222222, s: 0.71, v: 0.73 })
+    this.colors.set("mediumturquoise", { h: 0.494444444, s: 0.61, v: 0.54 })
+    this.colors.set("bordeaux", { h: 0.0, s: 1.0, v: 0.25 })
+    this.colors.set("darkorange", { h: 0.108333333, s: 1.0, v: 0.50 })
+
     if (this.options.current && this.options.current.params.colors) {
       const color = this.options.current.params.colors
       this.colors.forEach((value, key) => {

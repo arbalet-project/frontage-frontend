@@ -10,7 +10,7 @@
       "title": "Applications"
     },
     "form": {
-      "errors" : "Bad username/password",
+      "errors": "Bad username/password",
       "title": "Login form",
       "username_placeholder": "Username",
       "password_placeholder": "Password"
@@ -36,14 +36,19 @@
         "scheduled": "According to daily schedule"
       },
       "title": "Settings",
-      "update_status" : "Update status"
+      "update_status": "Update status"
     }
   },
-  "colors" : {
-    "red" : "Red",
-    "cyan" : "Cyan",
-    "magenta" : "Magenta",
-    "green" : "Green"
+  "colors": {
+    "darkblue": "Dark blue",
+    "deeppink": "Pink",
+    "chartreuse": "Chartreuse green",
+    "gold": "Yellow",
+    "purple": "Purple",
+    "skyblue": "Sky blue",
+    "mediumturquoise": "Turquoise",
+    "bordeaux": "Bordeaux",
+    "darkorange": "Orange"
   },
   "connection": {
     "unreachable": {
@@ -132,7 +137,7 @@
   },
   "f_app": {
     "action": {
-      "force_start" : "Force application",
+      "force_start": "Force application",
       "send_parameters": "Send scheduled app options",
       "scheduled": "Scheduled :"
     },
