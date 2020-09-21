@@ -206,7 +206,7 @@
       "info": "This application is forced, do not forget to unforce it when the workshop ends. Choose the nickname who controls Arbalet Frontage:",
       "options": {
         "footer": "Start Snap",
-        "title": "Snap",
+        "title": "Live",
         "rules": "Each participant has a laptop or tablet. He connects to Wifi network ARBALET_FRONTAGE and loads \"live.arbalet-project.org\" in a Web browser, selects a nickname and create his own coloured animation. Administrator selects which nickname live controls Frontage."
       },
       "username_off": "Turn off"

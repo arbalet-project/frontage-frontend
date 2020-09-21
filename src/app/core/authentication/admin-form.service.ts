@@ -8,7 +8,7 @@ import { AuthenticationService } from './authentication.service';
 })
 export class AdminFormService {
   private nbActive = 0;
-  private nbActiveMax = 0;
+  private nbActiveMax = 10;
 
   constructor(
     private alertCtrl: AlertController,
