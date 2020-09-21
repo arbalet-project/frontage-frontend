@@ -1,0 +1,11 @@
+<ion-list>
+  <ion-list-header>
+    {{ "f_app." + name + ".options.label" | translate }}
+  </ion-list-header>
+  <ion-radio-group [value]="defaultValue" #list>
+    <ion-item *ngFor="let color of colors | keyvalue">
+      <ion-label>{{ "colors." + color.key  | translate }}</ion-label>
+      <ion-radio value="{{ color.key }}"></ion-radio>
+    </ion-item>
+  </ion-radio-group>
+</ion-list>

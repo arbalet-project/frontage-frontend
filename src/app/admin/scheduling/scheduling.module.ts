@@ -13,9 +13,7 @@ import { SweepasyncComponent } from './sweepasync/sweepasync.component';
 import { SweeprandComponent } from './sweeprand/sweeprand.component';
 import { RandomflashingComponent } from './randomflashing/randomflashing.component';
 import { DrawingComponent } from './drawing/drawing.component';
-import { ColorChromeModule } from 'ngx-color/chrome';
 import { SharedModule } from 'src/app/f-app/components/shared.module';
-import { RouterModule } from '@angular/router';
 
 @NgModule({
   imports: [
@@ -23,7 +21,6 @@ import { RouterModule } from '@angular/router';
     FormsModule,
     IonicModule,
     TranslateModule.forChild(),
-    ColorChromeModule,
     SharedModule,
     FAppPageRoutingModule,
   ],

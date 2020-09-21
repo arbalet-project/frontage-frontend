@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FApp } from 'src/app/core/state/models/f-app';
 import { State } from 'src/app/core/state/state.service';
 import { OptionsService } from 'src/app/core/f-app/options.service';
 import { TrakingService } from 'src/app/core/plugins/tracking.service';
-import { ColorEvent } from 'ngx-color';
+import { RandomflashingListComponent } from 'src/app/components/fapp/randomflashing/randomflashing.component';
 
 @Component({
   selector: 'app-options',
@@ -12,7 +12,7 @@ import { ColorEvent } from 'ngx-color';
 })
 export class OptionsPage implements OnInit {
   fApp: FApp;
-  color = {h: 2.01158940397351, s: 0, v: 1, a: 1};
+  @ViewChild('randomFlashing') randomFlashing: RandomflashingListComponent;
 
   constructor(
     public state: State,
@@ -26,19 +26,16 @@ export class OptionsPage implements OnInit {
     this.fApp = this.state.fAppList.findByName('RandomFlashing');
   }
 
-  handleChange(event: ColorEvent) {
-    this.color =  event.color.hsv;
-  }
-
   startFApp() {
+    const color = this.randomFlashing.colors.get(this.randomFlashing.list.value);
     this.options.startFapp(
       {
         name: this.fApp.name,
         params: {
           colors: [
-            this.color.h,
-            this.color.s,
-            this.color.v
+            color.h,
+            color.s,
+            color.v
           ]
         },
       },
@@ -48,14 +45,16 @@ export class OptionsPage implements OnInit {
 
 
   startForcedApp() {
+    const color = this.randomFlashing.colors.get(this.randomFlashing.list.value);
+
     this.options.startForcedFApp(
       {
         name: this.fApp.name,
         params: {
           colors: [
-            this.color.h,
-            this.color.s,
-            this.color.v
+            color.h,
+            color.s,
+            color.v
           ]
         },
       },

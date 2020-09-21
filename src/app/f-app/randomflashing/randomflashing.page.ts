@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { TrakingService } from 'src/app/core/plugins/tracking.service';
 import { WebsocketService } from 'src/app/core/websocket/websocket.service';
 import { State } from 'src/app/core/state/state.service';
@@ -6,7 +6,7 @@ import { FApp } from 'src/app/core/state/models/f-app';
 import { NavController } from '@ionic/angular';
 import { FAppService } from 'src/app/core/api/app.service';
 import { OptionsService } from 'src/app/core/f-app/options.service';
-import { ColorEvent } from 'ngx-color';
+import { RandomflashingListComponent } from 'src/app/components/fapp/randomflashing/randomflashing.component';
 
 @Component({
   selector: 'app-randomflashing',
@@ -15,7 +15,10 @@ import { ColorEvent } from 'ngx-color';
 })
 export class RandomflashingPage {
   public fApp: FApp;
-  public parameters: { h: number, s: number, v: number };
+  @ViewChild('randomFlashing') randomFlashing: RandomflashingListComponent;
+  
+  public defaultValue = "";
+
   constructor(
     public websocket: WebsocketService,
     private state: State,
@@ -25,20 +28,17 @@ export class RandomflashingPage {
     public tracker: TrakingService
   ) {
     this.fApp = this.state.fAppList.findByName('RandomFlashing');
-
     this.tracker.playEvent('RandomFlashing');
     this.websocket.init();
-    const colors = this.options.current.params.colors;
-    console.log(colors);
-    this.parameters = { h : colors[0], s: colors[1], v: colors[2]};
   }
 
-  sendOption(event: ColorEvent) {
+  sendOption() {
+    const color = this.randomFlashing.colors.get(this.randomFlashing.list.value);
     this.websocket.sendMessage({
       colors: [
-        event.color.hsv.h,
-        event.color.hsv.s,
-        event.color.hsv.v
+        color.h,
+        color.s,
+        color.v
       ]
     });
   }

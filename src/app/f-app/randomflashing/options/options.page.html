@@ -1,16 +1,10 @@
-<app-options-template [name]="fApp.name" (startFApp)="startFApp()" (startForcedApp)="startForcedApp()">
-  <ion-card>
-    <ion-card-header>
-      {{ "f_app." + fApp.name + ".options.label" | translate }}
-    </ion-card-header>
-    <ion-card-content>
-      <ion-grid>
-        <ion-row>
-          <ion-col size="6" offset="2">
-            <color-chrome color="#fff" (onChange)="handleChange($event)"></color-chrome>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-    </ion-card-content>
-  </ion-card>
+<app-options-template
+  [name]="fApp.name"
+  (startFApp)="startFApp()"
+  (startForcedApp)="startForcedApp()"
+>
+<app-randomflashing-list #randomFlashing
+  [name]="fApp.name"
+>
+</app-randomflashing-list>
 </app-options-template>

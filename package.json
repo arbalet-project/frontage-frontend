@@ -35,7 +35,6 @@
     "cordova-plugin-screen-orientation": "^3.0.2",
     "es6-promise-plugin": "^4.2.2",
     "jquery": "^3.5.1",
-    "ngx-color": "^6.0.2",
     "rxjs": "~6.6.3",
     "tslib": "^2.0.1",
     "zone.js": "~0.11.1"

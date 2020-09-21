@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { State } from 'src/app/core/state/state.service';
 import { FAppService } from 'src/app/core/api/app.service';
 import { FApp } from 'src/app/core/state/models/f-app';
-import { ColorEvent } from 'ngx-color';
+import { RandomflashingListComponent } from 'src/app/components/fapp/randomflashing/randomflashing.component';
 
 @Component({
   selector: 'app-randomflashing',
@@ -11,7 +11,7 @@ import { ColorEvent } from 'ngx-color';
 })
 export class RandomflashingComponent implements OnInit {
   public fApp: FApp;
-  public color = {h: 2.01158940397351, s: 0, v: 1, a: 1};
+  @ViewChild('randomFlashing') randomFlashing: RandomflashingListComponent;
 
   constructor(public state: State, public http: FAppService) { }
 
@@ -22,18 +22,16 @@ export class RandomflashingComponent implements OnInit {
   updateScheduled(event: CustomEvent) {
     this.http.setScheduled(this.fApp.name, event.detail.checked);
   }
-  handleChange(event: ColorEvent) {
-    this.color =  event.color.hsv;
-  }
 
   sendParameters() {
+    const color = this.randomFlashing.colors.get(this.randomFlashing.list.value);
       this.http.sendParameters({
         name: this.fApp.name,
         params: {
           colors: [
-            this.color.h,
-            this.color.s,
-            this.color.v
+            color.h,
+            color.s,
+            color.v
           ]
         }
       }).subscribe((res) => {

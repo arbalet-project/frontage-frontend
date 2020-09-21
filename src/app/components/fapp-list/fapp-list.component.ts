@@ -9,7 +9,7 @@ import { State } from 'src/app/core/state/state.service';
 export class FappListComponent {
 
   @Input() adminView;
-  public list;
+  @Input() list;
   constructor(public state: State) {
     this.state.updateState();
   }

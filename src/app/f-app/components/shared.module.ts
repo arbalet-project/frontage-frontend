@@ -10,6 +10,7 @@ import { FlagListComponent } from 'src/app/components/fapp/flags/flag-list/flag-
 import { FappListComponent } from 'src/app/components/fapp-list/fapp-list.component';
 import { ColorlistComponent } from 'src/app/components/fapp/sweeprand/colorlist/colorlist.component';
 import { RouterModule } from '@angular/router';
+import { RandomflashingListComponent } from 'src/app/components/fapp/randomflashing/randomflashing.component';
 
 @NgModule({
     imports: [
@@ -26,6 +27,7 @@ import { RouterModule } from '@angular/router';
         FlagListComponent,
         FappListComponent,
         ColorlistComponent,
+        RandomflashingListComponent
     ],
     exports: [
         WaitingComponent,
@@ -33,7 +35,8 @@ import { RouterModule } from '@angular/router';
         TemplateComponent,
         FlagListComponent,
         FappListComponent,
-        ColorlistComponent
+        ColorlistComponent,
+        RandomflashingListComponent
     ]
 })
 export class SharedModule { }

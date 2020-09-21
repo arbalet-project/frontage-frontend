@@ -39,6 +39,12 @@
       "update_status" : "Update status"
     }
   },
+  "colors" : {
+    "red" : "Red",
+    "cyan" : "Cyan",
+    "magenta" : "Magenta",
+    "green" : "Green"
+  },
   "connection": {
     "unreachable": {
       "title": "Connect using Wifi",
