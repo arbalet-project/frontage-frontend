@@ -49,9 +49,9 @@ export class RandomflashingPage {
 
   ionViewDidLeave() {
     // Stop connection.
-    this.websocket.close();
     if (!this.websocket.externalClose) {
       this.http.stopApp();
+      this.websocket.close();
     }
   }
 }

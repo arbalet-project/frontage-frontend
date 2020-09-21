@@ -40,9 +40,9 @@ export class TetrisPage implements OnInit {
   }
 
   ionViewWillLeave() {
-    this.websocket.close();
     if (!this.websocket.externalClose) {
       this.http.stopApp();
+      this.websocket.close();
     }
 
     if (this.platform.is('mobile')) {

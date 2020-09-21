@@ -14,7 +14,7 @@ export class FAppService {
   private launchUrl = '/b/apps/running';
   private launchForcedUrl = '/b/apps/admin/running';
   private positionUrl = '/b/apps/position';
-  private quitUrl = '/b/queue/quit';
+  private quitUrl = '/b/apps/quit';
   private keepUrl = '/b/apps/iamalive';
   private quitQueueUrl = '/b/queue/quit';
   private clearQueueUrl = '/b/apps/queue/clear';
@@ -48,7 +48,7 @@ export class FAppService {
   }
 
   public stopApp(): void {
-    this.http.get(this.baseUrl + this.quitUrl);
+    this.http.get(this.baseUrl + this.quitUrl).subscribe();
   }
 
   public keepAlive(): Observable<KeepAlive> {
@@ -56,7 +56,7 @@ export class FAppService {
   }
 
   public quitQueue() {
-    this.http.get(this.baseUrl + this.quitQueueUrl);
+    this.http.get(this.baseUrl + this.quitQueueUrl).subscribe();
   }
 
   public clearUserQueue() {
