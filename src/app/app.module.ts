@@ -26,6 +26,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { DatePipe } from '@angular/common';
 
 import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
+import { AuthenticationFormComponent } from './core/authentication/authentication-form/authentication-form.component';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -36,7 +37,7 @@ export function tokenGetter() {
 }
 
 @NgModule({
-  declarations: [AppComponent, HomePage, ConnectionPage, ServerUnreachableComponent, UserFormComponent],
+  declarations: [AppComponent, HomePage, ConnectionPage, ServerUnreachableComponent, UserFormComponent, AuthenticationFormComponent],
   entryComponents: [],
   imports: [
     BrowserModule,

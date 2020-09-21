@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { AlertController, NavController } from '@ionic/angular';
+import { AlertController, ModalController, NavController } from '@ionic/angular';
 import { TranslateService } from '@ngx-translate/core';
+import { AuthenticationFormComponent } from './authentication-form/authentication-form.component';
 import { AuthenticationService } from './authentication.service';
 
 @Injectable({
@@ -8,14 +9,13 @@ import { AuthenticationService } from './authentication.service';
 })
 export class AdminFormService {
   private nbActive = 0;
-  private nbActiveMax = 10;
+  private nbActiveMax = 9;
 
   constructor(
-    private alertCtrl: AlertController,
+    private modalController: ModalController,
     public translate: TranslateService,
     public auth: AuthenticationService,
-    private navCtrl: NavController
-  ) {}
+  ) { }
 
   public activate() {
     this.nbActive++;
@@ -26,45 +26,9 @@ export class AdminFormService {
   }
 
   public async displayForm() {
-    const alert = await this.alertCtrl.create({
-      header: this.translate.instant('admin.form.title'),
-      inputs: [
-        {
-          name: 'username',
-          placeholder: this.translate.instant(
-            'admin.form.username_placeholder'
-          ),
-          type: 'text',
-        },
-        {
-          name: 'password',
-          type: 'password',
-          placeholder: this.translate.instant(
-            'admin.form.password_placeholder'
-          ),
-        },
-      ],
-      buttons: [
-        {
-          text: this.translate.instant('action.cancel'),
-        },
-        {
-          text: this.translate.instant('action.login'),
-          handler: (data) => {
-            this.auth
-              .adminAuth(data.username, data.password)
-              .subscribe((res: boolean) => {
-                if (res) {
-                  this.navCtrl.navigateForward('/admin'); // TODO : NavControl !
-                } else {
-                  // TODO : Error
-                }
-              });
-          },
-        },
-      ],
+    const modal = await this.modalController.create({
+      component: AuthenticationFormComponent,
     });
-
-    await alert.present();
+    return await modal.present();
   }
 }

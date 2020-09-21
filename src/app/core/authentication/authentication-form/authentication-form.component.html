@@ -1,0 +1,47 @@
+<ion-content fullscreen>
+  <ion-card class="ion-padding">
+    <ion-card-header>
+      {{ "admin.form.title" | translate }}
+    </ion-card-header>
+    <ion-card-content>
+      <form [formGroup]="adminForm">
+        <ion-text
+          color="danger"
+          *ngIf="adminForm.errors && adminForm.errors.incorrect == true"
+        >
+          {{ "admin.form.errors" | translate }}
+        </ion-text>
+        <ion-item>
+          <ion-label position="floating">Username</ion-label>
+          <ion-input
+            placeholder="{{ 'admin.form.username_placeholder' | translate }}"
+            formControlName="username"
+            clearInput
+          ></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Password</ion-label>
+          <ion-input
+            placeholder="{{ 'admin.form.password_placeholder' | translate }}"
+            type="password"
+            formControlName="password"
+            clearInput
+          ></ion-input>
+        </ion-item>
+      </form>
+      <ion-button
+        [disabled]="!adminForm.valid"
+        outline
+        expand="full"
+        fill="clear"
+        (click)="login()"
+      >
+        {{ "action.login" | translate }}</ion-button
+      >
+      <ion-button outline expand="full" fill="clear" (click)="cancel()">
+        {{ "action.cancel" | translate }}</ion-button
+      >
+      <ng-template #messageError> </ng-template>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

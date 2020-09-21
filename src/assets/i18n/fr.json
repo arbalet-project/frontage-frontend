@@ -10,6 +10,7 @@
       "title": "Applications"
     },
     "form": {
+      "errors" : "Mauvais nom d'utilisateur/ mot de passe",
       "title": "Formulaire de connexion",
       "username_placeholder": "Nom d'utilisateur",
       "password_placeholder": "Mot de passe"

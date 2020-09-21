@@ -1,0 +1,15 @@
+ion-item {
+    --background: transparent;
+}
+
+
+ion-item {
+    margin-bottom: 10px;
+    background: rgba(255,255,255,0.5);
+    border: medium none;
+
+    ion-input, ion-label {
+        color: #fff;
+    }
+
+}
