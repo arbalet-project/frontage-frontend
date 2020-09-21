@@ -6,4 +6,6 @@ export interface Frontage {
     usable: boolean;
     forced: boolean;
     nextOnTime: string;
+    currentApp: string;
+    currentTime: string;
 }

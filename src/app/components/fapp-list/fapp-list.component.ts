@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { State } from 'src/app/core/state/state.service';
 
 @Component({
   selector: 'app-fapp-list',
@@ -8,8 +9,9 @@ import { Component, Input } from '@angular/core';
 export class FappListComponent {
 
   @Input() adminView;
-  @Input() list;
-  constructor() {
-   }
+  public list;
+  constructor(public state: State) {
+    this.state.updateState();
+  }
 
 }

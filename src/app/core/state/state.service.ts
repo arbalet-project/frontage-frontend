@@ -15,6 +15,8 @@ export class State {
 
   updateState(): Observable<void> {
     return this.api.statusFacade().pipe(map(status => {
+      this.frontage.currentApp = status.current_app;
+      this.frontage.currentTime = status.current_time;
       this.frontage.height = status.height;
       this.frontage.width = status.width;
       this.frontage.disabled = status.disabled;

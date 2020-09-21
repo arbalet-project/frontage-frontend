@@ -1,6 +1,6 @@
 <ion-list>
   <ng-container
-    *ngFor="let fapp of list"
+    *ngFor="let fapp of state.fAppList.list"
     [ngTemplateOutlet]="adminView !== undefined ? admin : user"
     [ngTemplateOutletContext]="{ fapp: fapp }"
   >
@@ -8,7 +8,10 @@
 </ion-list>
 
 <ng-template let-fapp="fapp" #user>
-  <ion-item [routerLink]=' "/f-app/" + fapp.name.toLowerCase() + "/options"'>
+  <ion-item
+    *ngIf="!state.frontage.forced || (state.frontage.forced && state.frontage.currentApp == fapp.name)"
+    [routerLink]="'/f-app/' + fapp.name.toLowerCase() + '/options'"
+  >
     <ion-thumbnail slot="start">
       <img src="assets/icon/apps/{{ fapp.name }}.svg" />
     </ion-thumbnail>
@@ -22,7 +25,7 @@
 </ng-template>
 
 <ng-template let-fapp="fapp" #admin>
-  <ion-item [routerLink]='"/admin/tabs/scheduling/" + fapp.name.toLowerCase()'>
+  <ion-item [routerLink]="'/admin/tabs/scheduling/' + fapp.name.toLowerCase()">
     <ion-thumbnail slot="start">
       <img src="assets/icon/apps/{{ fapp.name }}.svg" />
     </ion-thumbnail>
