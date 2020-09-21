@@ -26,7 +26,7 @@ export class RandomflashingListComponent {
     this.colors.set("cyan", { h: 186, s: 0.99, v: 0.99 })
     this.colors.set("magenta", { h: 294, s: 0.99, v: 0.99 })
     
-    if (this.options.current) {
+    if (this.options.current && this.options.current.params.colors) {
       const color = this.options.current.params.colors
       this.colors.forEach((value, key) => {
         if (value.h == color[0] && value.s == color[1] && value.v == color[2]) {
