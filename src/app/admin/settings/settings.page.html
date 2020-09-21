@@ -19,19 +19,6 @@
         </ion-button>
       </ion-col>
     </ion-row>
-    <ion-row>
-      <ion-col>
-        <ion-button
-          fill="clear"
-          class="ion-no-margin"
-          expand="full"
-          (click)="updateStatus()"
-          color="warning"
-        >
-          {{ "admin.settings.update_status" | translate }}
-        </ion-button>
-      </ion-col>
-    </ion-row>
     <ion-row *ngIf="state.frontage.forced">
       <ion-col>
         <ion-button

@@ -40,6 +40,9 @@ export class SettingsPage implements OnInit {
     this.initList();
     this.getStartStopTime();
     this.initTime();
+  }
+
+  ionViewWillEnter() {
     this.updateStatus();
   }
 
