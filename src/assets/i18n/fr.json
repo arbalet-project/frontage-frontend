@@ -68,6 +68,12 @@
       "title_submit": "Valider"
     }
   },
+  "config" : {
+    "load" : {
+      "title" : "Fichier de config importé",
+      "message" : "Le fichier de configuration que vous avez choisi a bien été importé"
+    }
+  },
   "countries": {
     "algeria": "Algérie",
     "argentina": "Argentine",

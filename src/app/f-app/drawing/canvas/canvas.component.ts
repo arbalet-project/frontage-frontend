@@ -115,7 +115,7 @@ export class CanvasComponent implements OnInit {
   drawPalette() {
     const width = this.canvas.nativeElement.width - 40;
     const height = this.canvas.nativeElement.height * 0.1;
-    const gap = 10;
+    const gap = 5;
 
     this.drawnRoundRect(10, 20, width, height, 30, '#214478', 'transparent');
 
@@ -142,11 +142,11 @@ export class CanvasComponent implements OnInit {
   }
 
   drawFrontage() {
-    const width = this.canvas.nativeElement.width - 40;
+    const width = this.canvas.nativeElement.width - 20;
     const height = this.canvas.nativeElement.height * 0.7;
     const heightBar = this.canvas.nativeElement.height * 0.1;
     const gapBar = 20;
-    const gap = 10;
+    const gap = 5;
     this.drawnRoundRect(
       10,
       heightBar + 2 * gapBar,

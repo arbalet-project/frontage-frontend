@@ -51,6 +51,12 @@
     "bordeaux": "Bordeaux",
     "darkorange": "Orange"
   },
+  "config" : {
+    "load" : {
+      "title" : "Configuration files imported",
+      "message" : "The configuration that you choose has been successfull imported"
+    }
+  },
   "connection": {
     "unreachable": {
       "title": "Connect using Wifi",

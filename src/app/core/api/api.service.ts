@@ -58,20 +58,20 @@ export class ApiService {
     }).subscribe();
   }
 
-  public updateConfigGeneral(general) {
-    this.http.post(this.baseUrl + this.configGeneralUrl, general).subscribe();
+  public updateConfigGeneral(general) : Observable<void> {
+    return this.http.post<void>(this.baseUrl + this.configGeneralUrl, general)
   }
 
-  public updateConfigFApp(apps) {
-    this.http.post(this.baseUrl + this.configFAppUrl, { apps}).subscribe();
+  public updateConfigFApp(apps) : Observable<void>  {
+    return this.http.post<void>(this.baseUrl + this.configFAppUrl, { apps});
   }
 
-  public updateConfigMappings(mappings) {
-    this.http.post(this.baseUrl + this.configMappingUrl, { mappings }).subscribe();
+  public updateConfigMappings(mappings) :Observable<void>  {
+    return this.http.post<void>(this.baseUrl + this.configMappingUrl, { mappings });
   }
 
-  public updateConfigScheduling(schedule) {
-    this.http.post(this.baseUrl + this.configSchedulingUrl, { dates: schedule}).subscribe();
+  public updateConfigScheduling(schedule) : Observable<void>  {
+    return this.http.post<void>(this.baseUrl + this.configSchedulingUrl, { dates: schedule});
   }
 }
 

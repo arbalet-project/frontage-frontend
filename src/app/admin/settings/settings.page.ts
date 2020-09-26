@@ -4,6 +4,7 @@ import { FAppService } from 'src/app/core/api/app.service';
 import { ApiService } from 'src/app/core/api/api.service';
 import { State } from 'src/app/core/state/state.service';
 import { Chooser } from '@ionic-native/chooser/ngx';
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-settings',
@@ -33,7 +34,8 @@ export class SettingsPage implements OnInit {
     public api: ApiService,
     public http: FAppService,
     public state: State,
-    private chooser: Chooser
+    private chooser: Chooser,
+    public toast: ToastController
   ) { }
 
   ngOnInit() {
@@ -150,12 +152,22 @@ export class SettingsPage implements OnInit {
 
   loadConfig() {
     this.chooser.getFile()
-      .then(file => {
+      .then((file) => {
         const json = JSON.parse(new TextDecoder('utf-8').decode(file.data));
-        this.api.updateConfigGeneral(json.general);
-        this.api.updateConfigFApp(json.apps);
-        this.api.updateConfigMappings(json.mappings);
-        this.api.updateConfigScheduling(json.sunrise);
+        this.api.updateConfigGeneral(json.general).subscribe(() => {
+          this.api.updateConfigFApp(json.apps).subscribe(() => {
+            this.api.updateConfigMappings(json.mappings).subscribe(() => {
+              this.api.updateConfigScheduling(json.sunrise).subscribe(async () => {
+                let toast = await this.toast.create({
+                  header: this.translate.instant('config.load.title'),
+                  message: this.translate.instant('config.load.message'),
+                })
+
+                toast.present();
+              });
+            });
+          })
+        });
       })
       .catch((error: any) => console.error(error));
   }
