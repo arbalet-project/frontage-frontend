@@ -4,6 +4,7 @@ import { environment } from 'src/environments/environment';
 import { FApp } from '../state/models/f-app';
 import { Observable } from 'rxjs';
 import { Launch, CurrentFApp, Position, KeepAlive, ParametersStatus, LaunchForced, UnforceAppResponse } from './models/f-app';
+import { State } from '../state/state.service';
 
 @Injectable({
   providedIn: 'root'

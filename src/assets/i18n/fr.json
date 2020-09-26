@@ -142,6 +142,14 @@
       "scheduled": "Programmé :"
     },
     "title": "Sélectionnez une application",
+    "parameters" : {
+      "title" : "Options enregistrées",
+      "message" : "Ces options seront désormais utilisées lorsque vient le tour de cette application dans le planning quotidien."
+    },
+    "forced" : {
+      "title" : "Application forcée avec succès",
+      "message" : "Cette application va fonctionner indéfiniment jusqu'à ce que vous la relâchiez, quel que soit le planning quotidien."
+    },
     "Flags": {
       "name": "Drapeaux",
       "description": "Mettez Arbalet Frontage à la couleur de votre pays !",

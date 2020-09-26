@@ -142,9 +142,8 @@ export class SettingsPage implements OnInit {
   unForceFApp() {
     this.http.unForceFApp().subscribe(res => {
 
-      console.log(res);
       if (res.removed) {
-        this.state.updateState();
+        this.updateStatus();
       }
     });
   }

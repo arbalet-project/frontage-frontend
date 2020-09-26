@@ -6,6 +6,7 @@ import {
   Output,
   EventEmitter,
 } from '@angular/core';
+import { Platform } from '@ionic/angular';
 import { timer } from 'rxjs';
 import { State } from 'src/app/core/state/state.service';
 
@@ -28,6 +29,7 @@ export interface Dimension {
   styleUrls: ['./canvas.component.scss'],
 })
 export class CanvasComponent implements OnInit {
+  constructor(public state: State, private platform: Platform) { }
   @ViewChild('canvas', { static: true }) canvas: ElementRef<HTMLCanvasElement>;
   private ctx: CanvasRenderingContext2D;
 
@@ -40,7 +42,9 @@ export class CanvasComponent implements OnInit {
   private frontageColor: Array<Array<Color>>;
 
   @Output() changeColor = new EventEmitter();
-  constructor(public state: State) { }
+
+  public startPosition: { i: number, j: number } = { i: 0, j: 0 };
+  public activatedSwipe = false;
 
   ngOnInit() {
     this.ctx = this.canvas.nativeElement.getContext('2d');
@@ -94,8 +98,13 @@ export class CanvasComponent implements OnInit {
   }
 
   private updateDimension() {
-    this.ctx.canvas.width = window.innerWidth;
-    this.ctx.canvas.height = window.innerHeight;
+    if (this.platform.is('mobile')) {
+      this.ctx.canvas.width = window.innerHeight;
+      this.ctx.canvas.height = window.innerWidth;
+    } else {
+      this.ctx.canvas.width = window.innerWidth;
+      this.ctx.canvas.height = window.innerHeight;
+    }
   }
 
   draw() {
@@ -253,5 +262,88 @@ export class CanvasComponent implements OnInit {
       }
     }
     return false;
+  }
+
+  swipeOn(event) {
+    const rect = this.canvas.nativeElement.getBoundingClientRect();
+    const x = event.clientX - rect.left;
+    const y = event.clientY - rect.top;
+    if (
+      x > this.frontageDimension.x &&
+      x < this.frontageDimension.x + this.frontageDimension.width &&
+      y > this.frontageDimension.y &&
+      y < this.frontageDimension.y + this.frontageDimension.height
+    ) {
+      const newX = x - this.frontageDimension.x;
+      const newY = y - this.frontageDimension.y;
+      this.startPosition.i = Math.floor(
+        newY / (this.frontageDimension.height / this.state.frontage.height)
+      );
+      this.startPosition.j = Math.floor(
+        newX / (this.frontageDimension.width / this.state.frontage.width)
+      );
+
+      this.activatedSwipe = true;
+    }
+
+  }
+
+  swipeOff(event) {
+    const rect = this.canvas.nativeElement.getBoundingClientRect();
+    const x = event.clientX - rect.left;
+    const y = event.clientY - rect.top;
+    if (
+      x > this.frontageDimension.x &&
+      x < this.frontageDimension.x + this.frontageDimension.width &&
+      y > this.frontageDimension.y &&
+      y < this.frontageDimension.y + this.frontageDimension.height &&
+      this.activatedSwipe
+    ) {
+      this.activatedSwipe = false;
+      console.log('test');
+      const newX = x - this.frontageDimension.x;
+      const newY = y - this.frontageDimension.y;
+      const i = Math.floor(
+        newY / (this.frontageDimension.height / this.state.frontage.height)
+      );
+      const j = Math.floor(
+        newX / (this.frontageDimension.width / this.state.frontage.width)
+      );
+
+      if (this.startPosition.i === i && this.startPosition.j === j){
+        return;
+      } else if (this.startPosition.i === i) {
+        const step = this.startPosition.j < j ? 1 : -1;
+        const cond = this.startPosition.j < j
+          ? (k) => k <= j
+          : (k) => k >= j;
+        for (let k = this.startPosition.j; cond(k); k = k + step) {
+          if (this.isDisabled(i, k)) { continue; }
+
+          this.frontageColor[i][k] = this.availableColors[this.previousColor];
+          this.changeColor.emit({
+            i,
+            j : k,
+            color: this.availableColors[this.previousColor],
+          });
+        }
+      } else if (this.startPosition.j === j) {
+        const step = this.startPosition.i < i ? 1 : -1;
+        const cond = this.startPosition.i < i
+          ? (k) => k <= i
+          : (k) => k >= i;
+        for (let k = this.startPosition.i; cond(k); k = k + step) {
+          if (this.isDisabled(k, j)) { continue; }
+
+          this.frontageColor[k][j] = this.availableColors[this.previousColor];
+          this.changeColor.emit({
+            i : k,
+            j,
+            color: this.availableColors[this.previousColor],
+          });
+        }
+      }
+    }
+
   }
 }

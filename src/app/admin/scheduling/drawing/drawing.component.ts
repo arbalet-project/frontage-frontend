@@ -20,4 +20,8 @@ export class DrawingComponent implements OnInit {
   updateScheduled(event) {
     this.http.setScheduled(this.fApp.name, event.detail.checked);
   }
+
+  ionViewWillLeave() {
+    this.state.fAppList.update();
+  }
 }

@@ -5,6 +5,7 @@ import { WebsocketService } from 'src/app/core/websocket/websocket.service';
 import { FAppService } from 'src/app/core/api/app.service';
 import { NavController } from '@ionic/angular';
 import { TrakingService } from 'src/app/core/plugins/tracking.service';
+import { AuthenticationService } from 'src/app/core/authentication/authentication.service';
 
 @Component({
   selector: 'app-sweepasync',
@@ -18,7 +19,8 @@ export class SweepasyncPage implements OnInit {
     public websocket: WebsocketService,
     public http: FAppService,
     public nav: NavController,
-    public tracker: TrakingService
+    public tracker: TrakingService,
+    public auth: AuthenticationService
   ) {
     this.tracker.playEvent('SweepAsync');
   }
@@ -29,7 +31,11 @@ export class SweepasyncPage implements OnInit {
   }
 
   stopFApp() {
-    this.nav.navigateBack('/f-app');
+    let url = '/f-app';
+    if (this.auth.admin) {
+      url = '/admin/tabs/fapp';
+    }
+    this.nav.navigateBack(url);
   }
 
   ionViewDidLeave() {

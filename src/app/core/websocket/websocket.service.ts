@@ -21,8 +21,6 @@ enum CodeSubscription {
   INTERRUPTED_APP = 1,
 }
 
-type messageSubscription = { code: number, body?: string };
-
 @Injectable({
   providedIn: 'root',
 })
@@ -117,7 +115,9 @@ export class WebsocketService {
   }
 
   async showAlert(key: string) {
+    this.close();
     this.externalClose = true;
+
     const alert = await this.alert.create({
       header: this.translate.instant(key + '.title'),
       message: this.translate.instant(key + '.message'),

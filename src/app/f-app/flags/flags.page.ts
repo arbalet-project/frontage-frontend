@@ -6,6 +6,7 @@ import { FAppService } from 'src/app/core/api/app.service';
 import { State } from 'src/app/core/state/state.service';
 import { OptionsService } from 'src/app/core/f-app/options.service';
 import { TrakingService } from 'src/app/core/plugins/tracking.service';
+import { AuthenticationService } from 'src/app/core/authentication/authentication.service';
 
 @Component({
   selector: 'app-flags',
@@ -21,7 +22,8 @@ export class FlagsPage implements OnInit {
     public nav: NavController,
     public http: FAppService,
     public options: OptionsService,
-    public tracker: TrakingService
+    public tracker: TrakingService,
+    public auth: AuthenticationService
   ) { }
 
   ngOnInit() {
@@ -38,7 +40,11 @@ export class FlagsPage implements OnInit {
   }
 
   stopFApp() {
-    this.nav.navigateBack('/f-app');
+    let url = '/f-app';
+    if (this.auth.admin) {
+      url = '/admin/tabs/fapp';
+    }
+    this.nav.navigateBack(url);
   }
 
   ionViewDidLeave() {

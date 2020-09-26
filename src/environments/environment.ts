@@ -3,14 +3,14 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false,
+  production: true,
   // backEndBaseUrl: 'http://api.arbalet-project.org',
   // webSocketAdress: 'ws://ws.arbalet-project.org',
   // trackingUrl: 'http://matomo.arbalet-project.org',
   backEndBaseUrl: 'http://localhost:33405',
   webSocketAdress: 'ws://localhost:33406',
   trackingUrl: 'http://localhost:33460',
-  idTrackingSite : 1,
+  idTrackingSite : 3,
   protocol_version: 3,
 };
 

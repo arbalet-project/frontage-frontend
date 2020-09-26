@@ -7,6 +7,7 @@ import { NavController } from '@ionic/angular';
 import { FAppService } from 'src/app/core/api/app.service';
 import { OptionsService } from 'src/app/core/f-app/options.service';
 import { RandomflashingListComponent } from 'src/app/components/fapp/randomflashing/randomflashing.component';
+import { AuthenticationService } from 'src/app/core/authentication/authentication.service';
 
 @Component({
   selector: 'app-randomflashing',
@@ -16,8 +17,8 @@ import { RandomflashingListComponent } from 'src/app/components/fapp/randomflash
 export class RandomflashingPage {
   public fApp: FApp;
   @ViewChild('randomFlashing') randomFlashing: RandomflashingListComponent;
-  
-  public defaultValue = "";
+
+  public defaultValue = '';
 
   constructor(
     public websocket: WebsocketService,
@@ -25,7 +26,8 @@ export class RandomflashingPage {
     public nav: NavController,
     public http: FAppService,
     public options: OptionsService,
-    public tracker: TrakingService
+    public tracker: TrakingService,
+    public auth: AuthenticationService
   ) {
     this.fApp = this.state.fAppList.findByName('RandomFlashing');
     this.tracker.playEvent('RandomFlashing');
@@ -44,7 +46,11 @@ export class RandomflashingPage {
   }
 
   stopFApp() {
-    this.nav.navigateBack('/f-app');
+    let url = '/f-app';
+    if (this.auth.admin) {
+      url = '/admin/tabs/fapp';
+    }
+    this.nav.navigateBack(url);
   }
 
   ionViewDidLeave() {

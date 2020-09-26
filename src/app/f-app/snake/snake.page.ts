@@ -6,6 +6,7 @@ import { NavController, Platform } from '@ionic/angular';
 import { FAppService } from 'src/app/core/api/app.service';
 import { TrakingService } from 'src/app/core/plugins/tracking.service';
 import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
+import { AuthenticationService } from 'src/app/core/authentication/authentication.service';
 
 @Component({
   selector: 'app-snake',
@@ -22,7 +23,8 @@ export class SnakePage implements OnInit {
     public http: FAppService,
     public tracker: TrakingService,
     private screen: ScreenOrientation,
-    private platform: Platform
+    private platform: Platform,
+    public auth: AuthenticationService
   ) {
     this.tracker.playEvent('Snake');
     if (this.platform.is('mobile')) {
@@ -36,7 +38,11 @@ export class SnakePage implements OnInit {
   }
 
   stopFApp() {
-    this.nav.navigateBack('/f-app');
+    let url = '/f-app';
+    if (this.auth.admin) {
+      url = '/admin/tabs/fapp';
+    }
+    this.nav.navigateBack(url);
   }
 
   ionViewWillLeave() {

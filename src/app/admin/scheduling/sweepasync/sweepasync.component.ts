@@ -17,10 +17,12 @@ export class SweepasyncComponent implements OnInit {
 
   ngOnInit() {
     this.fApp = this.state.fAppList.findByName('SweepAsync');
-  }
+   }
 
+  ionViewWillLeave() {
+    this.state.fAppList.update();
+  }
   updateScheduled(event) {
-    console.log(event.detail.checked);
     this.http.setScheduled(this.fApp.name, event.detail.checked);
   }
 }

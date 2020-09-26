@@ -9,7 +9,7 @@
     expand="full"
     (click)="stopFApp()"
   >
-    {{ "f_app." + fApp.name + ".options.list" | translate }}
+    {{ "action.stop" | translate }}
     <ion-icon slot="end" color="success" mname="flag"></ion-icon>
   </ion-button>
   <ion-button *ngIf="auth.admin"

@@ -44,15 +44,21 @@ export class DrawingPage {
 
   setColor(event: any) {
     console.log(event);
-    this.websocket.sendMessage({pixel: { x : event.i, y : event.j}, color: {
-      red : event.color.red,
-      blue : event.color.blue,
-      green : event.color.green
-    }});
+    this.websocket.sendMessage({
+      pixel: { x: event.i, y: event.j }, color: {
+        red: event.color.red,
+        blue: event.color.blue,
+        green: event.color.green
+      }
+    });
   }
 
   stopFApp() {
-    this.nav.navigateBack('/f-app');
+    let url = '/f-app';
+    if (this.auth.admin) {
+      url = '/admin/tabs/fapp';
+    }
+    this.nav.navigateBack(url);
   }
 
   ionViewDidLeave() {
@@ -60,6 +66,10 @@ export class DrawingPage {
     if (!this.websocket.externalClose) {
       this.http.stopApp();
       this.websocket.close();
+
+      this.screen.lock(
+        this.screen.ORIENTATIONS.PORTRAIT
+      );
     }
   }
 
@@ -73,9 +83,9 @@ export class DrawingPage {
           buttons: [{
             text: 'OK',
             handler: async () => {
-                await alert.dismiss();
-                this.nav.pop();
-              }
+              await alert.dismiss();
+              this.nav.pop();
+            }
           }]
         });
         alert.present();

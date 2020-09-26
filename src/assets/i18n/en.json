@@ -29,6 +29,7 @@
         "sunrise": "Sunrise"
       },
       "page_unforce": "Unforce app",
+      
       "state": {
         "label": "ON/OFF",
         "on": "Forced on",
@@ -140,6 +141,14 @@
       "force_start": "Force application",
       "send_parameters": "Send scheduled app options",
       "scheduled": "Scheduled :"
+    },
+    "parameters" : {
+      "title" : "Options set",
+      "message" : "These options will now be used when this application's turn comes in the daily schedule"
+    },
+    "forced" : {
+      "title" : "Application successfully forced",
+      "message" : "This application will now run forever until you unforce it, independently from the daily schedule."
     },
     "title": "Select an application",
     "Flags": {

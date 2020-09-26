@@ -7,6 +7,7 @@ import { NavController } from '@ionic/angular';
 import { FAppService } from 'src/app/core/api/app.service';
 import { ColorlistComponent } from 'src/app/components/fapp/sweeprand/colorlist/colorlist.component';
 import { TrakingService } from 'src/app/core/plugins/tracking.service';
+import { AuthenticationService } from 'src/app/core/authentication/authentication.service';
 
 @Component({
   selector: 'app-sweeprand',
@@ -23,7 +24,8 @@ export class SweeprandPage implements OnInit {
     public nav: NavController,
     public http: FAppService,
     public options: OptionsService,
-    public tracker: TrakingService
+    public tracker: TrakingService,
+    public auth: AuthenticationService
   ) {
     this.tracker.playEvent('SweepRand');
   }
@@ -41,8 +43,11 @@ export class SweeprandPage implements OnInit {
   }
 
   stopFApp() {
-    this.nav.navigateBack('/f-app');
-  }
+    let url = '/f-app';
+    if (this.auth.admin) {
+      url = '/admin/tabs/fapp';
+    }
+    this.nav.navigateBack(url);  }
 
   ionViewDidLeave() {
     // Stop connection.

@@ -103,7 +103,6 @@ export class SnapPage {
   }
 
   public stopFApp() {
-    this.api.stopApp();
-    this.nav.navigateForward('/f-app/snap/options');
+    this.nav.navigateForward('/admin/tabs/fap');
   }
 }
