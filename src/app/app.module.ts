@@ -41,7 +41,7 @@ export function tokenGetter() {
   entryComponents: [],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(),
+    IonicModule.forRoot({backButtonText: ''}),
     AppRoutingModule,
     HttpClientModule,
     JwtModule.forRoot({
