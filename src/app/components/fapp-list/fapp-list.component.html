@@ -26,7 +26,7 @@
 
 <ng-template let-fapp="fapp" #admin>
   <ion-item [routerLink]="'/admin/tabs/scheduling/' + fapp.name.toLowerCase()">
-    <ion-thumbnail slot="start">
+    <ion-thumbnail slot="start" [ngClass]="{'border-red': !fapp.scheduled, 'border-green': fapp.scheduled}">
       <img src="assets/icon/apps/{{ fapp.name }}.svg" />
     </ion-thumbnail>
     <ion-label>

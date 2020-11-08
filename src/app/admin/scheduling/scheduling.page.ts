@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { State } from 'src/app/core/state/state.service';
 import { FApp } from 'src/app/core/state/models/f-app';
 
@@ -6,7 +6,7 @@ import { FApp } from 'src/app/core/state/models/f-app';
   selector: 'app-admin-scheduling',
   templateUrl: './scheduling.page.html',
 })
-export class SchedulingPage implements OnInit {
+export class SchedulingPage  {
   public filterList: Array<FApp>;
   private fAppScheduled: Array<string> = [
     'Flags',
@@ -17,7 +17,7 @@ export class SchedulingPage implements OnInit {
   ];
   constructor(public state: State) { }
 
-  ngOnInit() {
+  ionViewWillEnter() {
     this.filterList = this.state.fAppList.list.filter((fApp) => {
       return this.fAppScheduled.includes(fApp.name);
     });
