@@ -37,6 +37,7 @@ export class SweeprandPage implements OnInit {
   }
 
   sendValue() {
+    console.log(this.colorList.radio.value)
     this.websocket.sendMessage({
       uapp: this.colorList.radio.value,
     });

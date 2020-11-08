@@ -1,7 +1,7 @@
 <canvas
   #canvas
+  (touchstart)="setColor($event)"
+  (touchmove)="setColor($event)"
   (click)="setColor($event)"
-  (mousedown)="swipeOn($event)"
-  (mouseup)="swipeOff($event)"
 >
 </canvas>
