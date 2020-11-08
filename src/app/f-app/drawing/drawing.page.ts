@@ -43,7 +43,6 @@ export class DrawingPage {
   }
 
   setColor(event: any) {
-    console.log(event);
     this.websocket.sendMessage({
       pixel: { x: event.i, y: event.j }, color: {
         red: event.color.red,
