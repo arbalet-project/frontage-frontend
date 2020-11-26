@@ -1,10 +1,19 @@
 <ion-header translucent>
   <ion-toolbar>
-    <ion-title>{{ 'admin.fapp.title' | translate }} </ion-title>
+    <ion-title>{{ "admin.fapp.title" | translate }} </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content fullscreen> 
-  <app-fapp-list [list]="state.fAppList.list">
-  </app-fapp-list>
+<ion-content fullscreen>
+  <app-fapp-list [list]="state.fAppList.list"> </app-fapp-list>
+  <ion-button
+    *ngIf="state.frontage.forced"
+    fill="clear"
+    class="ion-no-margin"
+    expand="full"
+    (click)="unForceFApp()"
+    color="warning"
+  >
+    {{ "admin.settings.page_unforce" | translate }}
+  </ion-button>
 </ion-content>

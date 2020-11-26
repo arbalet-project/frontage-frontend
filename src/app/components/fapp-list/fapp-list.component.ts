@@ -11,7 +11,7 @@ export class FappListComponent {
   @Input() adminView;
   @Input() list;
   constructor(public state: State) {
-    this.state.updateState();
+    this.state.updateState().subscribe();
   }
 
 }
