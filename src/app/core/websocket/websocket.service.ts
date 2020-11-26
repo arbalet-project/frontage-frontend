@@ -17,9 +17,6 @@ enum CodeWebsocket {
   SNAKE_ATE_APPLE = 11,
 }
 
-enum CodeSubscription {
-  INTERRUPTED_APP = 1,
-}
 
 @Injectable({
   providedIn: 'root',
@@ -28,6 +25,7 @@ export class WebsocketService {
   public socket: WebSocketSubject<any>;
   public keepAliveSub: Subscription;
   public externalClose = false;
+  public haveAlert = false;
 
   constructor(
     public http: FAppService,
@@ -117,6 +115,10 @@ export class WebsocketService {
   async showAlert(key: string) {
     this.close();
     this.externalClose = true;
+    
+    if(this.haveAlert) { return; }
+
+    this.haveAlert = true;
 
     const alert = await this.alert.create({
       header: this.translate.instant(key + '.title'),
@@ -126,6 +128,7 @@ export class WebsocketService {
         {
           text: 'Ok',
           handler: () => {
+            this.haveAlert = false;
             this.nav.pop();
           }
         }
