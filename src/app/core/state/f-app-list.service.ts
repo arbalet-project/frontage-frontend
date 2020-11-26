@@ -22,9 +22,9 @@ export class FAppList {
   constructor(public http: FAppService) {}
 
   private updateList() {
-    this.reset();
-
     this.http.getList().subscribe((fAppList) => {
+      this.reset();
+
       this.setLocalStorage(fAppList.filter((fApp) => {
         return this.fAppKnow.includes(fApp.name);
       }));
