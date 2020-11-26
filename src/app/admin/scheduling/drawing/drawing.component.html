@@ -21,4 +21,13 @@
   displayFooter="false"
   [headerTemplate]="customHeader"
 >
+  <ion-button
+    fill="clear"
+    expand="full"
+    color="warning"
+    (click)="startFApp()"
+  >
+    {{ "options.start_button" | translate }}
+    <ion-icon color="success" slot="end" name="game-controller"></ion-icon>
+  </ion-button>
 </app-template>

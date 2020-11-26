@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { State } from 'src/app/core/state/state.service';
 import { FApp } from 'src/app/core/state/models/f-app';
 import { FAppService } from 'src/app/core/api/app.service';
+import { OptionsService } from 'src/app/core/f-app/options.service';
 
 @Component({
   selector: 'app-drawing',
@@ -11,7 +12,11 @@ import { FAppService } from 'src/app/core/api/app.service';
 export class DrawingComponent implements OnInit {
   public fApp: FApp;
 
-  constructor(public state: State, public http: FAppService) { }
+  constructor(
+    public state: State,
+    public http: FAppService,
+    public options: OptionsService,
+  ) { }
 
   ngOnInit() {
     this.fApp = this.state.fAppList.findByName('Drawing');
@@ -23,5 +28,18 @@ export class DrawingComponent implements OnInit {
 
   ionViewWillLeave() {
     this.state.fAppList.update();
+  }
+
+  startFApp() {
+    this.options.startFapp(
+      {
+        name: this.fApp.name,
+        hideParams: true,
+        params: {
+          model: '',
+        },
+      },
+      '/f-app/drawing'
+    );
   }
 }

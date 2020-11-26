@@ -150,8 +150,8 @@ export class CanvasComponent implements OnInit, OnDestroy {
     const width = this.canvas.nativeElement.width - 20;
     const height = this.canvas.nativeElement.height * 0.7;
     const heightBar = this.canvas.nativeElement.height * 0.1;
-    const gapBar = 20;
-    const gap = 5;
+    const gapBar = 15;
+    const gap = 3;
     this.drawnRoundRect(
       10,
       heightBar + 2 * gapBar,
