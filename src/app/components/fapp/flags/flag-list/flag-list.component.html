@@ -4,7 +4,7 @@
   </ion-list-header>
   <ion-radio-group [value]="defaultValue" #list>
     <ion-item *ngFor="let el of fApp.params_list.flags"> 
-      <ion-label>{{ 'countries.' + el | translate }}</ion-label>
+      <ion-label color="light">{{ 'countries.' + el | translate }}</ion-label>
       <ion-radio slot="start" value="{{ el }}"></ion-radio>
     </ion-item>
   </ion-radio-group>
