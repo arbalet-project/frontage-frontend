@@ -1,5 +1,5 @@
 {
-  "appId": "frontage.org",
+  "appId": "org.arbalet.frontage",
   "appName": "Arbalet Frontage",
   "bundledWebRuntime": false,
   "npmClient": "npm",

@@ -1,4 +1,4 @@
-package io.ionic.starter;
+package org.arbalet.frontage;
 
 import android.os.Bundle;
 
