@@ -1,4 +1,4 @@
-package org.arbalet.frontage;
+package com.arbalet.frontage;
 
 import android.os.Bundle;
 
