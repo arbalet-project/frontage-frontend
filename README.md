@@ -29,3 +29,8 @@ Open android studio:
 npx cap open android
 ```
 And launch with the android studio tools.
+
+### Switch to production
+```
+cp src/environments/environment.prod.ts src/environments/environment.ts
+```
